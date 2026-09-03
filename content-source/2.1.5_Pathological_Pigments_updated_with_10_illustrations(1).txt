@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Pathological Pigments | Disturbance in Cell Metabolism</title>
+ <style>
+   :root {
+     --primary-color: #1a365d;
+     --secondary-color: #4a5568;
+     --accent-color: #2b6cb0;
+     --border-color: #cbd5e0;
+     --bg-light: #f7fafc;
+     --text-dark: #2d3748;
+     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+   }
+
+   * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+
+   body {
+     font-family: var(--font-family);
+     color: var(--text-dark);
+     background-color: #ffffff;
+     line-height: 1.6;
+     padding: 16px;
+   }
+
+   .container {
+     max-width: 1050px;
+     margin: 0 auto;
+   }
+
+   /* BREADCRUMB */
+   .breadcrumb {
+     font-size: 0.85rem;
+     color: var(--secondary-color);
+     margin-bottom: 16px;
+   }
+   .breadcrumb a {
+     color: var(--accent-color);
+     text-decoration: none;
+   }
+   .breadcrumb a:hover {
+     text-decoration: underline;
+   }
+
+   /* HEADER */
+   .page-header {
+     border-bottom: 2px solid var(--primary-color);
+     padding-bottom: 12px;
+     margin-bottom: 24px;
+   }
+   .page-header h1 {
+     color: var(--primary-color);
+     font-size: 1.8rem;
+     font-weight: 700;
+   }
+   .page-header p {
+     color: var(--secondary-color);
+     font-size: 0.95rem;
+   }
+
+   /* SECTION STYLING */
+   .section {
+     margin-bottom: 32px;
+   }
+   .section-title {
+     font-size: 1.3rem;
+     color: var(--primary-color);
+     border-bottom: 2px solid var(--border-color);
+     padding-bottom: 6px;
+     margin-bottom: 16px;
+   }
+
+   /* A. CLASSIFICATION INTRO */
+   .intro-box {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-left: 5px solid var(--accent-color);
+     border-radius: 6px;
+     padding: 20px;
+   }
+   .intro-box h2 {
+     font-size: 1.1rem;
+     color: var(--primary-color);
+     margin-bottom: 8px;
+   }
+   .intro-box p {
+     font-size: 0.95rem;
+     color: var(--secondary-color);
+   }
+
+   /* B. ENDOGENOUS PIGMENTS */
+   .pigment-card {
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 18px;
+     background: #ffffff;
+     margin-bottom: 16px;
+   }
+   .pigment-card h3 {
+     font-size: 1.1rem;
+     color: var(--primary-color);
+     margin-bottom: 6px;
+   }
+   .pigment-card p {
+     font-size: 0.9rem;
+     color: var(--secondary-color);
+     margin-bottom: 8px;
+   }
+   .pigment-card ul {
+     margin-left: 20px;
+     font-size: 0.875rem;
+     color: var(--secondary-color);
+   }
+
+   /* C. EXOGENOUS PIGMENTS */
+   .exo-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 16px;
+   }
+   .exo-card {
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 16px;
+     background: #ffffff;
+   }
+   .exo-card h3 {
+     font-size: 1.05rem;
+     color: var(--primary-color);
+     margin-bottom: 6px;
+   }
+   .exo-card p {
+     font-size: 0.875rem;
+     color: var(--secondary-color);
+   }
+
+   /* D. PIGMENT IDENTIFICATION TABLE */
+   .table-responsive {
+     overflow-x: auto;
+     margin-top: 12px;
+   }
+   .data-table {
+     width: 100%;
+     border-collapse: collapse;
+     font-size: 0.875rem;
+     text-align: left;
+   }
+   .data-table th, .data-table td {
+     border: 1px solid var(--border-color);
+     padding: 10px 12px;
+   }
+   .data-table th {
+     background-color: #edf2f7;
+     color: var(--primary-color);
+     font-weight: 600;
+   }
+   .data-table tr:nth-child(even) {
+     background-color: var(--bg-light);
+   }
+
+   /* E. PRACTICAL PIGMENT CHALLENGE */
+   .challenge-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+     gap: 16px;
+   }
+   .challenge-card {
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 12px;
+     background: #ffffff;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   }
+   .challenge-img {
+     background-color: #edf2f7;
+     border: 1px solid var(--border-color);
+     border-radius: 4px;
+     padding: 8px;
+     font-size: 0.75rem;
+     color: var(--secondary-color);
+     min-height: 140px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+     margin-bottom: 8px;
+     text-align: center;
+   }
+   .challenge-img img {
+     max-width: 100%;
+     height: auto;
+     max-height: 180px;
+     border-radius: 4px;
+     margin-bottom: 8px;
+     object-fit: cover;
+   }
+
+   /* TAKEAWAYS & QUIZ */
+   .takeaways-box {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-left: 4px solid var(--primary-color);
+     border-radius: 4px;
+     padding: 16px;
+     margin-bottom: 24px;
+   }
+   .takeaways-box h3 {
+     font-size: 1rem;
+     color: var(--primary-color);
+     margin-bottom: 8px;
+   }
+   .takeaways-box ul {
+     margin-left: 20px;
+     font-size: 0.9rem;
+     color: var(--secondary-color);
+   }
+
+   .quiz-box {
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 16px;
+     background: #ffffff;
+     margin-bottom: 24px;
+   }
+   .quiz-box h3 {
+     font-size: 1.05rem;
+     color: var(--primary-color);
+     margin-bottom: 12px;
+   }
+   .quiz-q {
+     margin-bottom: 12px;
+     font-size: 0.9rem;
+   }
+   .quiz-q p {
+     font-weight: 600;
+     color: var(--text-dark);
+     margin-bottom: 4px;
+   }
+   .quiz-q details {
+     font-size: 0.85rem;
+     color: var(--secondary-color);
+     cursor: pointer;
+   }
+   .quiz-q summary {
+     color: var(--accent-color);
+     font-weight: 600;
+   }
+
+   .page-nav {
+     display: flex;
+     justify-content: space-between;
+     gap: 12px;
+     margin-top: 32px;
+     padding-top: 16px;
+     border-top: 1px solid var(--border-color);
+   }
+   .nav-btn {
+     display: inline-block;
+     padding: 8px 16px;
+     border-radius: 4px;
+     background-color: var(--accent-color);
+     color: #ffffff;
+     text-decoration: none;
+     font-size: 0.875rem;
+     font-weight: 600;
+   }
+   .nav-btn:hover {
+     background-color: #2c5282;
+   }
+ 
+   /* TEACHING ILLUSTRATIONS */
+   .teaching-gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+     gap: 16px;
+     margin-top: 16px;
+   }
+   .teaching-figure {
+     margin: 0;
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     overflow: hidden;
+     background: #ffffff;
+   }
+   .teaching-figure img {
+     display: block;
+     width: 100%;
+     height: auto;
+     object-fit: contain;
+     background: var(--bg-light);
+   }
+   .teaching-figure figcaption {
+     padding: 10px 12px;
+     font-size: 0.82rem;
+     line-height: 1.5;
+     color: var(--secondary-color);
+     background: var(--bg-light);
+   }
+
+ </style>
+</head>
+<body>
+
+ <div class="container">
+
+   <!-- BREADCRUMB -->
+   <nav class="breadcrumb" aria-label="Breadcrumb">
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+     Pathological Pigments
+   </nav>
+
+   <!-- HEADER -->
+   <header class="page-header">
+     <h1>Pathological Pigments</h1>
+     <p>Classification, pathogenesis, and identification of colored endogenous and exogenous substances in animal tissues.</p>
+   </header>
+
+   <!-- A. CLASSIFICATION INTRO -->
+   <section class="section">
+     <div class="intro-box">
+       <h2>Classification Overview</h2>
+       <p>
+         Pigments are colored substances (either normal or abnormal) that accumulate within cells or extracellular matrix. Pathological pigments are classified according to their origin into <strong>endogenous pigments</strong> (synthesized within the host organism) and <strong>exogenous pigments</strong> (introduced into the body from the external environment).
+       </p>
+     </div>
+   </section>
+
+   <!-- B. ENDOGENOUS PIGMENTS -->
+   <section class="section">
+     <h2 class="section-title">Endogenous Pigments</h2>
+
+     <!-- MELANIN -->
+     <div class="pigment-card">
+       <h3>1. Melanin</h3>
+       <p>
+         Brown-black, membrane-bound pigment synthesized by melanocytes from tyrosine via tyrosinase. Functions normally to absorb ultraviolet light.
+       </p>
+       <ul>
+         <li><strong>Normal vs. Pathological:</strong> Present in skin, hair, and irises. Pathological forms include hyperpigmentation (chronic inflammation), congenital <strong>melanosis</strong> (incidental dark brown patches in lungs, meninges, or aorta of calves/pigs), and melanocytic neoplasms (melanoma).</li>
+         <li><strong>Staining &amp; Bleaching:</strong> Confirmed using Fontana-Masson stain (black). Can be bleached using melanin-bleaching agents (hydrogen peroxide / potassium permanganate) to differentiate from hemosiderin or carbon.</li>
+       </ul>
+     </div>
+
+     <div class="teaching-gallery">
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1thHOkO9JTezP_hCv5jVfKh5YIiHjJtLl" alt="Microscopic melanin pigment in basal epidermis" loading="lazy" decoding="async">
+         <figcaption>Melanin pigment in the basal epidermis. Fontana-Masson stain highlights normal melanocytic distribution.</figcaption>
+       </figure>
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/194X_xhIY5vARnHqatwFs7MR4-bDqcUmO" alt="Gross melanosis of canine oral mucosa" loading="lazy" decoding="async">
+         <figcaption>Melanosis of the oral mucosa in a dog. Benign focal accumulation of melanin produces a well-defined black patch.</figcaption>
+       </figure>
+     </div>
+
+     <!-- LIPOFUSCIN & CEROID -->
+     <div class="pigment-card">
+       <h3>2. Lipofuscin and Ceroid</h3>
+       <p>
+         Yellow-brown, insoluble, finely granular cytoplasmic pigment composed of polymers of lipids and phospholipids complexed with protein ("wear-and-tear" or "aging" pigment).
+       </p>
+       <ul>
+         <li><strong>Pathogenesis:</strong> Derived from free radical-induced lipid peroxidation of autophagocytosed organellar membranes; accumulates within lysosomal residual bodies.</li>
+         <li><strong>Clinical Context:</strong> Associated with aging, chronic atrophy, cachexia, and nutritional deficiencies (e.g., Vitamin E/Selenium deficiency). Highly prominent in post-mitotic cells such as cardiomyocytes and neurons.</li>
+         <li><strong>Ceroid:</strong> A pathologically related lipofuscin-like pigment associated with severe oxidative stress, fat necrosis, or lipofuscinosis storage diseases.</li>
+       </ul>
+     </div>
+
+     <div class="teaching-gallery">
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1ylGGLpyIGZ1sYgfMP_Md8D_Q3LLPObuU" alt="Microscopic lipofuscin pigment in cardiac myocytes" loading="lazy" decoding="async">
+         <figcaption>Lipofuscin pigment in cardiac myocytes of an aged animal. Fine golden-brown perinuclear granules represent accumulated oxidative damage and residual bodies.</figcaption>
+       </figure>
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1Bx88I4Zcnw1BPfWJwKMvEvZyRK9Q6-vC" alt="Gross brown atrophy of the heart associated with lipofuscin" loading="lazy" decoding="async">
+         <figcaption>Brown atrophy of the heart in an elderly dog. Lipofuscin accumulation causes a subtle brown discoloration and reflects chronic cellular wear-and-tear.</figcaption>
+       </figure>
+     </div>
+
+     <!-- HEMOSIDERIN -->
+     <div class="pigment-card">
+       <h3>3. Hemosiderin</h3>
+       <p>
+         Golden-brown to yellow-brown, coarsely granular intracellular pigment representing aggregate iron (ferric hydroxide) bound to apoferritin within lysosomal phagolysosomes.
+       </p>
+       <ul>
+         <li><strong>Derivation &amp; Mechanisms:</strong> Derived from hemoglobin breakdown following erythrocyte destruction. Local accumulation occurs following tissue hemorrhage (e.g., hematomas, chronic passive pulmonary congestion/"heart failure cells"). Systemic accumulation occurs during intravascular or extravascular hemolysis (IMHA, hemolytic toxins) or iron overload (hemosiderosis).</li>
+         <li><strong>Histochemical Identification:</strong> Confirmed using <strong>Perls' Prussian Blue reaction</strong>, which reacts with ferric iron to yield a vivid bright blue color.</li>
+       </ul>
+     </div>
+
+     <div class="teaching-gallery">
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1cPQP3k7V3Ca8rvqMiwmjJWRr3tFjoH9k" alt="Microscopic hemosiderin-laden splenic macrophages" loading="lazy" decoding="async">
+         <figcaption>Hemosiderin-laden macrophages in the spleen. Prussian blue stain confirms iron storage following erythrocyte breakdown.</figcaption>
+       </figure>
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1lvzIdrOxqfqBCjUUelYgaUf9G36qdUI7" alt="Gross splenic hemosiderosis" loading="lazy" decoding="async">
+         <figcaption>Hemosiderosis of the spleen. Chronic hemolysis leads to excessive iron deposition, producing a dark brown discoloration.</figcaption>
+       </figure>
+     </div>
+
+     <!-- BILIRUBIN -->
+     <div class="pigment-card">
+       <h3>4. Bilirubin and Bile Pigment</h3>
+       <p>
+         Yellow-green to orange-brown amorphous or crystalline pigment derived from the iron-free porphyrin ring of hemoglobin following macrophage degradation.
+       </p>
+       <ul>
+         <li><strong>Pathogenesis &amp; Jaundice:</strong> Systemic accumulation leads to yellow discoloration of tissues (icterus/jaundice) secondary to excessive hemolysis (pre-hepatic), hepatocellular injury (hepatic), or biliary obstruction (post-hepatic).</li>
+         <li><strong>Microscopic Morphology:</strong> Appears on H&amp;E as bright greenish-yellow to orange-brown plugs within hepatic bile canaliculi (cholestasis) or within Kupffer cells and renal tubular epithelium.</li>
+       </ul>
+     </div>
+
+     <div class="teaching-gallery">
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1aCPFXVxHaNKz_-EHVdViedE7OUUxlOSI" alt="Microscopic bilirubin accumulation in hepatocytes and bile canaliculi" loading="lazy" decoding="async">
+         <figcaption>Bilirubin accumulation in hepatocytes and bile canaliculi during cholestasis. Yellow-green pigment indicates impaired bile flow.</figcaption>
+       </figure>
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1rnaeOZp1Gfirk07Nu0kAOuIS4c2X-4L8" alt="Clinical icterus in a cat" loading="lazy" decoding="async">
+         <figcaption>Icterus in a cat. Systemic bilirubin accumulation causes yellow discoloration of mucous membranes and sclera.</figcaption>
+       </figure>
+     </div>
+
+     <!-- HEMATOIDIN -->
+     <div class="pigment-card">
+       <h3>5. Hematoidin</h3>
+       <p>
+         Bright golden-yellow to orange, crystalline or globular extracellular pigment formed at sites of severe tissue hemorrhage and hypoxia.
+       </p>
+       <ul>
+         <li><strong>Characteristics:</strong> Chemically identical or closely related to bilirubin, but formed locally in tissues independent of hepatic processing.</li>
+         <li><strong>Iron Status:</strong> Does <strong>not contain iron</strong>, and therefore remains strictly negative on Perls' Prussian Blue reaction (distinguishing it from hemosiderin).</li>
+       </ul>
+     </div>
+
+   </section>
+
+   <!-- C. EXOGENOUS PIGMENTS -->
+   <section class="section">
+     <h2 class="section-title">Exogenous Pigments</h2>
+     <div class="exo-grid">
+       <div class="exo-card">
+         <h3>Carbon (Anthracosis)</h3>
+         <p>
+           Inhaled atmospheric carbon particles phagocytosed by alveolar macrophages. Appears as insoluble, dense black intracellular and interstitial deposits in pulmonary parenchyma and draining tracheobronchial lymph nodes. Resists bleaching and special stains.
+         </p>
+       </div>
+       <div class="exo-card">
+         <h3>Other Environmental Pigments</h3>
+         <p>
+           Includes inhaled silica dust (silicosis), iron dust (siderosis), ingested lead/copper particles, or topically introduced tattoo pigments in dermal macrophages.
+         </p>
+       </div>
+       <div class="exo-card">
+         <h3>Carotenoids</h3>
+         <p>
+           Exogenous fat-soluble plant pigments (beta-carotene) causing yellow discoloration of adipose tissue in horses, cattle, and poultry. Important gross differential diagnosis for icterus/jaundice.
+         </p>
+       </div>
+     </div>
+   </section>
+
+     <div class="teaching-gallery">
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/1wqoyKYQKK-8pMWVGK6AogXXUpjQxnKcH" alt="Microscopic anthracotic pigment in alveolar macrophages" loading="lazy" decoding="async">
+         <figcaption>Anthracotic pigment in alveolar macrophages. Inhaled carbon particles accumulate in lung tissue and draining lymphatics.</figcaption>
+       </figure>
+
+       <figure class="teaching-figure">
+         <img src="https://lh3.googleusercontent.com/d/18f2nir7OswneTUXvpkMvSEwsyBUWHpOF" alt="Gross pulmonary anthracosis" loading="lazy" decoding="async">
+         <figcaption>Anthracosis in the lung. Inhaled carbon produces black subpleural deposits, commonly seen in animals living in polluted environments.</figcaption>
+       </figure>
+     </div>
+
+   <!-- D. PIGMENT IDENTIFICATION TABLE -->
+   <section class="section">
+     <h2 class="section-title">Pigment Identification &amp; Differentiation Table</h2>
+     <div class="table-responsive">
+       <table class="data-table">
+         <thead>
+           <tr>
+             <th>Pigment</th>
+             <th>H&amp;E Color</th>
+             <th>Predominant Location</th>
+             <th>Associated Process</th>
+             <th>Special Stain / Diagnostic Feature</th>
+             <th>Principal Differential</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Melanin</strong></td>
+             <td>Brown to Black</td>
+             <td>Intracellular (Melanocytes, Melanophages)</td>
+             <td>Melanosis, Melanoma, Hyperpigmentation</td>
+             <td>Fontana-Masson (black); Bleached by H<sub>2</sub>O<sub>2</sub></td>
+             <td>Hemosiderin, Carbon</td>
+           </tr>
+           <tr>
+             <td><strong>Lipofuscin</strong></td>
+             <td>Yellow to Brown</td>
+             <td>Intracellular (Perinuclear, Cardiomyocytes, Neurons)</td>
+             <td>Aging, Cachexia, Atrophy, Lipid Peroxidation</td>
+             <td>Sudan Black B / Acid-Fast positive; Autofluorescent</td>
+             <td>Hemosiderin</td>
+           </tr>
+           <tr>
+             <td><strong>Hemosiderin</strong></td>
+             <td>Golden-Brown</td>
+             <td>Intracellular (Macrophages, Kupffer cells)</td>
+             <td>Hemorrhage, Hemolysis, Congestion, Iron Overload</td>
+             <td>Perls' Prussian Blue (Deep Blue)</td>
+             <td>Melanin, Lipofuscin</td>
+           </tr>
+           <tr>
+             <td><strong>Bilirubin</strong></td>
+             <td>Yellow-Green / Orange</td>
+             <td>Intra/Extracellular (Bile Canaliculi, Hepatocytes)</td>
+             <td>Icterus, Hemolysis, Hepatic/Biliary Disease</td>
+             <td>Hall's Stain (Green); Bleaches on exposure</td>
+             <td>Lipofuscin, Carotenoids</td>
+           </tr>
+           <tr>
+             <td><strong>Hematoidin</strong></td>
+             <td>Bright Yellow-Orange</td>
+             <td>Extracellular (Old Hemorrhagic Foci)</td>
+             <td>Chronic Hemorrhage &amp; Local Hypoxia</td>
+             <td>Prussian Blue Negative (Iron-free)</td>
+             <td>Hemosiderin</td>
+           </tr>
+           <tr>
+             <td><strong>Carbon</strong></td>
+             <td>Dense Black</td>
+             <td>Intra/Extracellular (Lung Macrophages, Lymph Nodes)</td>
+             <td>Anthracosis (Inhaled Air Pollution)</td>
+             <td>Insoluble; Negative for all stains/bleaches</td>
+             <td>Melanin</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+   </section>
+
+   <!-- E. PRACTICAL PIGMENT CHALLENGE -->
+   <section class="section">
+     <h2 class="section-title">Practical Pigment Identification Challenge</h2>
+     <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+       Examine each unlabeled pigment image. Identify the pigment based on color, location, and staining properties, then expand the details box to check your answer:
+     </p>
+     <div class="challenge-grid">
+       
+       <!-- CASE 1 -->
+       <div class="challenge-card">
+         <div class="challenge-img">
+           <img src="https://lh3.googleusercontent.com/d/1FoYfpaYQjYIchHqHgbXOcSYUasb237f_" alt="Intra-alveolar hemosiderin deposition (Prussian blue stain)">
+           <span>Special stain: Coarse vivid-blue deposits are present within alveolar macrophages after pulmonary haemorrhage.</span>
+           <span>Yale Rosen, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>.</span>
+         </div>
+         <details>
+           <summary style="font-size:0.85rem; color:var(--accent-color); font-weight:600; cursor:pointer;">Reveal Answer</summary>
+           <p style="font-size:0.8rem; color:var(--secondary-color); margin-top:4px;">
+             <strong>Hemosiderin:</strong> Iron-containing pigment positive for Perls' Prussian blue reaction ("heart failure cells").
+           </p>
+         </details>
+       </div>
+
+       <!-- CASE 2 -->
+       <div class="challenge-card">
+         <div class="challenge-img">
+           <img src="https://lh3.googleusercontent.com/d/1L9HA49x-Ri1_lRX2yD5vjDII1ZhB2qud" alt="Nodular melanoma with heavy melanin pigmentation">
+           <span>H&amp;E: A nodular neoplasm contains abundant brown-black intracellular pigment.</span>
+           <span>Image courtesy of Dr Ahmet Cemil Kaur; Kutlubay et al., via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>.</span>
+         </div>
+         <details>
+           <summary style="font-size:0.85rem; color:var(--accent-color); font-weight:600; cursor:pointer;">Reveal Answer</summary>
+           <p style="font-size:0.8rem; color:var(--secondary-color); margin-top:4px;">
+             <strong>Melanin:</strong> Tyrosinase-derived pigment in melanocytes, staining black with Fontana-Masson.
+           </p>
+         </details>
+       </div>
+
+       <!-- CASE 3 -->
+       <div class="challenge-card">
+         <div class="challenge-img">
+           <img src="https://lh3.googleusercontent.com/d/1Q1Q2GZpl68KqQDiRIieToYaOxvFbb1Ue" alt="Cardiac myocyte showing lipofuscin pigment">
+           <span>H&amp;E: Fine yellow-brown granules are concentrated in the perinuclear cytoplasm of a cardiac myocyte.</span>
+           <span>Department of Pathology, Calicut Medical College, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</span>
+         </div>
+         <details>
+           <summary style="font-size:0.85rem; color:var(--accent-color); font-weight:600; cursor:pointer;">Reveal Answer</summary>
+           <p style="font-size:0.8rem; color:var(--secondary-color); margin-top:4px;">
+             <strong>Lipofuscin:</strong> Wear-and-tear aging pigment derived from autocytophagocytosed membrane lipid peroxidation.
+           </p>
+         </details>
+       </div>
+
+       <!-- CASE 4 -->
+       <div class="challenge-card">
+         <div class="challenge-img">
+           <img src="https://lh3.googleusercontent.com/d/19hCnMQ18j88nSI5tRTscUMOjTtC-yYPm" alt="Cholestasis high magnification showing bile plugs">
+           <span>H&amp;E: Yellow-brown to greenish canalicular plugs are present between hepatocytes.</span>
+           <span>Nephron, via Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</span>
+         </div>
+         <details>
+           <summary style="font-size:0.85rem; color:var(--accent-color); font-weight:600; cursor:pointer;">Reveal Answer</summary>
+           <p style="font-size:0.8rem; color:var(--secondary-color); margin-top:4px;">
+             <strong>Bilirubin:</strong> Hemoglobin-derived iron-free porphyrin metabolite accumulating during cholestasis.
+           </p>
+         </details>
+       </div>
+
+       <!-- CASE 5 -->
+       <div class="challenge-card">
+         <div class="challenge-img">
+           <img src="https://lh3.googleusercontent.com/d/17OmZfxVPKR9W8AIdD8etjRkq9_MmSt9K" alt="Histopathology of pulmonary anthracosis">
+           <span>H&amp;E: Dense black inert carbon granules in lung macrophages and interstitial spaces.</span>
+           <span>Credit: Histopathology of Pulmonary Anthracosis</span>
+         </div>
+         <details>
+           <summary style="font-size:0.85rem; color:var(--accent-color); font-weight:600; cursor:pointer;">Reveal Answer</summary>
+           <p style="font-size:0.8rem; color:var(--secondary-color); margin-top:4px;">
+             <strong>Carbon (Anthracosis):</strong> Exogenous inhaled particulate matter that resists chemical bleaching and special stains.
+           </p>
+         </details>
+       </div>
+
+     </div>
+   </section>
+
+   <!-- SUMMARY & KNOWLEDGE CHECK -->
+   <section class="section">
+     <div class="takeaways-box">
+       <h3>Key Takeaways</h3>
+       <ul>
+         <li>Endogenous pigments include melanin (brown/black), lipofuscin (yellow/brown), hemosiderin (golden/brown), and bilirubin (yellow/green).</li>
+         <li>Perls' Prussian Blue stains hemosiderin ferric iron vivid blue; Fontana-Masson stains melanin black.</li>
+         <li>Anthracosis (carbon) is an inert, insoluble exogenous black pigment that does not stain or bleach.</li>
+       </ul>
+     </div>
+
+     <div class="quiz-box">
+       <h3>Knowledge Check</h3>
+       
+       <div class="quiz-q">
+         <p>1. Which histochemical stain distinguishes golden-brown hemosiderin from golden-brown lipofuscin?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Perls' Prussian Blue reaction. Hemosiderin contains ferric iron and turns bright blue, whereas lipofuscin remains negative.
+         </details>
+       </div>
+
+       <div class="quiz-q">
+         <p>2. What is the pathogenetic origin of lipofuscin pigment in cardiomyocytes?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Free radical-induced lipid peroxidation of membrane phospholipids during cellular aging or atrophy, stored within lysosomal residual bodies.
+         </details>
+       </div>
+
+       <div class="quiz-q">
+         <p>3. Why is hematoidin negative on Perls' Prussian Blue staining, despite forming at sites of old hemorrhage?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Hematoidin is an iron-free breakdown product of hemoglobin (chemically similar to bilirubin) formed locally in avascular hypoxic tissues.
+         </details>
+       </div>
+     </div>
+   </section>
+
+   <!-- PAGE NAVIGATION -->
+   <footer class="page-nav">
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/mucin-and-myxoid-change" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Mucin and Myxoid Change</a>
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/pathological-calcification" class="nav-btn" target="_blank" rel="noopener noreferrer">Pathological Calcification &rarr;</a>
+   </footer>
+
+ </div>
+
+</body>
+</html>

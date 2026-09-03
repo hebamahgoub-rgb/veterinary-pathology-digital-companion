@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amyloidosis | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+      clear: both;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* A. DEFINITION */
+    .definition-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .definition-box h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .definition-box p {
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+
+
+    /* VIDEO LEARNING SECTION */
+    .video-intro {
+      color: var(--secondary-color);
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .video-featured,
+    .video-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(26, 54, 93, 0.08);
+    }
+
+    .video-featured {
+      max-width: 850px;
+      margin: 0 auto 18px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-body {
+      padding: 15px 17px 17px;
+    }
+
+    .video-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ebf8ff;
+      border: 1px solid #90cdf4;
+      color: var(--primary-color);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .video-body h3 {
+      color: var(--primary-color);
+      font-size: 1.03rem;
+      line-height: 1.4;
+      margin-bottom: 7px;
+    }
+
+    .video-body p {
+      color: var(--secondary-color);
+      font-size: 0.86rem;
+      margin-bottom: 12px;
+    }
+
+    .video-link {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .video-link:hover,
+    .video-link:focus {
+      background: var(--primary-color);
+    }
+
+    /* B. STRUCTURAL BASIS */
+    .basis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .basis-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .basis-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* C, D, E. CLASSIFICATION & PATHOGENESIS */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .class-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .class-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .class-card p {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 8px;
+    }
+    .class-card ul {
+      margin-left: 20px;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    .enrichment-box {
+      background-color: var(--bg-light);
+      border: 1px dashed var(--border-color);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-top: 12px;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+    .enrichment-box strong {
+      color: var(--primary-color);
+    }
+
+    /* F. COMMON ORGANS */
+    .organs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .organ-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .organ-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* G & H. MORPHOLOGY */
+    .morph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .morph-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .morph-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .morph-card ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .morph-card li {
+      margin-bottom: 6px;
+    }
+
+    /* I. CONFIRMATION */
+    .confirm-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+    }
+    .confirm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .confirm-card {
+      background-color: var(--bg-light);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .confirm-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* J. ORGAN CONSEQUENCES */
+    .consequences-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    /* K. DIFFERENTIAL DIAGNOSIS TABLE */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* L. FEATURED CASE - FIXED FOR GOOGLE SITES EMBEDDING */
+    .case-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: auto;
+      overflow: hidden;
+    }
+
+    @media (min-width: 650px) {
+      .case-box {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        align-items: start;
+      }
+    }
+
+    .case-figure {
+      margin: 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-light);
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+
+    .case-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      background: #111827;
+    }
+
+    .case-figure figcaption {
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+
+    .image-credit {
+      display: block;
+      margin-top: 7px;
+      font-size: 0.72rem;
+      line-height: 1.4;
+    }
+
+    .image-credit a {
+      color: var(--accent-color);
+    }
+
+    .veterinary-relevance {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+
+
+    /* TEACHING ILLUSTRATIONS */
+    .teaching-figure {
+      margin: 18px 0 24px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-light);
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #ffffff;
+    }
+    .teaching-figure figcaption {
+      padding: 11px 14px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      Amyloidosis
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Amyloidosis</h1>
+      <p>Pathological extracellular accumulation of abnormally folded fibrillar proteins leading to organ dysfunction.</p>
+    </header>
+
+    <!-- A. DEFINITION -->
+    <section class="section">
+      <div class="definition-box">
+        <h2>Definition</h2>
+        <p>
+          Amyloidosis is a disease group characterized by the extracellular deposition of <strong>amyloid</strong>&mdash;a pathological, insoluble proteinaceous substance formed by non-branching fibrillar aggregates of misfolded proteins. Progressive extracellular deposition causes pressure atrophy and compression breakdown of adjacent parenchymal cells.
+        </p>
+      </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1MEzyrbxW7wnS6HUtD0MGNjXifAqmE0dx" alt="What amyloid is" loading="lazy" decoding="async">
+        <figcaption>Amyloid is an extracellular deposit of misfolded proteins arranged in non-branching fibrils with a cross-β-sheet structure. These rigid fibrils accumulate outside cells and distort normal tissue architecture.</figcaption>
+      </figure>
+    </section>
+
+
+    <!-- VIDEO LEARNING -->
+    <section class="section" aria-labelledby="amyloidosis-videos-title">
+      <h2 id="amyloidosis-videos-title" class="section-title">Video Learning</h2>
+      <p class="video-intro">
+        Choose the complete lesson for a fuller overview, or use the three focused 60-second microlearning videos for rapid review and retrieval practice.
+      </p>
+
+      <div class="video-featured">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/839UcPB0YHA"
+            title="Amyloidosis and protein misfolding explained"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-body">
+          <span class="video-label">Complete lesson</span>
+          <h3>Amyloidosis &amp; Protein Misfolding Explained</h3>
+          <p>
+            A fuller overview of amyloid formation, extracellular deposition, classification, organ distribution, morphology, and diagnostic significance.
+          </p>
+          <a class="video-link" href="https://youtu.be/839UcPB0YHA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        </div>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/MhWTwe0VmeI"
+              title="What exactly is amyloid pathology in 60 seconds"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-body">
+            <span class="video-label">60-second microlearning</span>
+            <h3>What Exactly Is Amyloid?</h3>
+            <p>
+              Rapid review of the core concept: misfolded protein, fibril formation, extracellular deposition, and the structural basis of amyloid.
+            </p>
+            <a class="video-link" href="https://youtu.be/MhWTwe0VmeI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/-TessFhJD4g"
+              title="Why proteins misfold in amyloidosis pathology in 60 seconds"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-body">
+            <span class="video-label">60-second microlearning</span>
+            <h3>Why Proteins Misfold in Amyloidosis</h3>
+            <p>
+              Focused review of how normally soluble proteins become structurally unstable, misfold, and acquire aggregation-prone conformations that initiate amyloid formation.
+            </p>
+            <a class="video-link" href="https://youtu.be/-TessFhJD4g" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/4tancbY-8r4"
+              title="Why amyloid glows apple green pathology in 60 seconds"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-body">
+            <span class="video-label">60-second microlearning</span>
+            <h3>Why Amyloid Glows Apple-Green</h3>
+            <p>
+              Focused diagnostic review of Congo red staining and the characteristic birefringence of amyloid under polarized light.
+            </p>
+            <a class="video-link" href="https://youtu.be/4tancbY-8r4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. STRUCTURAL BASIS -->
+    <section class="section">
+      <h2 class="section-title">Structural Basis &amp; Biophysical Properties</h2>
+      <div class="basis-grid">
+        <div class="basis-card">
+          <strong>Protein Misfolding</strong>
+          Soluble native proteins undergo conformational changes into insoluble, misfolded monomers.
+        </div>
+        <div class="basis-card">
+          <strong>Beta-Pleated Sheet Structure</strong>
+          Misfolded monomers aggregate into antiparallel &beta;-pleated sheets, giving amyloid its uniform physical properties.
+        </div>
+        <div class="basis-card">
+          <strong>Non-Branching Fibrils</strong>
+          Assembles into rigid, unbranched 7-10 nm ultrastructural fibrils resistant to enzymatic proteolysis.
+        </div>
+        <div class="basis-card">
+          <strong>Extracellular Accumulation</strong>
+          Progressively accumulates in extracellular interstitial matrix, basement membranes, and vessel walls.
+        </div>
+      </div>
+    </section>
+
+    <!-- C, D, E. CLASSIFICATION & PATHOGENESIS -->
+    <section class="section">
+      <h2 class="section-title">Classification and Pathogenesis</h2>
+      <div class="class-grid">
+        
+        <div class="class-card">
+          <h3>1. Reactive Systemic Amyloidosis (AA)</h3>
+          <p>The most common form encountered in domestic animals (dogs, cattle, cats, horses).</p>
+          <ul>
+            <li><strong>Precursor Protein:</strong> Serum Amyloid A (SAA), an acute-phase apolipoprotein synthesized by the liver.</li>
+            <li><strong>Trigger:</strong> Chronic inflammatory, infectious, or neoplastic diseases (e.g., chronic pyoderma, osteomyelitis, tuberculosis).</li>
+            <li><strong>Sequence:</strong> Persistent inflammation &rarr; elevated IL-1/IL-6/TNF-&alpha; &rarr; massive hepatic SAA synthesis &rarr; incomplete proteolysis &rarr; AA fibril deposition in multiple organs.</li>
+          </ul>
+        </div>
+
+        <div class="class-card">
+          <h3>2. Localized Amyloidosis</h3>
+          <p>Amyloid deposition confined to a single organ or tissue type without systemic involvement.</p>
+          <ul>
+            <li><strong>Islet Amyloidosis (IAPP / Amylin):</strong> Deposition in pancreatic islets of Langerhans in diabetic cats, derived from Islet Amyloid Polypeptide co-secreted with insulin.</li>
+            <li><strong>Endocrine-Associated:</strong> Amyloid stroma within thyroid medullary carcinomas or pituitary adenomas.</li>
+            <li><strong>Nasal / Cutaneous:</strong> Localized amyloid nodules in the nasal mucosa of horses or skin of dogs.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1_1Snn7LZ43QXex04_nlXDL2gQJEvFwyJ" alt="Major amyloid types in veterinary species" loading="lazy" decoding="async">
+        <figcaption>Major amyloid types in veterinary species. AA amyloid arises from Serum Amyloid A during chronic inflammation; AL amyloid from immunoglobulin light chains; islet amyloid from islet amyloid polypeptide in cats; localized forms occur in endocrine organs, nerves, or skin.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1yjA77y6XRP62GKrNV10iLo1h_Vtz349O" alt="Pathogenesis of reactive systemic amyloidosis" loading="lazy" decoding="async">
+        <figcaption>Pathogenesis of reactive systemic (AA) amyloidosis. Persistent inflammation increases Serum Amyloid A, but deposition requires genetic susceptibility and sufficient duration.</figcaption>
+      </figure>
+
+      <div class="enrichment-box">
+        <strong>Enrichment Note: Hereditary &amp; Familial Amyloidosis</strong><br>
+        Specific breeds exhibit familial reactive systemic AA amyloidosis without preceding chronic inflammation, including Shar-Pei dogs (Shar-Pei fever syndrome) and Abyssinian / Siamese cats, predisposing them to early-onset severe renal or hepatic amyloidosis.
+      </div>
+    </section>
+
+    <!-- F. COMMON ORGANS -->
+    <section class="section">
+      <h2 class="section-title">Common Target Organs</h2>
+      <div class="organs-grid">
+        <div class="organ-card">
+          <strong>Kidney</strong>
+          Primary site in dogs and cattle. Deposited in glomerular basement membranes, mesangium, and medullary interstitium.
+        </div>
+        <div class="organ-card">
+          <strong>Liver</strong>
+          Primary site in Shar-Pei dogs and cats. Deposited in the Space of Disse, compressing hepatic cords.
+        </div>
+        <div class="organ-card">
+          <strong>Spleen</strong>
+          Deposited in follicular red pulp (sago spleen) or diffusely throughout red pulp sinusoidal walls (lardaceous spleen).
+        </div>
+        <div class="organ-card">
+          <strong>Gastrointestinal Tract &amp; Endocrine</strong>
+          Deposited in mucosal lamina propria microvessels, adrenal cortex, and pancreatic islets.
+        </div>
+      </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1HvSNuD_tsN6GNyUhiL_Y62SRSMzk7ohK" alt="Common organ distribution of amyloid" loading="lazy" decoding="async">
+        <figcaption>Common organ distribution of amyloid. Kidney, liver, and spleen are frequently affected. Glomerular deposition is clinically important because it disrupts filtration and causes protein-losing nephropathy.</figcaption>
+      </figure>
+    </section>
+
+    <!-- G & H. MORPHOLOGY -->
+    <section class="section">
+      <h2 class="section-title">Morphological Features</h2>
+      <div class="morph-grid">
+        <div class="morph-card">
+          <h3>Gross Morphology</h3>
+          <ul>
+            <li><strong>Organ Size:</strong> Diffusely enlarged, pale, firm, and waxy organ (renomegaly, hepatomegaly, splenomegaly).</li>
+            <li><strong>Consistency:</strong> Firm, rubbery, or doughy; friable in severe feline hepatic cases (prone to rupture).</li>
+            <li><strong>Color:</strong> Pale tan, semi-translucent, greasy, or waxy appearance.</li>
+            <li><strong>Gross Iodine Reaction:</strong> Lugol's iodine applied to cut surface stains amyloid foci dark brown-black (reaction enhanced by dilute sulfuric acid).</li>
+          </ul>
+        </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/13kiucv-4ylKwk_EPgcVjQR4gudVHCDLG" alt="Gross morphology of amyloid deposition in the spleen" loading="lazy" decoding="async">
+        <figcaption>Gross appearance of amyloid deposition. Affected organs become pale, firm, and waxy. In the spleen, amyloid may accentuate follicles (“sago spleen”) or diffusely expand red pulp (“lardaceous spleen”).</figcaption>
+      </figure>
+        <div class="morph-card">
+          <h3>Microscopic Morphology (H&amp;E)</h3>
+          <ul>
+            <li><strong>Location:</strong> Strictly <strong>extracellular</strong> deposition.</li>
+            <li><strong>Appearance on H&amp;E:</strong> Homogeneous, amorphous, acellular, light pink (eosinophilic) material.</li>
+            <li><strong>Glomerular Pattern:</strong> Expands glomerular mesangium, thickens capillary basement membranes, and obliterates capillary loops.</li>
+            <li><strong>Interstitial Pattern:</strong> Expands perivascular spaces and depresses adjacent parenchymal cell cords (pressure atrophy).</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1JFU1fCTpQLffWxFK_KXsZFRV0Mz6xNeT" alt="Microscopic morphology of amyloid on H&E and Congo red" loading="lazy" decoding="async">
+        <figcaption>Microscopic features of amyloid. On H&E, amyloid appears as extracellular eosinophilic, amorphous to finely fibrillar material. Congo red staining with apple-green birefringence under polarized light is the classic confirmation.</figcaption>
+      </figure>
+    </section>
+
+    <!-- I. CONFIRMATION -->
+    <section class="section">
+      <h2 class="section-title">Histochemical &amp; Optical Confirmation</h2>
+      <div class="confirm-box">
+        <p style="font-size: 0.95rem; color: var(--secondary-color);">
+          Because light pink amorphous material on H&amp;E can mimic hyaline or collagen, histochemical confirmation is mandatory:
+        </p>
+        <div class="confirm-grid">
+          <div class="confirm-card">
+            <strong>Congo Red Stain</strong>
+            Stains amyloid dull orange-red under standard brightfield light microscopy.
+          </div>
+          <div class="confirm-card">
+            <strong>Polarized Light Microscopy</strong>
+            Congo Red-stained sections examined under cross-polarized light display characteristic, pathognomonic green birefringence.
+          </div>
+          <div class="confirm-card">
+            <strong>Thioflavin T / S</strong>
+            Fluorescent dyes that bind &beta;-pleated sheets, exhibiting bright yellow-green fluorescence under UV light.
+          </div>
+        </div>
+      </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1faK9iVcEeCYPvXXE_WRJ30QZjY6CdKYi" alt="Congo red special stain in context" loading="lazy" decoding="async">
+        <figcaption>High-yield special stains for metabolic and matrix disturbances. Congo red with polarized light confirms amyloid and distinguishes it from other eosinophilic deposits.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1_PLJFcf8r9S5cjCtzSivB9sBKKh4ljhO" alt="Diagnostic workflow for identifying amyloid" loading="lazy" decoding="async">
+        <figcaption>Practical diagnostic workflow for deposits. Identification of amyloid requires description, classification, Congo red staining, integration of species and clinical context, and assessment of functional significance.</figcaption>
+      </figure>
+    </section>
+
+    <!-- J. ORGAN CONSEQUENCES -->
+    <section class="section">
+      <h2 class="section-title">Functional &amp; Clinical Consequences</h2>
+      <div class="consequences-box">
+        <p>The clinical manifestations of amyloidosis depend directly on the primary organ involved and the anatomical site of deposition:</p>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li><strong>Renal Glomerular Amyloidosis:</strong> Destruction of the glomerular filtration barrier leads to severe <strong>proteinuria</strong>, hypoalbuminemia, generalized edema (nephrotic syndrome), and end-stage renal failure.</li>
+          <li><strong>Hepatic Amyloidosis:</strong> Compression of hepatocytes in the Space of Disse causes hepatic failure, icterus, and increased risk of fatal intra-abdominal hemorrhage due to liver fracture.</li>
+          <li><strong>Pancreatic Islet Amyloidosis:</strong> Progressive destruction of insulin-producing beta cells leads to overt type II diabetes mellitus in cats.</li>
+        </ul>
+      </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1FaeFWi7313oTwsRI7zSGI9Q7C9NteYgf" alt="Reactive renal amyloidosis in a dog" loading="lazy" decoding="async">
+        <figcaption>Reactive renal amyloidosis. Chronic inflammation leads to AA amyloid deposition in glomeruli, producing protein-losing nephropathy with proteinuria and hypoalbuminaemia.</figcaption>
+      </figure>
+    </section>
+
+    <!-- K. DIFFERENTIAL DIAGNOSIS TABLE -->
+    <section class="section">
+      <h2 class="section-title">Differential Diagnosis Table</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Extracellular / Intracellular</th>
+              <th>H&amp;E Appearance</th>
+              <th>Congo Red Reaction</th>
+              <th>Polarized Light Finding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Amyloid</strong></td>
+              <td>Extracellular</td>
+              <td>Amorphous, pale pink</td>
+              <td>Positive (Orange-Red)</td>
+              <td>Green birefringence</td>
+            </tr>
+            <tr>
+              <td><strong>Hyaline (Intracellular)</strong></td>
+              <td>Intracellular</td>
+              <td>Homogeneous, bright pink droplets</td>
+              <td>Negative</td>
+              <td>No birefringence</td>
+            </tr>
+            <tr>
+              <td><strong>Dense Collagen / Scar</strong></td>
+              <td>Extracellular</td>
+              <td>Bundled, fibrillar pink matrix</td>
+              <td>Negative (or light orange)</td>
+              <td>Pale white/yellow birefringence</td>
+            </tr>
+            <tr>
+              <td><strong>Fibrin Deposits</strong></td>
+              <td>Extracellular</td>
+              <td>Fibrillar or mesh-like dark pink</td>
+              <td>Negative</td>
+              <td>No green birefringence</td>
+            </tr>
+            <tr>
+              <td><strong>Basement Membrane Thickening</strong></td>
+              <td>Extracellular</td>
+              <td>Linear pink capillary outline</td>
+              <td>Negative</td>
+              <td>No green birefringence</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1gxZ4hZ27metPfBvfq06x9ca4zvf4mS3Z" alt="Differential diagnosis of eosinophilic extracellular material" loading="lazy" decoding="async">
+        <figcaption>Differentiating amyloid from other eosinophilic materials. Collagen, fibrin, basement membrane, and plasma proteins may mimic amyloid on H&E. Location and Congo red birefringence are essential for confirmation.</figcaption>
+      </figure>
+    </section>
+
+    <!-- L. FEATURED CASE -->
+    <section class="section">
+      <h2 class="section-title">Morphology Focus: Canine Renal Amyloidosis</h2>
+      <div class="case-box">
+        <figure class="case-figure">
+          <img src="https://lh3.googleusercontent.com/d/1GFAZc4wJ2m2CVkE3cQYEF1NMzHX2rYaE" alt="Canine kidney with severe glomerular amyloid deposition showing green birefringence after Congo red staining under polarized light." loading="lazy" decoding="async">
+          <figcaption>
+            Severe canine renal glomerular amyloidosis. Congo-red-positive deposits exhibit green birefringence under polarized light. Figure 4F from the Atlas of Renal Lesions in Proteinuric Dogs.
+            <span class="image-credit">Image: <a href="https://ohiostate.pressbooks.pub/vetrenalpathatlas/chapter/chapter-1/" target="_blank" rel="noopener noreferrer">Atlas of Renal Lesions in Proteinuric Dogs</a>, edited by Rachel Cianciolo, <a href="https://odp.library.tamu.edu/vetrenalpathatlas/" target="_blank" rel="noopener noreferrer">The Ohio State University</a>. Reproduced unchanged under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>.</span>
+          </figcaption>
+        </figure>
+        <div>
+          <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px;">Severe Glomerular Amyloidosis in a Dog</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+            Congo-red-stained renal tissue viewed under polarized light demonstrates green birefringence within severely affected glomeruli. This optical property results from the ordered binding of Congo red molecules to the beta-pleated sheet structure of amyloid fibrils. In advanced disease, amyloid can replace large portions of the glomerular tuft, compress capillary lumina, and impair glomerular filtration.
+          </p>
+          <p class="veterinary-relevance">
+            <strong>Veterinary relevance:</strong> The kidney is a major site of amyloid deposition in dogs. Glomerular involvement commonly produces marked proteinuria and may progress to protein-losing nephropathy and chronic kidney disease. Reactive AA amyloidosis can occur in association with persistent inflammatory disease, while familial amyloidosis is recognized in predisposed breeds, including the Chinese Shar-Pei.
+          </p>
+          <p style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color); margin-top: 12px;">
+            Morphological diagnosis: Severe glomerular renal amyloidosis, canine.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Amyloidosis is the extracellular accumulation of misfolded &beta;-pleated sheet protein fibrils.</li>
+          <li>Reactive systemic AA amyloidosis is the main veterinary form, secondary to chronic inflammatory diseases elevating SAA.</li>
+          <li>Definitively confirmed by Congo Red staining demonstrating pathognomonic green birefringence under polarized light.</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. What precursor protein is responsible for reactive systemic (AA) amyloidosis in domestic animals?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Serum Amyloid A (SAA), an acute-phase apolipoprotein produced by the liver during chronic inflammatory states.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>2. What is the pathognomonic optical finding when Congo Red-stained amyloid is viewed under cross-polarized light?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Green birefringence.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>3. What major clinical syndrome results from glomerular renal amyloidosis in dogs?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Nephrotic syndrome (characterized by severe proteinuria, hypoalbuminemia, hypercholesterolemia, and generalized edema) progressing to renal failure.
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/protein-accumulations-and-hyaline-change" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Protein Accumulations and Hyaline Change</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/mucin-and-myxoid-change" class="nav-btn" target="_blank" rel="noopener noreferrer">Mucin and Myxoid Change &rarr;</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

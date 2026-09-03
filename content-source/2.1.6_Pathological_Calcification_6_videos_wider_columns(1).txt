@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Pathological Calcification | Disturbance in Cell Metabolism</title>
+ <style>
+   :root {
+     --primary-color: #1a365d;
+     --secondary-color: #4a5568;
+     --accent-color: #2b6cb0;
+     --border-color: #cbd5e0;
+     --bg-light: #f7fafc;
+     --text-dark: #2d3748;
+     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+   }
+   * { box-sizing: border-box; margin: 0; padding: 0; }
+   body { font-family: var(--font-family); color: var(--text-dark); background-color:#fff; line-height:1.6; padding:16px; }
+   .container { max-width:1050px; margin:0 auto; }
+   .breadcrumb { font-size:.85rem; color:var(--secondary-color); margin-bottom:16px; }
+   .breadcrumb a { color:var(--accent-color); text-decoration:none; }
+   .breadcrumb a:hover { text-decoration:underline; }
+   .page-header { border-bottom:2px solid var(--primary-color); padding-bottom:12px; margin-bottom:24px; }
+   .page-header h1 { color:var(--primary-color); font-size:1.8rem; font-weight:700; }
+   .page-header p { color:var(--secondary-color); font-size:.95rem; }
+   .section { margin-bottom:32px; }
+   .section-title { font-size:1.3rem; color:var(--primary-color); border-bottom:2px solid var(--border-color); padding-bottom:6px; margin-bottom:16px; }
+   .definition-box { background-color:var(--bg-light); border:1px solid var(--border-color); border-left:5px solid var(--accent-color); border-radius:6px; padding:20px; }
+   .definition-box h2 { font-size:1.1rem; color:var(--primary-color); margin-bottom:8px; }
+   .definition-box p { font-size:.95rem; color:var(--secondary-color); }
+   .calc-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+   .calc-column { min-width:0; display:flex; flex-direction:column; gap:16px; }
+   .calc-column .teaching-figure { width:100%; max-width:none; margin:0; }
+   .morph-grid,.cases-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+   @media (max-width:760px) { .calc-grid { grid-template-columns:1fr; } }
+   .calc-card,.morph-card,.case-card { border:1px solid var(--border-color); border-radius:6px; padding:18px; background:#fff; }
+   .calc-card h3,.morph-card h3 { font-size:1.05rem; color:var(--primary-color); margin-bottom:8px; }
+   .calc-card p { font-size:.9rem; color:var(--secondary-color); margin-bottom:10px; }
+   .calc-card ul,.morph-card ul { margin-left:20px; font-size:.875rem; color:var(--secondary-color); }
+   .morph-card li { margin-bottom:6px; }
+   .causes-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+   .cause-card { background-color:var(--bg-light); border:1px solid var(--border-color); border-radius:4px; padding:12px; font-size:.875rem; }
+   .cause-card strong { color:var(--primary-color); display:block; margin-bottom:4px; }
+   .table-responsive { overflow-x:auto; margin-top:12px; }
+   .data-table { width:100%; border-collapse:collapse; font-size:.875rem; text-align:left; }
+   .data-table th,.data-table td { border:1px solid var(--border-color); padding:10px 12px; }
+   .data-table th { background-color:#edf2f7; color:var(--primary-color); font-weight:600; }
+   .data-table tr:nth-child(even) { background-color:var(--bg-light); }
+   .stain-box { border:1px solid var(--border-color); border-radius:6px; padding:20px; background:#fff; }
+   .stain-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin-top:12px; }
+   .stain-card { background-color:var(--bg-light); border-left:4px solid var(--accent-color); border-radius:4px; padding:12px; font-size:.875rem; }
+   .stain-card strong { color:var(--primary-color); display:block; margin-bottom:4px; }
+   .case-card h3 { font-size:1rem; color:var(--primary-color); margin-bottom:8px; }
+   .case-figure { margin:0 0 12px; }
+   .case-image { display:block; width:100%; height:230px; object-fit:cover; object-position:center; border:1px solid var(--border-color); border-radius:4px; background-color:#edf2f7; }
+   .case-figure figcaption { margin-top:8px; font-size:.76rem; line-height:1.45; color:var(--secondary-color); }
+   .case-figure a { color:var(--accent-color); text-decoration:underline; }
+   .takeaways-box { background-color:var(--bg-light); border:1px solid var(--border-color); border-left:4px solid var(--primary-color); border-radius:4px; padding:16px; margin-bottom:24px; }
+   .takeaways-box h3 { font-size:1rem; color:var(--primary-color); margin-bottom:8px; }
+   .takeaways-box ul { margin-left:20px; font-size:.9rem; color:var(--secondary-color); }
+   .quiz-box { border:1px solid var(--border-color); border-radius:6px; padding:16px; background:#fff; margin-bottom:24px; }
+   .quiz-box h3 { font-size:1.05rem; color:var(--primary-color); margin-bottom:12px; }
+   .quiz-q { margin-bottom:12px; font-size:.9rem; }
+   .quiz-q p { font-weight:600; color:var(--text-dark); margin-bottom:4px; }
+   .quiz-q details { font-size:.85rem; color:var(--secondary-color); cursor:pointer; }
+   .quiz-q summary { color:var(--accent-color); font-weight:600; }
+   .page-nav { display:flex; justify-content:space-between; gap:12px; margin-top:32px; padding-top:16px; border-top:1px solid var(--border-color); }
+   .nav-btn { display:inline-block; padding:8px 16px; border-radius:4px; background-color:var(--accent-color); color:#fff; text-decoration:none; font-size:.875rem; font-weight:600; }
+   .nav-btn:hover { background-color:#2c5282; }
+   .teaching-figure { max-width:900px; margin:20px auto 24px; background:#fff; border:1px solid var(--border-color); border-radius:6px; overflow:hidden; }
+   .teaching-figure img { display:block; width:100%; height:auto; object-fit:contain; background-color:#fff; }
+   .teaching-figure figcaption { padding:12px 14px; background-color:var(--bg-light); border-top:1px solid var(--border-color); color:var(--secondary-color); font-size:.82rem; line-height:1.5; }
+   .teaching-figure figcaption strong { color:var(--primary-color); }
+
+   /* VIDEO LEARNING */
+   .video-section-intro { color:var(--secondary-color); font-size:.95rem; margin-bottom:16px; }
+   .video-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
+   .video-card { border:1px solid var(--border-color); border-radius:6px; background:#fff; overflow:hidden; }
+   .video-card-content { padding:14px 16px 16px; }
+   .video-card h3 { font-size:1rem; color:var(--primary-color); margin-bottom:6px; }
+   .video-card p { font-size:.84rem; color:var(--secondary-color); }
+   .video-wrapper { position:relative; width:100%; padding-top:56.25%; background:#000; }
+   .video-wrapper iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+   .full-video-card { margin-top:20px; border:2px solid var(--accent-color); border-radius:6px; background:#fff; overflow:hidden; }
+   .full-video-card .video-card-content { background:var(--bg-light); }
+ </style>
+</head>
+<body>
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt;
+    <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt;
+    Pathological Calcification
+  </nav>
+
+  <header class="page-header">
+    <h1>Pathological Calcification</h1>
+    <p>Abnormal deposition of insoluble calcium salts within soft tissues.</p>
+  </header>
+
+  <figure class="teaching-figure">
+    <img src="https://lh3.googleusercontent.com/d/1IaBe0Ecn1f7HrWews-S8lIbDzbfzsWrB" alt="Overview schematic of pathological calcification in soft tissues">
+    <figcaption><strong>Pathological Calcification Overview.</strong> A schematic illustration showing the formation of calcium phosphate crystals within soft tissues. The image highlights how mineral deposition begins on structural components of the extracellular matrix, providing a visual anchor for understanding both dystrophic and metastatic calcification.</figcaption>
+  </figure>
+
+  <section class="section">
+    <div class="definition-box">
+      <h2>Definition</h2>
+      <p>Pathological calcification (mineralization) is the abnormal deposition of insoluble calcium salts (primarily calcium phosphate and calcium carbonate) in tissues other than osteoid or enamel. It is divided into two distinct pathophysiological types: <strong>dystrophic calcification</strong> and <strong>metastatic calcification</strong>.</p>
+    </div>
+  </section>
+
+  <!-- VIDEO LEARNING -->
+  <section class="section">
+    <h2 class="section-title">Video Learning: Pathological Calcification</h2>
+    <p class="video-section-intro">Start with the five short microlearning videos for rapid review, then use the comprehensive lesson for a fuller explanation of pathological calcification.</p>
+
+    <div class="video-grid">
+      <article class="video-card">
+        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/D3kJmXrbgio" title="Dystrophic vs Metastatic Calcification — The 60 Second Difference" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="video-card-content"><h3>1. Dystrophic vs Metastatic Calcification</h3><p>A rapid comparison of the two major forms of pathological calcification.</p></div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/U1EKTnONxm4" title="Dystrophic Calcification Explained in 60 Seconds" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="video-card-content"><h3>2. Dystrophic Calcification: Where It Happens &amp; Why</h3><p>Focuses on mineral deposition in dead, dying, or damaged tissue despite normal serum calcium.</p></div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/dAwuHU_8G3w" title="How Dystrophic Calcification Forms — 60-Second Mechanism" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="video-card-content"><h3>3. How Dystrophic Calcification Forms</h3><p>A concise mechanism-focused explanation of calcium accumulation within injured tissue.</p></div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/J8xGaVIxDqc" title="Examples of Dystrophic Calcification — 1 Minute Pathology Review" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="video-card-content"><h3>4. Examples of Dystrophic Calcification</h3><p>A one-minute review of classic pathological settings in which dystrophic calcification develops.</p></div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nkTX0Zy_vLw" title="Metastatic Calcification: Where It Happens &amp; Why — 1 Minute" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="video-card-content"><h3>5. Metastatic Calcification: Where It Happens &amp; Why</h3><p>Explains systemic mineral imbalance, hypercalcemia, and the characteristic target tissues.</p></div>
+      </article>
+    </div>
+
+    <article class="full-video-card">
+      <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/aUxQQDIx9GE" title="Pathological Calcification — Comprehensive Lesson" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-card-content"><h3>Full Lesson: Pathological Calcification</h3><p>Use this comprehensive lesson for deeper study after completing the five microlearning videos above.</p></div>
+    </article>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Types of Calcification</h2>
+    <div class="calc-grid">
+      <div class="calc-column">
+        <div class="calc-card">
+          <h3>Dystrophic Calcification</h3>
+          <p>Occurs locally in <strong>dead, dying, or degenerate tissues</strong> despite normal systemic calcium metabolism and normal serum calcium levels.</p>
+          <ul>
+            <li>Ischemic or coagulative necrotic tissue (e.g., myocardial or renal infarcts).</li>
+            <li>Enzymatic fat necrosis (e.g., acute pancreatitis).</li>
+            <li>Caseous cores of chronic granulomatous lesions (e.g., tuberculosis).</li>
+            <li>Dead or encysted parasites and chronic vascular thrombi.</li>
+          </ul>
+        </div>
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1vfTJB8ux2IxjqC1LkjlorYm_aiJ39aRu" alt="Mechanism of dystrophic calcification in necrotic tissue">
+          <figcaption><strong>Mechanism of Dystrophic Calcification.</strong> A necrotic cell is depicted with membrane disruption permitting calcium influx. Swollen mitochondria accumulate calcium, initiating crystal formation within injured tissue. This figure illustrates the hallmark process of dystrophic calcification, which occurs despite normal systemic calcium levels.</figcaption>
+        </figure>
+      </div>
+
+      <div class="calc-column">
+        <div class="calc-card">
+          <h3>Metastatic Calcification</h3>
+          <p>Occurs in <strong>previously normal living tissues</strong> secondary to systemic mineral imbalances characterized by <strong>hypercalcemia</strong> or an elevated calcium-phosphorus product.</p>
+          <ul>
+            <li>Affects widespread vascular and elastic tissues.</li>
+            <li>Target organs typically secrete or concentrate acids, creating a local alkaline environment favoring calcium precipitation.</li>
+            <li>Common target sites: Gastric mucosa, renal tubular basement membranes, pulmonary alveolar walls, systemic arteries, and endocardium.</li>
+          </ul>
+        </div>
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1o_uyFOjx6XpNfbC_ANDFtabiIDzCBnBS" alt="Mechanism and sites of metastatic calcification">
+          <figcaption><strong>Mechanism of Metastatic Calcification.</strong> Normal tissues are shown developing fine calcium deposits along basement membranes under conditions of elevated blood calcium. The illustration emphasizes systemic mineral imbalance as the driver of metastatic calcification, independent of local tissue injury.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <figure class="teaching-figure">
+    <img src="https://lh3.googleusercontent.com/d/1l-MCO1rHkHtRO2g9kreNid3awk0XLh6h" alt="Examples of dystrophic calcification in veterinary pathology">
+    <figcaption><strong>Examples of Dystrophic Calcification in Veterinary Pathology.</strong> Three classic presentations of dystrophic calcification: caseous necrosis with a chalky mineralized core; dead parasites encased in a rim of calcium deposits; and fat necrosis in cattle showing firm white mineralized areas. These examples demonstrate how chronic tissue injury becomes marked by localized calcium deposition.</figcaption>
+  </figure>
+
+  <section class="section">
+    <h2 class="section-title">Veterinary Causes of Metastatic Calcification</h2>
+    <div class="causes-grid">
+      <div class="cause-card"><strong>Vitamin D Toxicity</strong>Ingestion of cholecalciferol rodenticides or calcinogenic plants (e.g., <em>Solanum malacoxylon</em>, <em>Cestrum diurnum</em>) driving excessive intestinal calcium absorption.</div>
+      <div class="cause-card"><strong>Chronic Renal Failure</strong>Renal phosphate retention leading to secondary hyperparathyroidism and widespread soft tissue calcification (rubber jaw, gastric mineralization).</div>
+      <div class="cause-card"><strong>Primary Hyperparathyroidism</strong>Functional parathyroid adenomas overproducing PTH, driving osteoclast resorption and severe hypercalcemia.</div>
+      <div class="cause-card"><strong>Paraneoplastic Hypercalcemia</strong>Secretion of PTH-related protein (PTHrp) by tumors such as anal sac adenocarcinoma (AGASACA) or lymphoma.</div>
+      <div class="cause-card"><strong>Osteolytic Bone Disease</strong>Multiple myeloma or widespread metastatic bone tumors releasing skeletal calcium stores into circulation.</div>
+    </div>
+    <figure class="teaching-figure">
+      <img src="https://lh3.googleusercontent.com/d/1_NNHupaoG-_CqUDJZc1Lj_PsJsH76U12" alt="Major causes of hypercalcemia leading to metastatic calcification">
+      <figcaption><strong>Major Causes of Hypercalcemia.</strong> A four-icon summary of systemic conditions that elevate blood calcium and predispose to metastatic calcification: renal failure, hyperparathyroidism, vitamin D toxicity, and neoplastic bone destruction.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Dystrophic versus Metastatic Calcification</h2>
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead><tr><th>Feature</th><th>Dystrophic Calcification</th><th>Metastatic Calcification</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Condition of Tissue</strong></td><td>Necrotic, dying, or degenerate tissue</td><td>Previously normal, viable tissue</td></tr>
+          <tr><td><strong>Serum Calcium Levels</strong></td><td>Normal</td><td>Elevated (Hypercalcemia)</td></tr>
+          <tr><td><strong>Systemic Mineral Balance</strong></td><td>Normal</td><td>Abnormal (Hypercalcemia / Hyperphosphatemia)</td></tr>
+          <tr><td><strong>Distribution</strong></td><td>Localized to foci of injury/necrosis</td><td>Widespread / Systemic</td></tr>
+          <tr><td><strong>Principal Mechanism</strong></td><td>Membrane breakdown, phosphate accumulation, calcium binding</td><td>Precipitation of mineral due to systemic saturation</td></tr>
+          <tr><td><strong>Common Sites</strong></td><td>Infarcts, fat necrosis, granulomas, dead parasites</td><td>Gastric mucosa, lungs, kidneys, arteries, endocardium</td></tr>
+          <tr><td><strong>Veterinary Examples</strong></td><td>Pancreatic saponification, white muscle disease</td><td>Vitamin D toxicity, renal hyperparathyroidism, AGASACA</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Morphological Features</h2>
+    <div class="morph-grid">
+      <div class="morph-card"><h3>Gross Morphology</h3><ul><li><strong>Appearance:</strong> Irregular white, pale, or chalky deposits.</li><li><strong>Texture:</strong> Gritty, firm, or hard plaques and granules.</li><li><strong>Handling:</strong> Produces a distinctive gritting sensation when sectioned with a scalpel blade.</li><li><strong>Vessels / Organs:</strong> Affected arterial walls or endocardium become rigid, thickened, and lose elasticity.</li></ul></div>
+      <div class="morph-card"><h3>Microscopic Morphology (H&amp;E)</h3><ul><li><strong>Intracellular / Extracellular:</strong> Amorphous, granular, or solid deposits.</li><li><strong>Color on H&amp;E:</strong> Deeply basophilic (dark purple to blue-black).</li><li><strong>Tissue Reaction:</strong> May elicit a chronic foreign-body giant-cell reaction or peripheral fibrous encapsulation over time.</li><li><strong>Location:</strong> Concentrated within necrotic debris (dystrophic) or along basement membranes/elastic fibers (metastatic).</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Histochemical Confirmation</h2>
+    <div class="stain-box">
+      <p style="font-size:.95rem;color:var(--secondary-color);">While prominent basophilic mineral deposits are readily visible on standard H&amp;E stains, specific histochemical stains confirm the presence of mineral salts:</p>
+      <div class="stain-grid">
+        <div class="stain-card"><strong>Von Kossa Stain</strong>Stains carbonate and phosphate anions associated with calcium deposits intense dark brown to black. (Standard surrogate stain for mineral).</div>
+        <div class="stain-card"><strong>Alizarin Red S</strong>Reacts directly with calcium cations to form a vivid red-orange chelate complex.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Comparative Histopathology Examples</h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <h3>Dystrophic Calcification</h3>
+        <figure class="case-figure">
+          <img class="case-image" src="https://lh3.googleusercontent.com/d/1ePpeR3RuRKIhw97Ej45JtT7g7YnI4paO" alt="H&amp;E micrograph showing dystrophic calcium-phosphate microcalcification within necrotic tissue in ductal carcinoma in situ" loading="lazy" decoding="async">
+          <figcaption>Dystrophic calcium-phosphate microcalcification in ductal carcinoma in situ, H&amp;E. Image: Mikael Häggström, MD, <a href="https://commons.wikimedia.org/wiki/File:Histopathology_of_dystrophic_microcalcifications_in_ductal_carcinoma_in_situ.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. CC0 1.0.</figcaption>
+        </figure>
+        <p style="font-size:.875rem;color:var(--secondary-color);">This comparative pathology specimen demonstrates dystrophic mineralization developing within injured or necrotic tissue. The deposited calcium appears as dense basophilic material on H&amp;E. The process is localized and does not require hypercalcemia. In veterinary pathology, the same mechanism occurs in infarcts, fat necrosis, granulomas, dead parasites, and necrotic skeletal muscle.</p>
+      </div>
+      <div class="case-card">
+        <h3>Metastatic Calcification</h3>
+        <figure class="case-figure">
+          <img class="case-image" src="https://lh3.googleusercontent.com/d/1l0kP-lg-1Cg2yQ33dxIN_qlrUty_nDTk" alt="Histological micrograph showing metastatic calcification of pulmonary alveolar walls and blood vessels" loading="lazy" decoding="async">
+          <figcaption>Metastatic calcification involving pulmonary alveolar walls and blood vessels. Image: Yale Rosen, <a href="https://commons.wikimedia.org/wiki/File:Metastatic_calcification_Case_141_(4962399264).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. Licensed under <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>. No modification other than browser scaling.</figcaption>
+        </figure>
+        <p style="font-size:.875rem;color:var(--secondary-color);">This comparative pathology specimen shows mineral deposition along pulmonary alveolar walls and blood vessels. Metastatic calcification develops in previously viable tissues because of systemic disturbance of calcium-phosphorus metabolism. Veterinary causes include vitamin D toxicosis, chronic renal disease with phosphate retention, primary hyperparathyroidism, paraneoplastic hypercalcemia, and extensive osteolytic disease.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="takeaways-box">
+      <h3>Key Takeaways</h3>
+      <ul><li>Pathological calcification appears gross as chalky gritty white foci and microscopically as deep basophilic (purple) deposits on H&amp;E.</li><li>Dystrophic calcification occurs locally in dead/necrotic tissue with normal serum calcium.</li><li>Metastatic calcification occurs widespread in normal viable tissues secondary to hypercalcemia or altered calcium-phosphorus products.</li></ul>
+    </div>
+    <div class="quiz-box">
+      <h3>Knowledge Check</h3>
+      <div class="quiz-q"><p>1. What key clinical laboratory finding differentiates metastatic calcification from dystrophic calcification?</p><details><summary>Show Answer</summary>Systemic hypercalcemia (or altered calcium-phosphorus product). Serum calcium is elevated in metastatic calcification, whereas it remains normal in dystrophic calcification.</details></div>
+      <div class="quiz-q"><p>2. Why are the gastric mucosa, lungs, and kidneys frequent target organs for metastatic calcification?</p><details><summary>Show Answer</summary>These tissues lose acid (H<sup>+</sup>) or concentrate solutes, creating a local alkaline internal environment that lowers mineral solubility and favors calcium salt precipitation.</details></div>
+      <div class="quiz-q"><p>3. What color does calcium mineral deposit appear on standard H&amp;E stained tissue sections?</p><details><summary>Show Answer</summary>Deeply basophilic (dark purple to blue-black), amorphous or granular deposits.</details></div>
+    </div>
+  </section>
+
+  <footer class="page-nav">
+    <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/pathological-pigments" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Pathological Pigments</a>
+    <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/crystals-and-urates" class="nav-btn" target="_blank" rel="noopener noreferrer">Crystals and Urates &rarr;</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intracellular Accumulations | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* A. INTRODUCTION */
+    .intro-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .intro-card h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .intro-card p {
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+
+    /* B. GENERAL MECHANISMS */
+    .mech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .mech-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .mech-card h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .mech-card p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* C. TYPES OF ACCUMULATED MATERIAL */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .type-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .type-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* CLASSIFICATION ILLUSTRATION */
+    .classification-figure {
+      margin: 20px 0 0;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%);
+    }
+    .classification-root {
+      max-width: 390px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      border-radius: 8px;
+      background: var(--primary-color);
+      color: #ffffff;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .classification-connector {
+      text-align: center;
+      color: var(--accent-color);
+      font-size: 1.6rem;
+      line-height: 1;
+      padding: 8px 0;
+      font-weight: 700;
+    }
+    .classification-branches {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .classification-card {
+      position: relative;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+      border-top: 5px solid var(--accent-color);
+      border-radius: 8px;
+      background: #ffffff;
+      text-align: center;
+    }
+    .classification-card h3 {
+      color: var(--primary-color);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .classification-substance {
+      color: var(--text-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .classification-feature {
+      color: var(--secondary-color);
+      font-size: 0.8rem;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+    .classification-stain {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #ebf8ff;
+      border: 1px solid #bee3f8;
+      color: var(--primary-color);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .classification-figure figcaption {
+      margin-top: 14px;
+      color: var(--secondary-color);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .classification-branches {
+        grid-template-columns: 1fr;
+      }
+      .classification-card {
+        text-align: left;
+      }
+    }
+
+    /* D. THREE LINKED LESSON CARDS */
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .lesson-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .lesson-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent-color);
+    }
+    .lesson-card h3 {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .lesson-card p {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .btn-lesson {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 0;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+    .btn-lesson:hover {
+      background-color: #2c5282;
+    }
+
+    /* E. PREVIEW COMPARISON TABLE */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* F. DIAGNOSTIC APPROACH */
+    .approach-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+    }
+    .approach-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .approach-step {
+      background-color: var(--bg-light);
+      border-left: 4px solid var(--accent-color);
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+    .approach-step strong {
+      color: var(--primary-color);
+    }
+
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      Intracellular Accumulations
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Intracellular Accumulations</h1>
+      <p>Overview of cellular mechanisms leading to the storage of endogenous and exogenous substances within parenchymal cells.</p>
+    </header>
+
+    <!-- A. INTRODUCTION -->
+    <section class="section">
+      <div class="intro-card">
+        <h2>Pathological Principles</h2>
+        <p>
+          Intracellular accumulation develops when cells are unable to adequately metabolize, package, transport, secrete, or degrade organic or inorganic material. The stored substances may reside within the cytoplasm, organelles (such as lysosomes), or the nucleus, resulting in structural alterations and functional compromise.
+        </p>
+      </div>
+    </section>
+
+    <!-- CLASSIFICATION ILLUSTRATION -->
+    <section class="section" aria-labelledby="classification-title">
+      <h2 id="classification-title" class="section-title">Classification at a Glance</h2>
+      <figure class="classification-figure">
+        <div class="classification-root">Intracellular Accumulations</div>
+        <div class="classification-connector" aria-hidden="true">&#8595;</div>
+        <div class="classification-branches">
+          <div class="classification-card">
+            <h3>Lipids</h3>
+            <div class="classification-substance">Neutral triglycerides</div>
+            <p class="classification-feature">Sharply defined clear cytoplasmic vacuoles; the nucleus may be displaced in macrovesicular steatosis.</p>
+            <span class="classification-stain">Oil Red O / Sudan III</span>
+          </div>
+          <div class="classification-card">
+            <h3>Glycogen</h3>
+            <div class="classification-substance">Intracellular carbohydrate</div>
+            <p class="classification-feature">Pale, feathery or indistinct cytoplasmic clearing, usually with a centrally retained nucleus.</p>
+            <span class="classification-stain">PAS positive; diastase-sensitive</span>
+          </div>
+          <div class="classification-card">
+            <h3>Proteins</h3>
+            <div class="classification-substance">Proteinaceous material</div>
+            <p class="classification-feature">Homogeneous eosinophilic droplets, inclusions or aggregates, including renal reabsorption droplets and Russell bodies.</p>
+            <span class="classification-stain">Primarily recognized on H&amp;E</span>
+          </div>
+        </div>
+        <figcaption>Major intracellular accumulations are distinguished by the stored material, microscopic appearance and confirmatory histochemical approach.</figcaption>
+      </figure>
+    </section>
+
+    <!-- B. GENERAL MECHANISMS -->
+    <section class="section">
+      <h2 class="section-title">General Pathogenetic Mechanisms</h2>
+      <div class="mech-grid">
+        <div class="mech-card">
+          <h3>1. Abnormal Metabolism</h3>
+          <p>A normal endogenous substance is produced at a normal or increased rate, but metabolic pathways or transport systems are inadequate to clear it (e.g., hepatic lipidosis).</p>
+        </div>
+        <div class="mech-card">
+          <h3>2. Defective Protein Folding / Transport</h3>
+          <p>An abnormal endogenous protein accumulates due to gene mutations causing protein misfolding, impaired endoplasmic reticulum transport, or lack of secretion (e.g., alpha-1-antitrypsin deficiency).</p>
+        </div>
+        <div class="mech-card">
+          <h3>3. Enzyme Deficiency</h3>
+          <p>A normal or abnormal endogenous substance accumulates because a inherited or acquired enzymatic defect prevents its normal degradation (e.g., lysosomal storage diseases).</p>
+        </div>
+        <div class="mech-card">
+          <h3>4. Indigestible Material Ingestion</h3>
+          <p>An exogenous substance accumulates because the cell lacks the enzymatic machinery to degrade it or the ability to transport it out of the cell (e.g., carbon particles / silica).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- C. TYPES OF ACCUMULATED MATERIAL -->
+    <section class="section">
+      <h2 class="section-title">Categories of Accumulated Material</h2>
+      <div class="types-grid">
+        <div class="type-card">
+          <strong>Normal Endogenous Produced in Excess</strong>
+          Water, lipids, proteins, and carbohydrates generated faster than their clearance rate.
+        </div>
+        <div class="type-card">
+          <strong>Normal Endogenous Unmetabolized</strong>
+          Substances accumulating due to specific metabolic blockades or enzyme failure.
+        </div>
+        <div class="type-card">
+          <strong>Abnormal Endogenous Substances</strong>
+          Misfolded proteins, mutant enzymes, or abnormal metabolic byproducts.
+        </div>
+        <div class="type-card">
+          <strong>Exogenous Materials</strong>
+          Inhaled carbon, mineral dusts, heavy metals, or indigestible bacterial pigments.
+        </div>
+      </div>
+    </section>
+
+    <!-- D. THREE LINKED LESSON CARDS -->
+    <section class="section">
+      <h2 class="section-title">Explore Specific Lessons</h2>
+      <div class="lessons-grid">
+
+        <div class="lesson-card">
+          <div>
+            <h3>Fatty Change (Lipidosis)</h3>
+            <p>
+              Abnormal accumulation of neutral triglycerides within parenchymal cells. Predominantly affects the liver, myocardium, and renal proximal tubules during negative energy balance or toxic injury.
+            </p>
+          </div>
+          <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/fatty-change" class="btn-lesson" target="_blank" rel="noopener noreferrer">Study Fatty Change &rarr;</a>
+        </div>
+
+        <div class="lesson-card">
+          <div>
+            <h3>Glycogen Accumulation</h3>
+            <p>
+              Excessive intracellular carbohydrate storage resulting from metabolic disorders, endocrine imbalances (such as canine hyperadrenocorticism or diabetes mellitus), or inherited storage diseases.
+            </p>
+          </div>
+          <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/glycogen-accumulation" class="btn-lesson" target="_blank" rel="noopener noreferrer">Study Glycogen Accumulation &rarr;</a>
+        </div>
+
+        <div class="lesson-card">
+          <div>
+            <h3>Hyaline Change</h3>
+            <p>
+              Descriptive term for homogeneous, glassy, eosinophilic proteinaceous material accumulating within cells (e.g., renal protein reabsorption droplets, Russell bodies) or extracellularly.
+            </p>
+          </div>
+          <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/protein-accumulations-and-hyaline-change" class="btn-lesson" target="_blank" rel="noopener noreferrer">Study Hyaline Change &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- E. PREVIEW COMPARISON TABLE -->
+    <section class="section">
+      <h2 class="section-title">Lesion Comparison Preview</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Lesion Type</th>
+              <th>Accumulated Material</th>
+              <th>Intracellular Appearance (H&E)</th>
+              <th>Common Organs</th>
+              <th>Special Stain</th>
+              <th>Representative Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Fatty Change</strong></td>
+              <td>Triglycerides</td>
+              <td>Sharply defined, clear, round vacuoles; nucleus displaced in macrovesicular form</td>
+              <td>Liver, Heart, Kidney</td>
+              <td>Oil Red O / Sudan III (frozen)</td>
+              <td>Feline hepatic lipidosis</td>
+            </tr>
+            <tr>
+              <td><strong>Glycogen Accumulation</strong></td>
+              <td>Glycogen (carbohydrate)</td>
+              <td>Feathery, indistinct, pale clear cytoplasmic spaces; central nucleus</td>
+              <td>Liver, Kidney, Muscle</td>
+              <td>PAS (diastase-sensitive)</td>
+              <td>Canine steroid hepatopathy</td>
+            </tr>
+            <tr>
+              <td><strong>Hyaline Change</strong></td>
+              <td>Proteins / Immunoglobulins</td>
+              <td>Homogeneous, glassy, dense eosinophilic droplets or masses</td>
+              <td>Kidney, Plasma cells, Muscles</td>
+              <td>H&E / Masson's Trichrome</td>
+              <td>Renal protein reabsorption droplets</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- F. DIAGNOSTIC APPROACH -->
+    <section class="section">
+      <h2 class="section-title">Diagnostic Approach Sequence</h2>
+      <div class="approach-box">
+        <p style="font-size: 0.95rem; color: var(--secondary-color);">
+          Follow this systematic sequence when evaluating microscopic tissue sections displaying cytoplasmic vacuolation or accumulation:
+        </p>
+        <div class="approach-steps">
+          <div class="approach-step">
+            <strong>Step 1: Localization</strong> &mdash; Determine whether the material is strictly intracellular, extracellular, or both.
+          </div>
+          <div class="approach-step">
+            <strong>Step 2: Color and Texture</strong> &mdash; Assess if the material is clear, eosinophilic, basophilic, or naturally pigmented.
+          </div>
+          <div class="approach-step">
+            <strong>Step 3: Vacuole Borders</strong> &mdash; Evaluate vacuolar margins (sharply demarcated vs. feathery/indistinct).
+          </div>
+          <div class="approach-step">
+            <strong>Step 4: Nuclear Position</strong> &mdash; Check whether the nucleus remains centrally located or is peripherally displaced.
+          </div>
+          <div class="approach-step">
+            <strong>Step 5: Special Stains</strong> &mdash; Select the appropriate histochemical stain (e.g., Oil Red O, PAS with diastase, Congo Red).
+          </div>
+          <div class="approach-step">
+            <strong>Step 6: Clinical Correlation</strong> &mdash; Interpret the morphological findings in light of species, clinical history, and laboratory data.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Intracellular accumulations result from abnormal metabolism, misfolding, enzyme lack, or indigestible material ingestion.</li>
+          <li>Microscopic differentiation relies on vacuolar border sharpness, nuclear position, and specific histochemical stains.</li>
+          <li>This overview introduces three core sub-lessons: Fatty Change, Glycogen Accumulation, and Hyaline Change.</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. What key morphological feature on H&E helps distinguish macrovesicular fatty change from glycogen accumulation?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Macrovesicular fatty change forms sharply demarcated, clear, round vacuoles that displace the nucleus to the cell periphery, whereas glycogen accumulation produces feathery, indistinct clear spaces with a centrally retained nucleus.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>2. Why are special lipid stains (such as Oil Red O) performed on frozen tissue sections rather than routine paraffin sections?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Routine paraffin processing uses organic solvents (alcohol and xylene) that dissolve and wash away neutral lipids, leaving empty vacuoles. Frozen sectioning avoids these solvents.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>3. Which mechanism explains carbon particle (anthracosis) accumulation in pulmonary alveolar macrophages?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Ingestion of an indigestible exogenous material that the cell lacks enzymatic pathways to degrade or transport out.
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/cellular-swelling-and-hydropic-change" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Cellular Swelling</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/fatty-change" class="nav-btn" target="_blank" rel="noopener noreferrer">Fatty Change &rarr;</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

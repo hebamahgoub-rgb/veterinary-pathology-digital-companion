@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatty Change | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* A. DEFINITION */
+    .definition-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .definition-box h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .definition-box p {
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+      margin-bottom: 12px;
+    }
+    .term-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .term-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 10px 12px;
+      font-size: 0.875rem;
+    }
+    .term-item strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* VIDEO LESSON */
+    .video-card {
+      max-width: 820px;
+      margin: 0 auto;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(26, 54, 93, 0.08);
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-body {
+      padding: 16px 18px 18px;
+    }
+    .video-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ebf8ff;
+      border: 1px solid #90cdf4;
+      color: var(--primary-color);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .video-body h3 {
+      color: var(--primary-color);
+      font-size: 1.08rem;
+      line-height: 1.4;
+      margin-bottom: 7px;
+    }
+    .video-body p {
+      color: var(--secondary-color);
+      font-size: 0.88rem;
+      margin-bottom: 12px;
+    }
+    .video-link {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+    .video-link:hover,
+    .video-link:focus {
+      background: var(--primary-color);
+    }
+
+    /* B. NORMAL METABOLISM & C. MECHANISMS */
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .pathway-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .pathway-card h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .pathway-card p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* D. CAUSES & VETERINARY EXAMPLES */
+    .causes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .cause-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .cause-card h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .cause-card p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* E & F. MORPHOLOGY */
+    .morph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .morph-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .morph-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .morph-card ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .morph-card li {
+      margin-bottom: 6px;
+    }
+
+    /* G. DEMONSTRATION OF LIPID */
+    .stain-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+    }
+    .stain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .stain-card {
+      background-color: var(--bg-light);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .stain-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* H. CONSEQUENCES */
+    .consequences-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    /* I. MORPHOLOGY FOCUS */
+    .case-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 650px) {
+      .case-box {
+        grid-template-columns: 280px 1fr;
+      }
+    }
+
+    .case-figure {
+      margin: 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-light);
+      align-self: start;
+    }
+
+    .case-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .case-figure figcaption {
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--secondary-color);
+    }
+
+    .image-credit {
+      display: block;
+      margin-top: 7px;
+      font-size: 0.72rem;
+    }
+
+    .image-credit a {
+      color: var(--accent-color);
+    }
+
+    .veterinary-relevance {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+
+    /* TEACHING ILLUSTRATIONS */
+    .teaching-figure {
+      margin: 18px 0 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+    .teaching-figure figcaption {
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations" target="_blank" rel="noopener noreferrer">Intracellular Accumulations</a> &gt; 
+      Fatty Change
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Fatty Change (Lipidosis / Steatosis)</h1>
+      <p>Abnormal accumulation of neutral triglycerides within parenchymal cells.</p>
+    </header>
+
+    <!-- A. DEFINITION -->
+    <section class="section">
+      <div class="definition-box">
+        <h2>Definition and Terminology</h2>
+        <p>
+          Fatty change refers to the abnormal accumulation of neutral triglycerides within non-adipose parenchymal cells. While most frequently encountered in the liver, it also affects the myocardium, skeletal muscle, and renal tubular epithelium.
+        </p>
+        <div class="term-list">
+          <div class="term-item">
+            <strong>Fatty Change</strong>
+            General morphological term for intracellular lipid accumulation in parenchymal cells.
+          </div>
+          <div class="term-item">
+            <strong>Steatosis</strong>
+            Synonymous medical term commonly used for hepatic lipid accumulation.
+          </div>
+          <div class="term-item">
+            <strong>Lipidosis</strong>
+            Broad clinical/pathological term applied to metabolic lipid storage (e.g., Feline Hepatic Lipidosis).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO OVERVIEW -->
+    <section class="section" aria-labelledby="video-overview-title">
+      <h2 id="video-overview-title" class="section-title">Video Overview</h2>
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/JWjg6rhiwoQ"
+            title="Hepatic Lipidosis and Steatosis veterinary pathology video lesson"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-body">
+          <span class="video-label">English micro-lesson</span>
+          <h3>Hepatic Lipidosis (Steatosis): How Fat Accumulates in the Liver</h3>
+          <p>Review the major mechanisms of triglyceride accumulation and the characteristic gross and microscopic appearance of hepatic fatty change.</p>
+          <a class="video-link" href="https://youtu.be/JWjg6rhiwoQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. NORMAL METABOLISM & C. MECHANISMS -->
+    <section class="section">
+      <h2 class="section-title">Pathogenesis &amp; Mechanisms of Accumulation</h2>
+      <p style="font-size: 0.95rem; color: var(--secondary-color); margin-bottom: 12px;">
+        Neutral triglycerides accumulate whenever hepatic lipid entry/synthesis exceeds hepatic oxidation, esterification, or lipoprotein export:
+      </p>
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <h3>1. Increased FFA Delivery</h3>
+          <p>Excessive mobilization of free fatty acids (FFAs) from adipose tissue during negative energy balance, starvation, or obesity.</p>
+        </div>
+        <div class="pathway-card">
+          <h3>2. Impaired FFA Oxidation</h3>
+          <p>Mitochondrial hypoxia or toxin-induced inhibition preventing beta-oxidation of fatty acids into acetyl-CoA.</p>
+        </div>
+        <div class="pathway-card">
+          <h3>3. Reduced Apoprotein Synthesis</h3>
+          <p>Inadequate apoprotein production due to protein-calorie malnutrition or hepatotoxins (e.g., carbon tetrachloride, phosphorus).</p>
+        </div>
+        <div class="pathway-card">
+          <h3>4. Impaired Lipoprotein Export</h3>
+          <p>Defects in packaging triglycerides with apoproteins into Very Low-Density Lipoproteins (VLDL) or blockades in exocytosis.</p>
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1QwbiMrPqwNBO6_Cf7Nu6lMGZIo1yyvNa" alt="Mechanisms leading to hepatic steatosis" loading="lazy" decoding="async">
+        <figcaption>Mechanisms leading to hepatic steatosis. Fatty change results from defects in any step from fatty acid uptake to lipoprotein export. Causes include increased fatty acid mobilization (starvation), decreased apoprotein synthesis (protein malnutrition), metabolic disease, hypoxia, and hepatotoxic injury (e.g., CCl₄). These disruptions lead to intracellular triglyceride accumulation.</figcaption>
+      </figure>
+    </section>
+
+    <!-- D. CAUSES AND VETERINARY EXAMPLES -->
+    <section class="section">
+      <h2 class="section-title">Etiology and Veterinary Examples</h2>
+      <div class="causes-grid">
+        <div class="cause-card">
+          <h3>Negative Energy Balance &amp; Starvation</h3>
+          <p>Massive peripheral adipose mobilization exceeding metabolic capacity (e.g., prolonged anorexia in obese cats, starvation).</p>
+        </div>
+        <div class="cause-card">
+          <h3>Feline Hepatic Lipidosis</h3>
+          <p>Idiopathetic syndrome in overweight cats undergoing acute anorexia, leading to severe liver failure and icterus.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Bovine Periparturient Fatty Liver</h3>
+          <p>High-yielding dairy cattle during early lactation experiencing high energy demands and intense fat mobilization.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Pregnancy Toxemia in Small Ruminants</h3>
+          <p>Ewes and does carrying twins/triplets in late gestation experiencing metabolic energy deficits.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Hypoxia &amp; Toxins</h3>
+          <p>Severe anemia, chronic passive congestion, or hepatotoxic chemicals damaging mitochondrial oxidation pathways.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Endocrine Disorders</h3>
+          <p>Diabetes mellitus or equine metabolic syndrome altering insulin regulation and lipolysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- E & F. MORPHOLOGY -->
+    <section class="section">
+      <h2 class="section-title">Morphological Features</h2>
+      <div class="morph-grid">
+        <div class="morph-card">
+          <h3>Gross Morphology</h3>
+          <ul>
+            <li><strong>Organ Size &amp; Weight:</strong> Diffusely enlarged, heavy liver.</li>
+            <li><strong>Color:</strong> Pale-yellow, yellow-orange, or light tan.</li>
+            <li><strong>Texture &amp; Consistency:</strong> Soft, friable, greasy texture when handled.</li>
+            <li><strong>Margins:</strong> Rounded liver capsule borders.</li>
+            <li><strong>Cut Surface:</strong> Bulges, feels greasy, and small tissue fragments float in water/fixative if severe.</li>
+          </ul>
+        </div>
+        <div class="morph-card">
+          <h3>Microscopic Morphology (H&amp;E)</h3>
+          <ul>
+            <li><strong>Microvesicular Form:</strong> Multiple tiny, clear cytoplasmic vacuoles without displacing the central nucleus.</li>
+            <li><strong>Macrovesicular Form:</strong> Single large, sharply demarcated, optically clear vacuole filling cytoplasm and displacing the nucleus to the cell periphery.</li>
+            <li><strong>Distributions:</strong> Zonal (centrilobular in hypoxia/toxins, periportal in starvation) or diffuse.</li>
+            <li><strong>Vacuole Appearance:</strong> Sharply demarcated, circular clear spaces.</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1PqzTuw1T8Dcyq6185zSD7hYl6xdXLWPC" alt="Gross appearance of hepatic fatty change (steatosis)" loading="lazy" decoding="async">
+        <figcaption>Gross appearance of hepatic fatty change (steatosis). The liver is enlarged with rounded borders and displays a tan-to-yellow discoloration. The cut surface bulges outward and appears greasy and dull, reflecting intracellular triglyceride accumulation in hepatocytes. These changes correspond to progressive fatty change described in veterinary pathology.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1hKAw6adAUnRfuCq8iUYDH00bYnQ8wSce" alt="Microvesicular and macrovesicular hepatic fatty change" loading="lazy" decoding="async">
+        <figcaption>Histologic patterns of fatty change in hepatocytes. Macrovesicular fatty change features large cytoplasmic lipid vacuoles that compress and displace nuclei, whereas microvesicular fatty change consists of multiple small vacuoles that do not significantly displace nuclei. These patterns reflect different pathogenic mechanisms, with macrovesicular change often metabolic and microvesicular change frequently toxin-associated.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1GpmAO5BB4WENKnvPlv0ibMLYx2jxBUPZ" alt="Zonal distribution of hepatic fatty change" loading="lazy" decoding="async">
+        <figcaption>Zonal patterns of hepatic fatty change. Fatty change may be focal, zonal (centrilobular or periportal), or diffuse. Zonal patterns are often treatment-related or associated with specific metabolic or toxic disturbances, whereas focal lesions may occur spontaneously.</figcaption>
+      </figure>
+    </section>
+
+    <!-- G. DEMONSTRATION OF LIPID -->
+    <section class="section">
+      <h2 class="section-title">Histochemical Demonstration of Lipid</h2>
+      <div class="stain-box">
+        <p style="font-size: 0.95rem; color: var(--secondary-color);">
+          Routine histological tissue processing utilizes organic solvents (alcohol, xylene) that dissolve and extract neutral lipids, leaving empty, optically clear vacuoles on standard H&amp;E stains.
+        </p>
+        <div class="stain-grid">
+          <div class="stain-card">
+            <strong>Standard H&amp;E (Paraffin)</strong>
+            Lipid is dissolved away; leaves sharply demarcated, empty cytoplasmic vacuoles.
+          </div>
+          <div class="stain-card">
+            <strong>Oil Red O / Sudan III</strong>
+            Performed on frozen unfixed sections; stains neutral triglycerides vivid red/orange.
+          </div>
+          <div class="stain-card">
+            <strong>Osmium Tetroxide</strong>
+            Fixative that reacts chemically with unsaturated lipids, staining them dense black.
+          </div>
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/17O5tB68_zD1_7mwG_cn_ESPcsfvrKL-6" alt="Special stains differentiating lipid, glycogen, and water vacuoles" loading="lazy" decoding="async">
+        <figcaption>Special stains used to differentiate clear cytoplasmic vacuoles. Lipid vacuoles require frozen sections and stain positively with Sudan IV or Oil Red O. Glycogen vacuoles stain magenta with PAS. Water vacuoles remain negative for both lipid and PAS stains. These techniques allow differentiation of intracellular accumulations that appear similar on routine H&E.</figcaption>
+      </figure>
+    </section>
+
+    <!-- H. CONSEQUENCES -->
+    <section class="section">
+      <h2 class="section-title">Consequences and Reversibility</h2>
+      <div class="consequences-box">
+        <p>
+          Fatty change is inherently a <strong>reversible lesion</strong> if the underlying metabolic, nutritional, or toxic cause is corrected. However, if severe and persistent:
+        </p>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li>Rupture of heavily laden hepatocytes forms extracellular <strong>fat cysts</strong>.</li>
+          <li>Severe swelling causes sinusoidal compression, leading to intrahepatic cholestasis and icterus.</li>
+          <li>Increases susceptibility to secondary cell injury, lipid peroxidation, inflammation, and hepatic failure.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- I. MORPHOLOGY FOCUS -->
+    <section class="section">
+      <h2 class="section-title">Morphology Focus</h2>
+      <div class="case-box">
+        <figure class="case-figure">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fatty%20change%20liver%20-%20Lipid%20steatosis%2040X.jpg" alt="Liver histology showing hepatocytes distended by variably sized clear cytoplasmic lipid vacuoles, H&E.">
+          <figcaption>
+            Hepatic fatty change. Hepatocytes contain variably sized clear lipid vacuoles; some vacuoles displace the nucleus peripherally. H&amp;E, 40&times;.
+            <span class="image-credit">Image: Department of Pathology, Calicut Medical College, via <a href="https://commons.wikimedia.org/wiki/File:Fatty_change_liver_-_Lipid_steatosis_40X.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</span>
+          </figcaption>
+        </figure>
+        <div>
+          <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px;">Hepatic Steatosis</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+            The section shows hepatocytes containing multiple variably sized, optically clear cytoplasmic vacuoles. In more severely affected cells, the vacuoles coalesce and may displace the nucleus toward the cell periphery. Lipid appears empty in routine paraffin sections because it is dissolved during tissue processing.
+          </p>
+          <p class="veterinary-relevance">
+            <strong>Veterinary relevance:</strong> The same fundamental morphological pattern occurs in veterinary conditions such as feline hepatic lipidosis, bovine periparturient fatty liver, pregnancy toxemia of ewes and does, and toxin- or hypoxia-associated hepatic injury.
+          </p>
+          <p style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color); margin-top: 12px;">
+            Morphological diagnosis: Diffuse hepatocellular fatty change (hepatic steatosis).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Fatty change is the accumulation of neutral triglycerides within non-adipose parenchymal cells (predominantly liver).</li>
+          <li>Mechanisms include increased FFA influx, reduced oxidation, decreased apoprotein synthesis, or defective VLDL secretion.</li>
+          <li>Microscopically forms sharply demarcated clear vacuoles that displace nuclei (macrovesicular); confirmed via Oil Red O on frozen tissue.</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. Why do routine paraffin-embedded H&amp;E sections show empty vacuoles in fatty liver tissue?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Organic processing solvents (alcohol and xylene) dissolve and extract neutral lipids during paraffin embedding, leaving clear spaces where lipid was located.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>2. What key nuclear change distinguishes macrovesicular fatty change from microvesicular fatty change?</p>
+          <details>
+            <summary>Show Answer</summary>
+            In macrovesicular fatty change, a single large lipid droplet pushes the nucleus to the cell periphery. In microvesicular, multiple small droplets surround a central nucleus.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>3. Is fatty change reversible?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Yes. Fatty change is inherently a reversible metabolic alteration if the inciting cause (e.g., anorexia, energy deficit, or toxin) is resolved before irreversible necrosis occurs.
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Intracellular Accumulations</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/glycogen-accumulation" class="nav-btn" target="_blank" rel="noopener noreferrer">Glycogen Accumulation &rarr;</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

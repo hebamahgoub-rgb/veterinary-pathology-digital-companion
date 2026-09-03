@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical Pathology Gallery | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #2d3748;
+      --accent-color: #2b6cb0;
+      --bg-light: #f7fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --text-main: #2d3748;
+      --text-muted: #718096;
+      --badge-bg: #ebf8ff;
+      --badge-text: #2b6cb0;
+      --radius: 8px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      padding: 2rem 1rem;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      color: var(--primary-color);
+      font-size: 2.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .case-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-header {
+      padding: 1rem 1.25rem;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .case-category {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .species-badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .case-title {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      padding: 1rem 1.25rem 0.5rem;
+    }
+
+    .case-figure {
+      margin: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .case-figure img {
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+      object-position: center;
+      background: #edf2f7;
+    }
+
+    .case-figure figcaption {
+      padding: 9px 12px;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    .case-figure figcaption a {
+      color: var(--accent-color);
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 480px) {
+      .case-figure img {
+        height: 220px;
+      }
+    }
+
+    .case-body {
+      padding: 1.25rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metadata-list {
+      list-style: none;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .metadata-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .teaching-point {
+      background: var(--bg-light);
+      border-left: 4px solid var(--accent-color);
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .self-assessment {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .self-assessment h2 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .question-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .question-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .question-block p.question {
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    details {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+    }
+
+    summary {
+      font-weight: 600;
+      color: var(--accent-color);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    summary:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+
+    details p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    /* PAGE NAVIGATION BUTTONS */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Practical Pathology Gallery</h1>
+    <p>Disturbance in Cell Metabolism</p>
+  </header>
+
+  <main>
+    <div class="gallery-grid">
+
+      <!-- CASE 01 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 01 • Cellular Swelling</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Hepatocellular Ballooning</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1Jl2KREyBWFPhhlmtjQ6qtU7D2hOVRfde"
+            alt="High-magnification liver micrograph demonstrating enlarged ballooned hepatocytes in steatohepatitis."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Hepatocellular ballooning in steatohepatitis, trichrome stain.
+            Image: Nephron; annotated version uploaded by Signimu,
+            <a href="https://commons.wikimedia.org/wiki/File:Ballooning_degeneration_high_mag_cropped_annotated.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Representative liver section demonstrating marked cellular swelling associated with hepatocellular injury.</li>
+            <li><strong>Morphology:</strong> Enlarged hepatocytes have pale, rarefied cytoplasm, illustrating loss of normal cytoplasmic density.</li>
+            <li><strong>Diagnosis:</strong> Hepatocellular ballooning (cellular swelling).</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Cellular swelling reflects disturbed ionic and water homeostasis. Ballooning degeneration is a morphologically advanced form of cell swelling and should not be attributed to a particular cause without clinical context.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 02 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 02 • Fatty Change</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Hepatic Lipid Steatosis</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1VsdJlgbzNEWsISNp-o4DNY2s28kp9V3C"
+            alt="Liver section showing hepatocytes containing variably sized clear lipid vacuoles, with some nuclei displaced toward the cell periphery, H&amp;E, 40×."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Hepatic lipid steatosis, H&amp;E, 40×.
+            Image: Department of Pathology, Calicut Medical College,
+            <a href="https://commons.wikimedia.org/wiki/File:Fatty_change_liver_-_Lipid_steatosis_40X.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Representative teaching section demonstrating intracellular lipid accumulation in hepatocytes.</li>
+            <li><strong>Morphology:</strong> Variably sized clear cytoplasmic vacuoles; larger vacuoles displace hepatocyte nuclei toward the periphery.</li>
+            <li><strong>Diagnosis:</strong> Hepatic lipid steatosis (fatty change).</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Routine tissue processing removes neutral lipid, leaving optically clear vacuoles. Lipid can be demonstrated in frozen sections using stains such as Oil Red O.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 03 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 03 • Glycogen</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Hepatic Glycogen Accumulation</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1ZD0Nw2VIjhrnjX4V3P-_sJUGTb_D1ODT"
+            alt="Liver biopsy showing uniformly distended hepatocytes with clear to pale eosinophilic cytoplasm caused by glycogen accumulation, H&amp;E, 20×."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Hepatic glycogen accumulation, H&amp;E, 20×.
+            Image: Department of Pathology, Calicut Medical College,
+            <a href="https://commons.wikimedia.org/wiki/File:Liver_biopsy_of_glycogen_storage_disorder_20X.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Liver biopsy demonstrating a glycogen-storage disorder.</li>
+            <li><strong>Morphology:</strong> Hepatocytes are uniformly distended by clear to pale eosinophilic cytoplasm.</li>
+            <li><strong>Diagnosis:</strong> Hepatocellular glycogen accumulation.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Glycogen commonly produces diffuse, feathery cytoplasmic clearing while nuclei remain relatively central. PAS positivity that is removed by diastase supports glycogen identification.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 04 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 04 • Hyaline Change</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Mallory–Denk Body</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1EYsm0C33tx8cw57Fpjl91vQs6m3cE64v"
+            alt="High-magnification liver micrograph showing an eosinophilic rope-like Mallory–Denk body within a hepatocyte, H&amp;E."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Mallory–Denk body in a liver biopsy, H&amp;E, original magnification 400×.
+            Image: Nephron,
+            <a href="https://commons.wikimedia.org/wiki/File:Mallory_body_high_mag.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Liver biopsy demonstrating an intracellular protein aggregate.</li>
+            <li><strong>Morphology:</strong> Irregular eosinophilic, rope-like cytoplasmic inclusion within an injured hepatocyte.</li>
+            <li><strong>Diagnosis:</strong> Mallory–Denk body, an example of intracellular hyaline change.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> “Hyaline” is a descriptive light-microscopic term rather than a specific substance. Mallory–Denk bodies contain aggregated cytoskeletal proteins.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 05 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 05 • Dystrophic Calcification</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Dystrophic Calcification in Atherosclerosis</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1D6V1X4-At877uGpPZJRKrtGyb6ncq-Sq"
+            alt="Histological section of an advanced atherosclerotic plaque containing dystrophic calcification, H&amp;E."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Advanced atherosclerosis with dystrophic calcification, H&amp;E.
+            Image: Patho,
+            <a href="https://commons.wikimedia.org/wiki/File:Atherosclerosis,_HE_7.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Advanced atherosclerotic lesion containing mineral deposition within chronically damaged tissue.</li>
+            <li><strong>Morphology:</strong> Basophilic mineral is deposited within an area of tissue injury and plaque degeneration.</li>
+            <li><strong>Diagnosis:</strong> Dystrophic calcification associated with atherosclerosis.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Dystrophic calcification occurs locally in damaged or necrotic tissue and does not require systemic hypercalcaemia.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 06 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 06 • Metastatic Calcification</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Metastatic Pulmonary Calcification</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1BDMVk3eQ8UzRqH-NjGfN7CH1uXEHrAO8"
+            alt="Lung micrograph showing metastatic calcification involving alveolar walls and blood vessels in an area of acute pneumonitis."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Metastatic calcification of pulmonary alveolar walls and blood vessels.
+            Image: Yale Rosen,
+            <a href="https://commons.wikimedia.org/wiki/File:Metastatic_calcification_Case_141_(4962399264).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Pulmonary tissue demonstrating mineral deposition along alveolar walls and blood vessels.</li>
+            <li><strong>Morphology:</strong> Basophilic mineral outlines portions of the alveolar septa and vascular walls.</li>
+            <li><strong>Diagnosis:</strong> Metastatic pulmonary calcification.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> In contrast to dystrophic calcification, metastatic calcification results from disturbed calcium–phosphate metabolism and tends to involve otherwise viable tissues.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 07 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 07 • Pigment</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Pulmonary Hemosiderosis</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1Je57NOpyjukfg5ShWla7SvVu7Z4v-dCy"
+            alt="Congested lung containing alveolar macrophages filled with coarse golden-brown hemosiderin granules, H&amp;E, 40×."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Hemosiderin-laden macrophages in chronic pulmonary venous congestion, H&amp;E, 40×.
+            Image: Department of Pathology, Calicut Medical College,
+            <a href="https://commons.wikimedia.org/wiki/File:Hemosiderin_laden_macrophages_in_chronic_venous_congestion_of_lung_40X.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Chronic pulmonary venous congestion with recurrent leakage of erythrocytes into alveoli.</li>
+            <li><strong>Morphology:</strong> Alveolar macrophages contain coarse golden-brown cytoplasmic pigment.</li>
+            <li><strong>Diagnosis:</strong> Pulmonary hemosiderosis.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Hemosiderin represents stored iron derived from haemoglobin. Perls’ Prussian blue stain can confirm iron by producing a blue reaction product.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 08 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 08 • Pigment</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Pulmonary Anthracosis</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1D6V1X4-At877uGpPZJRKrtGyb6ncq-Sq"
+            alt="Lung tissue containing alveolar macrophages filled with coarse black carbon pigment without a prominent surrounding inflammatory response, H&amp;E, 100×."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Carbon-laden alveolar macrophages in pulmonary anthracosis, H&amp;E, 100×.
+            Image: Department of Pathology, Calicut Medical College,
+            <a href="https://commons.wikimedia.org/wiki/File:Carbon_laden_macrophages_in_lung,_H%26E_100X.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Inhaled environmental carbon particles phagocytosed by pulmonary macrophages.</li>
+            <li><strong>Morphology:</strong> Coarse black pigment is present within alveolar macrophages without a prominent surrounding inflammatory response.</li>
+            <li><strong>Diagnosis:</strong> Pulmonary anthracosis.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Carbon is an exogenous, chemically inert pigment transported by macrophages from the lung toward regional lymphatics.
+          </div>
+        </div>
+      </article>
+
+      <!-- CASE 09 -->
+      <article class="case-card">
+        <div class="case-header">
+          <span class="case-category">Case 09 • Amyloidosis</span>
+          <span class="species-badge">Comparative Slide</span>
+        </div>
+        <h2 class="case-title">Hepatic Amyloidosis</h2>
+        
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1ah6QFFCoFp4lpjXLz_PGI4NvGfMfywFS"
+            alt="Liver section stained with Congo red and viewed through crossed polarizing filters, showing characteristic orange-green birefringence of amyloid deposits."
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>
+            Hepatic amyloid stained with Congo red and viewed through crossed polarizing filters; 20× objective, scale bar 100 µm.
+            Image: Tulemo,
+            <a href="https://commons.wikimedia.org/wiki/File:Amyloid_Liver_Congo_Red_Bar%3D100um.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            Displayed without modification apart from responsive scaling.
+          </figcaption>
+        </figure>
+
+        <div class="case-body">
+          <ul class="metadata-list">
+            <li><strong>Context:</strong> Liver section examined using Congo red and crossed polarizing filters.</li>
+            <li><strong>Morphology:</strong> Extracellular amyloid deposits demonstrate characteristic orange-to-green birefringence under polarized light.</li>
+            <li><strong>Diagnosis:</strong> Hepatic amyloidosis.</li>
+          </ul>
+          <div class="teaching-point">
+            <strong>Teaching point:</strong> Congo-red positivity together with characteristic birefringence under crossed polarized light supports the identification of amyloid.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- SELF-ASSESSMENT SECTION -->
+    <section class="self-assessment">
+      <h2>Self-Assessment</h2>
+      
+      <div class="question-block">
+        <p class="question">1. Which morphological feature best separates hepatic lipid steatosis (Case 2) from hepatic glycogen accumulation (Case 3)?</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p>In lipid steatosis, sharply defined vacuoles may displace the nucleus toward the cell periphery. Glycogen more often produces diffuse or feathery cytoplasmic clearing with relatively central nuclei.</p>
+        </details>
+      </div>
+
+      <div class="question-block">
+        <p class="question">2. Which special stain can distinguish the golden-brown pigment in Case 7 from the black exogenous pigment in Case 8?</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p>Perls’ Prussian blue stains hemosiderin blue because it contains iron. Carbon does not produce this reaction.</p>
+        </details>
+      </div>
+
+      <div class="question-block">
+        <p class="question">3. What optical equipment is required to demonstrate the characteristic birefringence of Congo-red-stained amyloid in Case 9?</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p>A microscope equipped with crossed polarizing filters.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION BUTTONS -->
+    <footer class="page-nav">
+      <a href="CRYSTALS_URATES_URL" class="nav-btn">&larr; Crystals and Urates</a>
+      <a href="SELF_TEST_URL" class="nav-btn">Test Yourself &rarr;</a>
+    </footer>
+  </main>
+
+</body>
+</html>

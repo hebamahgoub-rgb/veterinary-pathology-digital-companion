@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  .font-serif-academic {
+    font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+  }
+
+  .font-mono-code {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Custom smooth scrolling and scrollbar styling for mobile touch cards */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Polarized Light simulation effect */
+.apple-green-glow {
+  filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.65));
+}
+
+/* =========================================================================
+   Scoped Academic Typography Modes for Disturbance in Cell Metabolism (DICM)
+   ========================================================================= */
+
+/* Base academic content container */
+.academic-content-container {
+  transition: font-size 0.15s ease, line-height 0.15s ease;
+}
+
+/* -------------------------------------------------------------------------
+   1. STANDARD MODE (14px baseline, clean sans-serif)
+   ------------------------------------------------------------------------- */
+.academic-content-container[data-typography-mode="standard"] {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.academic-content-container[data-typography-mode="standard"] :is(
+  p,
+  li,
+  blockquote,
+  dd,
+  dt
+) {
+  font-size: 0.875rem !important; /* ~14px */
+  line-height: 1.55 !important;
+}
+
+.academic-content-container[data-typography-mode="standard"] :is(td, th) {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+.academic-content-container[data-typography-mode="standard"] figcaption,
+.academic-content-container[data-typography-mode="standard"] figcaption div:not([class*="text-[10px]"]):not([class*="text-[11px]"]):not([class*="font-mono-code"]) {
+  font-size: 0.75rem !important;
+  line-height: 1.45 !important;
+}
+
+.academic-content-container[data-typography-mode="standard"] h2 {
+  font-size: 1.125rem !important;
+  line-height: 1.35 !important;
+}
+
+.academic-content-container[data-typography-mode="standard"] h3 {
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+}
+
+.academic-content-container[data-typography-mode="standard"] h4:not([class*="tracking-wider"]):not([class*="text-[10px]"]):not([class*="text-[11px]"]) {
+  font-size: 0.875rem !important;
+  line-height: 1.4 !important;
+}
+
+/* -------------------------------------------------------------------------
+   2. LARGE MODE (~17px baseline, comfortable reading)
+   ------------------------------------------------------------------------- */
+.academic-content-container[data-typography-mode="large"] {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Academic reading text: paragraphs, list items, quotes, diagnostic notes, cards, visible explanations */
+.academic-content-container[data-typography-mode="large"] :is(
+  p,
+  li,
+  blockquote,
+  dd,
+  dt,
+  strong[class*="block"],
+  div[class*="leading-relaxed"],
+  div[class*="border-dashed"],
+  div[class*="bg-emerald-50"],
+  div[class*="bg-rose-50"],
+  div[class*="bg-teal-50"],
+  div[class*="bg-amber-50"],
+  div[class*="bg-slate-50"]
+):not(button):not([role="button"]):not([class*="rounded-full"]):not([class*="font-mono-code"]):not([class*="tracking-wider"]):not([class*="tracking-widest"]):not([class*="text-[10px]"]):not([class*="text-[11px]"]) {
+  font-size: 1.0625rem !important; /* ~17px */
+  line-height: 1.7 !important;
+}
+
+/* Slightly increased paragraph spacing */
+.academic-content-container[data-typography-mode="large"] p {
+  margin-bottom: 0.75rem;
+}
+
+/* Tables: readable and responsive */
+.academic-content-container[data-typography-mode="large"] :is(td, th) {
+  font-size: 0.9375rem !important; /* ~15px */
+  line-height: 1.6 !important;
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
+}
+
+/* Figure captions and legends */
+.academic-content-container[data-typography-mode="large"] figcaption,
+.academic-content-container[data-typography-mode="large"] figcaption div:not([class*="text-[10px]"]):not([class*="text-[11px]"]):not([class*="font-mono-code"]) {
+  font-size: 0.9375rem !important; /* ~15px */
+  line-height: 1.6 !important;
+}
+
+/* Proportionate headings */
+.academic-content-container[data-typography-mode="large"] h2 {
+  font-size: 1.375rem !important; /* ~22px */
+  line-height: 1.3 !important;
+}
+
+.academic-content-container[data-typography-mode="large"] h3 {
+  font-size: 1.1875rem !important; /* ~19px */
+  line-height: 1.35 !important;
+}
+
+.academic-content-container[data-typography-mode="large"] h4:not([class*="tracking-wider"]):not([class*="text-[10px]"]):not([class*="text-[11px]"]) {
+  font-size: 1.0625rem !important; /* ~17px */
+  line-height: 1.4 !important;
+}
+
+/* -------------------------------------------------------------------------
+   3. ACADEMIC SERIF MODE (~16px baseline, Newsreader serif)
+   ------------------------------------------------------------------------- */
+.academic-content-container[data-typography-mode="scholar"] {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* Academic reading text in serif */
+.academic-content-container[data-typography-mode="scholar"] :is(
+  p,
+  li,
+  blockquote,
+  dd,
+  dt,
+  strong[class*="block"],
+  div[class*="leading-relaxed"],
+  div[class*="border-dashed"],
+  div[class*="bg-emerald-50"],
+  div[class*="bg-rose-50"],
+  div[class*="bg-teal-50"],
+  div[class*="bg-amber-50"],
+  div[class*="bg-slate-50"]
+):not(button):not([role="button"]):not([class*="rounded-full"]):not([class*="font-mono-code"]):not([class*="tracking-wider"]):not([class*="tracking-widest"]):not([class*="text-[10px]"]):not([class*="text-[11px]"]) {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
+  font-size: 1rem !important; /* ~16px */
+  line-height: 1.68 !important;
+}
+
+/* Tables in serif */
+.academic-content-container[data-typography-mode="scholar"] :is(td, th) {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
+  font-size: 0.9375rem !important; /* ~15px */
+  line-height: 1.6 !important;
+}
+
+/* Figure captions in serif */
+.academic-content-container[data-typography-mode="scholar"] figcaption,
+.academic-content-container[data-typography-mode="scholar"] figcaption div:not([class*="text-[10px]"]):not([class*="text-[11px]"]):not([class*="font-mono-code"]) {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
+  font-size: 0.875rem !important; /* ~14px */
+  line-height: 1.6 !important;
+}
+
+/* Headings in serif */
+.academic-content-container[data-typography-mode="scholar"] h2,
+.academic-content-container[data-typography-mode="scholar"] h3,
+.academic-content-container[data-typography-mode="scholar"] h4:not([class*="tracking-wider"]):not([class*="text-[10px]"]):not([class*="text-[11px]"]) {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
+}
+
+.academic-content-container[data-typography-mode="scholar"] h2 {
+  font-size: 1.3125rem !important; /* ~21px */
+  line-height: 1.3 !important;
+}
+
+.academic-content-container[data-typography-mode="scholar"] h3 {
+  font-size: 1.125rem !important; /* ~18px */
+  line-height: 1.35 !important;
+}
+
+.academic-content-container[data-typography-mode="scholar"] h4:not([class*="tracking-wider"]):not([class*="text-[10px]"]):not([class*="text-[11px]"]) {
+  font-size: 1rem !important; /* ~16px */
+  line-height: 1.4 !important;
+}
+
+/* -------------------------------------------------------------------------
+   EXCLUSIONS: CONTROLS, BADGES, BUTTONS, MONO CODE, METADATA
+   ------------------------------------------------------------------------- */
+.academic-content-container[data-typography-mode] button,
+.academic-content-container[data-typography-mode] [role="button"],
+.academic-content-container[data-typography-mode] [class*="rounded-full"],
+.academic-content-container[data-typography-mode] [class*="tracking-wider"],
+.academic-content-container[data-typography-mode] [class*="tracking-widest"],
+.academic-content-container[data-typography-mode] [class*="text-[10px]"],
+.academic-content-container[data-typography-mode] [class*="text-[11px]"],
+.academic-content-container[data-typography-mode] [role="progressbar"],
+.academic-content-container[data-typography-mode] svg {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+.academic-content-container[data-typography-mode] .font-mono-code,
+.academic-content-container[data-typography-mode] [class*="font-mono-code"] {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+.academic-content-container[data-typography-mode] button {
+  font-size: initial;
+}

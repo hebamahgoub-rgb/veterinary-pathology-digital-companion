@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protein Accumulations and Hyaline Change | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* A. ESSENTIAL DEFINITION */
+    .essential-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .essential-box h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .essential-alert {
+      background-color: #edf2f7;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    /* B, C, D. CLASSIFICATION & EXAMPLES */
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .class-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .class-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .class-card ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .class-card li {
+      margin-bottom: 8px;
+    }
+
+    /* E. PATHOGENESIS */
+    .mech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .mech-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .mech-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* F. MICROSCOPIC MORPHOLOGY */
+    .morph-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+    }
+    .morph-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .morph-box li {
+      margin-bottom: 6px;
+    }
+
+    /* G. DIAGNOSTIC CAUTION */
+    .caution-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    /* H. IMAGE COMPARISON GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .image-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+      height: 100%;
+    }
+
+    .image-card figure {
+      margin: 0;
+    }
+
+    .image-card img {
+      display: block;
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #edf2f7;
+    }
+
+    .image-card figcaption {
+      padding: 9px 12px;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--secondary-color);
+    }
+
+    .image-card-content {
+      padding: 14px;
+    }
+
+    .image-card-content h3 {
+      margin-bottom: 7px;
+      color: var(--primary-color);
+      font-size: 1rem;
+    }
+
+    .image-card-content p {
+      color: var(--secondary-color);
+      font-size: 0.85rem;
+    }
+
+    .image-credit {
+      display: block;
+      margin-top: 9px;
+      font-size: 0.72rem;
+      line-height: 1.4;
+      color: var(--secondary-color);
+    }
+
+    .image-credit a {
+      color: var(--accent-color);
+    }
+
+    .gallery-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent-color);
+      background: var(--bg-light);
+      color: var(--secondary-color);
+      font-size: 0.85rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 520px) {
+      .image-card img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    /* I. DIFFERENTIAL DIAGNOSIS TABLE */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+  
+    /* TEACHING ILLUSTRATIONS */
+    .teaching-figure {
+      margin: 18px 0 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+    .teaching-figure figcaption {
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+    .teaching-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .teaching-gallery .teaching-figure {
+      margin-top: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations" target="_blank" rel="noopener noreferrer">Intracellular Accumulations</a> &gt; 
+      Protein Accumulations and Hyaline Change
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Protein Accumulations and Hyaline Change</h1>
+      <p>Morphological description of homogeneous, glassy, intensely eosinophilic proteinaceous deposits.</p>
+    </header>
+
+    <!-- A. ESSENTIAL DEFINITION -->
+    <section class="section">
+      <div class="essential-box">
+        <h2>Essential Definition</h2>
+        <div class="essential-alert">
+          “Hyaline” describes a homogeneous, glassy, smooth, bright pink (eosinophilic) appearance on standard H&amp;E stain. It is a purely descriptive physical appearance, NOT a single chemically defined compound or specific disease diagnosis.
+        </div>
+      </div>
+    </section>
+
+    <!-- B, C, D. CLASSIFICATION & EXAMPLES -->
+    <section class="section">
+      <h2 class="section-title">Classification &amp; Veterinary Examples</h2>
+      <div class="class-grid">
+        
+        <div class="class-card">
+          <h3>1. Intracellular Hyaline</h3>
+          <p style="font-size: 0.875rem; color: var(--secondary-color); margin-bottom: 8px;">Accumulations located within the cytoplasm of parenchymal cells:</p>
+          <ul>
+            <li><strong>Renal Protein Reabsorption Droplets:</strong> Eosinophilic droplets in proximal tubular epithelium following glomerular protein leakage (proteinuria).</li>
+            <li><strong>Russell Bodies:</strong> Globular, condensed immunoglobulin deposits expanding the endoplasmic reticulum of plasma cells (Mott cells).</li>
+            <li><strong>Viral Inclusion Bodies:</strong> Intranuclear or intracytoplasmic proteinaceous aggregates induced by viral replication (e.g., Canine Distemper).</li>
+            <li><strong>Zenker's Degeneration:</strong> Eosinophilic, glassy, homogeneous sarcoplasm in damaged skeletal muscle fibers (e.g., Vitamin E/Selenium deficiency).</li>
+          </ul>
+        </div>
+
+        <div class="class-card">
+          <h3>2. Extracellular Hyaline</h3>
+          <p style="font-size: 0.875rem; color: var(--secondary-color); margin-bottom: 8px;">Deposits located in connective tissue, vessel walls, or extracellular matrix:</p>
+          <ul>
+            <li><strong>Vascular Wall Hyalinization:</strong> Plasma protein insudation into arteriolar walls (arteriolosclerosis) secondary to chronic hypertension or endothelial injury.</li>
+            <li><strong>Connective Tissue Hyalinization:</strong> Dense, homogeneous, acellular collagenous matrix forming in chronic scars, fibrous adhesions, or old corpora albicantia.</li>
+            <li><strong>Glomerular Hyalinization:</strong> Accumulation of plasma proteins and matrix material in chronically damaged renal glomeruli (end-stage glomerulosclerosis).</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1v6GV6IoaJigT6i3Olf-SmKsFdhk0ccvy" alt="Morphologic spectrum of hyaline change in cells" loading="lazy" decoding="async">
+        <figcaption>Hyaline change characterized by smooth, glassy, eosinophilic cytoplasm replacing normal granular texture, reflecting intracellular protein accumulation.</figcaption>
+      </figure>
+
+      <div class="teaching-gallery">
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/19iwPvP5GApnfFHEtbECZNkfKWVLTsQSb" alt="Mallory-Denk bodies in hepatocytes" loading="lazy" decoding="async">
+        <figcaption>Mallory–Denk bodies formed by damaged cytokeratin filaments, seen in hepatocellular injury and ballooning degeneration.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1g63zQQEm1yBaJk6qShrKu_nLRzEp1nlc" alt="Mallory-Denk bodies in hepatocytes" loading="lazy" decoding="async">
+        <figcaption>Mallory–Denk bodies formed by damaged cytokeratin filaments, seen in hepatocellular injury and ballooning degeneration.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1DihEh_e-mkg7Sl4SkKkedqZ1YVuLZe8G" alt="Mallory-Denk bodies in hepatocytes" loading="lazy" decoding="async">
+        <figcaption>Mallory–Denk bodies formed by damaged cytokeratin filaments, seen in hepatocellular injury and ballooning degeneration.</figcaption>
+      </figure>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1aYpITex-d4a4-EFOrZ-DEpJckpNJOBf-" alt="Russell bodies in plasma cells" loading="lazy" decoding="async">
+        <figcaption>Russell bodies represent excessive immunoglobulin accumulation within the rough ER of plasma cells.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1VTN9SlFm3Q_6E3AtX_2JF8OdPRgvdhQo" alt="Viral inclusion bodies mimicking hyaline change" loading="lazy" decoding="async">
+        <figcaption>Some viral inclusion bodies appear eosinophilic and glassy, mimicking hyaline change; correct identification requires context and morphology.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1S4kxkobc_dZ5id15Wzs2seD2Y67uuEe7" alt="Zenker's degeneration in skeletal muscle" loading="lazy" decoding="async">
+        <figcaption>Zenker’s degeneration in skeletal muscle, characterized by hyaline-like protein denaturation due to severe injury.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1XAmRA2RLWiOlm6mEs8kFjc4-QAdF6ljd" alt="Intracellular keratin accumulation in epithelial tumors" loading="lazy" decoding="async">
+        <figcaption>Keratin accumulation in epithelial tumors may produce hyaline-like cytoplasmic inclusions, reflecting abnormal protein handling in neoplastic cells.</figcaption>
+      </figure>
+
+    <!-- E. PATHOGENESIS -->
+    <section class="section">
+      <h2 class="section-title">Pathogenetic Mechanisms</h2>
+      <div class="mech-grid">
+        <div class="mech-card">
+          <strong>Excessive Reabsorption</strong>
+          Excessive endocytosis of filtered plasma proteins by renal proximal tubular cells exceeding lysosomal clearance capacity.
+        </div>
+        <div class="mech-card">
+          <strong>Plasma Leakage (Insudation)</strong>
+          Endothelial barrier breakdown allowing plasma proteins (fibrinogen, immunoglobulins, complement) to leak into vascular walls or interstitial space.
+        </div>
+        <div class="mech-card">
+          <strong>Excess Protein Synthesis</strong>
+          Overproduction and condensation of secretory proteins (e.g., immunoglobulins) within dilated rough endoplasmic reticulum cisternae.
+        </div>
+        <div class="mech-card">
+          <strong>Collagen Alteration</strong>
+          Cross-linking, compaction, and loss of fibrillar detail in aging or chronically injured dense fibrous connective tissue.
+        </div>
+      </div>
+    </section>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1XVjWvJivd8wOkRU-c877gDOFmmzrYs2N" alt="Renal hyaline droplet degeneration" loading="lazy" decoding="async">
+        <figcaption>Hyaline droplet degeneration due to excessive reabsorption of filtered proteins, producing lysosomal protein accumulation.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1rp34ceMZzqQn_affB7nvFM3wjvqBb990" alt="Fibrinoid change in vessel walls" loading="lazy" decoding="async">
+        <figcaption>Fibrinoid change caused by immune-mediated vascular injury, with deposition of fibrin and plasma proteins.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/15Prd6J7SWIAatTam0C7146Ga1WUOgLS6" alt="Hyaline casts in renal tubules" loading="lazy" decoding="async">
+        <figcaption>Hyaline casts represent extracellular protein accumulation within renal tubules, commonly associated with proteinuria or tubular injury.</figcaption>
+      </figure>
+
+    <!-- F. MICROSCOPIC MORPHOLOGY -->
+    <section class="section">
+      <h2 class="section-title">Microscopic Features (H&amp;E)</h2>
+      <div class="morph-box">
+        <ul>
+          <li><strong>Homogeneous Texture:</strong> Smooth, uniform, structureless appearance with complete loss of normal cellular or collagenous fibrillar details.</li>
+          <li><strong>Glassy Refractility:</strong> Refractile, clear, pink appearance under standard light microscopy.</li>
+          <li><strong>Intense Eosinophilia:</strong> Stains bright pink-red with hematoxylin and eosin (H&amp;E) due to high protein concentration.</li>
+          <li><strong>Morphological Forms:</strong> Occurs as distinct intracellular rounded droplets, extracellular vascular rings, or broad connective tissue sheets.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- G. DIAGNOSTIC CAUTION -->
+    <section class="section">
+      <h2 class="section-title">Diagnostic Caution</h2>
+      <div class="caution-box">
+        <strong>Important Note for Pathologists:</strong> Because "hyaline" is purely an optical descriptor, encountering hyaline material on H&amp;E requires evaluating anatomical location, clinical history, and often special histochemical or immunohistochemical stains (e.g., Masson's trichrome, PTAH, Congo red, or specific antibody stains) to determine the exact biochemical identity (e.g., collagen, fibrin, amyloid, or immunoglobulins).
+      </div>
+    </section>
+
+    <!-- H. IMAGE COMPARISON GALLERY -->
+    <section class="section">
+      <h2 class="section-title">Image Comparison Gallery</h2>
+      <div class="gallery-grid">
+        
+        <article class="image-card">
+          <figure>
+            <img src="https://lh3.googleusercontent.com/d/1BUwa74CB6hF9nIu_1DlMCgufpvFP4y1K" alt="Kidney from a male F344/N rat showing small eosinophilic hyaline droplets within renal tubular epithelial cells." loading="lazy" decoding="async">
+            <figcaption>
+              Small eosinophilic hyaline droplets are present within proximal renal tubular epithelial cells. Kidney, male F344/N rat.
+            </figcaption>
+          </figure>
+          <div class="image-card-content">
+            <h3>Renal Tubular Hyaline Droplets</h3>
+            <p>In young adult male rats, small hyaline droplets may occur normally within the P2 segment of proximal tubules. These droplets represent alpha-2u-globulin sequestered in secondary lysosomes. An abnormal increase in their number or size may occur in alpha-2u-globulin nephropathy.</p>
+            <span class="image-credit">Image: <a href="https://ntp.niehs.nih.gov/atlas/nnl/urinary-system/kidney/RenalTubule-AccumulationHyalineDroplet" target="_blank" rel="noopener noreferrer">National Toxicology Program, Nonneoplastic Lesion Atlas</a>.</span>
+          </div>
+        </article>
+
+        <article class="image-card">
+          <figure>
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Russell%20bodies%202%20high%20mag%20mini.jpg" alt="Plasmacytoma showing plasma cells containing rounded eosinophilic Russell bodies, H&amp;E." loading="lazy" decoding="async">
+            <figcaption>
+              Plasmacytoma containing numerous eosinophilic Russell bodies within neoplastic plasma cells. H&amp;E.
+            </figcaption>
+          </figure>
+          <div class="image-card-content">
+            <h3>Russell Bodies</h3>
+            <p>Russell bodies are rounded, homogeneous eosinophilic accumulations of immunoglobulin within distended rough endoplasmic reticulum. A plasma cell containing multiple Russell bodies is termed a Mott cell.</p>
+            <span class="image-credit">Image: Nephron, via <a href="https://commons.wikimedia.org/wiki/File:Russell_bodies_2_high_mag_mini.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. Licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</span>
+          </div>
+        </article>
+
+        <article class="image-card">
+          <figure>
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Renal%20arterial%20hyalinosis%20-%20pas%20-%20very%20high%20mag.jpg" alt="Renal vessel with homogeneous PAS-positive hyaline thickening of its wall and narrowing of the vascular lumen." loading="lazy" decoding="async">
+            <figcaption>
+              Homogeneous PAS-positive hyaline material thickens the wall of a renal vessel. Renal arterial hyalinosis, PAS.
+            </figcaption>
+          </figure>
+          <div class="image-card-content">
+            <h3>Renal Vascular Hyalinosis</h3>
+            <p>Vascular hyalinosis produces homogeneous, glassy thickening of small arterial or arteriolar walls and may narrow the vascular lumen. The term “hyaline” describes the optical appearance rather than identifying one specific biochemical substance.</p>
+            <span class="image-credit">Image: Nephron, via <a href="https://commons.wikimedia.org/wiki/File:Renal_arterial_hyalinosis_-_pas_-_very_high_mag.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. Licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.</span>
+          </div>
+        </article>
+
+      </div>
+      <div class="gallery-note">
+        Additional veterinary example: Hyaline degeneration and segmental coagulative necrosis of skeletal or cardiac muscle may occur in nutritional myopathy associated with selenium/vitamin E deficiency. A verified veterinary micrograph will be added to the collection when available.
+      </div>
+    </section>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/11tpsBpUkR3z8rMZf2RjX4OIppF4znb6u" alt="Amyloid versus hyaline comparison" loading="lazy" decoding="async">
+        <figcaption>Comparison of hyaline change and amyloid deposition, highlighting differences in location, staining characteristics, and pathogenesis.</figcaption>
+      </figure>
+
+    <!-- I. DIFFERENTIAL DIAGNOSIS TABLE -->
+    <section class="section">
+      <h2 class="section-title">Differential Diagnosis Table</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>H&amp;E Appearance</th>
+              <th>Anatomical Location</th>
+              <th>Special Stain / Diagnostic Feature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hyaline (Protein)</strong></td>
+              <td>Homogeneous, bright pink, glassy</td>
+              <td>Intracellular droplets or extracellular interstitium/vessels</td>
+              <td>Masson's trichrome (red/pink); negative for Congo red</td>
+            </tr>
+            <tr>
+              <td><strong>Amyloid</strong></td>
+              <td>Homogeneous, pale pink, amorphous</td>
+              <td>Extracellular extracellular matrix, glomeruli, vessel walls</td>
+              <td>Congo Red (apple-green birefringence under polarized light)</td>
+            </tr>
+            <tr>
+              <td><strong>Fibrin</strong></td>
+              <td>Fibrillar or dense dark pink/red threads</td>
+              <td>Intravascular thrombi, acute inflammatory exudates</td>
+              <td>MSB stain (red/blue) or PTAH (blue)</td>
+            </tr>
+            <tr>
+              <td><strong>Dense Collagen</strong></td>
+              <td>Bundled, fibrillar pink matrix</td>
+              <td>Dermis, tendons, mature fibrous scars</td>
+              <td>Masson's Trichrome (intense blue/green)</td>
+            </tr>
+            <tr>
+              <td><strong>Mineral Deposits</strong></td>
+              <td>Deeply basophilic (purple), granular or solid</td>
+              <td>Necrotic foci, basement membranes</td>
+              <td>Von Kossa (black) / Alizarin Red S (red)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>"Hyaline" is a descriptive physical term for smooth, homogeneous, bright pink, glassy material on H&amp;E stain.</li>
+          <li>May be intracellular (e.g., protein reabsorption droplets, Russell bodies) or extracellular (e.g., vascular hyalinization, chronic scar tissue).</li>
+          <li>Requires location, clinical history, and special stains to differentiate from amyloid, fibrin, collagen, or mineral deposits.</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. Is hyaline a single chemical substance or a specific etiology?</p>
+          <details>
+            <summary>Show Answer</summary>
+            No. "Hyaline" is purely a descriptive morphological term denoting any smooth, homogeneous, glassy, eosinophilic appearance on H&amp;E.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>2. What is a Russell body, and in which cell type is it identified?</p>
+          <details>
+            <summary>Show Answer</summary>
+            A Russell body is a large, rounded, eosinophilic intracellular hyaline inclusion composed of condensed immunoglobulins within the rough endoplasmic reticulum of a plasma cell (forming a Mott cell).
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>3. What causes renal protein reabsorption droplets to form in proximal tubular epithelial cells?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Glomerular disease causing severe proteinuria forces proximal tubular cells to pinocytose excess filtered plasma proteins, forming bright pink cytoplasmic droplets.
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations/glycogen-accumulation" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Glycogen Accumulation</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/amyloidosis" class="nav-btn" target="_blank" rel="noopener noreferrer">Amyloidosis &rarr;</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

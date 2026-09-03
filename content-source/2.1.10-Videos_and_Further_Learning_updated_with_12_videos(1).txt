@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos and Further Learning | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-family); color: var(--text-dark); background-color: #ffffff; line-height: 1.6; padding: 16px; }
+    .container { max-width: 1050px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.85rem; color: var(--secondary-color); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--accent-color); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-header { border-bottom: 2px solid var(--primary-color); padding-bottom: 12px; margin-bottom: 24px; }
+    .page-header h1 { color: var(--primary-color); font-size: 1.8rem; font-weight: 700; }
+    .page-header p { color: var(--secondary-color); font-size: 0.95rem; }
+    .section { margin-bottom: 32px; }
+    .section-title { font-size: 1.3rem; color: var(--primary-color); border-bottom: 2px solid var(--border-color); padding-bottom: 6px; margin-bottom: 16px; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .video-card { border: 1px solid var(--border-color); border-radius: 6px; background: #ffffff; overflow: hidden; display: flex; flex-direction: column; }
+    .video-card h3 { font-size: 1.05rem; color: var(--primary-color); padding: 14px 16px 8px 16px; }
+    .video-card p { font-size: 0.875rem; color: var(--secondary-color); padding: 0 16px 14px 16px; flex-grow: 1; }
+    .video-embed-holder { position: relative; width: 100%; padding-bottom: 56.25%; background-color: #edf2f7; }
+    .video-embed-holder iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .ref-card { border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; background: var(--bg-light); }
+    .ref-card h3 { font-size: 1rem; color: var(--primary-color); margin-bottom: 6px; }
+    .ref-card p { font-size: 0.875rem; color: var(--secondary-color); }
+    .atlas-list { display: flex; flex-direction: column; gap: 12px; }
+    .atlas-item { background-color: #ffffff; border: 1px solid var(--border-color); border-left: 4px solid var(--accent-color); border-radius: 4px; padding: 12px 16px; font-size: 0.9rem; }
+    .atlas-item strong { color: var(--primary-color); display: block; margin-bottom: 2px; }
+    .atlas-item p { color: var(--secondary-color); font-size: 0.85rem; }
+    .tips-box { background-color: var(--bg-light); border: 1px solid var(--border-color); border-left: 4px solid var(--primary-color); border-radius: 4px; padding: 16px; margin-bottom: 24px; }
+    .tips-box h3 { font-size: 1rem; color: var(--primary-color); margin-bottom: 8px; }
+    .tips-box ul { margin-left: 20px; font-size: 0.9rem; color: var(--secondary-color); }
+    .page-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border-color); }
+    .nav-btn { display: inline-block; padding: 8px 16px; border-radius: 4px; background-color: var(--accent-color); color: #ffffff; text-decoration: none; font-size: 0.875rem; font-weight: 600; }
+    .nav-btn:hover { background-color: #2c5282; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt;
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt;
+      Videos &amp; Further Learning
+    </nav>
+
+    <header class="page-header">
+      <h1>Videos and Further Learning</h1>
+      <p>Curated multimedia lectures, recommended veterinary pathology textbooks, and digital histopathology atlases.</p>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Curated Video Resources</h2>
+      <div class="video-grid">
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/8F-PuSjacXo" title="Why Do Injured Cells Swell? | Cellular Swelling Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>1. Reversible Cell Injury &amp; Swelling</h3>
+          <p>Visual overview of ATP depletion, sodium-potassium pump failure, organelle dilation, and hydropic degeneration pathogenesis.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/JWjg6rhiwoQ" title="Hepatic Lipidosis (Steatosis) | How Fat Accumulates in the Liver" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>2. Intracellular Lipid Storage (Steatosis)</h3>
+          <p>Detailed walk-through of free fatty acid entry, apoprotein synthesis defects, and micro vs. macrovesicular hepatic lipidosis.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/aUxQQDIx9GE" title="Pathological Calcification | From Causes to Lesions" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>3. Pathological Calcification — Full Lesson</h3>
+          <p>Comprehensive comparison of dystrophic and metastatic calcification, including causes, mechanisms, distribution, and pathological lesions.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/D3kJmXrbgio" title="Dystrophic vs Metastatic Calcification - The 60 Second Difference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>4. Dystrophic vs Metastatic Calcification</h3>
+          <p>60-second overview of the key distinction: dystrophic calcification affects damaged or necrotic tissue with normal serum calcium, while metastatic calcification affects previously normal tissue in systemic mineral imbalance.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/U1EKTnONxm4" title="Dystrophic Calcification Explained in 60 Seconds - Where It Happens and Why" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>5. Dystrophic Calcification: Where It Happens &amp; Why</h3>
+          <p>Focused microlearning review of dystrophic mineralization in dead, dying, or degenerate tissues despite normal systemic calcium levels.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/dAwuHU_8G3w" title="How Dystrophic Calcification Forms - 60-Second Mechanism" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>6. How Dystrophic Calcification Forms</h3>
+          <p>60-second mechanism review showing membrane injury, calcium influx, mitochondrial accumulation, crystal formation, and localized mineral deposition.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/J8xGaVIxDqc" title="Examples of Dystrophic Calcification - 1 Minute Pathology Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>7. Examples of Dystrophic Calcification</h3>
+          <p>One-minute pathology review of classic examples of localized calcification in injured or necrotic tissues.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/nkTX0Zy_vLw" title="Metastatic Calcification: Where It Happens and Why - 1 Minute" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>8. Metastatic Calcification: Where It Happens &amp; Why</h3>
+          <p>One-minute review emphasizing systemic hypercalcemia or altered calcium-phosphorus balance and the characteristic sites of metastatic mineralization.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/839UcPB0YHA" title="Amyloidosis &amp; Protein Misfolding Explained | Veterinary Pathology" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>9. Amyloidosis &amp; Protein Misfolding</h3>
+          <p>Complete lesson covering &beta;-pleated sheet protein structures, Serum Amyloid A (SAA), Congo Red staining, and apple-green birefringence.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/MhWTwe0VmeI" title="What Exactly Is Amyloid? | Pathology in 60 Seconds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>10. What Exactly Is Amyloid?</h3>
+          <p>60-second microlearning review of protein misfolding, fibril formation, extracellular deposition, and the structural basis of amyloid.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/-TessFhJD4g" title="Why Proteins Misfold in Amyloidosis | Pathology in 60 Seconds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>11. Why Proteins Misfold in Amyloidosis</h3>
+          <p>60-second microlearning review of how normally soluble proteins become unstable, misfold, and adopt aggregation-prone conformations that initiate amyloid formation.</p>
+        </div>
+
+        <div class="video-card">
+          <div class="video-embed-holder"><iframe src="https://www.youtube.com/embed/4tancbY-8r4" title="Why Amyloid Glows Apple-Green | Pathology in 60 Seconds" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <h3>12. Why Amyloid Glows Apple-Green</h3>
+          <p>60-second diagnostic microlearning focused on Congo Red staining and the characteristic apple-green birefringence of amyloid under polarized light.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Recommended Standard Textbooks</h2>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <h3>Zachary, K. F. (2022)</h3>
+          <p><em>Pathologic Basis of Veterinary Disease</em> (7th ed.). Elsevier.<br><strong>Key Chapters:</strong> Chapter 1 &ndash; Mechanisms and Morphology of Cellular Injury, Degradation, and Accumulation.</p>
+        </div>
+        <div class="ref-card">
+          <h3>Maxie, M. G. (2016)</h3>
+          <p><em>Jubb, Kennedy &amp; Palmer's Pathology of Domestic Animals</em> (6th ed.). Elsevier.<br><strong>Key Chapters:</strong> Volume 1 &ndash; Liver and Biliary System (Hepatic Lipidosis) &amp; Urinary System (Renal Amyloidosis &amp; Mineralization).</p>
+        </div>
+        <div class="ref-card">
+          <h3>Kumar, V., et al. (2021)</h3>
+          <p><em>Robbins &amp; Cotran Pathologic Basis of Disease</em> (10th ed.). Elsevier.<br><strong>Key Chapters:</strong> Chapter 2 &ndash; Cell Injury, Cell Death, and Adaptations (Intracellular Accumulations &amp; Calcification).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Digital Histopathology Atlases &amp; Slide Repositories</h2>
+      <div class="atlas-list">
+        <div class="atlas-item"><strong>Joint Pathology Center (JPC) Veterinary Pathology System</strong><p>Access digitized whole slide images of veterinary metabolic disturbances, hepatic lipidosis, and amyloidosis cases.</p></div>
+        <div class="atlas-item"><strong>Noah's Arkive &ndash; Veterinary Pathology Database</strong><p>Searchable gross pathology image repository managed by the University of Georgia, featuring classical gross lesions of steatosis, anthracosis, and calcification.</p></div>
+        <div class="atlas-item"><strong>WebPath: The Internet Pathology Laboratory</strong><p>Educational resource providing high-resolution microscopic figures and histochemical stain comparisons for cellular accumulations.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="tips-box">
+        <h3>Final Module Review Summary</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Re-examine the <strong>Module Overview</strong> to ensure you can define all 4 major mechanisms of accumulation.</li>
+          <li><strong>Step 2:</strong> Review the <strong>Differential Diagnosis Tables</strong> across sub-pages to reinforce vacuole border shapes and nuclear positions.</li>
+          <li><strong>Step 3:</strong> Re-visit the <strong>Practical Pathology Gallery</strong> cases to test your ability to diagnose lesions without looking at labels.</li>
+          <li><strong>Step 4:</strong> Re-take the <strong>Test Yourself Quiz</strong> to verify your readiness for course examinations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/test-yourself" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Test Yourself</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" class="nav-btn" target="_blank" rel="noopener noreferrer">Module Landing Page &rarr;</a>
+    </footer>
+
+  </div>
+</body>
+</html>

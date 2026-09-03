@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crystals and Urates | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+    .intro-statement {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      border-left: 4px solid var(--accent-color);
+      padding: 12px 16px;
+      border-radius: 4px;
+    }
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+    /* LEARNING OUTCOMES CARD */
+    .outcomes-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .outcomes-card h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .outcomes-card ul {
+      margin-left: 20px;
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+    .outcomes-card li {
+      margin-bottom: 6px;
+    }
+    /* CONTENT BOXES & CARDS */
+    .info-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+    .teaching-box {
+      background-color: #edf2f7;
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    /* DIAGRAM FLOWS */
+    .flow-container {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .flow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    .flow-node {
+      background-color: var(--bg-light);
+      border: 1px solid var(--accent-color);
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    .flow-arrow {
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    /* GRIDS */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .grid-4col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 18px;
+    }
+    .feature-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .feature-card ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .feature-card li {
+      margin-bottom: 6px;
+    }
+    .caution-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid #c53030;
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .caution-box strong {
+      color: #c53030;
+    }
+    /* TABLES */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+    /* HISTOLOGICAL PRESERVATION WARNING */
+    .preservation-box {
+      background-color: #fffaf0;
+      border: 1px solid #feebc8;
+      border-left: 5px solid #dd6b20;
+      border-radius: 6px;
+      padding: 18px;
+      color: #7b341e;
+      font-size: 0.95rem;
+    }
+    .preservation-box h3 {
+      color: #c05621;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .preservation-box ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+    /* PRACTICAL CASE & FIGURE STYLING */
+    .case-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+    }
+    .case-figure {
+      max-width: 900px;
+      margin: 18px auto 0;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .case-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background-color: #ffffff;
+    }
+    .case-figure figcaption {
+      padding: 12px 14px;
+      background-color: var(--bg-light);
+      border-top: 1px solid var(--border-color);
+      color: var(--secondary-color);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+    .case-figure figcaption strong {
+      color: var(--primary-color);
+    }
+    .case-figure figcaption a {
+      color: var(--accent-color);
+    }
+    .case-figure figcaption a:hover {
+      text-decoration: underline;
+    }
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    /* PAGE NAVIGATION */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+
+    /* Teaching Illustrations */
+    .teaching-figure {
+      max-width: 900px;
+      margin: 20px auto 24px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background-color: #ffffff;
+    }
+    .teaching-figure figcaption {
+      padding: 12px 14px;
+      background-color: var(--bg-light);
+      border-top: 1px solid var(--border-color);
+      color: var(--secondary-color);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .teaching-figure figcaption strong {
+      color: var(--primary-color);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      Crystals and Urates
+    </nav>
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Crystals and Urates</h1>
+      <p>Disturbance in Cell Metabolism</p>
+      <div class="intro-statement">
+        Gout is the pathological deposition of uric acid or urate salts within tissues. It is particularly important in birds and reptiles because urates are their principal nitrogenous waste products.
+      </div>
+      <div class="teaching-box">
+        Gout is urate deposition. It is not synonymous with pathological calcification, although both may produce white, chalky or gritty lesions.
+      </div>
+    </header>
+    <!-- LEARNING OUTCOMES -->
+    <section class="section">
+      <div class="outcomes-card">
+        <h2>Learning Outcomes</h2>
+        <ul>
+          <li>Define urate deposition and gout.</li>
+          <li>Explain why birds and reptiles are particularly susceptible.</li>
+          <li>Identify factors that cause hyperuricaemia or impaired urate elimination.</li>
+          <li>Differentiate visceral from articular gout.</li>
+          <li>Describe gross and microscopic lesions.</li>
+          <li>Explain why urates may disappear during routine processing.</li>
+          <li>Differentiate urate from fibrin, purulent exudate and mineral.</li>
+          <li>Apply the findings to an avian necropsy case.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- NORMAL URATE METABOLISM -->
+    <section class="section">
+      <h2 class="section-title">Normal Urate Metabolism</h2>
+      <div class="info-box">
+        <ul style="margin-left: 20px;">
+          <li><strong>Nitrogenous Waste Production:</strong> Normal protein and purine catabolism generates nitrogenous waste products.</li>
+          <li><strong>Uricotelic Physiology:</strong> Birds and reptiles are uricotelic, synthesizing uric acid and urates as their primary end products of protein metabolism.</li>
+          <li><strong>Renal Elimination:</strong> Uric acid and urates are excreted predominantly by renal tubular secretion into the urine.</li>
+          <li><strong>Precipitation Susceptibility:</strong> Low aqueous solubility of urates allows water conservation, but renders uricotelic species highly prone to tissue precipitation when excretion is compromised.</li>
+          <li><strong>Mammalian Difference:</strong> Most domestic mammals possess the enzyme uricase, converting uric acid into highly soluble allantoin; consequently, mammals rarely develop classical gout (with Dalmatian dogs and primates being notable metabolic exceptions).</li>
+        </ul>
+      </div>
+      <div class="flow-container">
+        <div class="flow-steps">
+          <span class="flow-node">Purine metabolism</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Uric acid and urates</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Renal excretion</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Ureters and cloaca</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Elimination</span>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top: 12px;">
+        <strong>Key Excretory Failure Points:</strong>
+        <ul style="margin-left: 20px; margin-top: 4px;">
+          <li>Excessive urate production</li>
+          <li>Renal dysfunction</li>
+          <li>Dehydration</li>
+          <li>Urinary obstruction</li>
+        </ul>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1At48LZaavrHIvRy9hurnTGHuUo21Q1mW" alt="Uric acid crystals within avian renal tubules">
+        <figcaption><strong>Uric Acid Crystals in Avian Kidney Tubules.</strong> Uric acid crystals within avian renal tubules. Needle-shaped, yellow-brown crystalline aggregates distend the tubular lumen, often causing secondary epithelial degeneration. Birds excrete nitrogenous waste primarily as uric acid, making them prone to crystal deposition under dehydration, renal dysfunction, or high-protein diets.</figcaption>
+      </figure>
+
+    </section>
+    <!-- PATHOGENESIS -->
+    <section class="section">
+      <h2 class="section-title">Pathogenesis</h2>
+      
+      <div class="flow-container">
+        <div class="flow-steps">
+          <span class="flow-node">Impaired urate elimination or excessive production</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Hyperuricaemia</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Tissue-fluid supersaturation</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Urate precipitation</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Tissue deposition</span>
+          <span class="flow-arrow">&rarr;</span>
+          <span class="flow-node">Inflammation and tissue injury</span>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top: 12px;">
+        <ul style="margin-left: 20px;">
+          <li><strong>Acute Stage:</strong> Acute visceral urate deposition may initially cause minimal or limited inflammatory cell recruitment.</li>
+          <li><strong>Cellular Recruitment:</strong> Persistent crystalline deposits induce intense chemotaxis, attracting heterophils (in birds/reptiles), macrophages, and multinucleated giant cells.</li>
+          <li><strong>Chronic Stage:</strong> Chronic deposits elicit granulomatous inflammation, extensive perilesional fibrosis, and marked tissue deformation.</li>
+        </ul>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/18u-fh0zMEcJGsBm-Q8hBa6PnWEVdtpgG" alt="Renal tubular necrosis associated with urate crystal obstruction">
+        <figcaption><strong>Renal Tubular Necrosis Secondary to Crystal Obstruction.</strong> Renal tubular necrosis associated with urate crystal obstruction. Crystals block tubular lumina, leading to epithelial flattening, degeneration, and necrosis. This mechanism contributes to acute renal failure in species that excrete uric acid, particularly birds and reptiles.</figcaption>
+      </figure>
+
+    </section>
+    <!-- PREDISPOSING FACTORS -->
+    <section class="section">
+      <h2 class="section-title">Predisposing Factors</h2>
+      <div class="grid-4col">
+        <div class="feature-card">
+          <h3>A. Renal Factors</h3>
+          <ul>
+            <li>Renal tubular injury</li>
+            <li>Interstitial nephritis</li>
+            <li>Nephropathogenic infections (e.g., IBV in poultry)</li>
+            <li>Nephrotoxic substances (e.g., mycotoxins, NSAIDs)</li>
+            <li>Congenital or acquired renal dysfunction</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>B. Hydration &amp; Environment</h3>
+          <ul>
+            <li>Severe dehydration</li>
+            <li>Restricted water availability</li>
+            <li>Water-system failure in housing</li>
+            <li>Excessive environmental heat</li>
+            <li>Severe systemic fluid loss</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>C. Diet &amp; Metabolism</h3>
+          <ul>
+            <li>Excessive calcium in inappropriate diets</li>
+            <li>Vitamin A deficiency</li>
+            <li>Nutritional imbalance</li>
+            <li>Excessive protein or purine load</li>
+            <li>Metabolic excretion disturbances</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>D. Obstructive Factors</h3>
+          <ul>
+            <li>Ureteral obstruction (uroliths/viscid urates)</li>
+            <li>Urinary outflow impairment</li>
+            <li>Compression or blockage of urinary tract</li>
+          </ul>
+        </div>
+      </div>
+      <div class="caution-box">
+        <strong>Diagnostic Caution:</strong> Gout is a morphological diagnosis with multiple possible causes. Do not assign it to a particular diet, toxin or infection without supporting evidence.
+      </div>
+    </section>
+    <!-- VISCERAL GOUT -->
+    <section class="section">
+      <h2 class="section-title">Visceral Gout</h2>
+      <div class="info-box" style="margin-bottom: 16px;">
+        <strong>Definition:</strong> Visceral gout is urate deposition on visceral organs and serosal surfaces, usually associated with acute or severe impairment of renal elimination.
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1vtMF66y5xsMnzXG-onyNrJDuD3LDpMrc" alt="Visceral gout with chalky white urate tophi on serosal surfaces">
+        <figcaption><strong>Gout Tophi on Serosal Surfaces (Visceral Gout).</strong> Visceral gout in a bird, characterized by chalky white urate tophi on serosal surfaces including the pericardium and hepatic capsule. These deposits consist of crystalline urates formed when plasma uric acid levels exceed excretory capacity. Common causes include dehydration, nephrotoxic insults, and renal obstruction.</figcaption>
+      </figure>
+
+      <div class="grid-2col">
+        <div class="feature-card">
+          <h3>Common Anatomical Sites</h3>
+          <ul>
+            <li>Pericardium and epicardial sac</li>
+            <li>Liver capsule</li>
+            <li>Peritoneum and mesentery</li>
+            <li>Air sacs</li>
+            <li>Kidneys (parenchyma and tubules)</li>
+            <li>Ureters</li>
+            <li>Other serosal surfaces</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Morphological Features</h3>
+          <ul>
+            <li><strong>Gross:</strong> White or cream deposits; chalky, pasty, semisolid, granular or gritty material coating visceral and serosal surfaces; distended ureters filled with white pasty material; renal swelling or pallor.</li>
+            <li><strong>Microscopic (H&amp;E):</strong> Crystalline material or empty spaces remaining after aqueous dissolution; radiating or needle-shaped clefts; heterophilic inflammation; macrophages and multinucleated giant cells in persistent lesions; concurrent renal pathology.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ARTICULAR GOUT -->
+    <section class="section">
+      <h2 class="section-title">Articular Gout</h2>
+      <div class="info-box" style="margin-bottom: 16px;">
+        <strong>Definition:</strong> Articular gout is chronic urate deposition within joints, synovial membranes, periarticular tissues, tendon sheaths, toes or wing joints.
+      </div>
+      <div class="grid-2col">
+        <div class="feature-card">
+          <h3>Gross Appearance</h3>
+          <ul>
+            <li>Enlarged, swollen, or severely deformed joints</li>
+            <li>White chalky nodular deposits</li>
+            <li>Firm periarticular nodular masses (tophi)</li>
+            <li>Thickened periarticular soft tissue</li>
+            <li>Restricted joint movement and lameness</li>
+          </ul>
+        </div>
+        <div class="feature-card">
+          <h3>Microscopic Appearance (H&amp;E)</h3>
+          <ul>
+            <li>Feathery, crystalline or empty needle-shaped spaces</li>
+            <li>Infiltration of macrophages and multinucleated giant cells</li>
+            <li>Prominent nodular granulomatous inflammation (tophi)</li>
+            <li>Synovial hyperplasia and extensive periarticular fibrosis</li>
+            <li>Chronic tissue remodelling and erosion of adjacent articular cartilage/bone</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- VISCERAL VERSUS ARTICULAR GOUT -->
+    <section class="section">
+      <h2 class="section-title">Visceral versus Articular Gout</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Visceral Gout</th>
+              <th>Articular Gout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Typical Course</strong></td>
+              <td>Usually acute or subacute</td>
+              <td>Usually chronic</td>
+            </tr>
+            <tr>
+              <td><strong>Main Distribution</strong></td>
+              <td>Visceral organs and serosae</td>
+              <td>Joints and periarticular tissues</td>
+            </tr>
+            <tr>
+              <td><strong>Common Sites</strong></td>
+              <td>Pericardium, liver capsule, peritoneum, kidneys, air sacs</td>
+              <td>Synovial membranes, tendon sheaths, toes, wing joints</td>
+            </tr>
+            <tr>
+              <td><strong>Gross Appearance</strong></td>
+              <td>White pasty or chalky surface deposits</td>
+              <td>Tophi and joint deformation</td>
+            </tr>
+            <tr>
+              <td><strong>Inflammatory Response</strong></td>
+              <td>Inflammation may initially be limited</td>
+              <td>Prominent macrophagic, giant-cell and granulomatous inflammation</td>
+            </tr>
+            <tr>
+              <td><strong>Principal Consequence</strong></td>
+              <td>Acute organ dysfunction, serositis, renal failure</td>
+              <td>Pain, lameness, joint ankylosis, tissue destruction</td>
+            </tr>
+            <tr>
+              <td><strong>Common Underlying Mechanism</strong></td>
+              <td>Severe acute renal failure, dehydration, or acute urinary obstruction</td>
+              <td>Persistent long-term hyperuricaemia</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- HISTOLOGICAL PRESERVATION -->
+    <section class="section">
+      <div class="preservation-box">
+        <h3>Histological Preservation Warning</h3>
+        <strong>Urates are water-soluble and may dissolve during aqueous formalin fixation and routine paraffin processing. Their dissolution may leave radiating or needle-shaped empty clefts that reproduce the previous arrangement of the crystals.</strong>
+        <ul>
+          <li><strong>Alcohol Fixation:</strong> Absolute alcohol (100% ethanol) fixation preserves urate crystals for histological sectioning when gout is suspected clinically or gross-pathologically.</li>
+          <li><strong>Cytological Smears:</strong> Fresh unmounted impression smears, squash preparations, or polarizable wet mounts assist rapid diagnostic confirmation.</li>
+          <li><strong>Diagnostic Rule:</strong> A negative or poorly preserved routine paraffin H&amp;E section does not exclude gout.</li>
+          <li><strong>Diagnostic Integration:</strong> Histological findings must always be integrated with species, gross distribution, renal lesions, and clinical history.</li>
+        </ul>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/11-pmxj8YNmrpDUq-MSEUfp7Q8ZsCdbnL" alt="Urate crystals viewed under polarized light microscopy">
+        <figcaption><strong>Polarized Light Microscopy of Urate Crystals.</strong> Urate crystals viewed under polarized light microscopy. Their characteristic birefringence enhances visibility, revealing needle-shaped or rhomboid forms. Polarization is a useful diagnostic tool for confirming crystalline material in tissue sections or aspirates.</figcaption>
+      </figure>
+
+    </section>
+    <!-- DIFFERENTIAL DIAGNOSIS TABLE -->
+    <section class="section">
+      <h2 class="section-title">Differential Diagnosis</h2>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1MBYMpzZE5vvQBos41ASpw5X5J305HAIV" alt="Comparison of urate oxalate and cholesterol crystals">
+        <figcaption><strong>Comparison of Common Pathologic Crystals (Urate vs. Oxalate vs. Cholesterol).</strong> Comparison of common pathological crystals. (A) Urate crystals: needle-shaped, yellow-brown, often associated with gout and renal dysfunction in birds and reptiles. (B) Oxalate crystals: envelope-shaped, highly refractile, typically linked to ethylene glycol toxicity or metabolic disorders. (C) Cholesterol crystals: large, flat plates with notched corners, commonly seen in chronic inflammation or cystic lesions.</figcaption>
+      </figure>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Lesion / Deposit</th>
+              <th>Gross Appearance</th>
+              <th>Microscopic / Histochemical Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Urate Deposition (Gout)</strong></td>
+              <td>White, chalky, pasty, semisolid or crystalline deposits on serosae, within ureters or around joints</td>
+              <td>Water-soluble; radiating or needle-shaped empty clefts remain after routine processing; birefringent on fresh alcohol-fixed prep</td>
+            </tr>
+            <tr>
+              <td><strong>Fibrinous Exudate</strong></td>
+              <td>Yellow-white, stringy, shaggy or sheet-like deposits on inflamed serosal membranes</td>
+              <td>Eosinophilic fibrillar network on H&amp;E; stains with MSB/PTAH; insoluble in water</td>
+            </tr>
+            <tr>
+              <td><strong>Purulent Exudate</strong></td>
+              <td>Creamy yellow or green, opaque, viscous or caseous exudate</td>
+              <td>Densely packed heterophils/neutrophils, cellular debris, and bacteria</td>
+            </tr>
+            <tr>
+              <td><strong>Pathological Mineralization</strong></td>
+              <td>Hard, brittle, and distinctly gritty white-grey deposits</td>
+              <td>Deeply basophilic (purple) granular material on H&amp;E; positive on Von Kossa / Alizarin Red S stains</td>
+            </tr>
+            <tr>
+              <td><strong>Pseudogout</strong></td>
+              <td>White periarticular deposits primarily affecting joints</td>
+              <td>Calcium-pyrophosphate dihydrate crystal deposition; chemically distinct from urate crystals</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- PRACTICAL CASE -->
+    <section class="section">
+      <h2 class="section-title">Practical Case Study</h2>
+      <div class="case-box">
+        <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px;">Astrovirus-Associated Visceral Gout in Goslings</h3>
+        <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+          At necropsy, goslings that died seven days after experimental infection with a goose-origin astrovirus showed extensive white urate deposits over the peritoneum, visceral organs and proventriculus. Urate deposits were also present within articular cavities. The kidneys were swollen and haemorrhagic, and the ureters contained conspicuous white urate material. These findings demonstrate severe systemic urate deposition associated with renal injury.
+        </p>
+        <div style="background-color: var(--bg-light); border-left: 3px solid var(--accent-color); padding: 12px; font-size: 0.875rem; margin-bottom: 16px;">
+          <strong>Diagnostic Investigation Questions:</strong>
+          <ol style="margin-left: 20px; margin-top: 6px;">
+            <li>What is the principal pathological diagnosis?</li>
+            <li>Which gross features identify the deposits as urates?</li>
+            <li>Which images demonstrate visceral gout, and which demonstrate articular involvement?</li>
+            <li>What renal and ureteral abnormalities support impaired urate elimination?</li>
+            <li>Which infectious agent was responsible for renal injury in this documented case?</li>
+            <li>Why may urate crystals be poorly preserved following routine aqueous tissue processing?</li>
+          </ol>
+        </div>
+        <figure class="case-figure">
+          <img
+            src="https://lh3.googleusercontent.com/d/1CJbRkTl7WcvEBMy2y1VPuL-AGYew8J_Y"
+            alt="Multi-panel necropsy comparison of astrovirus-infected goslings and uninfected controls, showing urate deposits over the peritoneum, visceral organs, proventriculus and articular cavities, together with swollen haemorrhagic kidneys and urate-filled ureters."
+            loading="lazy"
+            decoding="async">
+          <figcaption>
+            <strong>Gross lesions of astrovirus-associated gout in goslings.</strong>
+            Infected goslings show urate deposition over the peritoneum (A, a),
+            visceral organs (B, b), proventriculus (C, c) and articular cavities
+            (D, d), together with swollen haemorrhagic kidneys and urate-containing
+            ureters (E, e). Panels F–J show corresponding uninfected controls.
+            Source: Yin et al. (2021), Figure 3,
+            <em>BMC Veterinary Research</em>, 17, 40.
+            Licensed under
+            <a href="https://creativecommons.org/licenses/by/4.0/"
+               target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+            Image reproduced without modification.
+            <a href="https://doi.org/10.1186/s12917-020-02739-z"
+               target="_blank" rel="noopener noreferrer">View the original article</a>.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <!-- CLINICAL AND PATHOLOGICAL SIGNIFICANCE -->
+    <section class="section">
+      <h2 class="section-title">Clinical and Pathological Significance</h2>
+      <div class="info-box">
+        <ul style="margin-left: 20px;">
+          <li><strong>Visceral Gout Significance:</strong> Serves as a major post-mortem indicator of severe acute renal failure, dehydration, or fatal urinary outflow blockage.</li>
+          <li><strong>Articular Gout Significance:</strong> Causes severe chronic pain, joint enlargement, ankylosis, and restricted mobility.</li>
+          <li><strong>Inflammatory Impact:</strong> Persistent crystalline deposits act as foreign bodies, driving destructive granulomatous inflammation and progressive fibrosis.</li>
+          <li><strong>Etiological Investigation:</strong> Identification of gout should prompt thorough investigation of flock/individual hydration status, renal health, dietary calcium/protein, toxic exposures, nephropathogenic pathogens, and urinary tract patency.</li>
+          <li><strong>Etiological Limitation:</strong> Identification of gout confirms a metabolic/excretory failure, but does not by itself establish the specific initiating etiology.</li>
+        </ul>
+      </div>
+    </section>
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Birds and reptiles are particularly susceptible to gout because they are uricotelic.</li>
+          <li>Visceral gout affects visceral organs and serosal surfaces (acute renal failure / dehydration).</li>
+          <li>Articular gout primarily affects joints, synovial sheaths, and periarticular tissues (chronic hyperuricaemia).</li>
+          <li>Urates are water-soluble and frequently dissolve during routine formalin fixation and aqueous processing.</li>
+          <li>Absolute alcohol fixation preserves urate crystals for histology.</li>
+          <li>White serosal deposits must be differentiated from fibrin, pus, and pathological mineralization.</li>
+          <li>Definitive diagnosis requires integrating gross, microscopic, clinical, and species context.</li>
+        </ul>
+      </div>
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. Why are birds and reptiles particularly susceptible to gout compared to most domestic mammals?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Birds and reptiles are uricotelic (excreting uric acid and urate salts as primary nitrogenous waste). Urates have low water solubility, making them prone to precipitation when renal clearance or hydration is compromised. Domestic mammals possess uricase to convert uric acid to soluble allantoin.
+          </details>
+        </div>
+        <div class="quiz-q">
+          <p>2. Which form of gout primarily affects visceral serosae such as the pericardium and liver capsule?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Visceral gout.
+          </details>
+        </div>
+        <div class="quiz-q">
+          <p>3. What are tophi?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Nodular, chronic accumulations of urate crystals surrounded by macrophages, multinucleated giant cells, and fibrous tissue, typically found in articular and periarticular gout.
+          </details>
+        </div>
+        <div class="quiz-q">
+          <p>4. Why may urate deposits disappear during routine histological processing?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Urate salts are water-soluble and dissolve during aqueous formalin fixation and routine staining, leaving empty needle-shaped or radiating clefts.
+          </details>
+        </div>
+        <div class="quiz-q">
+          <p>5. Name three differential diagnoses for white serosal deposits in an avian coelomic cavity.</p>
+          <details>
+            <summary>Show Answer</summary>
+            1. Urate deposition (visceral gout)<br>
+            2. Fibrinous exudate (fibrinous serositis)<br>
+            3. Purulent exudate (suppurative serositis)<br>
+            *(Pathological mineralization / dystrophic calcification is a 4th valid differential).*
+          </details>
+        </div>
+      </div>
+    </section>
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/pathological-calcification" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Pathological Calcification</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/practical-pathology-gallery" class="nav-btn" target="_blank" rel="noopener noreferrer">Practical Pathology Gallery &rarr;</a>
+    </footer>
+  </div>
+</body>
+</html>

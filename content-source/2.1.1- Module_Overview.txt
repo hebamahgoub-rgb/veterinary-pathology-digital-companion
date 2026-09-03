@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cellular Swelling and Hydropic Change | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover,
+    .breadcrumb a:focus-visible {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* FEATURED VIDEO SECTION */
+    .video-section {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    .video-section h2 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .video-section p {
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: #000000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-link-wrapper {
+      margin-top: 12px;
+    }
+    .video-playlist-link {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    .video-playlist-link:hover,
+    .video-playlist-link:focus-visible {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* A. DEFINITION */
+    .definition-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .definition-box h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .definition-box p {
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+      margin-bottom: 12px;
+    }
+    .term-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .term-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 10px 12px;
+      font-size: 0.875rem;
+    }
+    .term-item strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* B. CAUSES */
+    .causes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .cause-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+    }
+    .cause-card h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .cause-card p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* C. INTERACTIVE PATHOGENESIS SEQUENCE */
+    .pathogenesis-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+    .step-card strong {
+      color: var(--primary-color);
+    }
+    .ultrastructure-box {
+      margin-top: 16px;
+      background: #ffffff;
+      border: 1px dashed var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .ultrastructure-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .ultrastructure-box ul {
+      margin-left: 20px;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* D & E. MORPHOLOGY */
+    .morph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .morph-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .morph-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .morph-card ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .morph-card li {
+      margin-bottom: 6px;
+    }
+
+    /* F. VETERINARY EXAMPLES */
+    .vet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .vet-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .vet-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* G. DIFFERENTIAL-DIAGNOSIS TABLE */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* H. PATHOLOGY IMAGE GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .pathology-image-card {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .pathology-image-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      display: block;
+    }
+
+    .pathology-image-card figcaption {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .caption-text {
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      line-height: 1.45;
+    }
+
+    .source-credit {
+      font-size: 0.775rem;
+      color: var(--secondary-color);
+      border-top: 1px solid var(--border-color);
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+
+    .source-credit a,
+    .case-credit a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .source-credit a:hover,
+    .source-credit a:focus-visible,
+    .case-credit a:hover,
+    .case-credit a:focus-visible {
+      text-decoration: underline;
+    }
+
+    /* KEYBOARD FOCUS STYLING FOR ACCESSIBILITY */
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* I. PRACTICAL CASE */
+    .case-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .case-figure {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-figure img {
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      display: block;
+    }
+
+    .case-credit {
+      font-size: 0.775rem;
+      color: var(--secondary-color);
+      padding: 10px 12px;
+    }
+
+    @media (min-width: 768px) {
+      .case-box {
+        grid-template-columns: 320px 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .pathology-image-card img,
+      .case-figure img {
+        height: auto;
+        max-height: 250px;
+      }
+    }
+
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+      padding: 2px 0;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover,
+    .nav-btn:focus-visible {
+      background-color: #2c5282;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/module-overview" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      Cellular Swelling &amp; Hydropic Change
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Cellular Swelling and Hydropic Change</h1>
+      <p>The earliest and most common morphological manifestation of acute, reversible cell injury.</p>
+    </header>
+
+    <!-- FEATURED VIDEO -->
+    <section class="video-section">
+      <h2>Watch: Why Do Injured Cells Swell?</h2>
+      <p>This four-minute visual explanation follows cellular swelling from ATP depletion and membrane-pump failure to its morphological appearance and reversibility.</p>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/8F-PuSjacXo?rel=0" 
+          title="Why Do Injured Cells Swell? - General Pathology in Minutes" 
+          loading="lazy" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-link-wrapper">
+        <a href="https://www.youtube.com/playlist?list=PLFBGjqC7Hw5s" class="video-playlist-link" target="_blank" rel="noopener noreferrer">&rarr; View the General Pathology in Minutes playlist</a>
+      </div>
+    </section>
+
+    <!-- A. DEFINITION -->
+    <section class="section">
+      <div class="definition-box">
+        <h2>Definition and Terminology</h2>
+        <p>
+          Cellular swelling is a non-specific, early manifestation of acute cell injury characterized by fluid accumulation within the cytoplasm due to loss of cell membrane volume regulation. Terminology varies depending on severity and tissue distribution:
+        </p>
+        <div class="term-list">
+          <div class="term-item">
+            <strong>Cellular Swelling</strong>
+            Initial subtle fluid uptake causing cellular enlargement and cytoplasmic cloudiness.
+          </div>
+          <div class="term-item">
+            <strong>Hydropic Change</strong>
+            Advanced swelling with distinct microvacuoles of water within the cytoplasm.
+          </div>
+          <div class="term-item">
+            <strong>Vacuolar Degeneration</strong>
+            Presence of clear, fluid-filled membrane-bound vacuoles displacing cytoplasm.
+          </div>
+          <div class="term-item">
+            <strong>Ballooning Degeneration</strong>
+            Severe cellular enlargement and rounding seen in viral epithelial damage.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B. CAUSES -->
+    <section class="section">
+      <h2 class="section-title">Etiology and Causes</h2>
+      <div class="causes-grid">
+        <div class="cause-card">
+          <h3>Hypoxia and Ischemia</h3>
+          <p>Reduced arterial perfusion or oxygen delivery impairs mitochondrial respiration and ATP production.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Toxic Injury</h3>
+          <p>Exogenous toxins, heavy metals, or nephrotoxic/hepatotoxic drugs directly disrupting membrane ion channels.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Infectious Agents</h3>
+          <p>Viral, bacterial, or protozoal pathogens damaging plasma membranes or cellular metabolic pathways.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Fever &amp; Systemic Disease</h3>
+          <p>High body temperatures or systemic metabolic acidosis altering membrane enzymatic function.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Electrolyte Disturbance</h3>
+          <p>Systemic osmotic imbalances or channelopathies causing extracellular-to-intracellular fluid shifts.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Physical Injury</h3>
+          <p>Trauma, radiation, or extreme thermal variations disrupting plasma membrane structural integrity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- C. INTERACTIVE PATHOGENESIS SEQUENCE -->
+    <section class="section">
+      <h2 class="section-title">Pathogenesis Sequence</h2>
+      <div class="pathogenesis-flow">
+        <div class="step-card">
+          <strong>Step 1: Cell Injury</strong> &mdash; Inciting insult (hypoxia, toxin, viral infection) damages cell.
+        </div>
+        <div class="step-card">
+          <strong>Step 2: Mitochondrial Impairment</strong> &mdash; Reduced oxidative phosphorylation leads to acute intracellular ATP depletion.
+        </div>
+        <div class="step-card">
+          <strong>Step 3: Pump Failure</strong> &mdash; Inactivation of energy-dependent Na<sup>+</sup>/K<sup>+</sup>-ATPase membrane pumps.
+        </div>
+        <div class="step-card">
+          <strong>Step 4: Sodium Influx</strong> &mdash; Intracellular retention and accumulation of sodium ions (Na<sup>+</sup>) accompanied by loss of K<sup>+</sup>.
+        </div>
+        <div class="step-card">
+          <strong>Step 5: Iso-osmotic Water Influx</strong> &mdash; Passive movement of water into the cytoplasm to balance osmotic gradient.
+        </div>
+        <div class="step-card">
+          <strong>Step 6: Cellular Swelling &amp; Vacuolation</strong> &mdash; Dilation of organelles and formation of clear cytoplasmic fluid vacuoles.
+        </div>
+      </div>
+
+      <div class="ultrastructure-box">
+        <h3>Associated Organellar &amp; Ultrastructural Changes</h3>
+        <ul>
+          <li><strong>Endoplasmic Reticulum:</strong> Dilation and detachment of ribosomes (impaired protein synthesis).</li>
+          <li><strong>Mitochondria:</strong> Early mild-to-moderate swelling and matrix density loss.</li>
+          <li><strong>Plasma Membrane:</strong> Loss of microvilli, membrane blebbing, and intercellular junction loosening.</li>
+          <li><strong>Cytoplasm:</strong> Microvacuolation leading to cytoplasmic pallor and granularity.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- D & E. MORPHOLOGY -->
+    <section class="section">
+      <h2 class="section-title">Morphological Features</h2>
+      <div class="morph-grid">
+        <div class="morph-card">
+          <h3>Gross Morphology</h3>
+          <ul>
+            <li><strong>Organ Size &amp; Weight:</strong> Mild-to-moderate overall organ enlargement and increased weight.</li>
+            <li><strong>Color:</strong> Pale or organ surface exhibits a dull, cooked-meat appearance.</li>
+            <li><strong>Consistency:</strong> Turgid or soft consistency.</li>
+            <li><strong>Cut Surface:</strong> Parenchyma bulges slightly when sectioned; capsule becomes taut.</li>
+            <li><em>Note:</em> Gross changes may be subtle or undetectable in early/mild cases.</li>
+          </ul>
+        </div>
+        <div class="morph-card">
+          <h3>Microscopic Morphology (H&amp;E)</h3>
+          <ul>
+            <li><strong>Cell Size:</strong> Affected parenchymal cells are enlarged, rounded, and swollen.</li>
+            <li><strong>Cytoplasm:</strong> Pale, finely granular, or contains ill-defined clear vacuoles (water).</li>
+            <li><strong>Cell Borders:</strong> Indistinct or compressed against neighboring cells.</li>
+            <li><strong>Lumina:</strong> Tubular or acinar lumina (e.g., renal proximal tubules) become narrowed or obliterated.</li>
+            <li><strong>Nucleus:</strong> Remains centrally located without pyknosis or karyorrhexis (distinguishing from necrosis).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- F. VETERINARY EXAMPLES -->
+    <section class="section">
+      <h2 class="section-title">Common Veterinary Examples</h2>
+      <div class="vet-grid">
+        <div class="vet-card">
+          <strong>Renal Tubular Swelling</strong>
+          Ischemic or nephrotoxic injury (e.g., ethylene glycol) causing swollen, pale proximal tubular epithelium.
+        </div>
+        <div class="vet-card">
+          <strong>Hepatocellular Hydropic Change</strong>
+          Acute toxic, hypoxic, or febrile injury leading to microvacuolated pale hepatocytes.
+        </div>
+        <div class="vet-card">
+          <strong>Epithelial Ballooning Degeneration</strong>
+          Poxvirus or parapoxvirus epithelial infections inducing marked ballooning of keratinocytes.
+        </div>
+        <div class="vet-card">
+          <strong>Myocardial Swelling</strong>
+          Acute hypoxic or ischemic cardiac injury resulting in swollen, pale-staining cardiomyocytes.
+        </div>
+      </div>
+    </section>
+
+    <!-- G. DIFFERENTIAL-DIAGNOSIS TABLE -->
+    <section class="section">
+      <h2 class="section-title">Differential Diagnosis Table</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Hydropic Change</th>
+              <th>Fatty Change</th>
+              <th>Glycogen Accumulation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Accumulated Material</strong></td>
+              <td>Water and electrolytes</td>
+              <td>Triglycerides (lipids)</td>
+              <td>Glycogen (carbohydrate)</td>
+            </tr>
+            <tr>
+              <td><strong>Vacuole Appearance (H&amp;E)</strong></td>
+              <td>Ill-defined, pale, granular or microvacuolated cytoplasm</td>
+              <td>Sharply demarcated, clear, round vacuoles</td>
+              <td>Feathery, indistinct, pale clear spaces</td>
+            </tr>
+            <tr>
+              <td><strong>Nuclear Position</strong></td>
+              <td>Centrally located</td>
+              <td>Displaced to periphery (macrovesicular)</td>
+              <td>Centrally located</td>
+            </tr>
+            <tr>
+              <td><strong>Common Organs</strong></td>
+              <td>Kidney, Liver, Epithelium, Heart</td>
+              <td>Liver, Heart, Kidney</td>
+              <td>Liver, Muscle, Kidney</td>
+            </tr>
+            <tr>
+              <td><strong>Helpful Special Stain / Prep</strong></td>
+              <td>H&amp;E (dissolves/washes out water)</td>
+              <td>Oil Red O / Sudan III (frozen)</td>
+              <td>PAS (diastase-sensitive)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- H. PATHOLOGY IMAGE GALLERY -->
+    <section class="section">
+      <h2 class="section-title">Pathology Image Gallery</h2>
+      <div class="gallery-grid">
+        
+        <!-- IMAGE 1 -->
+        <figure class="pathology-image-card">
+          <img 
+            src="https://lh3.googleusercontent.com/d/18dTvNrx9SCzx06hRQhGgNMUyMOKNk5Js" 
+            alt="Rat kidney showing cloudy swelling of renal tubular epithelial cells." 
+            loading="lazy" 
+          />
+          <figcaption>
+            <div class="caption-text">
+              <strong>Renal tubular cloudy swelling.</strong> Tubular epithelial cells are enlarged and have pale cytoplasm, illustrating an early form of cellular injury. The stars are part of the original published figure.
+            </div>
+            <div class="source-credit">
+              <a href="https://link.springer.com/article/10.1186/1476-511X-10-163/figures/2" target="_blank" rel="noopener noreferrer">Source</a>: Abdelhalim &amp; Jarrar (2011), Lipids in Health and Disease 10:163. <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>.
+            </div>
+          </figcaption>
+        </figure>
+
+        <!-- IMAGE 2 -->
+        <figure class="pathology-image-card">
+          <img 
+            src="https://lh3.googleusercontent.com/d/1Fh6PqBgpTSNOYB_uUGIlB5tE-RWPSDA2" 
+            alt="Rat kidney showing vacuolar degeneration of renal tubular epithelial cells." 
+            loading="lazy" 
+          />
+          <figcaption>
+            <div class="caption-text">
+              <strong>Renal tubular vacuolar degeneration.</strong> Clear cytoplasmic vacuoles are visible within affected tubular epithelial cells. The stars are part of the original published figure.
+            </div>
+            <div class="source-credit">
+              <a href="https://link.springer.com/article/10.1186/1476-511X-10-163/figures/3" target="_blank" rel="noopener noreferrer">Source</a>: Abdelhalim &amp; Jarrar (2011), Lipids in Health and Disease 10:163. <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>.
+            </div>
+          </figcaption>
+        </figure>
+
+        <!-- IMAGE 3 -->
+        <figure class="pathology-image-card">
+          <img 
+            src="https://lh3.googleusercontent.com/d/17yosrGohjBGVN8EnLza20XlHCE5yIbFz" 
+            alt="Rat kidney showing prominent renal tubular vacuolar degeneration." 
+            loading="lazy" 
+          />
+          <figcaption>
+            <div class="caption-text">
+              <strong>More prominent renal tubular vacuolar degeneration</strong> following experimental toxic injury. Compare the cytoplasmic vacuolation with the milder cloudy swelling in the first image. The stars are part of the original published figure.
+            </div>
+            <div class="source-credit">
+              <a href="https://link.springer.com/article/10.1186/1476-511X-10-163/figures/4" target="_blank" rel="noopener noreferrer">Source</a>: Abdelhalim &amp; Jarrar (2011), Lipids in Health and Disease 10:163. <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>.
+            </div>
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- I. PRACTICAL CASE -->
+    <section class="section">
+      <h2 class="section-title">Practical Case Study</h2>
+      <div class="case-box">
+        <figure class="case-figure">
+          <img 
+            src="https://lh3.googleusercontent.com/d/17yosrGohjBGVN8EnLza20XlHCE5yIbFz" 
+            alt="Rat kidney showing prominent renal tubular vacuolar degeneration." 
+            loading="lazy" 
+          />
+          <figcaption class="case-credit">
+            <a href="https://link.springer.com/article/10.1186/1476-511X-10-163/figures/4" target="_blank" rel="noopener noreferrer">Source</a>: Abdelhalim &amp; Jarrar (2011), Lipids in Health and Disease 10:163. <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>.
+          </figcaption>
+        </figure>
+        <div>
+          <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px;">Case Presentation: Experimental Toxic Tubular Injury</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 16px;">
+            A laboratory rat exposed to a nephrotoxic test material develops renal cortical tubular alterations. Histological examination reveals enlarged tubular epithelial cells with pale cytoplasm and variably sized clear cytoplasmic vacuoles. The changes are most prominent in proximal convoluted tubules.
+          </p>
+
+          <div class="quiz-box" style="margin-bottom: 16px; padding: 12px; border-style: dashed;">
+            <h4 style="font-size: 0.95rem; color: var(--primary-color); margin-bottom: 8px;">Case Questions</h4>
+            
+            <div class="quiz-q">
+              <p>1. What cellular alteration is demonstrated?</p>
+              <details>
+                <summary>Show Answer</summary>
+                Renal tubular cellular swelling with vacuolar degeneration.
+              </details>
+            </div>
+
+            <div class="quiz-q">
+              <p>2. Which intracellular transport failure commonly initiates cellular swelling?</p>
+              <details>
+                <summary>Show Answer</summary>
+                ATP depletion and failure of the Na<sup>+</sup>/K<sup>+</sup>-ATPase pump, followed by intracellular sodium and water accumulation.
+              </details>
+            </div>
+
+            <div class="quiz-q" style="margin-bottom: 0;">
+              <p>3. Which nuclear findings would suggest progression from reversible injury to necrosis?</p>
+              <details>
+                <summary>Show Answer</summary>
+                Pyknosis, karyorrhexis, or karyolysis would support irreversible injury or necrosis.
+              </details>
+            </div>
+          </div>
+
+          <p style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color);">
+            Diagnostic Summary: Renal tubular cellular swelling and vacuolar degeneration associated with acute toxic cell injury.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Cellular swelling is the earliest, most universal manifestation of acute reversible cell injury.</li>
+          <li>Impairs Na<sup>+</sup>/K<sup>+</sup>-ATPase pumps due to ATP depletion, driving intracellular sodium accumulation and iso-osmotic water influx.</li>
+          <li>Microscopically characterized by enlarged cells, pale microvacuolated cytoplasm, narrowed lumina, and intact central nuclei.</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. What is the primary biochemical failure mechanism causing cellular swelling?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Failure of energy-dependent Na<sup>+</sup>/K<sup>+</sup>-ATPase membrane pumps due to intracellular ATP depletion.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>2. How does nuclear position help differentiate hydropic change from macrovesicular fatty change?</p>
+          <details>
+            <summary>Show Answer</summary>
+            In hydropic change, the nucleus remains centrally located. In macrovesicular fatty change, large lipid droplets displace the nucleus to the cell periphery.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>3. Why do tubular lumina appear narrowed in kidneys exhibiting hydropic change?</p>
+          <details>
+            <summary>Show Answer</summary>
+            The swelling and expansion of adjacent tubular epithelial cells bulge inward, compressing and narrowing the lumen.
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/module-overview" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Module Overview</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/intracellular-accumulations" class="nav-btn" target="_blank" rel="noopener noreferrer">Intracellular Accumulations &rarr;</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

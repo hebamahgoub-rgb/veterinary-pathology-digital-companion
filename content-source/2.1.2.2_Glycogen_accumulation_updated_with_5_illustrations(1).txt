@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glycogen Accumulation | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* A. DEFINITION */
+    .definition-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+    .definition-box h2 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .definition-box p {
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+
+    /* B. NORMAL METABOLISM & C. MAJOR MECHANISMS */
+    .mech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .mech-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .mech-card h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .mech-card p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* D. CAUSES */
+    .causes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .cause-card {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .cause-card h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .cause-card p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* E. COMMON SITES */
+    .sites-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .site-card {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .site-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* F & G. MORPHOLOGY */
+    .morph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .morph-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .morph-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .morph-card ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+    .morph-card li {
+      margin-bottom: 6px;
+    }
+
+    /* H. SPECIAL STAINS */
+    .stain-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+    }
+    .stain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .stain-card {
+      background-color: var(--bg-light);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.875rem;
+    }
+    .stain-card strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* I. DIFFERENTIAL DIAGNOSIS TABLE */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* J. VETERINARY CASES */
+    .case-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      background: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 650px) {
+      .case-box {
+        grid-template-columns: 280px 1fr;
+      }
+    }
+
+    .case-figure {
+      margin: 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-light);
+      align-self: start;
+    }
+
+    .case-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .case-figure figcaption {
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--secondary-color);
+    }
+
+    .image-credit {
+      display: block;
+      margin-top: 7px;
+      font-size: 0.72rem;
+    }
+
+    .image-credit a {
+      color: var(--accent-color);
+    }
+
+    .veterinary-relevance {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    .enrichment-box {
+      background-color: var(--bg-light);
+      border: 1px dashed var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .enrichment-box h4 {
+      font-size: 0.95rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+    .enrichment-box p {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+    }
+
+    /* TAKEAWAYS & QUIZ */
+    .takeaways-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .takeaways-box h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .takeaways-box ul {
+      margin-left: 20px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .quiz-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      background: #ffffff;
+      margin-bottom: 24px;
+    }
+    .quiz-box h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .quiz-q {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .quiz-q p {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .quiz-q details {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
+    .quiz-q summary {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+
+    /* TEACHING ILLUSTRATIONS */
+    .teaching-figure {
+      margin: 18px 0 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+    .teaching-figure figcaption {
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="MODULE_LANDING_URL">General Pathology</a> &gt; 
+      <a href="MODULE_LANDING_URL">Disturbance in Cell Metabolism</a> &gt; 
+      <a href="INTRACELLULAR_ACCUMULATIONS_URL">Intracellular Accumulations</a> &gt; 
+      Glycogen Accumulation
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Glycogen Accumulation</h1>
+      <p>Abnormal intracellular storage of complex glucose polymers secondary to hormonal or metabolic alterations.</p>
+    </header>
+
+    <!-- A. DEFINITION -->
+    <section class="section">
+      <div class="definition-box">
+        <h2>Definition</h2>
+        <p>
+          Glycogen accumulation is the excessive intracellular storage of glycogen (a highly branched glucose polymer) within parenchymal cells. It arises when glucose homeostasis is altered, leading to accelerated glycogen synthesis or impaired enzymatic degradation.
+        </p>
+      </div>
+    </section>
+
+    <!-- B. NORMAL METABOLISM & C. MAJOR MECHANISMS -->
+    <section class="section">
+      <h2 class="section-title">Normal Metabolism &amp; Pathogenetic Mechanisms</h2>
+      <p style="font-size: 0.95rem; color: var(--secondary-color); margin-bottom: 12px;">
+        Glycogen is normally synthesized (glycogenesis) and stored in hepatocytes and muscle cells under the influence of insulin, and broken down (glycogenolysis) by glucagon and epinephrine. Pathological storage occurs via three main pathways:
+      </p>
+      <div class="mech-grid">
+        <div class="mech-card">
+          <h3>1. Hormonal Induction</h3>
+          <p>Glucocorticoids induce hepatic glycogen synthetase upregulation, driving massive glycogen storage in hepatocytes (e.g., steroid hepatopathy).</p>
+        </div>
+        <div class="mech-card">
+          <h3>2. Persistent Hyperglycemia</h3>
+          <p>Sustained high blood glucose levels force passive glucose uptake and glycogen storage in renal tubular epithelium (e.g., severe diabetes mellitus).</p>
+        </div>
+        <div class="mech-card">
+          <h3>3. Enzymatic Storage Defects</h3>
+          <p>Inherited deficiencies of lysosomal or cytoplasmic enzymes (e.g., alpha-glucosidase deficiency) prevent normal glycogen breakdown.</p>
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/19THqualvBH5U8ecS2iBLB89CWBk3VVRo" alt="Mechanisms leading to intracellular glycogen accumulation" loading="lazy" decoding="async">
+        <figcaption>Mechanisms leading to intracellular glycogen accumulation. Increased glucose availability, steroid-induced enzyme activation, or metabolic defects enhance glycogen synthesis and storage.</figcaption>
+      </figure>
+    </section>
+
+    <!-- D. CAUSES -->
+    <section class="section">
+      <h2 class="section-title">Etiology and Causes</h2>
+      <div class="causes-grid">
+        <div class="cause-card">
+          <h3>Exogenous Corticosteroid Therapy</h3>
+          <p>Iatrogenic administration of glucocorticoids in dogs, inducing rapid and marked hepatic glycogen accumulation.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Endogenous Hyperadrenocorticism</h3>
+          <p>Hypercortisolemia driven by pituitary or adrenal tumors (Cushing's disease) in dogs.</p>
+        </div>
+        <div class="cause-card">
+          <h3>Diabetes Mellitus</h3>
+          <p>Uncontrolled hyperglycemia causing glucose spillover into urine and tubular epithelial glycogen storage (Armanni-Ebstein lesion).</p>
+        </div>
+        <div class="cause-card">
+          <h3>Glycogen Storage Diseases (GSDs)</h3>
+          <p>Rare inherited metabolic disorders involving enzyme deficiencies in glycogenolysis or lysosomal breakdown.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- E. COMMON SITES -->
+    <section class="section">
+      <h2 class="section-title">Common Anatomical Sites</h2>
+      <div class="sites-grid">
+        <div class="site-card">
+          <strong>Hepatocytes</strong>
+          Primary site for steroid-associated glycogen storage (steroid hepatopathy).
+        </div>
+        <div class="site-card">
+          <strong>Renal Tubular Epithelium</strong>
+          Proximal tubular epithelium in diabetic animals with glucosuria.
+        </div>
+        <div class="site-card">
+          <strong>Myocardium &amp; Skeletal Muscle</strong>
+          Target tissues in inherited glycogen storage enzyme deficiencies.
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/10wBVSSQfGtmMZF8k844WN8zB9EdQ9qZI" alt="Glycogen accumulation in renal tubular epithelial cells" loading="lazy" decoding="async">
+        <figcaption>Renal tubular epithelial cells in pigs may show cytoplasmic clearing due to glycogen accumulation, especially in conditions of high glucose availability.</figcaption>
+      </figure>
+    </section>
+
+    <!-- F & G. MORPHOLOGY -->
+    <section class="section">
+      <h2 class="section-title">Morphological Features</h2>
+      <div class="morph-grid">
+        <div class="morph-card">
+          <h3>Gross Morphology</h3>
+          <ul>
+            <li><strong>Organ Size:</strong> Diffusely enlarged, pale liver (hepatomegaly) in severe cases.</li>
+            <li><strong>Consistency:</strong> Firm to slightly friable, but lacking the greasy texture of fatty change.</li>
+            <li><strong>Color:</strong> Pale brown to light tan.</li>
+            <li><strong>Note:</strong> Mild-to-moderate cases may exhibit no obvious gross abnormalities.</li>
+          </ul>
+        </div>
+        <div class="morph-card">
+          <h3>Microscopic Morphology (H&amp;E)</h3>
+          <ul>
+            <li><strong>Cytoplasmic Appearance:</strong> Swollen, pale cytoplasm filled with ill-defined, clear, pale, or finely reticulated spaces.</li>
+            <li><strong>Nuclear Position:</strong> Nuclei remain <strong>centrally located</strong> within affected cells.</li>
+            <li><strong>Cell Borders:</strong> Distinct cellular outlines with overall cell expansion.</li>
+            <li><strong>Tissue Dissolution:</strong> Aqueous fixatives partially dissolve glycogen during processing, leaving delicate cytoplasmic strands.</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1d8urMkG3U3oxmUwzt5uo4UDW9-TEA9Vg" alt="Normal hepatocyte compared with a glycogen-loaded hepatocyte" loading="lazy" decoding="async">
+        <figcaption>Comparison between a normal hepatocyte (left) and a hepatocyte with marked glycogen accumulation (right). Excessive glycogen causes cytoplasmic pallor, swelling, and mild nuclear displacement.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1pR9s4BtMYSJlBmZQJPeMZX8hIquGLw43" alt="Canine steroid hepatopathy with hepatocellular glycogen accumulation" loading="lazy" decoding="async">
+        <figcaption>Steroid hepatopathy in dogs. Corticosteroids induce glycogen accumulation, producing swollen hepatocytes with pale, ground-glass cytoplasm.</figcaption>
+      </figure>
+    </section>
+
+    <!-- H. SPECIAL STAINS -->
+    <section class="section">
+      <h2 class="section-title">Histochemical Confirmation</h2>
+      <div class="stain-box">
+        <p style="font-size: 0.95rem; color: var(--secondary-color);">
+          Because aqueous histological fixatives wash out some glycogen, definitive histochemical confirmation requires specific staining paired with enzymatic digestion:
+        </p>
+        <div class="stain-grid">
+          <div class="stain-card">
+            <strong>Periodic Acid-Schiff (PAS)</strong>
+            Stains glycogen intensely magenta/pink. (Note: PAS also stains mucins and basement membranes).
+          </div>
+          <div class="stain-card">
+            <strong>PAS with Diastase Digestion (PAS-D)</strong>
+            Diastase enzyme digests and removes glycogen. A loss of PAS magenta staining on the diastase-treated section confirms glycogen.
+          </div>
+        </div>
+      </div>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1_jUuhOQZwFcYwrI8OvtED8PbD5xXaYFx" alt="PAS and PAS-diastase staining for glycogen" loading="lazy" decoding="async">
+        <figcaption>PAS stain highlights glycogen as magenta granules. After diastase digestion, glycogen is removed, confirming its identity. PAS-diastase helps differentiate glycogen from other PAS-positive substances.</figcaption>
+      </figure>
+    </section>
+
+    <!-- I. DIFFERENTIAL DIAGNOSIS TABLE -->
+    <section class="section">
+      <h2 class="section-title">Differential Diagnosis Table</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Glycogen Accumulation</th>
+              <th>Hydropic Change</th>
+              <th>Fatty Change (Macrovesicular)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Accumulated Material</strong></td>
+              <td>Glycogen (Carbohydrate)</td>
+              <td>Water and electrolytes</td>
+              <td>Triglycerides (Lipids)</td>
+            </tr>
+            <tr>
+              <td><strong>Cytoplasmic Appearance</strong></td>
+              <td>Clear, pale, or finely reticulated spaces</td>
+              <td>Pale, finely granular or microvacuolated</td>
+              <td>Sharply demarcated, clear, round vacuoles</td>
+            </tr>
+            <tr>
+              <td><strong>Nuclear Position</strong></td>
+              <td>Centrally located</td>
+              <td>Centrally located</td>
+              <td>Displaced to cell periphery</td>
+            </tr>
+            <tr>
+              <td><strong>Special Stain</strong></td>
+              <td>PAS positive (diastase-sensitive)</td>
+              <td>None (water dissolves)</td>
+              <td>Oil Red O positive (frozen)</td>
+            </tr>
+            <tr>
+              <td><strong>Key Cause</strong></td>
+              <td>Corticosteroid excess / Diabetes</td>
+              <td>Hypoxia / Cell injury</td>
+              <td>Negative energy balance / Anorexia</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- J. VETERINARY CASES -->
+    <section class="section">
+      <h2 class="section-title">Morphology Focus &amp; Veterinary Relevance</h2>
+      <div class="case-box">
+        <figure class="case-figure">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Liver%20biopsy%20of%20glycogen%20storage%20disorder%20PAS%20positive.jpg" alt="PAS-stained liver showing uniformly enlarged hepatocytes with magenta cytoplasmic staining caused by glycogen accumulation.">
+          <figcaption>
+            Hepatic glycogen accumulation. Hepatocytes are uniformly distended by PAS-positive cytoplasmic material. PAS, 20×. Glycogen identity should be confirmed by loss of staining following diastase digestion.
+            <span class="image-credit">Image: Department of Pathology, Calicut Medical College, via <a href="https://commons.wikimedia.org/wiki/File:Liver_biopsy_of_glycogen_storage_disorder_PAS_positive.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</span>
+          </figcaption>
+        </figure>
+        <div>
+          <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px;">Hepatic Glycogen Accumulation</h3>
+          <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+            The liver section shows uniformly distended hepatocytes containing PAS-positive cytoplasmic material. The magenta reaction demonstrates abundant intracellular carbohydrate. Confirmation that the material is glycogen requires comparison with a PAS-diastase section, in which glycogen is digested and the cytoplasmic PAS staining is lost.
+          </p>
+          <p class="veterinary-relevance">
+            <strong>Veterinary relevance:</strong> In dogs, excessive endogenous corticosteroid production or prolonged corticosteroid treatment can produce marked hepatocellular glycogen accumulation. Affected hepatocytes become enlarged and have pale, clear, or finely reticulated cytoplasm, usually with the nucleus remaining centrally located. This reversible lesion is commonly termed steroid hepatopathy or glycogen-type vacuolar hepatopathy.
+          </p>
+          <p style="font-size: 0.875rem; font-weight: 600; color: var(--primary-color); margin-top: 12px;">
+            Morphological diagnosis: Diffuse hepatocellular glycogen accumulation, PAS positive.
+          </p>
+        </div>
+      </div>
+
+      <div class="enrichment-box">
+        <h4>Enrichment: Inherited Glycogen Storage Diseases</h4>
+        <p>
+          Inherited deficiencies of glycogen-metabolizing enzymes produce glycogen storage diseases affecting different organs according to the deficient enzyme. Examples relevant to veterinary medicine include glycogen storage disease type II (Pompe disease) in cattle, dogs, and Japanese quail. Depending on the disorder, glycogen may accumulate in hepatocytes, cardiac myocytes, skeletal myofibres, or neurons.
+        </p>
+      </div>
+    </section>
+
+    <!-- SUMMARY & KNOWLEDGE CHECK -->
+    <section class="section">
+      <div class="takeaways-box">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Glycogen accumulation produces pale, clear, or finely reticulated cytoplasmic spaces with centrally placed nuclei.</li>
+          <li>Most commonly encountered in dogs with steroid excess (exogenous or Cushing's disease) or diabetes mellitus.</li>
+          <li>Confirmed histochemically via PAS positivity that is eliminated by diastase digestion (PAS-D).</li>
+        </ul>
+      </div>
+
+      <div class="quiz-box">
+        <h3>Knowledge Check</h3>
+        
+        <div class="quiz-q">
+          <p>1. How does nuclear position distinguish glycogen accumulation from macrovesicular fatty change?</p>
+          <details>
+            <summary>Show Answer</summary>
+            In glycogen accumulation, the nucleus remains centrally placed within the cell. In macrovesicular fatty change, a large lipid vacuole pushes the nucleus to the cell periphery.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>2. What is the diagnostic rationale behind comparing a PAS section with a PAS-diastase (PAS-D) section?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Diastase selectively digests glycogen. If magenta PAS staining disappears on the diastase-treated section, the presence of glycogen is confirmed.
+          </details>
+        </div>
+
+        <div class="quiz-q">
+          <p>3. What is the most common clinical cause of hepatic glycogen accumulation in dogs?</p>
+          <details>
+            <summary>Show Answer</summary>
+            Excessive glucocorticoids, either from exogenous corticosteroid administration or endogenous hyperadrenocorticism (Cushing's disease).
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="FATTY_CHANGE_URL" class="nav-btn">&larr; Fatty Change</a>
+      <a href="PROTEIN_HYALINE_URL" class="nav-btn">Protein Accumulations and Hyaline Change &rarr;</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

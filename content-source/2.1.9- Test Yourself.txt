@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Yourself | Disturbance in Cell Metabolism</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --text-dark: #2d3748;
+      --success-color: #2f855a;
+      --error-color: #c53030;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .page-header h1 {
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .page-header p {
+      color: var(--secondary-color);
+      font-size: 0.95rem;
+    }
+
+    /* INSTRUCTIONS & SCORE BAR */
+    .instructions-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .score-card {
+      background: #ffffff;
+      border: 2px solid var(--primary-color);
+      border-radius: 6px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .score-card h2 {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+    .score-val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-color);
+    }
+    .score-feedback {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-top: 6px;
+    }
+
+    /* QUESTION CARD */
+    .q-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .q-header {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+    .q-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .option-btn {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+      font-family: var(--font-family);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: #edf2f7;
+      border-color: var(--accent-color);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-btn.correct {
+      background-color: #c6f6d5 !important;
+      border-color: var(--success-color) !important;
+      color: #22543d !important;
+      font-weight: 600;
+    }
+    .option-btn.incorrect {
+      background-color: #fed7d7 !important;
+      border-color: var(--error-color) !important;
+      color: #742a2a !important;
+    }
+
+    .q-explanation {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .q-explanation.show-correct {
+      display: block;
+      background-color: #f0fff4;
+      border: 1px solid #9ae6b4;
+      color: #22543d;
+    }
+    .q-explanation.show-incorrect {
+      display: block;
+      background-color: #fff5f5;
+      border: 1px solid #feb2b2;
+      color: #742a2a;
+    }
+
+    /* RESET BUTTON */
+    .reset-container {
+      text-align: center;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+    .btn-reset {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-reset:hover {
+      background-color: #2c5282;
+    }
+
+    /* PAGE NAVIGATION */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background-color: #2c5282;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+      Test Yourself
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header">
+      <h1>Test Yourself: Self-Assessment Knowledge Check</h1>
+      <p>Evaluate your mastery of cellular metabolism disturbances, intracellular accumulations, pigments, calcification, and amyloidosis.</p>
+    </header>
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions-box">
+      <strong>Instructions:</strong> Select the single best answer for each of the 10 questions below. Instant feedback and detailed rationale will be displayed upon selecting an answer. Track your progress with the live score bar.
+    </div>
+
+    <!-- SCORE BOARD -->
+    <div class="score-card">
+      <h2>Module Quiz Score</h2>
+      <div id="score-display" class="score-val">0 / 10 (0%)</div>
+      <div id="score-feedback" class="score-feedback">Answer the questions below to test your understanding.</div>
+    </div>
+
+    <!-- QUIZ FORM CONTAINER -->
+    <div id="quiz-container">
+
+      <!-- QUESTION 1 -->
+      <div class="q-card" data-q="0">
+        <div class="q-header">1. What is the primary biochemical mechanism driving early cellular swelling (hydropic change)?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(0, 0)">A) Activation of cell membrane sodium channels leading to enzymatic lysis</button>
+          <button class="option-btn" onclick="checkAnswer(0, 1)">B) ATP depletion causing failure of the Na+/K+-ATPase membrane pump</button>
+          <button class="option-btn" onclick="checkAnswer(0, 2)">C) Excessive accumulation of neutral triglycerides within the cytoplasm</button>
+          <button class="option-btn" onclick="checkAnswer(0, 3)">D) Lysosomal enzyme failure causing indigestible substrate retention</button>
+        </div>
+        <div class="q-explanation" id="exp-0"></div>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="q-card" data-q="1">
+        <div class="q-header">2. Which histological feature on routine H&amp;E staining helps distinguish macrovesicular fatty change from glycogen accumulation?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(1, 0)">A) Fatty change produces feathery cytoplasmic spaces; glycogen produces sharp vacuoles</button>
+          <button class="option-btn" onclick="checkAnswer(1, 1)">B) Macrovesicular fatty change displaces the nucleus to the cell periphery; glycogen retains a central nucleus</button>
+          <button class="option-btn" onclick="checkAnswer(1, 2)">C) Glycogen accumulation stains intensely basophilic; fatty change stains eosinophilic</button>
+          <button class="option-btn" onclick="checkAnswer(1, 3)">D) Fatty change is strictly extracellular; glycogen accumulation is strictly nuclear</button>
+        </div>
+        <div class="q-explanation" id="exp-1"></div>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="q-card" data-q="2">
+        <div class="q-header">3. Why must Oil Red O staining for lipid demonstration be performed on frozen unfixed tissue sections?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(2, 0)">A) Formalin fixatives chemically degrade triglycerides into free fatty acids</button>
+          <button class="option-btn" onclick="checkAnswer(2, 1)">B) Organic solvents used in routine paraffin embedding dissolve and extract neutral lipids</button>
+          <button class="option-btn" onclick="checkAnswer(2, 2)">C) Paraffin embedding causes water influx, converting lipid into hydropic vacuoles</button>
+          <button class="option-btn" onclick="checkAnswer(2, 3)">D) Frozen tissue prevents autolytic breakdown of cell nuclei</button>
+        </div>
+        <div class="q-explanation" id="exp-2"></div>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="q-card" data-q="3">
+        <div class="q-header">4. A dog undergoing long-term prednisone therapy develops marked hepatomegaly. Biopsy confirms steroid hepatopathy. What special stain combination proves glycogen storage?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(3, 0)">A) Perls' Prussian Blue positivity that is negative on H&amp;E</button>
+          <button class="option-btn" onclick="checkAnswer(3, 1)">B) Congo Red orange-red staining exhibiting apple-green birefringence</button>
+          <button class="option-btn" onclick="checkAnswer(3, 2)">C) Periodic Acid-Schiff (PAS) positivity that is eliminated by diastase pre-treatment (PAS-D)</button>
+          <button class="option-btn" onclick="checkAnswer(3, 3)">D) Von Kossa black staining that resists hydrogen peroxide bleaching</button>
+        </div>
+        <div class="q-explanation" id="exp-3"></div>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="q-card" data-q="4">
+        <div class="q-header">5. Which statement accurately describes "hyaline change"?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(4, 0)">A) It is a specific chemical compound formed during carbohydrate degradation</button>
+          <button class="option-btn" onclick="checkAnswer(4, 1)">B) It is a descriptive morphological term for homogeneous, glassy, bright pink material on H&amp;E</button>
+          <button class="option-btn" onclick="checkAnswer(4, 2)">C) It refers exclusively to extracellular amyloid deposits in renal glomeruli</button>
+          <button class="option-btn" onclick="checkAnswer(4, 3)">D) It is a pathognomonic diagnostic feature of acute lipid peroxidative injury</button>
+        </div>
+        <div class="q-explanation" id="exp-4"></div>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="q-card" data-q="5">
+        <div class="q-header">6. Dystrophic calcification differs from metastatic calcification in that dystrophic calcification:</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(5, 0)">A) Occurs in normal viable tissues secondary to systemic hypercalcemia</button>
+          <button class="option-btn" onclick="checkAnswer(5, 1)">B) Occurs locally in dead or necrotic tissues despite normal serum calcium levels</button>
+          <button class="option-btn" onclick="checkAnswer(5, 2)">C) Affects only the gastric mucosa, lungs, and renal tubular membranes</button>
+          <button class="option-btn" onclick="checkAnswer(5, 3)">D) Is caused exclusively by Vitamin D rodenticide toxicity or calcinogenic plants</button>
+        </div>
+        <div class="q-explanation" id="exp-5"></div>
+      </div>
+
+      <!-- QUESTION 7 -->
+      <div class="q-card" data-q="6">
+        <div class="q-header">7. What color does pathological calcium mineral deposit appear on standard H&amp;E-stained tissue sections?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(6, 0)">A) Bright golden-yellow</button>
+          <button class="option-btn" onclick="checkAnswer(6, 1)">B) Deeply basophilic (dark purple to blue-black)</button>
+          <button class="option-btn" onclick="checkAnswer(6, 2)">C) Pale green with birefringence</button>
+          <button class="option-btn" onclick="checkAnswer(6, 3)">D) Uniform light tan to clear</button>
+        </div>
+        <div class="q-explanation" id="exp-6"></div>
+      </div>
+
+      <!-- QUESTION 8 -->
+      <div class="q-card" data-q="7">
+        <div class="q-header">8. Perls' Prussian Blue histochemical reaction reacts with ferric iron to confirm the presence of which endogenous pigment?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(7, 0)">A) Melanin</button>
+          <button class="option-btn" onclick="checkAnswer(7, 1)">B) Lipofuscin</button>
+          <button class="option-btn" onclick="checkAnswer(7, 2)">C) Hemosiderin</button>
+          <button class="option-btn" onclick="checkAnswer(7, 3)">D) Bilirubin</button>
+        </div>
+        <div class="q-explanation" id="exp-7"></div>
+      </div>
+
+      <!-- QUESTION 9 -->
+      <div class="q-card" data-q="8">
+        <div class="q-header">9. In domestic animals, reactive systemic AA amyloidosis develops secondary to:</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(8, 0)">A) Chronic inflammatory diseases driving excessive hepatic Serum Amyloid A (SAA) synthesis</button>
+          <button class="option-btn" onclick="checkAnswer(8, 1)">B) Plasma cell dyscrasias causing systemic immunoglobulin light chain overproduction</button>
+          <button class="option-btn" onclick="checkAnswer(8, 2)">C) Islet cell tumors co-secreting excessive Islet Amyloid Polypeptide (IAPP)</button>
+          <button class="option-btn" onclick="checkAnswer(8, 3)">D) Inhaled atmospheric carbon particles accumulating in bronchial lymph nodes</button>
+        </div>
+        <div class="q-explanation" id="exp-8"></div>
+      </div>
+
+      <!-- QUESTION 10 -->
+      <div class="q-card" data-q="9">
+        <div class="q-header">10. What optical finding is pathognomonic for amyloid when a Congo Red-stained tissue section is viewed under polarized light?</div>
+        <div class="q-options">
+          <button class="option-btn" onclick="checkAnswer(9, 0)">A) Bright blue fluorescence</button>
+          <button class="option-btn" onclick="checkAnswer(9, 1)">B) Apple-green birefringence</button>
+          <button class="option-btn" onclick="checkAnswer(9, 2)">C) Dark black granular extinction</button>
+          <button class="option-btn" onclick="checkAnswer(9, 3)">D) Golden-yellow refractivity</button>
+        </div>
+        <div class="q-explanation" id="exp-9"></div>
+      </div>
+
+    </div>
+
+    <!-- RESET BUTTON -->
+    <div class="reset-container">
+      <button class="btn-reset" onclick="resetQuiz()">Reset Quiz &amp; Retake</button>
+    </div>
+
+    <!-- PAGE NAVIGATION -->
+    <footer class="page-nav">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/practical-pathology-gallery" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Practical Gallery</a>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" class="nav-btn" target="_blank" rel="noopener noreferrer">Module Landing Page &rarr;</a>
+    </footer>
+
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        correct: 1,
+        exp: "Cellular swelling is driven by ATP depletion (from hypoxia or toxicity), causing failure of the energy-dependent Na+/K+-ATPase pump. Sodium and water flood into the cytoplasm, expanding the cell."
+      },
+      {
+        correct: 1,
+        exp: "Macrovesicular fatty change forms a large, single lipid vacuole that pushes the nucleus to the cell periphery. Glycogen storage forms feathery clear spaces while keeping the nucleus central."
+      },
+      {
+        correct: 1,
+        exp: "Organic solvents (alcohol, xylene) used during routine paraffin processing dissolve neutral lipids. Frozen sections bypass these solvents, preserving lipid for Oil Red O staining."
+      },
+      {
+        correct: 2,
+        exp: "Glycogen is PAS-positive (magenta). Pre-treatment with diastase enzyme digests glycogen away; loss of staining on the PAS-D slide confirms glycogen."
+      },
+      {
+        correct: 1,
+        exp: "'Hyaline' is purely a physical/optical descriptor for smooth, homogeneous, glassy, bright pink material on H&E. It is not a single chemical substance."
+      },
+      {
+        correct: 1,
+        exp: "Dystrophic calcification occurs locally in dead or necrotic tissues despite normal systemic calcium levels. Metastatic calcification requires systemic hypercalcemia."
+      },
+      {
+        correct: 1,
+        exp: "Calcium mineral deposits attract hematoxylin stain and appear deeply basophilic (dark purple to blue-black) on standard H&E sections."
+      },
+      {
+        correct: 2,
+        exp: "Perls' Prussian Blue reaction detects ferric iron in hemosiderin, producing a vivid bright blue reaction product."
+      },
+      {
+        correct: 0,
+        exp: "Reactive AA amyloidosis is driven by elevated acute-phase Serum Amyloid A (SAA) produced by the liver during chronic inflammatory or infectious conditions."
+      },
+      {
+        correct: 1,
+        exp: "When Congo Red-stained amyloid is viewed under cross-polarized light, the antiparallel beta-pleated sheet structure produces pathognomonic apple-green birefringence."
+      }
+    ];
+
+    let userAnswers = new Array(10).fill(null);
+
+    function checkAnswer(qIdx, optionIdx) {
+      if (userAnswers[qIdx] !== null) return; // Prevent re-answering
+
+      userAnswers[qIdx] = optionIdx;
+      const qCard = document.querySelector(`.q-card[data-q="${qIdx}"]`);
+      const buttons = qCard.querySelectorAll('.option-btn');
+      const expBox = document.getElementById(`exp-${qIdx}`);
+      const correctIdx = quizData[qIdx].correct;
+
+      // Disable buttons and mark styles
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === correctIdx) {
+          btn.classList.add('correct');
+        } else if (idx === optionIdx) {
+          btn.classList.add('incorrect');
+        }
+      });
+
+      // Show dynamic explanation based on answer correctness
+      if (optionIdx === correctIdx) {
+        expBox.textContent = `Correct! ${quizData[qIdx].exp}`;
+        expBox.className = 'q-explanation show-correct';
+      } else {
+        const correctLetter = String.fromCharCode(65 + correctIdx);
+        expBox.textContent = `Incorrect. Option ${correctLetter} is the correct answer. ${quizData[qIdx].exp}`;
+        expBox.className = 'q-explanation show-incorrect';
+      }
+
+      updateScore();
+    }
+
+    function updateScore() {
+      let score = 0;
+      let answeredCount = 0;
+
+      userAnswers.forEach((ans, idx) => {
+        if (ans !== null) {
+          answeredCount++;
+          if (ans === quizData[idx].correct) score++;
+        }
+      });
+
+      const percent = Math.round((score / 10) * 100);
+      const scoreDisplay = document.getElementById('score-display');
+      const scoreFeedback = document.getElementById('score-feedback');
+
+      scoreDisplay.textContent = `${score} / 10 (${percent}%)`;
+
+      if (answeredCount === 10) {
+        if (percent >= 90) {
+          scoreFeedback.textContent = "Outstanding! Mastered all concepts in Disturbance in Cell Metabolism.";
+        } else if (percent >= 70) {
+          scoreFeedback.textContent = "Good job! Solid understanding. Review missed topics in the module.";
+        } else {
+          scoreFeedback.textContent = "Keep reviewing! Re-read the sub-pages and try the quiz again.";
+        }
+      } else {
+        scoreFeedback.textContent = `Progress: ${answeredCount} of 10 questions answered.`;
+      }
+    }
+
+    function resetQuiz() {
+      userAnswers = new Array(10).fill(null);
+      const qCards = document.querySelectorAll('.q-card');
+
+      qCards.forEach((card, qIdx) => {
+        const buttons = card.querySelectorAll('.option-btn');
+        const expBox = document.getElementById(`exp-${qIdx}`);
+
+        buttons.forEach(btn => {
+          btn.disabled = false;
+          btn.classList.remove('correct', 'incorrect');
+        });
+
+        expBox.className = 'q-explanation';
+        expBox.textContent = '';
+      });
+
+      document.getElementById('score-display').textContent = '0 / 10 (0%)';
+      document.getElementById('score-feedback').textContent = 'Answer the questions below to test your understanding.';
+    }
+  </script>
+
+</body>
+</html>

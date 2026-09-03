@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Mucin and Myxoid Change | Disturbance in Cell Metabolism</title>
+ <style>
+   :root {
+     --primary-color: #1a365d;
+     --secondary-color: #4a5568;
+     --accent-color: #2b6cb0;
+     --border-color: #cbd5e0;
+     --bg-light: #f7fafc;
+     --text-dark: #2d3748;
+     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+ 
+   * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+    }
+ 
+   body {
+     font-family: var(--font-family);
+     color: var(--text-dark);
+     background-color: #ffffff;
+     line-height: 1.6;
+     padding: 16px;
+    }
+ 
+   .container {
+     max-width: 1050px;
+     margin: 0 auto;
+    }
+ 
+   /* BREADCRUMB */
+   .breadcrumb {
+     font-size: 0.85rem;
+     color: var(--secondary-color);
+     margin-bottom: 16px;
+    }
+   .breadcrumb a {
+     color: var(--accent-color);
+     text-decoration: none;
+    }
+   .breadcrumb a:hover {
+     text-decoration: underline;
+    }
+ 
+   /* HEADER */
+   .page-header {
+     border-bottom: 2px solid var(--primary-color);
+     padding-bottom: 12px;
+     margin-bottom: 24px;
+    }
+   .page-header h1 {
+     color: var(--primary-color);
+     font-size: 1.8rem;
+     font-weight: 700;
+    }
+   .page-header p {
+     color: var(--secondary-color);
+     font-size: 0.95rem;
+    }
+   .intro-statement {
+     margin-top: 10px;
+     font-size: 0.95rem;
+     color: var(--text-dark);
+     background-color: var(--bg-light);
+     border-left: 4px solid var(--accent-color);
+     padding: 12px 16px;
+     border-radius: 4px;
+    }
+ 
+   /* SECTION STYLING */
+   .section {
+     margin-bottom: 32px;
+    }
+   .section-title {
+     font-size: 1.3rem;
+     color: var(--primary-color);
+     border-bottom: 2px solid var(--border-color);
+     padding-bottom: 6px;
+     margin-bottom: 16px;
+    }
+ 
+   /* LEARNING OUTCOMES CARD */
+   .outcomes-card {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-left: 5px solid var(--accent-color);
+     border-radius: 6px;
+     padding: 20px;
+    }
+   .outcomes-card h2 {
+     font-size: 1.1rem;
+     color: var(--primary-color);
+     margin-bottom: 10px;
+    }
+   .outcomes-card ul {
+     margin-left: 20px;
+     color: var(--secondary-color);
+     font-size: 0.95rem;
+    }
+   .outcomes-card li {
+     margin-bottom: 6px;
+    }
+ 
+   /* CONTENT BOXES & GRIDS */
+   .info-box {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 18px;
+     font-size: 0.95rem;
+     color: var(--secondary-color);
+    }
+ 
+   .two-col-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 16px;
+    }
+ 
+   .feature-card {
+     background: #ffffff;
+     border: 1px solid var(--border-color);
+     border-top: 4px solid var(--accent-color);
+     border-radius: 6px;
+     padding: 18px;
+    }
+   .feature-card h3 {
+     font-size: 1.05rem;
+     color: var(--primary-color);
+     margin-bottom: 10px;
+    }
+   .feature-card ul {
+     margin-left: 20px;
+     font-size: 0.9rem;
+     color: var(--secondary-color);
+    }
+   .feature-card li {
+     margin-bottom: 6px;
+    }
+ 
+   .teaching-box {
+     background-color: #edf2f7;
+     border: 1px solid var(--border-color);
+     border-left: 5px solid var(--primary-color);
+     border-radius: 4px;
+     padding: 16px;
+     margin-bottom: 16px;
+     font-size: 0.95rem;
+     color: var(--primary-color);
+     font-weight: 600;
+    }
+ 
+   /* TABLES */
+   .table-responsive {
+     overflow-x: auto;
+     margin-top: 12px;
+    }
+   .data-table {
+     width: 100%;
+     border-collapse: collapse;
+     font-size: 0.875rem;
+     text-align: left;
+    }
+   .data-table th, .data-table td {
+     border: 1px solid var(--border-color);
+     padding: 10px 12px;
+    }
+   .data-table th {
+     background-color: #edf2f7;
+     color: var(--primary-color);
+     font-weight: 600;
+    }
+   .data-table tr:nth-child(even) {
+     background-color: var(--bg-light);
+    }
+ 
+   /* HISTOCHEMISTRY GRID */
+   .histo-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+     gap: 12px;
+    }
+   .histo-card {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-left: 4px solid var(--accent-color);
+     border-radius: 4px;
+     padding: 12px;
+     font-size: 0.875rem;
+    }
+   .histo-card strong {
+     color: var(--primary-color);
+     display: block;
+     margin-bottom: 4px;
+    }
+ 
+   /* VETERINARY EXAMPLES */
+   .vet-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+     gap: 12px;
+    }
+   .vet-card {
+     background-color: #ffffff;
+     border: 1px solid var(--border-color);
+     border-radius: 4px;
+     padding: 14px;
+     font-size: 0.875rem;
+    }
+   .vet-card strong {
+     color: var(--primary-color);
+     display: block;
+     margin-bottom: 4px;
+    }
+ 
+   /* PRACTICAL CASE & GALLERY */
+   .case-box {
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 20px;
+     background: #ffffff;
+    }
+   .gallery-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+     gap: 16px;
+     margin-top: 16px;
+    }
+   .figure-card {
+     margin: 0;
+     overflow: hidden;
+     background: #ffffff;
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+    }
+   .figure-card img {
+     display: block;
+     width: 100%;
+     height: 230px;
+     object-fit: cover;
+     background-color: #edf2f7;
+    }
+   .figure-card figcaption {
+     padding: 12px;
+     font-size: 0.84rem;
+     color: var(--secondary-color);
+    }
+   .figure-credit {
+     display: block;
+     margin-top: 8px;
+     font-size: 0.75rem;
+     line-height: 1.45;
+    }
+   .figure-credit a {
+     color: var(--accent-color);
+    }
+ 
+   /* PITFALLS & TAKEAWAYS */
+   .pitfalls-box {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-left: 4px solid #c53030;
+     border-radius: 4px;
+     padding: 16px;
+     font-size: 0.9rem;
+     color: var(--secondary-color);
+    }
+   .pitfalls-box h3 {
+     font-size: 1rem;
+     color: #c53030;
+     margin-bottom: 8px;
+    }
+   .pitfalls-box ul {
+     margin-left: 20px;
+    }
+ 
+   .takeaways-box {
+     background-color: var(--bg-light);
+     border: 1px solid var(--border-color);
+     border-left: 4px solid var(--primary-color);
+     border-radius: 4px;
+     padding: 16px;
+     margin-bottom: 24px;
+    }
+   .takeaways-box h3 {
+     font-size: 1rem;
+     color: var(--primary-color);
+     margin-bottom: 8px;
+    }
+   .takeaways-box ul {
+     margin-left: 20px;
+     font-size: 0.9rem;
+     color: var(--secondary-color);
+    }
+ 
+   /* KNOWLEDGE CHECK */
+   .quiz-box {
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     padding: 16px;
+     background: #ffffff;
+     margin-bottom: 24px;
+    }
+   .quiz-box h3 {
+     font-size: 1.05rem;
+     color: var(--primary-color);
+     margin-bottom: 12px;
+    }
+   .quiz-q {
+     margin-bottom: 12px;
+     font-size: 0.9rem;
+    }
+   .quiz-q p {
+     font-weight: 600;
+     color: var(--text-dark);
+     margin-bottom: 4px;
+    }
+   .quiz-q details {
+     font-size: 0.85rem;
+     color: var(--secondary-color);
+     cursor: pointer;
+    }
+   .quiz-q summary {
+     color: var(--accent-color);
+     font-weight: 600;
+    }
+ 
+   /* PAGE NAVIGATION */
+   .page-nav {
+     display: flex;
+     justify-content: space-between;
+     gap: 12px;
+     margin-top: 32px;
+     padding-top: 16px;
+     border-top: 1px solid var(--border-color);
+    }
+   .nav-btn {
+     display: inline-block;
+     padding: 8px 16px;
+     border-radius: 4px;
+     background-color: var(--accent-color);
+     color: #ffffff;
+     text-decoration: none;
+     font-size: 0.875rem;
+     font-weight: 600;
+    }
+   .nav-btn:hover {
+     background-color: #2c5282;
+    }
+ 
+   /* TEACHING ILLUSTRATIONS */
+   .teaching-figure {
+     margin: 18px 0 0;
+     border: 1px solid var(--border-color);
+     border-radius: 6px;
+     overflow: hidden;
+     background: #ffffff;
+   }
+   .teaching-figure img {
+     display: block;
+     width: 100%;
+     height: auto;
+     object-fit: contain;
+     background-color: var(--bg-light);
+   }
+   .teaching-figure figcaption {
+     padding: 10px 12px;
+     font-size: 0.82rem;
+     line-height: 1.5;
+     color: var(--secondary-color);
+     background-color: var(--bg-light);
+   }
+
+ </style>
+</head>
+<body>
+ 
+ <div class="container">
+ 
+   <!-- BREADCRUMB -->
+   <nav class="breadcrumb" aria-label="Breadcrumb">
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; 
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" target="_blank" rel="noopener noreferrer">Disturbance in Cell Metabolism</a> &gt; 
+     Mucin and Myxoid Change
+   </nav>
+ 
+   <!-- HEADER -->
+   <header class="page-header">
+     <h1>Mucin and Myxoid Change</h1>
+     <p>Disturbance in Cell Metabolism</p>
+     <div class="intro-statement">
+       Mucin and myxoid change involve excessive accumulation of glycoprotein-rich epithelial secretions or glycosaminoglycan-rich extracellular matrix. Although both may appear pale or gelatinous, they differ in cellular origin, location and pathological significance.
+     </div>
+   </header>
+ 
+   <!-- LEARNING OUTCOMES -->
+   <section class="section">
+     <div class="outcomes-card">
+       <h2>Learning Outcomes</h2>
+       <ul>
+         <li>Define mucin accumulation and myxoid change.</li>
+         <li>Differentiate epithelial mucin from extracellular myxoid matrix.</li>
+         <li>Explain the mechanisms responsible for their accumulation.</li>
+         <li>Describe the gross and microscopic appearances.</li>
+         <li>Select suitable histochemical methods.</li>
+         <li>Differentiate mucin, myxoid matrix and hyaline material.</li>
+         <li>Apply the distinction to veterinary pathological cases.</li>
+       </ul>
+     </div>
+   </section>
+ 
+   <!-- NORMAL MUCIN AND EXTRACELLULAR-MATRIX FUNCTIONS -->
+   <section class="section">
+     <h2 class="section-title">Normal Mucin and Extracellular-Matrix Functions</h2>
+     <div class="info-box">
+       <ul style="margin-left: 20px;">
+         <li><strong>Epithelial Mucins:</strong> High-molecular-weight glycoproteins produced by goblet cells and glandular epithelial cells. They lubricate, protect and hydrate epithelial surfaces.</li>
+         <li><strong>Glycosaminoglycans (GAGs):</strong> Important components of extracellular connective-tissue matrix. They bind water and influence tissue hydration and consistency.</li>
+         <li><strong>Pathological Accumulation:</strong> Develops when production increases, drainage is obstructed, degradation is impaired or matrix composition becomes abnormal.</li>
+       </ul>
+     </div>
+   </section>
+ 
+   <!-- EPITHELIAL MUCIN ACCUMULATION -->
+   <section class="section">
+     <h2 class="section-title">Epithelial Mucin Accumulation</h2>
+     
+     <p style="font-size: 0.95rem; color: var(--secondary-color); margin-bottom: 12px;">
+       Epithelial mucin may accumulate within goblet or glandular epithelial cells, within glandular lumina, within obstructed ducts, within cystic lesions, within mucin-producing tumours, or on mucosal surfaces following excessive secretion.
+     </p>
+ 
+     <div class="two-col-grid">
+       <div class="feature-card">
+         <h3>Mechanisms of Accumulation</h3>
+         <ul>
+           <li>Epithelial hypersecretion</li>
+           <li>Chronic irritation</li>
+           <li>Obstruction of glandular or ductal outflow</li>
+           <li>Cyst formation</li>
+           <li>Neoplastic mucin production</li>
+           <li>Impaired mucin clearance</li>
+         </ul>
+       </div>
+ 
+       <div class="feature-card">
+         <h3>Morphological Features</h3>
+         <ul>
+           <li><strong>Gross:</strong> Clear, translucent, white or pale material; viscid, stringy or gelatinous consistency; distension of glands, ducts or cystic structures; accumulation on mucosal surfaces.</li>
+           <li><strong>Microscopic (H&amp;E):</strong> Pale or lightly basophilic intracellular material; distended goblet or glandular cells; mucin within lumina; cystic spaces containing pale material; possible displacement of nuclei in heavily distended cells.</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+ 
+     <figure class="teaching-figure">
+       <img src="https://lh3.googleusercontent.com/d/10QrovhwgpIyY5EjQCfTL61d05x1_OrVv" alt="Mucinous metaplasia in epithelial cells" loading="lazy" decoding="async">
+       <figcaption>Mucinous metaplasia in epithelial cells. Epithelial cells transform into mucin-producing cells, developing large mucin-filled vacuoles that displace the nucleus. This change is commonly seen in chronic irritation and inflammatory conditions of mucosal surfaces.</figcaption>
+     </figure>
+
+     <figure class="teaching-figure">
+       <img src="https://lh3.googleusercontent.com/d/14BHwqOFsWiydkuuZMlKVAxNjZ-JV60YU" alt="Excessive mucin accumulation in mucous glands" loading="lazy" decoding="async">
+       <figcaption>Excessive mucin accumulation in mucous glands. Chronic irritation or inflammation can lead to increased mucin production and glandular dilation. Acini become distended with mucin, and nuclei are compressed against the cell membrane. This change contributes to the grossly gelatinous appearance of affected tissues.</figcaption>
+     </figure>
+
+   <!-- MYXOID OR MUCOID CHANGE -->
+   <section class="section">
+     <h2 class="section-title">Myxoid or Mucoid Change</h2>
+     
+     <div class="info-box" style="margin-bottom: 16px;">
+       <strong>Definition:</strong> Myxoid change refers to the excessive extracellular accumulation of glycosaminoglycan-rich matrix that separates connective-tissue cells and collagen fibres.
+     </div>
+ 
+     <div class="two-col-grid">
+       <div class="feature-card">
+         <h3>Pathological Settings</h3>
+         <ul>
+           <li>Connective-tissue degeneration</li>
+           <li>Myxoedema</li>
+           <li>Myxoid neoplasms</li>
+           <li>Stromal change within tumours</li>
+           <li>Reparative or developmental connective tissue</li>
+           <li>Selected chronic tissue disturbances</li>
+         </ul>
+       </div>
+ 
+       <div class="feature-card">
+         <h3>Morphological Features</h3>
+         <ul>
+           <li><strong>Gross:</strong> Soft, gelatinous or slippery tissue; pale grey or translucent appearance; poorly defined gelatinous areas; increased tissue water content.</li>
+           <li><strong>Microscopic (H&amp;E):</strong> Loose pale basophilic extracellular matrix; separation of collagen fibres; scattered spindle-shaped or stellate cells; fine stringy or fibrillar background; increased spacing among connective-tissue elements.</li>
+         </ul>
+       </div>
+     </div>
+   </section>
+ 
+     <figure class="teaching-figure">
+       <img src="https://lh3.googleusercontent.com/d/1-G00JpNA-DBg8_6UgHz1pziCFC4XPxf6" alt="Myxoid change in connective tissue" loading="lazy" decoding="async">
+       <figcaption>Myxoid change in connective tissue. Fibroblasts become stellate and are surrounded by excessive myxoid (mucoid) ground substance. Collagen fibers are dispersed, giving the tissue a loose, gelatinous appearance. Myxoid change is typical in degenerative processes and certain tumors.</figcaption>
+     </figure>
+
+     <figure class="teaching-figure">
+       <img src="https://lh3.googleusercontent.com/d/1NwyJnT740G-CW9D3caO-HP7Gs3fL22Ag" alt="Myxoid degeneration in a soft tissue tumor" loading="lazy" decoding="async">
+       <figcaption>Myxoid degeneration in a soft tissue tumor. Some mesenchymal tumors exhibit myxoid change, characterized by tumor cells suspended in abundant myxoid matrix. This pattern is important diagnostically and may be seen in myxosarcomas or myxoid variants of other tumors.</figcaption>
+     </figure>
+
+   <!-- EPITHELIAL MUCIN VERSUS MYXOID MATRIX -->
+   <section class="section">
+     <h2 class="section-title">Epithelial Mucin versus Myxoid Matrix</h2>
+     <div class="table-responsive">
+       <table class="data-table">
+         <thead>
+           <tr>
+             <th>Feature</th>
+             <th>Epithelial Mucin</th>
+             <th>Myxoid Matrix</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Principal Material</strong></td>
+             <td>Glycoprotein</td>
+             <td>Glycosaminoglycan-rich extracellular matrix</td>
+           </tr>
+           <tr>
+             <td><strong>Main Producer</strong></td>
+             <td>Epithelial or glandular cells</td>
+             <td>Mesenchymal cells</td>
+           </tr>
+           <tr>
+             <td><strong>Location</strong></td>
+             <td>Intracellular, luminal, ductal or cystic</td>
+             <td>Extracellular connective tissue</td>
+           </tr>
+           <tr>
+             <td><strong>Common Setting</strong></td>
+             <td>Hypersecretion, obstruction, cysts or tumours</td>
+             <td>Myxoid degeneration or neoplasia</td>
+           </tr>
+           <tr>
+             <td><strong>Gross Appearance</strong></td>
+             <td>Viscid or stringy</td>
+             <td>Soft and gelatinous</td>
+           </tr>
+           <tr>
+             <td><strong>H&amp;E Appearance</strong></td>
+             <td>Pale intracellular or luminal material</td>
+             <td>Pale basophilic matrix separating collagen fibres</td>
+           </tr>
+           <tr>
+             <td><strong>Helpful Stain</strong></td>
+             <td>Mucicarmine or Alcian blue (according to mucin type)</td>
+             <td>Alcian blue is often useful</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+   </section>
+ 
+     <figure class="teaching-figure">
+       <img src="https://lh3.googleusercontent.com/d/1_NhFUW_tDNKBSnCsAnE4enNNOu0CoZdo" alt="Comparison between mucinous and myxoid change" loading="lazy" decoding="async">
+       <figcaption>Comparison between mucinous and myxoid change. Mucinous change occurs within epithelial cells, forming intracellular mucin vacuoles. Myxoid change occurs in the extracellular matrix of connective tissue, producing abundant mucoid ground substance. This illustration highlights the cellular versus stromal nature of each process.</figcaption>
+     </figure>
+
+   <!-- COMPARISON WITH HYALINE CHANGE & AMYLOID -->
+   <section class="section">
+     <h2 class="section-title">Comparison with Hyaline Change and Amyloid</h2>
+     
+     <div class="teaching-box">
+       Hyaline describes homogeneous, glassy and usually eosinophilic material. Myxoid matrix is generally pale, loose, basophilic and glycosaminoglycan-rich. The terms should not be used interchangeably.
+     </div>
+ 
+     <div class="table-responsive">
+       <table class="data-table">
+         <thead>
+           <tr>
+             <th>Material</th>
+             <th>Location</th>
+             <th>H&amp;E Appearance</th>
+             <th>Chemical Nature</th>
+             <th>Helpful Stain</th>
+             <th>Principal Diagnostic Clue</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Mucin</strong></td>
+             <td>Intracellular, luminal or cystic</td>
+             <td>Pale, lightly basophilic</td>
+             <td>Glycoprotein</td>
+             <td>Mucicarmine / Alcian blue / PAS</td>
+             <td>Epithelial context, goblet/glandular location</td>
+           </tr>
+           <tr>
+             <td><strong>Myxoid Matrix</strong></td>
+             <td>Extracellular matrix</td>
+             <td>Loose, pale basophilic, fibrillar</td>
+             <td>Glycosaminoglycans (GAGs)</td>
+             <td>Alcian blue</td>
+             <td>Separation of collagen fibres, stellate stromal cells</td>
+           </tr>
+           <tr>
+             <td><strong>Hyaline</strong></td>
+             <td>Intra- or extracellular</td>
+             <td>Homogeneous, glassy, bright eosinophilic</td>
+             <td>Condensed protein/collagen</td>
+             <td>Masson's trichrome / H&amp;E</td>
+             <td>Smooth, structureless, dense eosinophilic appearance</td>
+           </tr>
+           <tr>
+             <td><strong>Amyloid</strong></td>
+             <td>Extracellular matrix/vessels</td>
+             <td>Amorphous, pale pink, acellular</td>
+             <td>&beta;-pleated sheet protein</td>
+             <td>Congo Red (polarized)</td>
+             <td>Apple-green birefringence under cross-polarized light</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+   </section>
+ 
+   <!-- HISTOCHEMICAL METHODS -->
+   <section class="section">
+     <h2 class="section-title">Histochemical Methods</h2>
+     <p style="font-size: 0.95rem; color: var(--secondary-color); margin-bottom: 12px;">
+       The appropriate histochemical method depends on the suspected material and tissue location. Stain results must always be interpreted in conjunction with cellular morphology:
+     </p>
+     <div class="histo-grid">
+       <div class="histo-card">
+         <strong>Mucicarmine</strong>
+         Demonstrates many epithelial mucins, staining them bright pink-red.
+       </div>
+       <div class="histo-card">
+         <strong>Alcian Blue</strong>
+         Demonstrates acidic mucins and glycosaminoglycans, depending on method and pH (staining blue).
+       </div>
+       <div class="histo-card">
+         <strong>Periodic Acid-Schiff (PAS)</strong>
+         Demonstrates neutral or carbohydrate-rich mucosubstances (staining magenta).
+       </div>
+     </div>
+   </section>
+ 
+   <!-- VETERINARY EXAMPLES -->
+   <section class="section">
+     <h2 class="section-title">Veterinary Examples</h2>
+     <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+       <em>Note:</em> These examples illustrate mucin accumulation and matrix alteration within the broader chapter theme of metabolic and structural disturbances, rather than metabolic storage diseases:
+     </p>
+     <div class="vet-grid">
+       <div class="vet-card">
+         <strong>Epithelial Irritation</strong>
+         Excess respiratory or intestinal mucus secondary to chronic mucosal irritation or infection.
+       </div>
+       <div class="vet-card">
+         <strong>Glandular / Ductal Obstruction</strong>
+         Mucin retention in obstructed glands or ducts (e.g., salivary mucocele/ranula).
+       </div>
+       <div class="vet-card">
+         <strong>Cystic Lesions</strong>
+         Mucin-filled cystic structures resulting from ductal blockades or developmental anomalies.
+       </div>
+       <div class="vet-card">
+         <strong>Mucin-Producing Neoplasms</strong>
+         Mucinous adenocarcinomas producing abundant intracellular or luminal mucin pools.
+       </div>
+       <div class="vet-card">
+         <strong>Connective Tissue Myxoid Change</strong>
+         Degenerative myxoid changes in cardiac valvular stroma (myxomatous valvular degeneration).
+       </div>
+       <div class="vet-card">
+         <strong>Mesenchymal Neoplasms</strong>
+         Myxoid stroma within mesenchymal tumors (e.g., myxoma, myxosarcoma).
+       </div>
+       <div class="vet-card">
+         <strong>Endocrine Myxoedema</strong>
+         Myxoedematous connective-tissue alterations associated with severe hypothyroidism.
+       </div>
+     </div>
+   </section>
+ 
+   <!-- PRACTICAL CASE -->
+   <section class="section">
+     <h2 class="section-title">Practical Case Study</h2>
+     <div class="case-box">
+       <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 8px;">Myxoid Matrix in an Atrial Myxoma</h3>
+       <p style="font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 12px;">
+         This comparative pathology example shows an atrial myxoma containing abundant extracellular myxoid matrix. Although the illustrated specimen is of human origin, it provides a clear demonstration of the morphological features used to recognise myxoid tissue. Myxoma and myxosarcoma are also recognised in veterinary species.
+       </p>
+ 
+       <div class="teaching-box" style="font-weight: normal; margin-bottom: 16px;">
+         <strong>Teaching note:</strong> The pale material in this lesion is extracellular myxoid matrix rather than epithelial mucin. Interpretation depends on its extracellular location, loose texture and association with scattered mesenchymal cells.
+       </div>
+ 
+       <div style="background-color: var(--bg-light); border-left: 3px solid var(--accent-color); padding: 12px; font-size: 0.875rem; margin-bottom: 16px;">
+         <strong>Diagnostic Self-Assessment Questions:</strong>
+         <ol style="margin-left: 20px; margin-top: 6px;">
+           <li>Is the pale material primarily intracellular, luminal or extracellular?</li>
+           <li>Which features support identification as myxoid matrix?</li>
+           <li>What is the likely cellular lineage of the lesional cells?</li>
+           <li>How does this material differ from epithelial mucin?</li>
+           <li>Which histochemical stain could help demonstrate its acidic glycosaminoglycan-rich matrix?</li>
+           <li>How would myxoid matrix differ from hyaline material on H&amp;E?</li>
+         </ol>
+         <details style="margin-top: 10px; cursor: pointer;">
+           <summary style="color: var(--accent-color); font-weight: 600;">Show Suggested Interpretation</summary>
+           <p style="margin-top: 8px; color: var(--secondary-color); line-height: 1.5;">
+             The material is extracellular and separates sparsely distributed mesenchymal cells. Its loose, pale to lightly basophilic appearance supports myxoid matrix. Alcian blue may demonstrate acidic glycosaminoglycans. In contrast, epithelial mucin is usually intracellular, luminal or cystic and occurs in an epithelial or glandular context. Hyaline material is denser, homogeneous, glassy and usually strongly eosinophilic.
+           </p>
+         </details>
+       </div>
+ 
+       <div class="gallery-grid">
+         <figure class="figure-card">
+           <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_low_mag.jpg" target="_blank" rel="noopener noreferrer">
+             <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Atrial_myxoma_low_mag.jpg?width=1280" alt="Low-magnification H&amp;E micrograph of an atrial myxoma with abundant hypocellular myxoid matrix." loading="lazy" decoding="async">
+           </a>
+           <figcaption>
+             Low-power H&amp;E showing the broad, hypocellular architecture of an atrial myxoma and its abundant pale myxoid matrix.
+             <span class="figure-credit">
+               Image: <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_low_mag.jpg" target="_blank" rel="noopener noreferrer">Nephron</a>, via <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_low_mag.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.<br>
+               Licence: <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.<br>
+               Comparative human pathology specimen.
+             </span>
+           </figcaption>
+         </figure>
+ 
+         <figure class="figure-card">
+           <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_intermed_mag.jpg" target="_blank" rel="noopener noreferrer">
+             <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Atrial_myxoma_intermed_mag.jpg?width=1280" alt="Intermediate-magnification H&amp;E micrograph showing cells dispersed within the myxoid matrix of an atrial myxoma." loading="lazy" decoding="async">
+           </a>
+           <figcaption>
+             Intermediate-power H&amp;E showing scattered lesional cells suspended within loose extracellular myxoid matrix.
+             <span class="figure-credit">
+               Image: <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_intermed_mag.jpg" target="_blank" rel="noopener noreferrer">Nephron</a>, via <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_intermed_mag.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.<br>
+               Licence: <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.<br>
+               Comparative human pathology specimen.
+             </span>
+           </figcaption>
+         </figure>
+ 
+         <figure class="figure-card">
+           <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_high_mag.jpg" target="_blank" rel="noopener noreferrer">
+             <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Atrial_myxoma_high_mag.jpg?width=1280" alt="High-magnification H&amp;E micrograph of atrial myxoma cells within pale extracellular myxoid matrix." loading="lazy" decoding="async">
+           </a>
+           <figcaption>
+             High-power H&amp;E showing polygonal to elongated myxoma cells, including perivascular arrangements, within the myxoid background.
+             <span class="figure-credit">
+               Image: <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_high_mag.jpg" target="_blank" rel="noopener noreferrer">Nephron</a>, via <a href="https://commons.wikimedia.org/wiki/File:Atrial_myxoma_high_mag.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.<br>
+               Licence: <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.<br>
+               Comparative human pathology specimen.
+             </span>
+           </figcaption>
+         </figure>
+       </div>
+     </div>
+   </section>
+ 
+   <!-- DIAGNOSTIC PITFALLS -->
+   <section class="section">
+     <div class="pitfalls-box">
+       <h3>Diagnostic Pitfalls</h3>
+       <ul>
+         <li>Do not call every pale extracellular matrix "mucin."</li>
+         <li>Do not use "mucoid," "myxoid" and "hyaline" interchangeably.</li>
+         <li>Determine whether the material is epithelial or mesenchymal in origin.</li>
+         <li>Determine whether it is intracellular, luminal or extracellular.</li>
+         <li>Processing artefact and tissue oedema may produce pale spaces but do not represent true mucin accumulation.</li>
+         <li>Interpret special histochemical stains in conjunction with cellular morphology and anatomical location.</li>
+       </ul>
+     </div>
+   </section>
+ 
+   <!-- SUMMARY & KNOWLEDGE CHECK -->
+   <section class="section">
+     <div class="takeaways-box">
+       <h3>Key Takeaways</h3>
+       <ul>
+         <li>Epithelial mucin is produced by epithelial and glandular cells (intracellular, luminal or cystic).</li>
+         <li>Myxoid matrix is extracellular, rich in glycosaminoglycans, and produced by mesenchymal cells.</li>
+         <li>Both can bind water and appear pale or gelatinous, but differ structurally and pathologically.</li>
+         <li>Mucin and myxoid matrix differ fundamentally from glassy, eosinophilic hyaline material.</li>
+         <li>Mucicarmine, Alcian blue and PAS answer different diagnostic questions depending on pH and material.</li>
+         <li>Anatomical location and tissue context are essential for accurate diagnosis.</li>
+       </ul>
+     </div>
+ 
+     <div class="quiz-box">
+       <h3>Knowledge Check</h3>
+       
+       <div class="quiz-q">
+         <p>1. What is the principal cellular source of epithelial mucin?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Goblet cells and glandular epithelial cells.
+         </details>
+       </div>
+ 
+       <div class="quiz-q">
+         <p>2. Is myxoid matrix intracellular or extracellular?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Extracellular (located in the connective tissue matrix separating fibers and cells).
+         </details>
+       </div>
+ 
+       <div class="quiz-q">
+         <p>3. How does myxoid matrix generally appear on H&amp;E?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Loose, pale basophilic, fine stringy/fibrillar background matrix separating collagen fibers and spindle/stellate cells.
+         </details>
+       </div>
+ 
+       <div class="quiz-q">
+         <p>4. Name one stain that may demonstrate acidic mucin or glycosaminoglycans.</p>
+         <details>
+           <summary>Show Answer</summary>
+           Alcian blue.
+         </details>
+       </div>
+ 
+       <div class="quiz-q">
+         <p>5. What feature helps distinguish myxoid change from hyaline change?</p>
+         <details>
+           <summary>Show Answer</summary>
+           Myxoid matrix is loose, pale basophilic, and GAG-rich, whereas hyaline is dense, smooth, homogeneous, glassy, and intensely eosinophilic (pink).
+         </details>
+       </div>
+     </div>
+   </section>
+ 
+   <!-- PAGE NAVIGATION -->
+   <footer class="page-nav">
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/amyloidosis" class="nav-btn" target="_blank" rel="noopener noreferrer">&larr; Amyloidosis</a>
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism" class="nav-btn" target="_blank" rel="noopener noreferrer">Back to Disturbance in Cell Metabolism</a>
+     <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology/disturbance-in-cell-metabolism/pathological-pigments" class="nav-btn" target="_blank" rel="noopener noreferrer">Pathological Pigments &rarr;</a>
+   </footer>
+ 
+ </div>
+ 
+</body>
+</html>
