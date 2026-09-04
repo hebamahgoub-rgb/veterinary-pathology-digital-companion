@@ -5,7 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/veterinary-pathology-digital-companion/',
+    // Relative assets keep the build portable on the GitHub Pages project path.
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
