@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mycotic Diseases and Mycotoxicoses of Poultry - Veterinary Pathology Digital Companion</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus { text-decoration: underline; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-block { margin-bottom: 3.5rem; }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb-separator { color: var(--border-color); }
+
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 { margin-bottom: 0.5rem; }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong { color: var(--primary-color); }
+
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+
+    .illustration-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .illustration-card {
+      width: 100%;
+      margin: 0;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .illustration-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--white);
+    }
+
+    .illustration-card figcaption {
+      padding: 0.9rem 1rem 1rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+    }
+
+    .illustration-title {
+      display: block;
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .illustration-atlas {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--primary-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 640px) {
+      .pathology-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases" target="_blank" rel="noopener noreferrer">Poultry Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Mycotic Diseases &amp; Mycotoxicoses of Poultry</span>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Mycotic Diseases &amp; Mycotoxicoses of Poultry</h1>
+      <div class="hero-subtitle">Respiratory aspergillosis, digestive candidiasis, and feed-borne fungal toxins</div>
+      <p class="hero-body">
+        Poultry fungal disorders include true mycotic infections and non-infectious mycotoxicoses. Aspergillosis primarily targets the respiratory system, whereas candidiasis chiefly affects the upper digestive tract. Mycotoxicoses result from ingestion of fungal toxins in contaminated feed and commonly affect the liver, kidneys, gastrointestinal tract, immune system, and production performance.
+      </p>
+    </header>
+
+    <nav class="organism-nav" aria-label="Condition Index">
+      <h2>Major Conditions Covered</h2>
+      <div class="organism-pills">
+        <a href="#aspergillosis" class="pill">Aspergillosis</a>
+        <a href="#candidiasis" class="pill">Candidiasis (Thrush)</a>
+        <a href="#aflatoxicosis" class="pill">Aflatoxicosis</a>
+        <a href="#ochratoxicosis" class="pill">Ochratoxicosis</a>
+        <a href="#trichothecenes" class="pill">Trichothecenes</a>
+        <a href="#fumonisins" class="pill">Fumonisins</a>
+        <a href="#zearalenone" class="pill">Zearalenone</a>
+      </div>
+    </nav>
+
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <article id="aspergillosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Avian Aspergillosis</h3>
+          <div class="disease-subtitle"><em>Aspergillus</em> spp. — Brooder pneumonia and granulomatous airsacculitis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li>Most commonly <em>Aspergillus fumigatus</em>; <em>A. flavus</em> and other species may occur.</li>
+              <li>Primarily lungs and air sacs; brain, eyes, and other organs may be involved in disseminated disease.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation of large numbers of airborne conidia from contaminated litter, feed, hatchery material, or dust.</li>
+              <li>Conidia germinate in respiratory tissues and induce necrotising heterophilic inflammation that progresses to granuloma formation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Multifocal white-to-yellow nodules in lungs and air sacs; advanced lesions may coalesce and fungal growth may appear on air-sac surfaces.</li>
+              <li><strong>Micro:</strong> Necrotising granulomas containing septate, branching fungal hyphae, surrounded by heterophils, macrophages, multinucleated giant cells, and fibrosis.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1N9dpsbZcUWLZbGL0J1yc1efqvEyDCA2p"
+                 alt="Aspergillosis"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Aspergillosis</span>
+              Aspergillosis causing granulomatous pneumonia and airsacculitis, with respiratory distress and airborne transmission of fungal spores.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="candidiasis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Avian Candidiasis (Thrush)</h3>
+          <div class="disease-subtitle"><em>Candida</em> spp., mainly <em>C. albicans</em> — Crop mycosis and upper digestive candidiasis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Candida</em> spp. are normal gastrointestinal commensals; <em>C. albicans</em> is the most frequent cause of disease.</li>
+              <li>Crop most commonly affected; oral cavity and esophagus may also develop lesions.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Opportunistic overgrowth follows disruption of normal flora, prolonged antimicrobial use, poor sanitation, malnutrition, or other predisposing factors.</li>
+              <li>Yeasts and pseudohyphae invade superficial epithelium, producing epithelial degeneration, hyperplasia, necrosis, and pseudomembrane formation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Thickened, roughened crop mucosa with whitish raised plaques or pseudomembranes; shallow ulcers and epithelial sloughing may occur.</li>
+              <li><strong>Micro:</strong> Epithelial hyperplasia and ballooning degeneration with pseudohyphae and blastospores within affected mucosa; PAS or GMS highlights organisms.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1mgQEEWJm1ypJWAkq1obLvrEwalphGaC6"
+                 alt="Candidiasis"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Candidiasis</span>
+              Candidiasis producing crop mycosis with mucosal plaques, associated with digestive stasis and environmental or opportunistic transmission.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="aflatoxicosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Aflatoxicosis</h3>
+          <div class="disease-subtitle">Aflatoxins — Predominantly hepatotoxic and immunosuppressive mycotoxicosis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Target Organs</h4>
+            <ul>
+              <li>Aflatoxins, especially aflatoxin B1, are produced by toxigenic <em>Aspergillus</em> spp. in contaminated feed ingredients.</li>
+              <li>Liver is the principal target; hematopoietic, immune, digestive, and reproductive performance may also be impaired.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Reactive hepatic metabolites damage macromolecules and impair protein synthesis and normal hepatocellular metabolism.</li>
+              <li>Severity depends on dose, exposure duration, bird species, age, nutritional status, and concurrent disease.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Enlarged yellow or congested liver, hemorrhages, and poor body condition; chronic cases may develop ascites or hydropericardium.</li>
+              <li><strong>Micro:</strong> Hepatic lipidosis, hepatocellular degeneration/necrosis, biliary ductular reaction; chronic exposure may produce fibrosis and regenerative change.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1Tk1Oszh4X0w05cO3dLNli1siCSpITo7y"
+                 alt="Aflatoxicosis"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Aflatoxicosis</span>
+              Aflatoxicosis producing hepatic damage and immunosuppression due to ingestion of aflatoxin-contaminated grains.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="ochratoxicosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Ochratoxicosis</h3>
+          <div class="disease-subtitle">Ochratoxin A — Predominantly nephrotoxic mycotoxicosis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Target Organs</h4>
+            <ul>
+              <li>Ochratoxin A is produced by several toxigenic <em>Aspergillus</em> and <em>Penicillium</em> species in grains and feeds.</li>
+              <li>Kidneys are the major target; liver, immune system, and bone marrow may also be affected.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Interferes with cellular protein synthesis and energy metabolism, producing marked renal tubular injury.</li>
+              <li>Renal dysfunction may reduce urate excretion and, in severe cases, contribute to secondary urate deposition.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Enlarged pale kidneys; dehydration and poor condition may be present. Visceral urate deposits may occur in severe renal failure.</li>
+              <li><strong>Micro:</strong> Degeneration and necrosis of renal tubular epithelium with tubular dilation and interstitial change.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1vt9J3IXjQua8_vgY8pZwrHWm1i2QeJba"
+                 alt="Ochratoxicosis"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Ochratoxicosis</span>
+              Ochratoxicosis causing nephrotoxicity and growth depression following consumption of contaminated feed.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="trichothecenes" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Trichothecene Mycotoxicoses</h3>
+          <div class="disease-subtitle">T-2 toxin, HT-2 toxin, DON and related <em>Fusarium</em> toxins — Mucosal injury and feed refusal</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Target Organs</h4>
+            <ul>
+              <li>Trichothecenes are produced mainly by toxigenic <em>Fusarium</em> species in cereal grains.</li>
+              <li>Oral and gastrointestinal mucosa, lymphoid tissues, and other rapidly dividing cell populations are particularly susceptible.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Potent inhibition of protein synthesis causes epithelial injury, reduced feed intake, impaired growth, and immunologic effects.</li>
+              <li>T-2 toxin and related compounds may produce direct contact injury of the oral cavity and upper digestive tract.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Oral erosions, ulcers or crusts on palate/tongue; gastrointestinal irritation and reduced feed consumption.</li>
+              <li><strong>Micro:</strong> Epithelial degeneration and necrosis with variable lymphoid depletion and intestinal mucosal injury.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/19CAOE5HoI94MoNY_8sK9PhC8-FF5RNFn"
+                 alt="Trichothecene (T-2) Toxicosis"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Trichothecene (T-2) Toxicosis</span>
+              T-2 toxicosis producing severe mucosal necrosis and immunosuppression due to ingestion of trichothecene-contaminated feed.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="fumonisins" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Fumonisin Mycotoxicosis</h3>
+          <div class="disease-subtitle"><em>Fusarium</em>-derived fumonisins — Production loss with hepatic and intestinal effects</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Target Organs</h4>
+            <ul>
+              <li>Fumonisins, especially fumonisin B1, commonly contaminate maize and maize-based feeds.</li>
+              <li>Liver and intestinal tract are important targets; immune and production responses may also be altered.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Disruption of sphingolipid metabolism alters cell membrane function and signaling.</li>
+              <li>Effects are often subclinical but may reduce growth and feed efficiency, especially with combined mycotoxin exposure.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathological Expression</h4>
+            <ul>
+              <li><strong>Gross:</strong> Lesions may be subtle; hepatomegaly and poor growth can occur at higher exposures.</li>
+              <li><strong>Micro:</strong> Hepatocellular degeneration and other nonspecific toxic changes may occur; diagnosis relies on feed toxin analysis rather than lesions alone.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article id="zearalenone" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Zearalenone Exposure</h3>
+          <div class="disease-subtitle"><em>Fusarium</em>-derived estrogenic mycotoxin — Generally lower sensitivity in poultry</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Target Systems</h4>
+            <ul>
+              <li>Zearalenone is an estrogenic mycotoxin produced by several <em>Fusarium</em> species in cereal grains.</li>
+              <li>Reproductive and endocrine systems are the principal biological targets.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Binds estrogen receptors and alters estrogen-responsive tissues.</li>
+              <li>Poultry are relatively less sensitive than several mammalian species, so natural disease may be subtle or absent at modest contamination levels.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathological Expression</h4>
+            <ul>
+              <li><strong>Gross/Micro:</strong> No single characteristic poultry lesion pattern reliably establishes exposure.</li>
+              <li>Interpret reproductive or production changes together with feed analysis and possible co-contamination by other mycotoxins.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+
+    <section class="section-block" aria-labelledby="additional-illustrations-heading">
+      <div class="illustration-atlas">
+        <h2 id="additional-illustrations-heading">Additional Illustrated Mycotic / Mycotoxin Entities</h2>
+        <p style="margin-bottom: 1.25rem;">
+          These supplied illustrations are included for visual study while the existing pathological profiles above remain unchanged.
+        </p>
+
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1t84SUX5VFt7BYSwFamPvm6iQhtPhAKH3"
+                 alt="Favus (Avian Ringworm)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Favus (Avian Ringworm)</span>
+              Favus causing dermatophytosis of the skin and comb, spread through contact and contaminated surfaces.
+            </figcaption>
+          </figure>
+
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1B-C1TUyp7BegMXEuUi7kJ8xYdvR030-8"
+                 alt="Ergotism"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Ergotism</span>
+              Ergotism causing peripheral vasoconstriction and gangrene following ingestion of ergot-contaminated feed.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Diagnostic Key:</strong> Demonstrate fungal invasion in infectious mycoses by histology and special stains such as <strong>PAS</strong> or <strong>GMS</strong>, supported by culture when appropriate. For candidiasis, culture alone is insufficient because <em>Candida</em> may be part of normal gastrointestinal flora. Mycotoxicoses are confirmed by linking compatible flock history and target-organ lesions with detection and quantification of the relevant toxin in feed; visible mold alone does not prove mycotoxicosis.
+      </aside>
+    </section>
+
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Mycotic Diseases &amp; Mycotoxicoses of Poultry Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Poultry Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

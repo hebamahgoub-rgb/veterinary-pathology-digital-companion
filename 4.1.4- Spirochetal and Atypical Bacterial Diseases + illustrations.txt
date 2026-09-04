@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spirochetal &amp; Atypical Bacterial Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       ILLUSTRATIONS / FIGURES STYLING
+       ========================================================================== */
+    .figure-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .figure-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background-color: var(--bg-light);
+    }
+
+    .figure-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .figure-caption {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-top: 0.75rem;
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer">Bacterial Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Spirochetal &amp; Atypical Bacterial Diseases</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Spirochetal &amp; Atypical Bacterial Diseases</h1>
+      <div class="hero-subtitle">Motile spirals, wall-less organisms, and obligate intracellular agents</div>
+      <p class="hero-body">
+        This category includes morphologically and physiologically atypical bacterial pathogens that do not conform to standard Gram-staining diagnostic workflows. Pathological mechanisms range from spirochetal vasculitis and severe interstitial nephritis to cell-membrane destruction, systemic endothelial injury, and persistent intra-leukocytic replication.
+      </p>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Groups Covered</h2>
+      <div class="organism-pills">
+        <a href="#leptospira" class="pill">Leptospira</a>
+        <a href="#brachyspira-borrelia" class="pill">Brachyspira &amp; Borrelia</a>
+        <a href="#mycoplasma" class="pill">Mycoplasma &amp; Ureaplasma</a>
+        <a href="#chlamydia" class="pill">Chlamydiaceae</a>
+        <a href="#anaplasmataceae" class="pill">Anaplasmataceae &amp; Rickettsiales</a>
+        <a href="#coxiella" class="pill">Coxiella burnetii</a>
+      </div>
+    </nav>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: LEPTOSPIRA -->
+      <article id="leptospira" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Leptospirosis</h3>
+          <div class="disease-subtitle"><em>Leptospira interrogans</em> sensu lato — Vasculitis, interstitial nephritis, and icterus</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li>Pathogenic <em>Leptospira</em> serovars (e.g., Canicola, Icterohaemorrhagiae, Pomona, Hardjo).</li>
+              <li>Renal tubular epithelium, hepatocytes, vascular endothelium, and pregnant uterus.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Mucosal/cutaneous penetration leading to leptospiremia, vascular endothelial injury, and hemolysis.</li>
+              <li>Persistence in renal proximal tubules causes chronic tubulointerstitial nephritis and urinary shedding.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Jaundice, petechial-to-ecchymotic hemorrhages, swollen "white spotted" kidneys, pulmonary hemorrhage.</li>
+              <li><strong>Micro:</strong> Acute/chronic tubulointerstitial nephritis, hepatocellular dissociation, systemic vasculitis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Illustrations for Leptospira -->
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1FmiAbVk3uQiuf6FelfLUGcdyofKd3tKe/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Morphology of Leptospira interrogans showing its characteristic tightly coiled body and hooked ends as visualized by darkfield microscopy.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/16mznGRqWs9cyGX9k7aSmBJGjTDQJ_nCi/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Pathogenesis of leptospirosis in dogs, illustrating bacterial entry, systemic spread, and colonization of renal tubules leading to interstitial nephritis.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1Q_nzLe5wYyNFog82jK4GCCOPD7Lz7Uus/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Gross renal lesions in canine leptospirosis characterized by cortical pallor, petechiae, and corticomedullary distinction.</p>
+        </div>
+      </article>
+
+      <!-- UNIT 2: BRACHYSPIRA & BORRELIA -->
+      <article id="brachyspira-borrelia" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Brachyspira &amp; Borrelia Infections</h3>
+          <div class="disease-subtitle">Swine dysentery, avian spirochetosis, and Lyme borreliosis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Brachyspira hyodysenteriae</em> (swine colon), <em>B. anserina</em> (avian blood/liver), <em>Borrelia burgdorferi</em> (joints/kidneys).</li>
+              <li>Large intestinal mucosa, systemic vasculature, synovial membranes, and glomeruli.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li><em>B. hyodysenteriae</em> invades colonic mucus, causing epithelial necrosis and fibrinopurulent exudation.</li>
+              <li><em>Borrelia</em> triggers immune-complex deposition in joints and renal glomeruli via tick transmission.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Mucohemorrhagic typhlocolitis with pseudomembranes (Swine dysentery); suppurative arthritis/lyme nephropathy.</li>
+              <li><strong>Micro:</strong> Superficial mucosal necrosis with mucus hypersecretion and spirochetes; membranoproliferative glomerulonephritis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Illustrations for Brachyspira & Borrelia -->
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/15B-BqDSOMAKZWm6g413_m1AoKAlSKUgK/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Loosely coiled Borrelia burgdorferi spirochetes visualized using silver staining techniques.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1iE2kSLPIU4uJMsc5hwueOnXhtjFm7Fo_/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Transmission cycle of Lyme disease involving Ixodes ticks and mammalian reservoir hosts.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1YmB6xzNenReO_Ej905uFgxhzx6QNitNa/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Synovial inflammation associated with canine Lyme disease, demonstrating synovial hyperplasia and inflammatory cell infiltration.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/13D2YBwqniOsEkYxFz4LgHSjTWjr495vp/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Brachyspira hyodysenteriae colonization of the porcine colon with associated mucosal necrosis and fibrinous exudation.</p>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1L_2s6yixD4wLmedqkM7p6LillJu8Gf9G/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Key features of avian spirochetosis including bloodborne Borrelia anserina and splenic enlargement.</p>
+        </div>
+      </article>
+
+      <!-- UNIT 3: MYCOPLASMA -->
+      <article id="mycoplasma" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Mycoplasma &amp; Ureaplasma Infections</h3>
+          <div class="disease-subtitle">Wall-less bacteria — Ciliary stasis, pleuropneumonia, mastitis, and polyarthritis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>M. mycoides</em> subsp. <em>mycoides</em> (CBPP), <em>M. hyopneumoniae</em> (SEP), <em>M. bovis</em> (pneumonia/mastitis), <em>M. agalactiae</em>.</li>
+              <li>Respiratory ciliated epithelium, pleural cavity, mammary gland, and synovial membranes.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Adherence to respiratory cilia via cytoadhesins causes ciliostasis, epithelial loss, and altered clearance.</li>
+              <li>Induction of pro-inflammatory cytokines drives cuffing pneumonia, pleuritis, or suppurative mastitis.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Marbled lung with sequestration (CBPP), cranioventral plum-colored consolidation (SEP), fibrinous arthritis.</li>
+              <li><strong>Micro:</strong> Peribronchial &amp; perivascular lymphoid cuffing (BALT hyperplasia), interlobular septal thrombosis &amp; necrosis.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Illustrations for Mycoplasma -->
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1qI3qro1oa35pSqaSjTJFK1RDLBSJOk-M/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Characteristic ‘friedegg’ colony morphology of Mycoplasma species grown on specialized media.</p>
+        </div>
+      </article>
+
+      <!-- UNIT 4: CHLAMYDIA -->
+      <article id="chlamydia" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Chlamydial Diseases</h3>
+          <div class="disease-subtitle"><em>Chlamydia abortus</em> &amp; <em>C. psittaci</em> — Obligate intracellular biphasic development</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Chlamydia abortus</em> (enzootic abortion of ewes), <em>C. psittaci</em> (avian chlamydiosis/psittacosis), <em>C. pecorum</em>.</li>
+              <li>Placental trophoblasts, mucosal surfaces, serosal membranes, and reticuloendothelial system.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Biphasic life cycle: Elementary bodies (infectious) enter cells; Reticulate bodies (metabolic) replicate in vacuoles.</li>
+              <li>Trophoblast destruction causes vasculitis, placental insufficiency, and late-term abortion.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Necrotic clay-colored intercotyledonary placentitis, hepatomegaly, fibrinous polyserositis in birds.</li>
+              <li><strong>Micro:</strong> Suppurative-to-necrotising placentitis, intracytoplasmic elementary bodies in chorionic epithelial cells.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Illustrations for Chlamydia -->
+        <div class="figure-card">
+          <div class="figure-wrapper">
+            <iframe src="https://drive.google.com/file/d/1UaSMplBdPEgLvozclzbchoAUuticv9z2/preview" allow="autoplay"></iframe>
+          </div>
+          <p class="figure-caption">Intracellular developmental cycle of Chlamydia illustrating transformation between elementary and reticulate bodies.</p>
+        </div>
+      </article>
+
+      <!-- UNIT 5: ANAPLASMATACEAE -->
+      <article id="anaplasmataceae" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Anaplasmataceae &amp; Rickettsiales</h3>
+          <div class="disease-subtitle"><em>Anaplasma</em>, <em>Ehrlichia</em> &amp; <em>Neorickettsia</em> — Vector-borne leukocytic &amp; erythrocytic tropism</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Anaplasma marginale</em> (bovine RBCs), <em>A. phagocytophilum</em> (granulocytes), <em>Ehrlichia canis</em> (monocytes).</li>
+              <li>Erythrocytes, circulating leukocytes, vascular endothelium, and lymphoreticular tissue.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Replication inside hemolymphatic host cells (forming morulae) escaping lysosomal destruction.</li>
+              <li>Immune-mediated extravascular hemolysis (Anaplasma) or pancytopenia &amp; vasculitis (Ehrlichia).</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Severe anemia, jaundice, splenomegaly, petechiation, lymphadenomegaly.</li>
+              <li><strong>Micro:</strong> Erythrophagocytosis, splenic congestion, perivascular lymphoplasmacytic cuffing, intracytoplasmic morulae.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- UNIT 6: COXIELLA BURNETII -->
+      <article id="coxiella" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Coxiella burnetii (Q Fever)</h3>
+          <div class="disease-subtitle">Obligate intracellular spore-like bacterium — Placentitis &amp; zoonotic abortion</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Coxiella burnetii</em> (small ruminants, cattle, pets, zoonotic).</li>
+              <li>Placental trophoblasts, macrophages, and uterine epithelium.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation of spore-like small cell variants from environmental dust or birth fluids.</li>
+              <li>Profound replication in phagolysosomes of trophoblasts leading to necrotising placentitis and abortion.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Leathery, thickened intercotyledonary placenta with exudative yellowish-brown necrosis.</li>
+              <li><strong>Micro:** Severe intercotyledonary placentitis with massive intraepithelial bacterial vacuoles (Stamp's positive).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Atypical Diagnostic Key:</strong> Standard Gram stains are uninformative for these organisms. Use <strong>Silver impregnation (Warthin-Starry / Steiner)</strong> for spirochetes (<em>Leptospira</em>, <em>Brachyspira</em>), <strong>Modified Ziehl-Neelsen (Stamp's stain)</strong> for <em>Chlamydia</em> and <em>Coxiella</em>, Giemsa for blood/buffy coat smears (<em>Anaplasma</em>, <em>Ehrlichia</em>), and PCR or serology for fastidious <em>Mycoplasma</em> species.
+      </aside>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Spirochetal &amp; Atypical Bacterial Diseases Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Bacterial Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

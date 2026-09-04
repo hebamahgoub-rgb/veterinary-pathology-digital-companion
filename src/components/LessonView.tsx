@@ -20,6 +20,22 @@ import { InflammationPage } from './inflammation/InflammationPage';
 import { CirculatoryPage } from './circulatory/CirculatoryPage';
 import { ImmunePage } from './immune/ImmunePage';
 import { GrowthPage } from './growth/GrowthPage';
+import { GramPositivePage } from './infectious/bacterial/GramPositivePage';
+import { GramNegativePage } from './infectious/bacterial/GramNegativePage';
+import { MycobacterialPage } from './infectious/bacterial/MycobacterialPage';
+import { SpirochetalAtypicalPage } from './infectious/bacterial/SpirochetalAtypicalPage';
+import { SuperficialCutaneousPage } from './infectious/mycotic/SuperficialCutaneousPage';
+import { SubcutaneousPage } from './infectious/mycotic/SubcutaneousPage';
+import { SystemicDeepPage } from './infectious/mycotic/SystemicDeepPage';
+import { OpportunisticPage } from './infectious/mycotic/OpportunisticPage';
+import { PoultryBacterialPage } from './infectious/poultry/PoultryBacterialPage';
+import { PoultryViralPage } from './infectious/poultry/PoultryViralPage';
+import { PoultryMycoticPage } from './infectious/poultry/PoultryMycoticPage';
+import { PoultryParasiticPage } from './infectious/poultry/PoultryParasiticPage';
+import { PoultryNutritionalMetabolicPage } from './infectious/poultry/PoultryNutritionalMetabolicPage';
+import { BacterialDiseasesDirectory } from './infectious/BacterialDiseasesDirectory';
+import { MycoticDiseasesDirectory } from './infectious/MycoticDiseasesDirectory';
+import { PoultryDiseasesDirectory } from './infectious/PoultryDiseasesDirectory';
 
 interface LessonViewProps {
   lessonId: string;
@@ -466,6 +482,164 @@ export const LessonView: React.FC<LessonViewProps> = ({
         />
       );
     }
+
+    // 7. Bacterial Diseases
+    case 'bacterial-diseases':
+      return (
+        <BacterialDiseasesDirectory
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+        />
+      );
+    case 'gram-positive-bacterial-diseases':
+    case 'gram-positive':
+      return (
+        <GramPositivePage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'gram-negative-bacterial-diseases':
+    case 'gram-negative':
+      return (
+        <GramNegativePage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'mycobacterial-diseases':
+    case 'mycobacterial':
+      return (
+        <MycobacterialPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'spirochetal-atypical-bacterial-diseases':
+    case 'spirochetal-and-atypical-bacterial-diseases':
+    case 'spirochetal':
+      return (
+        <SpirochetalAtypicalPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+
+    // 8. Mycotic Diseases
+    case 'mycotic-diseases':
+      return (
+        <MycoticDiseasesDirectory
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+        />
+      );
+    case 'superficial-cutaneous-mycoses':
+    case 'superficial-and-cutaneous-mycoses':
+      return (
+        <SuperficialCutaneousPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'subcutaneous-mycoses':
+      return (
+        <SubcutaneousPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'systemic-deep-mycoses':
+    case 'systemic-and-deep-mycoses':
+      return (
+        <SystemicDeepPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'opportunistic-mycoses':
+      return (
+        <OpportunisticPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+
+    // 9. Poultry Diseases
+    case 'poultry-pathology':
+    case 'poultry-diseases':
+      return (
+        <PoultryDiseasesDirectory
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+        />
+      );
+    case 'bacterial-diseases-poultry':
+    case 'bacterial-diseases-of-poultry':
+      return (
+        <PoultryBacterialPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'viral-diseases-poultry':
+    case 'viral-diseases-of-poultry':
+      return (
+        <PoultryViralPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'mycotic-diseases-poultry':
+    case 'mycotic-diseases-and-mycotoxicoses':
+      return (
+        <PoultryMycoticPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'parasitic-diseases-poultry':
+    case 'parasitic-diseases-of-poultry':
+      return (
+        <PoultryParasiticPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
+    case 'nutritional-metabolic-poultry':
+    case 'nutritional-metabolic-and-management':
+    case 'nutritional-metabolic-management-poultry':
+      return (
+        <PoultryNutritionalMetabolicPage
+          onNavigate={onNavigate}
+          onSelectLesson={onSelectLesson}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
+      );
 
     default:
       return (

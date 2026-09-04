@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poultry Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --status-available-bg: #e6fffa;
+      --status-available-text: #234e52;
+      --status-available-border: #b2f5ea;
+
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & BADGES
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+    }
+
+    .badge-available {
+      background-color: var(--status-available-bg);
+      color: var(--status-available-text);
+      border-color: var(--status-available-border);
+    }
+
+    .category-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary-color);
+      background-color: var(--bg-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-secondary-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .species-distinction-box {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 4px solid var(--accent-color);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       2. SPECIES-BASED PATHOLOGY PATHWAY
+       ========================================================================== */
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pathway-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pathway-number {
+      background-color: var(--primary-color);
+      color: var(--white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .pathway-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      padding-top: 0.2rem;
+    }
+
+    /* ==========================================================================
+       3. POULTRY DISEASE SUBSECTIONS (CARDS)
+       ========================================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .examples-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .example-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .example-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.925rem;
+    }
+
+    .example-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card-action {
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       4. KEY AVIAN SYSTEMIC LESION PATTERNS
+       ========================================================================== */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pattern-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pattern-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pattern-card p {
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       5. DIAGNOSTIC APPROACH PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       6. FOOTER & NAVIGATION
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathway-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .pattern-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathway-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .pattern-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Poultry Diseases</h1>
+      <div class="hero-subtitle">An integrated species-based collection</div>
+      <p class="hero-body">
+        Study major diseases of poultry through an integrated pathological approach, linking disease categories with affected organ systems, characteristic lesion patterns, and diagnostic interpretation across avian species.
+      </p>
+      <p class="hero-secondary-text">
+        Explore poultry disease categories organized by aetiological agent class, systemic organ involvement, and metabolic pathophysiology.
+      </p>
+      <div class="species-distinction-box">
+        <strong>Species-Based Framework:</strong> Unlike the agent-based sections (Bacterial and Mycotic Diseases), Poultry Diseases integrates all aetiologies—bacterial, viral, fungal, parasitic, and non-infectious—specifically within avian anatomical, physiological, and commercial production contexts.
+      </div>
+    </header>
+
+    <!-- 2. AVIAN DIAGNOSTIC PATHWAY -->
+    <section class="section-block" aria-labelledby="pathway-heading">
+      <h2 id="pathway-heading">Avian Diagnostic Sequence</h2>
+      <p class="section-intro">Apply this consistent diagnostic workflow when conducting flock post-mortem evaluations.</p>
+      
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <div class="pathway-number">1</div>
+          <div class="pathway-text">Flock history &amp; flock-level signs</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">2</div>
+          <div class="pathway-text">External inspection &amp; integument</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">3</div>
+          <div class="pathway-text">Systemic necropsy dissection</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">4</div>
+          <div class="pathway-text">Dominant tissue response pattern</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">5</div>
+          <div class="pathway-text">Histopathology &amp; lesion correlation</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">6</div>
+          <div class="pathway-text">Confirmatory lab identification</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. POULTRY DISEASE SUBSECTIONS -->
+    <section class="section-block" aria-labelledby="subsections-heading">
+      <h2 id="subsections-heading">Explore Poultry Disease Categories</h2>
+      
+      <div class="cards-grid">
+        
+        <!-- SUBSECTION 1: BACTERIAL DISEASES OF POULTRY -->
+        <article class="card">
+          <div>
+            <span class="category-tag">Avian Aetiology</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Bacterial Diseases of Poultry</h3>
+          <div class="card-subtitle">Septicaemia, respiratory tract infection, and enteric disease</div>
+          <p class="card-description">
+            Examine major avian bacterial pathogens causing severe economic losses through airsacculitis, polyserositis, enteritis, and systemic organ failure.
+          </p>
+          <div class="examples-header">Key Conditions</div>
+          <ul class="example-list">
+            <li>Avian Colibacillosis (APEC) &amp; Polyserositis</li>
+            <li>Fowl Cholera (<em>Pasteurella multocida</em>)</li>
+            <li>Salmonellosis (Pullorum, Fowl Typhoid, Paratyphoid)</li>
+            <li>Infectious Coryza &amp; Necrotic Enteritis</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases/bacterial-diseases-of-poultry" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Avian Bacterial Diseases</a>
+          </div>
+        </article>
+
+        <!-- SUBSECTION 2: VIRAL DISEASES OF POULTRY -->
+        <article class="card">
+          <div>
+            <span class="category-tag">Avian Aetiology</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Viral Diseases of Poultry</h3>
+          <div class="card-subtitle">Neoplastic, respiratory, immunosuppressive, and systemic viruses</div>
+          <p class="card-description">
+            Study high-consequence viral pathogens affecting poultry, including oncogenic herpesviruses, respiratory coronaviruses, and epizootic pan-systemic infections.
+          </p>
+          <div class="examples-header">Key Conditions</div>
+          <ul class="example-list">
+            <li>Marek's Disease &amp; Avian Leukosis Virus</li>
+            <li>High Pathogenicity Avian Influenza (HPAI) &amp; Newcastle Disease</li>
+            <li>Infectious Bronchitis (IBV) &amp; Laryngotracheitis (ILTV)</li>
+            <li>Infectious Bursal Disease (IBD / Gumboro)</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases/viral-diseases-of-poultry" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Avian Viral Diseases</a>
+          </div>
+        </article>
+
+        <!-- SUBSECTION 3: MYCOTIC DISEASES & MYCOTOXICOSES -->
+        <article class="card">
+          <div>
+            <span class="category-tag">Avian Aetiology</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Mycotic Diseases &amp; Mycotoxicoses</h3>
+          <div class="card-subtitle">Brooder pneumonia, mycotoxicoses, and digestive candidiasis</div>
+          <p class="card-description">
+            Explore pulmonary fungal infections in hatchlings, crop thrush, and severe tissue lesions secondary to feed-borne mycotoxins.
+          </p>
+          <div class="examples-header">Key Conditions</div>
+          <ul class="example-list">
+            <li>Avian Aspergillosis (Brooder Pneumonia)</li>
+            <li>Crop Candidiasis (Sour Crop / Thrush)</li>
+            <li>Aflatoxicosis &amp; Ochratoxicosis</li>
+            <li>T-2 Toxin Oral &amp; Gizzard Lesions</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases/mycotic-diseases-and-mycotoxicoses" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Mycotic Diseases &amp; Mycotoxicoses</a>
+          </div>
+        </article>
+
+        <!-- SUBSECTION 4: PARASITIC DISEASES OF POULTRY -->
+        <article class="card">
+          <div>
+            <span class="category-tag">Avian Aetiology</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Parasitic Diseases of Poultry</h3>
+          <div class="card-subtitle">Protozoal enteritis, histomoniasis, and helminthiasis</div>
+          <p class="card-description">
+            Examine protozoal destruction of intestinal mucosal barriers, typhlohepatitis, tracheal nematodes, and ectoparasite infestations.
+          </p>
+          <div class="examples-header">Key Conditions</div>
+          <ul class="example-list">
+            <li>Avian Coccidiosis (<em>Eimeria</em> species)</li>
+            <li>Histomoniasis (Blackhead Disease)</li>
+            <li>Tracheal Gapeworm (<em>Syngamus trachea</em>)</li>
+            <li>Intestinal Cestodiasis &amp; Nematodiasis</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases/parasitic-diseases-of-poultry" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Avian Parasitic Diseases</a>
+          </div>
+        </article>
+
+        <!-- SUBSECTION 5: NUTRITIONAL, METABOLIC & MANAGEMENT-RELATED DISORDERS -->
+        <article class="card">
+          <div>
+            <span class="category-tag">Avian Pathophysiology</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Nutritional, Metabolic &amp; Management-Related Disorders</h3>
+          <div class="card-subtitle">Production-related disorders and skeletal/visceral pathologies</div>
+          <p class="card-description">
+            Study rapid-growth metabolic syndromes, skeletal deformities, vitamin/mineral deficiencies, and management-related disorders affecting commercial flocks.
+          </p>
+          <div class="examples-header">Key Conditions</div>
+          <ul class="example-list">
+            <li>Ascites Syndrome (Pulmonary Hypertension)</li>
+            <li>Fatty Liver Hemorrhagic Syndrome (FLHS)</li>
+            <li>Rickets, Perosis &amp; Tibial Dyschondroplasia</li>
+            <li>Gout (Visceral &amp; Articular Urate Deposition)</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases/nutritional-metabolic-and-management-related-disorders" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Nutritional &amp; Metabolic Disorders</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. KEY AVIAN LESION PATTERNS -->
+    <section class="section-block" aria-labelledby="patterns-heading">
+      <h2 id="patterns-heading">Predominant Avian Pathology Patterns</h2>
+      <p class="section-intro">Avian tissue responses possess unique features, including heterophilic (rather than neutrophilic) inflammation and fibrinous polyserositis.</p>
+      
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <h3>Fibrinous Airsacculitis &amp; Polyserositis</h3>
+          <p>Thick yellow fibrinous exudate covering air sacs, pericardium, and liver capsular surface (e.g., APEC, <em>Pasteurella</em>, <em>Mycoplasma</em>).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Fibrinecrotic / Hemorrhagic Enteritis</h3>
+          <p>Mucosal diphtheria, pseudomembranes, or severe cecal ulceration (e.g., <em>Clostridium perfringens</em>, <em>Eimeria tenella</em>, <em>Salmonella</em>).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Lymphoproliferative Tumors</h3>
+          <p>Infiltration of peripheral nerves, iris, skin, and visceral organs by neoplastic lymphocytes (e.g., Marek's Disease, Avian Leukosis).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Note">
+        <strong>Avian Diagnostic Note:</strong> Avian leukocytes lack myeloperoxidase, causing purulent exudate to form solid, caseous fibrinocaseous debris rather than liquid pus. Systematic necropsy combined with impression cytology, histopathology, viral isolation/PCR, and bacterial culture is critical for definitive flock diagnosis.
+      </aside>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Poultry Diseases Section</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

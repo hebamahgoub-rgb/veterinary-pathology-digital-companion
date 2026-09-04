@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parasitic Diseases of Poultry - Veterinary Pathology Digital Companion</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus { text-decoration: underline; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-block { margin-bottom: 3.5rem; }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb-separator { color: var(--border-color); }
+
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 { margin-bottom: 0.5rem; }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong { color: var(--primary-color); }
+
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+
+    .illustration-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .illustration-card {
+      width: 100%;
+      margin: 0;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .illustration-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--white);
+    }
+
+    .illustration-card figcaption {
+      padding: 0.9rem 1rem 1rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+    }
+
+    .illustration-title {
+      display: block;
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .illustration-atlas {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-top: 4px solid var(--primary-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 640px) {
+      .pathology-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases" target="_blank" rel="noopener noreferrer">Poultry Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Parasitic Diseases of Poultry</span>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Parasitic Diseases of Poultry</h1>
+      <div class="hero-subtitle">Intestinal and renal coccidiosis, histomoniasis, helminthiasis, and ectoparasitosis</div>
+      <p class="hero-body">
+        Poultry parasites produce disease through epithelial destruction, hemorrhage, necrosis, nutrient loss, mechanical irritation, or blood feeding. The distribution of lesions is often diagnostically useful: coccidial species show strong site specificity, histomoniasis primarily targets the ceca and liver, helminths occupy characteristic portions of the respiratory or gastrointestinal tract, and ectoparasites produce recognizable skin, feather, and anemia-associated changes.
+      </p>
+    </header>
+
+    <nav class="organism-nav" aria-label="Condition Index">
+      <h2>Major Conditions Covered</h2>
+      <div class="organism-pills">
+        <a href="#chicken-coccidiosis" class="pill">Chicken Coccidiosis</a>
+        <a href="#goose-coccidiosis" class="pill">Renal Coccidiosis of Geese</a>
+        <a href="#histomoniasis" class="pill">Histomoniasis (Blackhead)</a>
+        <a href="#syngamiasis" class="pill">Syngamiasis (Gapeworm)</a>
+        <a href="#intestinal-nematodes" class="pill">Ascaridia &amp; Heterakis</a>
+        <a href="#ectoparasites" class="pill">Mites &amp; Lice</a>
+      </div>
+    </nav>
+
+    <section class="section-block" aria-labelledby="profiles-heading">
+      <h2 id="profiles-heading">Pathological Profiles</h2>
+
+      <article id="chicken-coccidiosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Coccidiosis in Chickens</h3>
+          <div class="disease-subtitle"><em>Eimeria</em> spp. — Site-specific intestinal epithelial injury</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Site Specificity</h4>
+            <ul>
+              <li>Important species include <em>E. tenella</em> (ceca), <em>E. necatrix</em> (mid-small intestine), <em>E. acervulina</em> (upper small intestine), <em>E. maxima</em> (mid-small intestine), and <em>E. brunetti</em> (distal small intestine/rectum).</li>
+              <li>Other recognized chicken species include <em>E. mitis</em> and <em>E. praecox</em>; pathogenicity and lesion severity vary by species and dose.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Birds ingest sporulated oocysts; intracellular asexual and sexual developmental stages multiply in intestinal tissues.</li>
+              <li>Cell rupture and deeper mucosal invasion cause epithelial loss, inflammation, malabsorption, and—especially with <em>E. tenella</em> and <em>E. necatrix</em>—marked hemorrhage.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Key Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Blood-filled ceca and cecal cores with <em>E. tenella</em>; “salt-and-pepper” mid-intestinal lesions with <em>E. necatrix</em>; whitish plaques in the proximal intestine with <em>E. acervulina</em>.</li>
+              <li><strong>Micro:</strong> Epithelial destruction with schizonts, gametocytes, and oocysts in affected mucosa, accompanied by hemorrhage and inflammatory infiltration.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1WOJprebO_d1lV_mQVfKmm4HDaJO7gzC6"
+                 alt="Coccidiosis (Eimeria spp.)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Coccidiosis (Eimeria spp.)</span>
+              Coccidiosis causing enteric hemorrhage and epithelial destruction, transmitted through ingestion of sporulated oocysts.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="goose-coccidiosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Renal Coccidiosis of Geese</h3>
+          <div class="disease-subtitle"><em>Eimeria truncata</em> — Renal tubular coccidiosis and urate retention</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Eimeria truncata</em> is the best-known cause of renal coccidiosis in geese.</li>
+              <li>Developmental stages occur in renal tubular epithelium; young geese are most susceptible to severe disease.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Intracellular coccidial development damages renal tubular epithelium and distends tubules with oocysts and cellular debris.</li>
+              <li>Severe tubular injury impairs renal function and may be accompanied by urate accumulation, dehydration, and systemic illness.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Key Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Enlarged pale-to-gray kidneys with multifocal yellow-white streaks or foci; urates may accumulate within affected tubules.</li>
+              <li><strong>Micro:</strong> Dilated renal tubules containing numerous coccidial stages and oocysts, with tubular epithelial degeneration/necrosis and inflammatory reaction.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article id="histomoniasis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Histomoniasis (Blackhead Disease)</h3>
+          <div class="disease-subtitle"><em>Histomonas meleagridis</em> — Necrotizing typhlitis and hepatitis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Transmission</h4>
+            <ul>
+              <li><em>Histomonas meleagridis</em> is an anaerobic protozoal parasite; turkeys are particularly susceptible to severe disease.</li>
+              <li>Transmission commonly occurs within eggs of the cecal nematode <em>Heterakis gallinarum</em>; earthworms may serve as paratenic hosts. Direct cloacal transmission can also occur in turkeys.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Histomonads invade the cecal wall, causing severe necrotizing inflammation, then spread to the liver mainly through the portal circulation.</li>
+              <li>Hepatic invasion produces multifocal to coalescing necrosis with inflammatory reaction.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Key Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Thickened inflamed ceca containing caseous cores; characteristic circular depressed hepatic necrotic foci with raised margins.</li>
+              <li><strong>Micro:</strong> Necrotizing typhlitis and hepatitis with round-to-ovoid histomonad trophozoites within affected tissues.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1NI0GUjzLMFO05lzJmJZRqHWx4HN-4FZM"
+                 alt="Histomoniasis (Blackhead Disease)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Histomoniasis (Blackhead Disease)</span>
+              Histomoniasis producing cecal and hepatic necrosis, transmitted through Heterakis eggs in contaminated soil.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="syngamiasis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Syngamiasis (Gapeworm)</h3>
+          <div class="disease-subtitle"><em>Syngamus trachea</em> — Tracheal nematodiasis and respiratory obstruction</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Syngamus trachea</em> inhabits the trachea of chickens, turkeys, game birds, and several other avian hosts.</li>
+              <li>Adult male and female worms remain permanently joined, giving the characteristic Y-shaped appearance.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Infection follows ingestion of infective larvae or paratenic hosts such as earthworms; larvae migrate through the lungs before reaching the trachea.</li>
+              <li>Attached adults cause mucosal irritation and hemorrhage; heavy burdens mechanically obstruct airflow and produce gaping or respiratory distress.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Key Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Red Y-shaped worms attached to tracheal mucosa with mucus, hyperemia, and focal hemorrhage.</li>
+              <li><strong>Micro:</strong> Erosive to inflammatory tracheitis around attachment sites; lesions vary with parasite burden and chronicity.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1zhe0DBOXgnERxAuOn0cS3hgbRblDn4i6"
+                 alt="Syngamiasis (Gapeworm)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Syngamiasis (Gapeworm)</span>
+              Syngamiasis producing tracheal obstruction and respiratory distress, transmitted through larvae in earthworms or contaminated soil.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="intestinal-nematodes" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Intestinal Nematodiasis</h3>
+          <div class="disease-subtitle"><em>Ascaridia galli</em> &amp; <em>Heterakis gallinarum</em> — Intestinal parasitism and vector significance</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Ascaridia galli</em> is a common large roundworm of the small intestine; <em>Heterakis gallinarum</em> inhabits the ceca.</li>
+              <li>Clinical disease is most likely with heavy burdens, young birds, or free-range/backyard exposure.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Larval and adult stages irritate intestinal mucosa and may impair growth or feed efficiency; heavy <em>Ascaridia</em> burdens can cause obstruction.</li>
+              <li><em>Heterakis gallinarum</em> is especially important as the biological carrier of <em>Histomonas meleagridis</em>.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Key Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Adult worms visible in the affected intestinal segment; heavy infections may produce catarrhal enteritis, mucosal thickening, or luminal obstruction.</li>
+              <li><strong>Micro:</strong> Variable mucosal inflammation and epithelial injury; lesions are generally nonspecific and must be interpreted with demonstration of worms or eggs.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1Q-642nxj5GuZWLoXqF1npLUnzC5WQJU3"
+                 alt="Ascaridiasis (Ascaridia galli)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Ascaridiasis (Ascaridia galli)</span>
+              Ascaridiasis causing intestinal obstruction and malabsorption, transmitted through ingestion of infective eggs.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+      <article id="ectoparasites" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Avian Ectoparasitosis</h3>
+          <div class="disease-subtitle">Poultry mites and lice — Irritation, feather damage, anemia, and hyperkeratosis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Important Parasites</h4>
+            <ul>
+              <li>Mites include <em>Dermanyssus gallinae</em> (poultry red mite), <em>Ornithonyssus sylviarum</em> (northern fowl mite), and <em>Knemidocoptes mutans</em> (scaly-leg mite).</li>
+              <li>The chicken body louse <em>Menacanthus stramineus</em> is among the most important poultry lice; lice generally feed on feathers/skin debris, although some also feed on blood.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Heavy blood-feeding mite infestations cause irritation, stress, decreased production, and potentially clinically important anemia.</li>
+              <li><em>K. mutans</em> burrows beneath leg scales and induces marked hyperkeratosis; heavy lice burdens damage feathers and irritate skin.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Key Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Mites or lice and their eggs may be visible on birds; heavy mite burdens can cause pallor, while scaly-leg infestation produces thickened crusted shanks.</li>
+              <li><strong>Micro:</strong> Scaly-leg lesions show pronounced hyperkeratosis with mite profiles/tunnels in superficial epidermal keratin and variable dermatitis.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/1vrSpU0oo2byvIL28g0_LkTSXRfGL75PL"
+                 alt="Lice and Mite Infestations (Ectoparasites)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Lice and Mite Infestations (Ectoparasites)</span>
+              Ectoparasite infestations causing dermatitis, anemia, and reduced productivity, spread through contact and contaminated housing.
+            </figcaption>
+          </figure>
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <section class="section-block" aria-labelledby="additional-illustrations-heading">
+      <div class="illustration-atlas">
+        <h2 id="additional-illustrations-heading">Additional Illustrated Parasitic Entities</h2>
+        <p style="margin-bottom: 1.25rem;">
+          These supplied illustrations are included for visual study while the existing pathological profiles above remain unchanged.
+        </p>
+
+        <div class="illustration-grid">
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/15-sRHZQ6TdLCw8aEtHgKUcUbvLP1E9Sx"
+                 alt="Trichomoniasis (Canker)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Trichomoniasis (Canker)</span>
+              Trichomoniasis causing oral and crop lesions, spread through contaminated water and direct contact.
+            </figcaption>
+          </figure>
+
+          <figure class="illustration-card">
+            <img src="https://lh3.googleusercontent.com/d/18WlS_pmp0c4IkAC1wRiVwCGfBpGtII4-"
+                 alt="Capillariasis (Capillaria spp.)"
+                 loading="lazy">
+            <figcaption>
+              <span class="illustration-title">Capillariasis (Capillaria spp.)</span>
+              Capillariasis producing intestinal mucosal damage and chronic wasting, transmitted through infective eggs or earthworms.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Parasitic Diagnostic Key:</strong> For chicken coccidiosis, combine lesion location and appearance with demonstration of appropriate developmental stages; oocyst numbers alone do not reliably indicate disease severity. For renal coccidiosis in geese, examine kidneys for tubular coccidial stages and oocysts. Histomoniasis is supported by characteristic cecal and hepatic lesions plus demonstration of trophozoites. Helminths are diagnosed by direct worm identification and/or fecal examination, whereas ectoparasites require careful inspection of birds, feathers, skin, and—when relevant—the housing environment.
+      </aside>
+    </section>
+
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Parasitic Diseases of Poultry Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Poultry Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

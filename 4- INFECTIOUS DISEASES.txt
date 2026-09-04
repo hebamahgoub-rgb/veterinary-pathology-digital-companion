@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infectious Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --status-available-bg: #e6fffa;
+      --status-available-text: #234e52;
+      --status-available-border: #b2f5ea;
+      
+      --status-partial-bg: #feebc8;
+      --status-partial-text: #744210;
+      --status-partial-border: #fbd38d;
+      
+      --status-dev-bg: #edf2f7;
+      --status-dev-text: #4a5568;
+      --status-dev-border: #cbd5e0;
+
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & BADGES
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .btn-disabled {
+      background-color: #e2e8f0;
+      color: #718096;
+      border-color: #cbd5e0;
+      cursor: not-allowed;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-disabled:hover {
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+    }
+
+    .badge-available {
+      background-color: var(--status-available-bg);
+      color: var(--status-available-text);
+      border-color: var(--status-available-border);
+    }
+
+    .badge-partial {
+      background-color: var(--status-partial-bg);
+      color: var(--status-partial-text);
+      border-color: var(--status-partial-border);
+    }
+
+    .badge-dev {
+      background-color: var(--status-dev-bg);
+      color: var(--status-dev-text);
+      border-color: var(--status-dev-border);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-secondary-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       2. PATHOLOGY LEARNING PATHWAY
+       ========================================================================== */
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pathway-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .pathway-number {
+      background-color: var(--primary-color);
+      color: var(--white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .pathway-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      padding-top: 0.2rem;
+    }
+
+    /* ==========================================================================
+       3. MAIN LEARNING AREAS (ACTIVE CARDS)
+       ========================================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-active {
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 0;
+    }
+
+    .subpages-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .subpage-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .subpage-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.925rem;
+    }
+
+    .subpage-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card-note {
+      background-color: var(--bg-light);
+      border-left: 3px solid var(--accent-color);
+      padding: 0.6rem 0.8rem;
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .card-action {
+      margin-top: auto;
+    }
+
+    .category-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary-color);
+      background-color: var(--bg-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    /* ==========================================================================
+       4. SECTIONS UNDER DEVELOPMENT
+       ========================================================================== */
+    .card-dev {
+      background-color: #fcfcfd;
+      border: 1px solid #d2d6dc;
+      border-top: 4px solid #a0aec0;
+    }
+
+    .card-dev .subpage-list li::before {
+      color: #a0aec0;
+    }
+
+    /* ==========================================================================
+       5. BEGIN WITH THE LESION (PATTERN CARDS)
+       ========================================================================== */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pattern-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pattern-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pattern-card p {
+      font-size: 0.95rem;
+    }
+
+    .interpretation-note {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-color);
+      padding: 1rem;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       6. HOW TO STUDY EACH DISEASE
+       ========================================================================== */
+    .framework-list {
+      list-style: none;
+      counter-reset: framework-counter;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+    }
+
+    .framework-item {
+      counter-increment: framework-counter;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .framework-item::before {
+      content: counter(framework-counter);
+      position: absolute;
+      left: 1.25rem;
+      top: 1.25rem;
+      background-color: var(--bg-light);
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================================================
+       7. EDUCATIONAL AND DIAGNOSTIC NOTE
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       8. QUICK NAVIGATION
+       ========================================================================== */
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .quick-nav-note {
+      font-size: 0.9rem;
+      text-align: center;
+      color: var(--secondary-color);
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       9. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-action {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathway-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .pattern-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .framework-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .quick-nav-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathway-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .pattern-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .framework-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Infectious Diseases</h1>
+      <div class="hero-subtitle">From infectious agent to pathological lesion</div>
+      <p class="hero-body">
+        This section integrates causative agents, transmission, pathogenesis, host responses, gross lesions, microscopic changes, and diagnostic interpretation across important infectious diseases of animals.
+      </p>
+      <p class="hero-secondary-text">
+        Begin with an agent-based disease section, or explore the integrated Poultry Diseases collection.
+      </p>
+    </header>
+
+    <!-- 2. PATHOLOGY LEARNING PATHWAY -->
+    <section class="section-block" aria-labelledby="pathway-heading">
+      <h2 id="pathway-heading">A Pathology-Based Approach</h2>
+      <p class="section-intro">Use the same diagnostic sequence when studying each infectious disease.</p>
+      
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <div class="pathway-number">1</div>
+          <div class="pathway-text">Agent and susceptible host</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">2</div>
+          <div class="pathway-text">Transmission and portal of entry</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">3</div>
+          <div class="pathway-text">Pathogenesis and tissue spread</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">4</div>
+          <div class="pathway-text">Dominant host response</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">5</div>
+          <div class="pathway-text">Gross and microscopic lesions</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">6</div>
+          <div class="pathway-text">Diagnosis and differential diagnosis</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MAIN LEARNING AREAS -->
+    <section class="section-block" aria-labelledby="main-areas-heading">
+      <h2 id="main-areas-heading">Explore Infectious Diseases</h2>
+      
+      <div class="cards-grid">
+        
+        <!-- CARD 1: BACTERIAL DISEASES -->
+        <article class="card card-active">
+          <div>
+            <span class="category-tag">Agent-Based Section</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Bacterial Diseases</h3>
+          <div class="card-subtitle">From bacterial properties to lesion pattern</div>
+          <p class="card-description">
+            Explore important bacterial diseases through their aetiology, transmission, pathogenesis, characteristic gross and microscopic lesions, and diagnostic features.
+          </p>
+          <div class="subpages-header">Subsections</div>
+          <ul class="subpage-list">
+            <li>Gram-Positive Bacterial Diseases</li>
+            <li>Gram-Negative Bacterial Diseases</li>
+            <li>Mycobacterial Diseases</li>
+            <li>Spirochetal and Atypical Bacterial Diseases</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Bacterial Diseases</a>
+          </div>
+        </article>
+
+        <!-- CARD 2: MYCOTIC DISEASES -->
+        <article class="card card-active">
+          <div>
+            <span class="category-tag">Agent-Based Section</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Mycotic Diseases</h3>
+          <div class="card-subtitle">From fungal ecology to tissue reaction</div>
+          <p class="card-description">
+            Examine fungal infections according to their route of entry, tissue distribution, host response, characteristic morphology, and diagnostic demonstration.
+          </p>
+          <div class="subpages-header">Subsections</div>
+          <ul class="subpage-list">
+            <li>Superficial and Cutaneous Mycoses</li>
+            <li>Subcutaneous Mycoses</li>
+            <li>Systemic and Deep Mycoses</li>
+            <li>Opportunistic Mycoses</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Mycotic Diseases</a>
+          </div>
+        </article>
+
+        <!-- CARD 3: POULTRY DISEASES -->
+        <article class="card card-active">
+          <div>
+            <span class="category-tag">Species-Based Integrated Section</span>
+            <span class="badge badge-partial">Partially Available</span>
+          </div>
+          <h3 class="card-title">Poultry Diseases</h3>
+          <div class="card-subtitle">An integrated species-based collection</div>
+          <p class="card-description">
+            Study major diseases of poultry through an integrated pathological approach, linking disease categories with affected systems, lesion patterns, and diagnostic interpretation.
+          </p>
+          <div class="subpages-header">Subsections</div>
+          <ul class="subpage-list">
+            <li>Bacterial Diseases of Poultry</li>
+            <li>Viral Diseases of Poultry</li>
+            <li>Mycotic Diseases of Poultry</li>
+            <li>Parasitic Diseases of Poultry</li>
+            <li>Nutritional, Metabolic and Toxic Diseases of Poultry</li>
+          </ul>
+          <div class="card-note">
+            Some poultry subsections are currently under development.
+          </div>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Poultry Diseases</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. SECTIONS UNDER DEVELOPMENT -->
+    <section class="section-block" aria-labelledby="dev-areas-heading">
+      <h2 id="dev-areas-heading">Additional Disease Collections</h2>
+      <p class="section-intro">
+        The following collections form part of the planned structure of the companion. Their pages are currently under development.
+      </p>
+
+      <div class="cards-grid">
+        
+        <!-- CARD 1: VIRAL DISEASES -->
+        <article class="card card-dev">
+          <div>
+            <span class="badge badge-dev">Under Development</span>
+          </div>
+          <h3 class="card-title">Viral Diseases</h3>
+          <p class="card-description">
+            A planned pathology-centred collection covering major DNA and RNA viral diseases, disease organisation by pathological or biological relationships, and important emerging and zoonotic viral infections.
+          </p>
+          <div class="subpages-header">Planned Subsections</div>
+          <ul class="subpage-list">
+            <li>DNA Viral Diseases</li>
+            <li>RNA Viral Diseases</li>
+            <li>Viral Diseases by Major Grouping</li>
+            <li>Emerging and Zoonotic Viral Diseases</li>
+          </ul>
+          <div class="card-action">
+            <button type="button" class="btn btn-disabled" aria-disabled="true" disabled>Content in Development</button>
+          </div>
+        </article>
+
+        <!-- CARD 2: HELMINTHIC AND ARTHROPOD DISEASES -->
+        <article class="card card-dev">
+          <div>
+            <span class="badge badge-dev">Under Development</span>
+          </div>
+          <h3 class="card-title">Helminthic and Arthropod Diseases</h3>
+          <p class="card-description">
+            A planned collection examining parasite migration, tissue injury, host responses, characteristic lesions, and pathological consequences of helminthic and arthropod-associated diseases.
+          </p>
+          <div class="subpages-header">Planned Subsections</div>
+          <ul class="subpage-list">
+            <li>Trematode Diseases</li>
+            <li>Cestode Diseases</li>
+            <li>Nematode Diseases</li>
+            <li>Arthropod-Associated Diseases</li>
+          </ul>
+          <div class="card-action">
+            <button type="button" class="btn btn-disabled" aria-disabled="true" disabled>Content in Development</button>
+          </div>
+        </article>
+
+        <!-- CARD 3: PROTOZOAL DISEASES -->
+        <article class="card card-dev">
+          <div>
+            <span class="badge badge-dev">Under Development</span>
+          </div>
+          <h3 class="card-title">Protozoal Diseases</h3>
+          <p class="card-description">
+            A planned collection examining the pathogenesis, tissue distribution, host responses, and characteristic lesions of important veterinary protozoal diseases.
+          </p>
+          <div class="subpages-header">Planned Subsections</div>
+          <ul class="subpage-list">
+            <li>Enteric Protozoal Diseases</li>
+            <li>Haemoprotozoal Diseases</li>
+            <li>Tissue Protozoal Diseases</li>
+            <li>Reproductive and Other Protozoal Diseases</li>
+          </ul>
+          <div class="card-action">
+            <button type="button" class="btn btn-disabled" aria-disabled="true" disabled>Content in Development</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 5. BEGIN WITH THE LESION -->
+    <section class="section-block" aria-labelledby="lesion-heading">
+      <h2 id="lesion-heading">Begin with the Dominant Lesion Pattern</h2>
+      
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <h3>Suppurative inflammation</h3>
+          <p>Commonly associated with pyogenic bacterial infections.</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Granulomatous inflammation</h3>
+          <p>May accompany persistent bacterial, mycotic, protozoal, or helminthic agents.</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Necrotising inflammation</h3>
+          <p>May result from toxins, ischaemia, direct cellular injury, or rapidly destructive infection.</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Fibrinous inflammation</h3>
+          <p>Reflects severe vascular leakage and commonly affects serosal or mucosal surfaces.</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Haemorrhagic inflammation</h3>
+          <p>Suggests marked vascular injury, septicaemia, toxinaemia, or highly virulent infection.</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Proliferative and hyperplastic lesions</h3>
+          <p>May develop in response to chronic epithelial, mucosal, parasitic, or viral injury.</p>
+        </div>
+      </div>
+
+      <div class="interpretation-note">
+        <strong>Interpretation Note:</strong> Lesion patterns help construct a differential diagnosis but are not independently diagnostic of a specific infectious agent.
+      </div>
+    </section>
+
+    <!-- 6. HOW TO STUDY EACH DISEASE -->
+    <section class="section-block" aria-labelledby="study-heading">
+      <h2 id="study-heading">A Consistent Study Framework</h2>
+      
+      <ol class="framework-list">
+        <li class="framework-item">Identify the causative agent and susceptible species.</li>
+        <li class="framework-item">Determine the source, route of transmission, and portal of entry.</li>
+        <li class="framework-item">Follow the sequence of pathogen spread and tissue injury.</li>
+        <li class="framework-item">Identify the dominant inflammatory or cellular response.</li>
+        <li class="framework-item">Correlate gross lesions with microscopic changes.</li>
+        <li class="framework-item">Integrate lesions with agent detection and differential diagnoses.</li>
+      </ol>
+    </section>
+
+    <!-- 7. EDUCATIONAL AND DIAGNOSTIC NOTE -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Note">
+        <strong>Educational and Diagnostic Note:</strong> This companion emphasises pathological mechanisms and lesion interpretation. Definitive diagnosis may require integration of clinical history, epidemiology, culture, cytology, histochemistry, immunohistochemistry, serology, molecular testing, parasitology, or other laboratory methods.
+      </aside>
+    </section>
+
+    <!-- 8. QUICK NAVIGATION -->
+    <section class="section-block" aria-labelledby="quick-nav-heading">
+      <h2 id="quick-nav-heading">Quick Navigation</h2>
+      
+      <div class="quick-nav-grid">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Bacterial Diseases</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Mycotic Diseases</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/poultry-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Poultry Diseases</a>
+      </div>
+      <p class="quick-nav-note">
+        Viral, helminthic, arthropod, and protozoal disease collections are under development.
+      </p>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Designed for structured visual learning in veterinary pathology.</p>
+      <div class="footer-action">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

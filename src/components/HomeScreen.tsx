@@ -39,15 +39,15 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
     {
       id: 'card-infectious-diseases',
       title: 'Infectious Diseases',
-      subtitle: '3 sections in content migration · 3 under development',
-      badge: '3 in migration · 3 under dev',
-      badgeColor: 'bg-amber-50 text-amber-900 border-amber-300/80',
+      subtitle: 'Bacterial, Mycotic and Poultry Diseases available',
+      badge: 'Available',
+      badgeColor: 'bg-emerald-50 text-emerald-900 border-emerald-300/80',
       icon: Bug,
       iconBg: 'bg-rose-900 text-rose-100',
       borderHover: 'hover:border-rose-500',
       action: () => onNavigate({ type: 'infectious_diseases' }),
       highlight: false,
-      statusLine: '3 sections in content migration · 3 under development',
+      statusLine: '3 active sections · 13 study lessons available · 3 future modules under development',
     },
     {
       id: 'card-systemic-pathology',
@@ -229,7 +229,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </div>
         <div className="text-xs text-slate-600 leading-relaxed">
           <span className="font-bold text-slate-900">Curriculum Structure: </span>
-          Explore available Disturbance in Cell Metabolism study units, General Pathology and Infectious Diseases sections in content migration, and curriculum outlines under development. Microlearning videos are available as supplementary resources, with additional resources added following review.
+          Explore available General Pathology and Infectious Diseases study sections, along with curriculum outlines under development for future modules (Viral Diseases, Helminthic and Arthropod-Associated Diseases, and Protozoal Diseases). Microlearning videos are available as supplementary resources, with additional resources added following review.
         </div>
       </div>
     </div>

@@ -5,7 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/veterinary-pathology-digital-companion/',
+    base: process.env.GITHUB_ACTIONS
+      ? '/veterinary-pathology-digital-companion/'
+      : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

@@ -30,6 +30,44 @@ const DICM_LESSON_IDS = new Set<string>([
   'videos-further-learning',
 ]);
 
+const BACTERIAL_LESSON_IDS = new Set<string>([
+  'bacterial-diseases',
+  'gram-positive-bacterial-diseases',
+  'gram-positive',
+  'gram-negative-bacterial-diseases',
+  'gram-negative',
+  'mycobacterial-diseases',
+  'mycobacterial',
+  'spirochetal-atypical-bacterial-diseases',
+  'spirochetal-and-atypical-bacterial-diseases',
+  'spirochetal',
+]);
+
+const MYCOTIC_LESSON_IDS = new Set<string>([
+  'mycotic-diseases',
+  'superficial-cutaneous-mycoses',
+  'superficial-and-cutaneous-mycoses',
+  'subcutaneous-mycoses',
+  'systemic-deep-mycoses',
+  'systemic-and-deep-mycoses',
+  'opportunistic-mycoses',
+]);
+
+const POULTRY_LESSON_IDS = new Set<string>([
+  'poultry-pathology',
+  'poultry-diseases',
+  'bacterial-diseases-poultry',
+  'bacterial-diseases-of-poultry',
+  'viral-diseases-poultry',
+  'viral-diseases-of-poultry',
+  'mycotic-diseases-poultry',
+  'mycotic-diseases-and-mycotoxicoses',
+  'parasitic-diseases-poultry',
+  'parasitic-diseases-of-poultry',
+  'nutritional-metabolic-poultry',
+  'nutritional-metabolic-and-management',
+]);
+
 export const Header: React.FC<HeaderProps> = ({
   currentView,
   onNavigate,
@@ -45,24 +83,50 @@ export const Header: React.FC<HeaderProps> = ({
           backTarget: { type: 'home' } as ScreenView,
           subtitle: 'Core Mechanisms of Disease',
         };
-      case 'topic_detail':
+      case 'topic_detail': {
+        const isBacterial = currentView.topicId === 'bacterial-diseases';
+        const isMycotic = currentView.topicId === 'mycotic-diseases';
+        const isPoultry = currentView.topicId === 'poultry-pathology' || currentView.topicId === 'poultry-diseases';
+        const isInf = isBacterial || isMycotic || isPoultry;
+
         return {
-          title: 'Disturbance in Cell Metabolism',
-          backTarget: { type: 'general_pathology' } as ScreenView,
-          subtitle: 'General Pathology · Section 01',
+          title: isBacterial
+            ? 'Bacterial Diseases'
+            : isMycotic
+            ? 'Mycotic Diseases'
+            : isPoultry
+            ? 'Poultry Diseases'
+            : 'Disturbance in Cell Metabolism',
+          backTarget: isInf
+            ? ({ type: 'infectious_diseases' } as ScreenView)
+            : ({ type: 'general_pathology' } as ScreenView),
+          subtitle: isInf
+            ? 'Infectious Diseases Directory'
+            : 'General Pathology · Section 01',
         };
+      }
       case 'lesson': {
         const isDICM = DICM_LESSON_IDS.has(currentView.lessonId);
+        const isBacterial = BACTERIAL_LESSON_IDS.has(currentView.lessonId);
+        const isMycotic = MYCOTIC_LESSON_IDS.has(currentView.lessonId);
+        const isPoultry = POULTRY_LESSON_IDS.has(currentView.lessonId);
+
+        let backTarget: ScreenView;
+        if (isDICM) {
+          backTarget = { type: 'topic_detail', topicId: 'disturbance-cell-metabolism' };
+        } else if (isBacterial) {
+          backTarget = { type: 'topic_detail', topicId: 'bacterial-diseases' };
+        } else if (isMycotic) {
+          backTarget = { type: 'topic_detail', topicId: 'mycotic-diseases' };
+        } else if (isPoultry) {
+          backTarget = { type: 'topic_detail', topicId: 'poultry-pathology' };
+        } else {
+          backTarget = { type: 'general_pathology' };
+        }
+
         return {
           title: 'Lesson Reading',
-          backTarget: isDICM
-            ? ({
-                type: 'topic_detail',
-                topicId: 'disturbance-cell-metabolism',
-              } as ScreenView)
-            : ({
-                type: 'general_pathology',
-              } as ScreenView),
+          backTarget,
           subtitle: 'Veterinary Pathology Companion',
         };
       }

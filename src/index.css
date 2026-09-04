@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./components/infectious/infectious.css";
 
 @layer base {
   body {

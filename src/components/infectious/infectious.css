@@ -1,0 +1,774 @@
+/* ==========================================================================
+   Infectious Diseases Academic Stylesheet
+   Preserving full visual fidelity across all 17 authoritative source documents
+   ========================================================================== */
+
+.infectious-page {
+  --primary-color: #1a365d;
+  --secondary-color: #4a5568;
+  --accent-color: #2b6cb0;
+  --accent-light: #3182ce;
+  --border-color: #cbd5e0;
+  --bg-light: #f7fafc;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --radius: 8px;
+  --status-available-bg: #e6fffa;
+  --status-available-text: #234e52;
+  --status-available-border: #b2f5ea;
+  --status-partial-bg: #feebc8;
+  --status-partial-text: #744210;
+  --status-partial-border: #fbd38d;
+  --status-dev-bg: #edf2f7;
+  --status-dev-text: #4a5568;
+  --status-dev-border: #cbd5e0;
+
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--secondary-color);
+  line-height: 1.6;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.infectious-page[data-font-size="large"] {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.infectious-page[data-font-size="scholar"] {
+  font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+/* Container */
+.infectious-page .container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem 1rem;
+}
+
+/* Breadcrumb Navigation */
+.infectious-page .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  color: var(--secondary-color);
+}
+
+.infectious-page .breadcrumb a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.infectious-page .breadcrumb a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.infectious-page .breadcrumb-separator {
+  color: var(--border-color);
+  font-weight: bold;
+}
+
+/* Hero Section */
+.infectious-page .hero {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.infectious-page .hero-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.infectious-page .hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  line-height: 1.25;
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.infectious-page .hero-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.infectious-page .hero-body {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.infectious-page .hero-secondary-text {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.infectious-page .species-distinction-box {
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: var(--radius);
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  color: #2b6cb0;
+  margin-top: 1rem;
+}
+
+/* Organism Jump Nav */
+.infectious-page .organism-nav {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.infectious-page .organism-nav h2 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.infectious-page .organism-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.infectious-page .pill {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.infectious-page .pill:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+/* Section Blocks */
+.infectious-page .section-block {
+  margin-bottom: 2rem;
+}
+
+.infectious-page .section-block h2 {
+  font-size: 1.35rem;
+  color: var(--primary-color);
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.infectious-page .section-intro {
+  font-size: 0.925rem;
+  color: var(--secondary-color);
+  margin-bottom: 1.25rem;
+}
+
+/* Diagnostic Sequences / Pathway Grids */
+.infectious-page .pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.875rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .infectious-page .pathway-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .infectious-page .pathway-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.infectious-page .pathway-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.infectious-page .pathway-number {
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.infectious-page .pathway-text {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  padding-top: 0.1rem;
+}
+
+/* Category Cards Grid */
+.infectious-page .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .infectious-page .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .infectious-page .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.infectious-page .card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.infectious-page .card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #a0aec0;
+}
+
+.infectious-page .badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.65rem;
+}
+
+.infectious-page .badge-available {
+  background-color: var(--status-available-bg);
+  color: var(--status-available-text);
+  border: 1px solid var(--status-available-border);
+}
+
+.infectious-page .badge-partial {
+  background-color: var(--status-partial-bg);
+  color: var(--status-partial-text);
+  border: 1px solid var(--status-partial-border);
+}
+
+.infectious-page .badge-dev {
+  background-color: var(--status-dev-bg);
+  color: var(--status-dev-text);
+  border: 1px solid var(--status-dev-border);
+}
+
+.infectious-page .category-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.infectious-page .card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.infectious-page .card-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.65rem;
+}
+
+.infectious-page .card-description {
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.875rem;
+  flex-grow: 1;
+}
+
+.infectious-page .examples-header,
+.infectious-page .subpages-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.65rem;
+}
+
+.infectious-page .example-list,
+.infectious-page .subpage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.85rem;
+}
+
+.infectious-page .example-list li,
+.infectious-page .subpage-list li {
+  margin-bottom: 0.3rem;
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.infectious-page .example-list li::before,
+.infectious-page .subpage-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.infectious-page .card-action {
+  margin-top: auto;
+}
+
+.infectious-page .card-note {
+  font-size: 0.8rem;
+  color: #744210;
+  background-color: #feebc8;
+  border: 1px solid #fbd38d;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.875rem;
+}
+
+/* Disease Cards (Detailed Lessons) */
+.infectious-page .disease-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.infectious-page .disease-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.infectious-page .disease-title {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.infectious-page .disease-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.infectious-page .pathology-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .infectious-page .pathology-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.infectious-page .pathology-box {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 0.875rem;
+}
+
+.infectious-page .pathology-box h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.infectious-page .pathology-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.infectious-page .pathology-box ul li {
+  margin-bottom: 0.35rem;
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.infectious-page .pathology-box ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+/* Figures & Illustrations */
+.infectious-page figure.illustration,
+.infectious-page .teaching-figure,
+.infectious-page .illustration-card {
+  margin: 1.25rem 0;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.infectious-page figure.illustration img,
+.infectious-page .teaching-figure img,
+.infectious-page .illustration-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 540px;
+  object-fit: contain;
+  background-color: #0f172a;
+}
+
+.infectious-page figcaption,
+.infectious-page .illustration-caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.825rem;
+  color: var(--secondary-color);
+  background: var(--white);
+  border-top: 1px solid var(--border-color);
+  line-height: 1.5;
+}
+
+.infectious-page .illustration-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+@media (min-width: 640px) {
+  .infectious-page .illustration-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.infectious-page .illustration-title {
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.825rem;
+  color: var(--primary-color);
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Tables */
+.infectious-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.85rem;
+}
+
+.infectious-page th,
+.infectious-page td {
+  border: 1px solid var(--border-color);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+}
+
+.infectious-page th {
+  background-color: #edf2f7;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.infectious-page tr:nth-child(even) {
+  background-color: var(--bg-light);
+}
+
+/* Patterns Grid */
+.infectious-page .pattern-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .infectious-page .pattern-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .infectious-page .pattern-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.infectious-page .pattern-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 0.875rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.infectious-page .pattern-card h3 {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--bg-light);
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.45rem;
+  font-weight: 700;
+}
+
+.infectious-page .pattern-card p {
+  font-size: 0.825rem;
+  margin: 0;
+}
+
+/* Framework List */
+.infectious-page .framework-list {
+  list-style: none;
+  counter-reset: framework-counter;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .infectious-page .framework-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .infectious-page .framework-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.infectious-page .framework-item {
+  counter-increment: framework-counter;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem 1rem 1rem 3.25rem;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.925rem;
+  font-weight: 500;
+}
+
+.infectious-page .framework-item::before {
+  content: counter(framework-counter);
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.825rem;
+}
+
+/* Diagnostic Panel */
+.infectious-page .diagnostic-panel {
+  background-color: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-left: 4px solid var(--accent-light);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  color: #2b6cb0;
+  margin: 1.25rem 0;
+}
+
+.infectious-page .diagnostic-panel strong {
+  color: var(--primary-color);
+}
+
+.infectious-page .interpretation-note {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+}
+
+/* Buttons */
+.infectious-page .btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.infectious-page .btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.infectious-page .btn-primary:hover {
+  background-color: #2c5282;
+  color: var(--white);
+}
+
+.infectious-page .btn-secondary {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+}
+
+.infectious-page .btn-secondary:hover {
+  background-color: var(--bg-light);
+  border-color: #a0aec0;
+}
+
+.infectious-page .btn-disabled {
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* Quick Nav Grid */
+.infectious-page .quick-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .infectious-page .quick-nav-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.infectious-page .quick-nav-note {
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Site Footer */
+.infectious-page .site-footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2rem 1.25rem;
+  border-radius: var(--radius);
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.infectious-page .footer-title {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.infectious-page .footer-subtext {
+  color: #cbd5e0;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.infectious-page .footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.infectious-page .footer-action {
+  max-width: 280px;
+  margin: 0 auto;
+}

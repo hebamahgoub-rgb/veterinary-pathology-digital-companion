@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gram-Negative Bacterial Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+
+    /* ==========================================================================
+       ILLUSTRATIONS
+       ========================================================================== */
+    .illustration-group {
+      margin-top: 1.5rem;
+    }
+
+    .illustration-card {
+      width: 100%;
+      margin: 1.5rem 0 0;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .illustration-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .illustration-caption {
+      padding: 0.9rem 1rem 1rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--white);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .illustration-caption strong {
+      color: var(--primary-color);
+    }
+
+    .additional-illustrations {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer">Bacterial Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Gram-Negative Bacterial Diseases</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Gram-Negative Bacterial Diseases</h1>
+      <div class="hero-subtitle">Enteric, respiratory, vascular, and zoonotic pathogens</div>
+      <p class="hero-body">
+        Gram-negative bacteria possess an outer lipopolysaccharide (LPS) membrane containing lipid A endotoxin. In veterinary pathology, endotoxaemia triggers severe systemic inflammation, endotoxic shock, microthrombosis, disseminated intravascular coagulation (DIC), fibrinous polyserositis, and fibrinecrotic enteritis across animal species.
+      </p>
+      <p class="hero-body">
+        <strong>Current terminology note:</strong> This page preserves the teaching content while using current names where appropriate—for example, <em>Glaesserella parasuis</em> (formerly <em>Haemophilus parasuis</em>) and <em>Burkholderia mallei</em> for glanders. Recent diagnostic and pathogenesis updates are integrated without removing the original disease profiles.
+      </p>
+    
+      <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1xtT2qiWNXv7bABUopOJyPI5eTXYbw6c8" alt="Gram-Negative Cell Wall Structure" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Gram-Negative Cell Wall Structure.</strong> Structure of the gram-negative bacterial cell envelope, highlighting the outer membrane containing LPS, the thin peptidoglycan layer, and the periplasmic space. These features contribute to virulence, antibiotic resistance, and endotoxin activity.</figcaption>
+        </figure>
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1LKsB7TYhBKPgibV6J6wDDdikNJznxwcG" alt="Lipopolysaccharide (LPS) Endotoxin Mechanism" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Lipopolysaccharide (LPS) Endotoxin Mechanism.</strong> LPS from gram-negative bacteria activates macrophages via TLR4, inducing pro-inflammatory cytokines that drive fever, shock, and systemic inflammatory response syndrome (SIRS).</figcaption>
+        </figure>
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1j0O60ADklb1Fh1bM8LL66rmDhSsx_L7s" alt="Septic Shock Pathway" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Septic Shock Pathway.</strong> Pathogenesis of gram-negative septic shock, illustrating how endotoxemia leads to widespread vasodilation, hypotension, and coagulopathy.</figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Organisms Covered</h2>
+      <div class="organism-pills">
+        <a href="#enterobacteriaceae" class="pill">Enterobacteriaceae (E. coli &amp; Salmonella)</a>
+        <a href="#pasteurellaceae" class="pill">Pasteurellaceae (Pasteurella &amp; Mannheimia)</a>
+        <a href="#histophilus-haemophilus" class="pill">Histophilus &amp; Haemophilus</a>
+        <a href="#pseudomonas-burkholderia" class="pill">Pseudomonas &amp; Burkholderia</a>
+        <a href="#brucella-francisella" class="pill">Brucella &amp; Francisella</a>
+        <a href="#campylobacter-lawsonia" class="pill">Campylobacter &amp; Lawsonia</a>
+        <a href="#actinobacillus" class="pill">Actinobacillus</a>
+        <a href="#leptospirosis" class="pill">Leptospirosis</a>
+        <a href="#necrobacillosis" class="pill">Necrobacillosis</a>
+        <a href="#granulomatous-comparison" class="pill">Granulomatous Comparison</a>
+      </div>
+    </nav>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: ENTEROBACTERIACEAE -->
+      <article id="enterobacteriaceae" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Enterobacteriaceae (<em>Escherichia coli</em> &amp; <em>Salmonella</em>)</h3>
+          <div class="disease-subtitle">Colibacillosis, salmonellosis, enterotoxaemia, and septicaemia</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li>ETEC, EPEC, STEC/EHEC (Colibacillosis in neonates); <em>Salmonella enterica</em> serovars (Typhimurium, Dublin, Choleraesuis).</li>
+              <li>Intestinal mucosa, vascular endothelium, liver, and systemic circulation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Enterotoxins induce hypersecretion or mucosal necrosis; endotoxin release causes sepsis and shock.</li>
+              <li>Invasive <em>Salmonella</em> survives within macrophages, leading to systemic dissemination.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Fibrinous enteritis, "button ulcers" (porcine salmonellosis), paratyphoid nodules, septicaemic petechiae.</li>
+              <li><strong>Micro:</strong> Mucosal necrosis, fibrinous thrombosis, paratyphoid granulomas in liver, bacterial rods in vessels.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/15O2zRwSNpkhmOofLh20RCaRC7TPrma1K" alt="E. coli Enterotoxigenic Infection in Calves" loading="lazy">
+          <figcaption class="illustration-caption"><strong>E. coli Enterotoxigenic Infection in Calves.</strong> Enterotoxigenic E. coli (ETEC) infection in calves, demonstrating fimbrial adhesion and enterotoxin-induced secretory diarrhea.</figcaption>
+        </figure>
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1RAlvf1BKBZfqoRt9OLbD-B9M0dnYBuwj" alt="Salmonella Enteritis Lesions" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Salmonella Enteritis Lesions.</strong> Characteristic lesions of Salmonella enteritis, including fibrinonecrotic inflammation and mucosal ulceration.</figcaption>
+        </figure>
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1wAjW707a2McsRoeU3oB2udhJFVZ85KEA" alt="Salmonella Typhimurium in Horses (Colitis)" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Salmonella Typhimurium in Horses (Colitis).</strong> Severe colitis in horses caused by Salmonella Typhimurium, producing mucosal necrosis and exudation.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 2: PASTEURELLACEAE -->
+      <article id="pasteurellaceae" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Pasteurellaceae (<em>Mannheimia</em> &amp; <em>Pasteurella</em>)</h3>
+          <div class="disease-subtitle">Fibrinous pleuropneumonia, enzootic pneumonia, and haemorrhagic septicaemia</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Mannheimia haemolytica</em>, <em>Pasteurella multocida</em>, <em>Bibersteinia trehalosi</em>.</li>
+              <li>Respiratory mucosa, cranioventral lung lobes, pleura, and vasculature.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Leukotoxin (LKT) selectively destroys bovine leukocytes and platelets; LPS damages endothelium.</li>
+              <li>Synergistic action with primary viral (e.g., IBR, BRSV) or stress factors ("Shipping Fever").</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Marbled, red-to-grey pulmonary consolidation, fibrinous pleuritis, pulmonary necrosis.</li>
+              <li><strong>Micro:</strong> Fibrinous alveolitis, oat-shaped "oat cells" (elongated degraded leukocytes), interlobular edema.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1niPhHxzhC0jTJGKOu4KM0auAr3t1Wyvh" alt="Pasteurella multocida Pneumonia in Cattle" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Pasteurella multocida Pneumonia in Cattle.</strong> Fibrinous bronchopneumonia associated with Pasteurella multocida, a common gram-negative respiratory pathogen in cattle.</figcaption>
+        </figure>
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1EMGUPsm-EQJeAd4zN8K8KQTMlWss3E9l" alt="Mannheimia haemolytica Leukotoxin Effect" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Mannheimia haemolytica Leukotoxin Effect.</strong> Mannheimia haemolytica leukotoxin targets bovine neutrophils, contributing to severe pulmonary inflammation.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 3: HISTOPHILUS & HAEMOPHILUS -->
+      <article id="histophilus-haemophilus" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Histophilus &amp; Haemophilus Infections</h3>
+          <div class="disease-subtitle">Thrombotic meningoencephalitis (TME), Glässer disease, and polyserositis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Histophilus somni</em> (bovine histophilosis: TME, pneumonia, myocarditis and other systemic forms), <em>Glaesserella parasuis</em> (formerly <em>Haemophilus parasuis</em>; swine Glässer disease).</li>
+              <li>Endothelium, central nervous system, synovial membranes, and serosal cavities.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li><em>H. somni</em> adheres to vascular endothelium, promoting endothelial injury, platelet adhesion and predominantly in-situ thrombosis; ischemia and infarction may follow in brain, myocardium, pleura, synovium and other tissues.</li>
+              <li><em>G. parasuis</em> is commonly carried in the upper respiratory tract of pigs; under stress or coinfection, virulent strains may invade systemically and cause fibrinous polyserositis, polyarthritis and meningitis.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Multifocal brain infarctions/haemorrhages (TME), fibrinous polyserositis, arthritis.</li>
+              <li><strong>Micro:</strong> Suppurative vasculitis, fibrinoid necrosis of blood vessels, intravascular microthrombi.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1RDYoYpqgOuqRuBgPmTiQ5VXx2Q9dKfmc" alt="Histophilus somni Thrombotic Meningoencephalitis" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Histophilus somni Thrombotic Meningoencephalitis.</strong> Thrombotic meningoencephalitis caused by Histophilus somni, characterized by vascular damage and neurologic dysfunction in cattle.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 4: PSEUDOMONAS & BURKHOLDERIA -->
+      <article id="pseudomonas-burkholderia" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Pseudomonas &amp; Burkholderia</h3>
+          <div class="disease-subtitle">Opportunistic necrotising infections, glanders, and melioidosis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Pseudomonas aeruginosa</em> (mastitis/otitis/wounds), <em>Burkholderia mallei</em> (Glanders in equids), <em>B. pseudomallei</em>.</li>
+              <li>Respiratory tract, skin, lymphatics, and compromised epithelial surfaces.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Exotoxin A inhibits protein synthesis; proteases and elastases destroy host tissue matrix.</li>
+              <li><em>B. mallei</em> causes pyogranulomatous lymphangitis and mucosal ulceration.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Blue-green suppurative exudate, "farcy buds" (nodular cutaneous lymphangitis), nasal septal ulcers.</li>
+              <li><strong>Micro:</strong> Necrotising vasculitis, pyogranulomatous nodules with central nuclear debris (karyorrhexis).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- UNIT 5: BRUCELLA & FRANCISELLA -->
+      <article id="brucella-francisella" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Brucella &amp; Francisella</h3>
+          <div class="disease-subtitle">Granulomatous placentitis, reproductive failure, and zoonotic tularaemia</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Brucella abortus</em>, <em>B. melitensis</em>, <em>B. suis</em>, <em>B. canis</em>; <em>Francisella tularensis</em>.</li>
+              <li>Reproductive tract (trophoblasts, epididymis), reticuloendothelial organs (spleen, liver, lymph nodes).</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Facultative intracellular bacterial tropism for erythritol in placental tissue.</li>
+              <li>Replication inside macrophages induces persistent granulomatous or necrotising inflammation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Leathery necrotic cotyledons, intercotyledonary edema, epididymitis, focal hepatic necrosis.</li>
+              <li><strong>Micro:</strong> Necrotising and granulomatous placentitis, introcytoplasmic bacteria in trophoblasts, miliary necrotic foci.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/191v-RKhiN1OAINV1c9BN1IbuMakSH4zs" alt="Brucella abortus Placentitis" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Brucella abortus Placentitis.</strong> Necrotizing placentitis caused by Brucella abortus, leading to abortion in cattle.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 6: CAMPYLOBACTER & LAWSONIA -->
+      <article id="campylobacter-lawsonia" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Campylobacter &amp; Lawsonia</h3>
+          <div class="disease-subtitle">Vibrionic abortion, intestinal adenomatosis, and proliferative enteropathy</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Campylobacter fetus</em> (subsp. <em>fetus</em> / <em>venerealis</em>), <em>Lawsonia intracellularis</em> (swine/equine).</li>
+              <li>Placenta, ileal enterocytes, and mucosal crypt epithelium.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li><em>C. fetus</em>: Endovascular infection of placenta causing necrotic placentitis and fetal hypoxia.</li>
+              <li><em>L. intracellularis</em>: Intracellular infection of crypt cells stimulating enterocyte proliferation and mucosal thickening.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> "Targetoid" necrotic lesions in fetal liver (Campylobacter); thickened "cerebriform" intestinal mucosa (Lawsonia).</li>
+              <li><strong>Micro:</strong> Placentitis and vasculitis; crypt epithelial hyperplasia with loss of goblet cells and curved intracellular rods.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1-sheREn7G0uGtEVjR1A9_0FPNVFRAyyC" alt="Campylobacter Fetal Hepatitis (Ovine Abortion)" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Campylobacter Fetal Hepatitis (Ovine Abortion).</strong> Characteristic hepatic lesions of ovine abortion due to Campylobacter fetus, showing multifocal necrotizing hepatitis.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 7: ACTINOBACILLUS -->
+      <article id="actinobacillus" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Actinobacillus Infections</h3>
+          <div class="disease-subtitle">Actinobacillosis (woody tongue) and <em>Actinobacillus equuli</em> infection</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Actinobacillus lignieresii</em> is a small Gram-negative bacillus associated particularly with soft-tissue infection in cattle.</li>
+              <li>Penetrating wounds or plant material allow entry, with frequent involvement of tongue musculature and regional lymph nodes.</li>
+              <li><em>A. equuli</em> is an important cause of septicemic disease in foals and may infect joints, kidneys, lungs and other organs.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li><em>A. lignieresii</em> induces pyogranulomatous inflammation and progressive fibrosis in affected soft tissues.</li>
+              <li>The characteristic eosinophilic radiating clubs represent Splendore-Hoeppli material deposited around bacterial colonies.</li>
+              <li>In young foals, <em>A. equuli</em> may enter around birth and produce septicemia with embolic localization in kidneys and joints.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Woody tongue:</strong> enlarged, firm tongue with multifocal granulomatous abscesses, small yellow-white foci and diffuse fibrosis.</li>
+              <li><strong>Micro:</strong> bacterial colonies surrounded by radiating eosinophilic clubs, neutrophils, epithelioid macrophages and giant cells, with an outer fibrous response.</li>
+              <li><strong><em>A. equuli</em>:</strong> septicemic lesions in young foals, purulent arthritis, and multiple small cortical renal abscesses caused by bacterial emboli.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1D4j6WewfsFm15mIlyE6pBnS__IBc69LB" alt="Actinobacillus pleuropneumoniae in Pigs" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Actinobacillus pleuropneumoniae in Pigs.</strong> Severe necrotizing pneumonia caused by Actinobacillus pleuropneumoniae, a major respiratory pathogen in pigs.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 8: LEPTOSPIROSIS -->
+      <article id="leptospirosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Leptospirosis</h3>
+          <div class="disease-subtitle">Systemic, renal, hepatic and reproductive leptospiral disease</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Transmission</h4>
+            <ul>
+              <li>Pathogenic <em>Leptospira</em> spp. are slender motile spirochetes capable of infecting most mammalian species.</li>
+              <li>Transmission commonly follows exposure of mucous membranes or damaged skin to urine-contaminated water or environments; venereal and transplacental transmission can also occur.</li>
+              <li>Maintenance hosts may carry organisms in renal tubules or the genital tract and shed leptospires for prolonged periods.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Leptospiremia is followed by replication in multiple tissues, particularly kidneys, liver, lungs, genital tract and sometimes the CNS.</li>
+              <li>Acute disease may produce vascular injury, hemolysis, hepatic dysfunction and renal tubular damage.</li>
+              <li>Persistent renal colonization is important in carrier states; reproductive localization contributes to abortion and other reproductive losses.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Dog:</strong> icterus and petechiae may occur; kidneys can show tubular epithelial degeneration and desquamation, progressing to tubulointerstitial nephritis.</li>
+              <li><strong>Cattle:</strong> hemolytic anemia, hemoglobinuria, icterus and renal cortical lesions may occur; abortion is an important manifestation.</li>
+              <li>Silver impregnation and modern molecular methods can demonstrate or detect leptospires, while diagnosis commonly combines PCR with serology.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <div class="illustration-group">
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1_5RAYnwJVrVprKB3GQC7Cn6r-8mAs8JK" alt="Leptospira Interstitial Nephritis" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Leptospira Interstitial Nephritis.</strong> Interstitial nephritis caused by Leptospira spp., a common gram-negative spirochete affecting multiple species.</figcaption>
+        </figure>
+        </div>
+
+      </article>
+
+      <!-- UNIT 9: NECROBACILLOSIS -->
+      <article id="necrobacillosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Necrobacillosis</h3>
+          <div class="disease-subtitle"><em>Fusobacterium necrophorum</em> — necrotizing mucosal, hepatic and cutaneous disease</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Fusobacterium necrophorum</em> is a Gram-negative obligate anaerobe and a normal component of ruminant gastrointestinal flora.</li>
+              <li>Damaged, necrotic and poorly oxygenated tissue favors invasion and multiplication.</li>
+              <li>Important sites include oral and pharyngeal mucosa, rumen, liver, respiratory tract and damaged skin/feet.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Local tissue damage allows invasion, with bacterial virulence factors promoting necrosis and extension of infection.</li>
+              <li>In feedlot cattle, rumenitis associated with high-concentrate feeding can permit portal spread of <em>F. necrophorum</em> to the liver.</li>
+              <li>Hepatic lesions progress from focal necrosis to encapsulated abscesses; complications may include caudal vena caval thrombosis.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Calf diphtheria:</strong> well-demarcated gray-yellow necrotic plaques affecting oral, pharyngeal or laryngeal mucosa, often extending deeply.</li>
+              <li><strong>Rumen-liver abscess complex:</strong> necrotizing rumenitis followed by focal hepatic necrosis and abscess formation.</li>
+              <li><strong>Horse:</strong> necrotizing dermatitis may involve the heel and deeper structures of the foot under chronically wet, contaminated conditions.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+
+      <section class="additional-illustrations" aria-labelledby="additional-illustrations-heading">
+        <h3 id="additional-illustrations-heading">Additional Illustrated Gram-Negative Disease Examples</h3>
+        <p class="section-intro">Additional high-yield examples included in the illustration set.</p>
+        <div class="illustration-group">
+          
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1p6Umeh39D4LYDEZI1FsEUnIqrBVxZ9pI" alt="Moraxella bovis Infectious Bovine Keratoconjunctivitis" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Moraxella bovis Infectious Bovine Keratoconjunctivitis.</strong> Corneal ulceration and conjunctivitis characteristic of Moraxella bovis infection (pinkeye) in cattle.</figcaption>
+        </figure>
+          
+        <figure class="illustration-card">
+          <img src="https://lh3.googleusercontent.com/d/1f8WEDGvHzjooMtp5jFJx4371hemlTTGV" alt="Bordetella bronchiseptica Atrophic Rhinitis" loading="lazy">
+          <figcaption class="illustration-caption"><strong>Bordetella bronchiseptica Atrophic Rhinitis.</strong> Turbinate atrophy associated with Bordetella bronchiseptica, contributing to atrophic rhinitis in pigs.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <!-- GRANULOMATOUS / PYOGRANULOMATOUS COMPARISON -->
+      <article id="granulomatous-comparison" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Granulomatous &amp; Pyogranulomatous Gram-Negative Bacterial Diseases</h3>
+          <div class="disease-subtitle">Comparative pathology: recognizing the dominant lesion pattern</div>
+        </header>
+
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:0.92rem; min-width:820px;">
+            <thead>
+              <tr style="background:#edf2f7; color:#1a365d;">
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Disease / organism</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Typical site / host</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Dominant reaction</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Characteristic morphology</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Useful differentiating clue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Actinobacillosis</strong><br><em>A. lignieresii</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Cattle; tongue and regional lymph nodes</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Pyogranulomatous inflammation with fibrosis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Granulomatous abscesses with bacterial colonies, neutrophils, macrophages and fibrosis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Radiating eosinophilic Splendore-Hoeppli clubs; firm “woody” tongue</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Brucellosis</strong><br><em>Brucella</em> spp.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Placenta/reproductive tract; reticuloendothelial tissues</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Granulomatous to necrotizing inflammation; placentitis may be neutrophil-rich</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Macrophage-rich granulomas; trophoblastic infection; necrosis and fibrinopurulent placentitis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Strong reproductive tropism with abortion, placentitis, orchitis/epididymitis</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Glanders</strong><br><em>Burkholderia mallei</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Equids; nasal mucosa, lung, skin and lymphatics</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Pyogranulomatous / necrotizing inflammation</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Nodules with central neutrophilic necrosis progressing to caseation and granulomatous organization</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Nasal ulcers with stellate scars; cutaneous farcy with corded lymphatics</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Melioidosis</strong><br><em>B. pseudomallei</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Multiple species; lungs and systemic organs</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Suppurative to pyogranulomatous inflammation</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Multifocal abscesses or necrotizing inflammatory foci, sometimes with granulomatous organization</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Systemic multifocal abscessation; epidemiology and culture/PCR are important for distinction</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Tularemia</strong><br><em>Francisella tularensis</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Lagomorphs, rodents and susceptible mammals; lymph nodes, liver, spleen</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Necrotizing granulomatous inflammation</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Multifocal necrotic foci with macrophage-rich inflammatory response</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Systemic necrotizing lesions in reticuloendothelial organs; zoonotic context is important</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Salmonellosis</strong><br><em>Salmonella</em> spp.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Intestine, liver and reticuloendothelial system</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Necrotizing enteritis with macrophage-rich / granulomatous foci in systemic disease</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Paratyphoid nodules: small hepatic foci of necrosis with macrophage/Kupffer-cell reaction</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Enterocolitis plus septicemia; hepatic paratyphoid nodules rather than classic encapsulated granulomas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="diagnostic-panel" style="margin-top:1.25rem;">
+          <strong>Pattern-recognition note:</strong> “Granulomatous” and “pyogranulomatous” describe a tissue reaction, not a single diagnosis. 
+          A predominance of macrophages/epithelioid cells suggests granulomatous inflammation, whereas an important central neutrophilic component favors a pyogranulomatous pattern. 
+          Host species, organ distribution, necrosis pattern, Splendore-Hoeppli material, vascular lesions and reproductive tropism help narrow the differential diagnosis.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Gram-Negative Diagnostic Key:</strong> Gram staining typically demonstrates pink/red rods or coccobacilli, but morphology and Gram stain alone are not sufficient for definitive diagnosis. 
+        Correlate the dominant lesion pattern with tissue tropism: fibrinous polyserositis (<em>Glaesserella</em>), endothelial thrombosis and infarction (<em>Histophilus</em>), fibrinonecrotizing bronchopneumonia (<em>Mannheimia</em>), enteritis/septicemia (<em>E. coli</em> and <em>Salmonella</em>), reproductive and granulomatous lesions (<em>Brucella</em>), pyogranulomatous soft-tissue disease (<em>Actinobacillus</em>), tubulointerstitial renal injury (<em>Leptospira</em>), and necrotizing lesions/abscesses (<em>Fusobacterium</em>). 
+        Silver stains can aid visualization of selected slender or intracellular organisms, while culture, PCR and serology are used according to the suspected agent.
+      </aside>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Gram-Negative Bacterial Diseases Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Bacterial Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

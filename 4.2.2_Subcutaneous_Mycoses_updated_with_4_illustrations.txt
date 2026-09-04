@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subcutaneous Mycoses - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  
+    /* TEACHING ILLUSTRATIONS */
+    .teaching-figure {
+      margin: 1.25rem 0 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+    .teaching-figure figcaption {
+      padding: 0.85rem 1rem;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+    .supplementary-note {
+      margin-top: 1.25rem;
+      padding: 1rem 1.1rem;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: var(--radius);
+    }
+    .supplementary-note h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+    .supplementary-note p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases" target="_blank" rel="noopener noreferrer">Mycotic Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Subcutaneous Mycoses</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Subcutaneous Mycoses</h1>
+      <div class="hero-subtitle">Traumatic implantation, deep dermal granulations, and oomycete lesions</div>
+      <p class="hero-body">
+        Subcutaneous mycoses result from traumatic inoculation of saprophytic fungal or oomycete organisms into the dermis and subcutaneous tissue. These conditions typically remain localized to skin, panniculus, and adjacent soft tissues, producing chronic pyogranulomatous nodular ulcerations, fistulous draining tracts, and prominent fibrous tissue reactions.
+      </p>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Conditions Covered</h2>
+      <div class="organism-pills">
+        <a href="#sporotrichosis" class="pill">Sporotrichosis</a>
+        <a href="#pythiosis" class="pill">Pythiosis &amp; Lagenidiosis</a>
+        <a href="#mycetoma" class="pill">Eumycotic Mycetoma</a>
+        <a href="#phaeohyphomycosis" class="pill">Phaeohyphomycosis &amp; Chromoblastomycosis</a>
+      </div>
+    </nav>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: SPOROTRICHOSIS -->
+      <article id="sporotrichosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Sporotrichosis</h3>
+          <div class="disease-subtitle"><em>Sporothrix schenckii</em> species complex — Nodular lymphocutaneous granulomas</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Sporothrix schenckii</em>, <em>S. brasiliensis</em> (dimorphic fungus; high zoonotic risk in cats).</li>
+              <li>Dermis, subcutaneous tissue, and regional lymphatic channels.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Traumatic inoculation via thorns, wooden splinters, or cat scratches/bites.</li>
+              <li>Thermal transition to yeast form in host tissues, evoking nodular lymphocutaneous ulceration.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Ulcerated subcutaneous nodules along lymphatics ("corded" lymphatics), draining crusts.</li>
+              <li><strong>Micro:</strong> Pyogranulomatous dermatitis with Splendore-Hoeppli phenomenon; pleomorphic round to "cigar-shaped" yeasts (abundant in felines).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/19jAinUftCqSumqmC08pXYxATmfHzxaYv" alt="Cutaneous-lymphatic sporotrichosis in a cat" loading="lazy" decoding="async">
+          <figcaption>Cutaneous-lymphatic sporotrichosis in a cat, characterized by nodular ulcerative lesions aligned along lymphatic vessels. Inset: Cigar-shaped yeast forms of Sporothrix schenckii within macrophages.</figcaption>
+        </figure>
+
+      <div class="supplementary-note">
+        <h3>Epizootic Lymphangitis</h3>
+        <p><em>Histoplasma farciminosum</em> causes chronic nodular and ulcerative lymphangitis in equids, with cord-like lymphatic thickening and draining lesions.</p>
+      </div>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/184oT4C-kS7rNraYgWUsH9UIC6Th6QUFH" alt="Epizootic lymphangitis in a horse" loading="lazy" decoding="async">
+          <figcaption>Epizootic lymphangitis in a horse demonstrating cord-like lymphatic thickening and nodular cutaneous lesions with draining tracts. Inset: Intracellular yeast forms of Histoplasma farciminosum.</figcaption>
+        </figure>
+
+
+      <!-- UNIT 2: PYTHIOSIS & LAGENIDIOSIS -->
+      <article id="pythiosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Pythiosis &amp; Lagenidiosis</h3>
+          <div class="disease-subtitle"><em>Pythium insidiosum</em> &amp; <em>Lagenidium</em> spp. — Aquatic oomycete necrotising granulomas</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Pythium insidiosum</em>, <em>Lagenidium giganteum</em> (fungus-like aquatic Oomycetes).</li>
+              <li>Subcutaneous tissues of legs, abdomen, equine limbs, and canine gastrointestinal tract/skin.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Motile flagellated zoospores encyst in traumatized tissue exposed to warm standing water.</li>
+              <li>Hypha-like broad structures secrete proteases causing severe eosinophilic necrosis and tissue destruction.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Ulcerated masses with sinus tracts discharging firm yellow-grey necrotic foci ("kunkers" or "leeches" in horses).</li>
+              <li><strong>Micro:</strong> Eosinophilic to granulomatous inflammation with wide areas of necrosis surrounding thick, poorly septate hyphal-like impressions.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1zzC0WaXvU0he-5VnfJNwBWgi4-J4HJmw" alt="Canine pythiosis" loading="lazy" decoding="async">
+          <figcaption>Canine pythiosis presenting as ulcerative granulomatous lesions with necrotic “kunkers.” Inset: Broad, sparsely septate hyphae of Pythium insidiosum within eosinophilic granulomatous inflammation.</figcaption>
+        </figure>
+
+      <!-- UNIT 3: EUMYCOTIC MYCETOMA -->
+      <article id="mycetoma" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Eumycotic Mycetoma</h3>
+          <div class="disease-subtitle">True fungal mycetomas — Granule-forming nodular sinus tracts</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li>Dematiaceous or hyaline fungi (e.g., <em>Curvularia</em>, <em>Madurella</em>, <em>Acremonium</em>, <em>Fusarium</em>).</li>
+              <li>Distal extremities, cutaneous dermis, subcutaneous tissue, and underlying periosteum/bone.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Deep puncture wounds introduce soil/plant-associated fungi.</li>
+              <li>Organisms aggregate into compact microcolonies ("granules" or "grains") surrounded by dense cement-like host protein deposits.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Swollen, tumefactive subcutaneous nodule with draining sinuses discharging pigmented "grains" (black, white, or yellow).</li>
+              <li><strong>Micro:</strong> Central fungal granules encased in Splendore-Hoeppli material, surrounded by neutrophils, macrophages, and thick fibrous capsules.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1WAmHLzP0MjdMbg88pFdDidFP8JH7svz7" alt="Bovine mycetoma" loading="lazy" decoding="async">
+          <figcaption>Bovine mycetoma characterized by chronic subcutaneous swelling and draining sinus tracts containing diagnostic grains. Inset: Pigmented fungal grains (eumycotic) versus pale bacterial grains (actinomycotic).</figcaption>
+        </figure>
+
+      <!-- UNIT 4: PHAEOHYPHOMYCOSIS -->
+      <article id="phaeohyphomycosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Phaeohyphomycosis &amp; Chromoblastomycosis</h3>
+          <div class="disease-subtitle">Melanized (pigmented) fungi — Cystic and granulomatous panniculitis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li>Dematiaceous pigmented fungi (e.g., <em>Bipolaris</em>, <em>Alternaria</em>, <em>Exophiala</em>, <em>Cladophialophora</em>).</li>
+              <li>Dermis, subcutaneous adipose tissue (panniculus), digits, and nasal mucosa.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Implantation of dematiaceous saprophytes; cell wall melanin protects organisms against phagocytic killing.</li>
+              <li>Development of pigmented hyphae/yeast-like cells in tissue without forming discrete macroscopic granules.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Solitary or multifocal subcutaneous cysts, verrucous hyperkeratotic plaques, or ulcerated nodules.</li>
+              <li><strong>Micro:</strong> Suppurative to pyogranulomatous panniculitis containing brown-pigmented septate hyphae, pseudohyphae, or "muriform" medlar bodies (chromoblastomycosis).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Subcutaneous Diagnostic Key:</strong> Routine H&amp;E stains often fail to visualize broad <em>Pythium</em> hyphae and non-pigmented fungal elements. Always perform <strong>Grocott's methenamine silver (GMS)</strong> staining to evaluate hyphal width, septation, and branching. Note that Oomycetes (<em>Pythium</em>) contain cell wall beta-glucans and cellulose rather than chitin, resulting in variable PAS staining intensity compared to true fungi.
+      </aside>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Subcutaneous Mycoses Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Mycotic Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

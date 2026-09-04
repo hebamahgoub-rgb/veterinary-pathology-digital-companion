@@ -8,6 +8,9 @@ import {
 } from 'lucide-react';
 import { ALL_TOPIC_SECTIONS, GENERAL_PATHOLOGY_SECTIONS, isLessonPublished } from '../data/pathologyData';
 import { ScreenView } from '../types';
+import { BacterialDiseasesDirectory } from './infectious/BacterialDiseasesDirectory';
+import { MycoticDiseasesDirectory } from './infectious/MycoticDiseasesDirectory';
+import { PoultryDiseasesDirectory } from './infectious/PoultryDiseasesDirectory';
 
 interface TopicDetailViewProps {
   topicId: string;
@@ -36,6 +39,18 @@ export const TopicDetailView: React.FC<TopicDetailViewProps> = ({
 
   if (directLessonTopics.includes(topicId)) {
     return null;
+  }
+
+  if (topicId === 'bacterial-diseases') {
+    return <BacterialDiseasesDirectory onNavigate={onNavigate} onSelectLesson={onSelectLesson} />;
+  }
+
+  if (topicId === 'mycotic-diseases') {
+    return <MycoticDiseasesDirectory onNavigate={onNavigate} onSelectLesson={onSelectLesson} />;
+  }
+
+  if (topicId === 'poultry-pathology' || topicId === 'poultry-diseases') {
+    return <PoultryDiseasesDirectory onNavigate={onNavigate} onSelectLesson={onSelectLesson} />;
   }
 
   const currentTopic =

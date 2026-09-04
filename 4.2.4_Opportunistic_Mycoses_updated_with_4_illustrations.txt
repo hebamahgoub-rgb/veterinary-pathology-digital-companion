@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunistic Mycoses - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  
+    /* ==========================================================================
+       TEACHING ILLUSTRATIONS
+       ========================================================================== */
+    .teaching-figure {
+      margin: 1.25rem 0 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+
+    .teaching-figure figcaption {
+      padding: 0.85rem 1rem;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="INFECTIOUS_DISEASES_URL">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="MYCOTIC_DISEASES_URL">Mycotic Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Opportunistic Mycoses</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Opportunistic Mycoses</h1>
+      <div class="hero-subtitle">Angioinvasive hyphae, mucosal breach, and secondary tissue destruction</div>
+      <p class="hero-body">
+        Opportunistic mycoses are caused by ubiquitously distributed saprophytic environmental molds or commensal yeasts that exploit compromised host defenses. Predisposing factors include prolonged antimicrobial therapy, corticosteroid immunosuppression, metabolic disease, mucosal ulceration, or tissue ischemia. Hallmark pathological changes include angioinvasion, vascular thrombosis, ischemic necrosis, and extensive tissue destruction.
+      </p>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Conditions Covered</h2>
+      <div class="organism-pills">
+        <a href="#aspergillus" class="pill">Aspergillosis</a>
+        <a href="#mucorales" class="pill">Mucormycosis / Zygomycosis</a>
+        <a href="#candida-visceral" class="pill">Systemic &amp; Visceral Candidiasis</a>
+        <a href="#pneumocystis" class="pill">Pneumocystosis</a>
+      </div>
+    </nav>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: ASPERGILLUS -->
+      <article id="aspergillus" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Aspergillosis</h3>
+          <div class="disease-subtitle"><em>Aspergillus fumigatus</em> &amp; <em>A. flavus</em> — Dichotomous branching, angioinvasion, and necrotising inflammation</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Aspergillus fumigatus</em>, <em>A. flavus</em>, <em>A. niger</em> (ubiquitous airborne spores).</li>
+              <li>Avian respiratory tract, equine guttural pouch/cornea, canine nasal cavity/discoid spondylitis, bovine placenta.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation of conidia; elastases and proteases break down tissue barriers.</li>
+              <li>Hyphal tropism for blood vessels drives vascular invasion, thrombosis, ischemic infarction, and necrosis.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Yellow-green fuzzy air sac plaques (birds), epistaxis &amp; carotid erosion (equine guttural pouch), nasal turbinate destruction.</li>
+              <li><strong>Micro:</strong> Targetoid necrotic granulomas; uniform 3–6 µm septate hyphae displaying <strong>dichotomous 45-degree branching</strong> within thrombi.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1dvOBiknZnfgifp_TtyiBFriI3qX6GcbL" alt="Canine aspergillosis with destructive fungal rhinitis" loading="lazy" decoding="async">
+          <figcaption>Canine aspergillosis with destructive fungal rhinitis and yellow-green fungal plaques. Inset: Septate hyphae of Aspergillus spp. showing acute-angle (45°) branching.</figcaption>
+        </figure>
+
+      <!-- UNIT 2: MUCORALES -->
+      <article id="mucorales" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Mucormycosis (Zygomycosis)</h3>
+          <div class="disease-subtitle"><em>Rhizopus</em>, <em>Mucor</em>, <em>Lichtheimia</em>, <em>Mortierella</em> — Broad pauciseptate ribbon-like hyphae</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li>Mucorales order (<em>Rhizopus microsporus</em>, <em>Mucor circulationis</em>, <em>Lichtheimia corymbifera</em>, <em>Mortierella wolfii</em>).</li>
+              <li>Bovine foretomachs (rumen/abomasum), mesenteric lymph nodes, respiratory tract, and placenta.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Ingestion or inhalation following mucosal erosion (e.g., ruminal acidosis).</li>
+              <li>Extremely aggressive angioinvasion leading to widespread arterial thrombosis, infarction, and necrotising hemorrhagic lesions.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Circular, dark red-to-black targetoid infarcts on ruminal mucosa; mycotic placentitis with leather-like cotyledons.</li>
+              <li><strong>Micro:</strong> Hemorrhagic necrosis and angioinvasive <strong>broad (6–25 µm), thin-walled, pauciseptate ribbon-like hyphae</strong> branching at wide (90-degree) angles.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1TfNo63UkUgrH_2aISytkTkXopTfpnIdm" alt="Bovine mucormycosis with broad non-septate hyphae" loading="lazy" decoding="async">
+          <figcaption>Bovine mucormycosis presenting as rapidly progressive necrotic facial lesions. Inset: Broad, non-septate hyphae of Mucorales with irregular 90° branching.</figcaption>
+        </figure>
+
+      <!-- UNIT 3: VISCERAL CANDIDIASIS -->
+      <article id="candida-visceral" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Systemic &amp; Visceral Candidiasis</h3>
+          <div class="disease-subtitle"><em>Candida albicans</em> — Upper GI ulceration, hematogenous seeding, and microabscesses</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Candida albicans</em> (commensal of GI tract and mucosal surfaces).</li>
+              <li>Non-glandular stomach (swine/equine), crop (poultry), kidneys, myocardium, and central nervous system.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Disruption of mucosal microbiota (long-term antibiotics) or epithelial barrier damage.</li>
+              <li>Yeast-to-hypha phenotypic switching promotes epithelial penetration and vascular invasion into systemic organs.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Thickened, white diphtheritic pseudomembranes on crop/stomach; miliary renal cortical microabscesses.</li>
+              <li><strong>Micro:</strong> Epithelial necrosis, ulceration, and purulent inflammation containing <strong>oval blastoconidia (yeasts) and pseudohyphae</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/13asXqfPGI4EYqs-d_WBm5h4mPfR0Apsw" alt="Oral candidiasis in a calf" loading="lazy" decoding="async">
+          <figcaption>Oral candidiasis (“thrush”) in a calf with white pseudomembranous plaques on the mucosa. Inset: Budding yeast and pseudohyphae of Candida albicans invading superficial epithelium.</figcaption>
+        </figure>
+
+      <!-- UNIT 4: PNEUMOCYSTOSIS -->
+      <article id="pneumocystis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Pneumocystosis</h3>
+          <div class="disease-subtitle"><em>Pneumocystis carinii</em> &amp; species-specific strains — Foamy intra-alveolar exudate</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Pneumocystis carinii</em> (rats), <em>P. canis</em> (dogs/foals with severe combined immunodeficiency - SCID).</li>
+              <li>Exclusively restricted to the alveolar respiratory lumen and Type I pneumocytes.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Trophic forms attach tightly to Type I pneumocytes via surface cell wall fibronectin.</li>
+              <li>Impaired cell-mediated immunity (CD4+ T-cell deficiency) permits unchecked intra-alveolar replication and gas exchange impairment.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Rubbery, heavy, non-collapsible hyperemic lungs with firm diffuse consolidation.</li>
+              <li><strong>Micro:</strong> Alveoli filled with a characteristic <strong>pink, acellular, "foamy" or "honeycombed" exudate</strong>; GMS stain highlights thin cup-shaped or crushed-spherical cysts (4–6 µm).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1n2FbbRnsCGBd-ut_L3yEBVPe_hQNkxmO" alt="Equine pneumocystosis with foamy alveolar exudate" loading="lazy" decoding="async">
+          <figcaption>Equine pneumocystosis with diffuse interstitial pneumonia. Inset: Foamy alveolar exudate containing cystic forms of Pneumocystis spp. within affected lung tissue.</figcaption>
+        </figure>
+
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Opportunistic Diagnostic Key:</strong> Distinguishing morphological features on histological section is crucial for guiding clinical interpretation. Differentiate <em>Aspergillus</em> (regular septate hyphae, 45° branching) from Mucorales (irregular broad pauciseptate hyphae, 90° branching), <em>Candida</em> (mixed pseudohyphae and blastoconidia), and <em>Pneumocystis</em> (intra-alveolar cup-shaped cysts on GMS stain).
+      </aside>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Opportunistic Mycoses Subpage</p>
+      <div class="footer-actions">
+        <a href="MYCOTIC_DISEASES_URL" class="btn btn-secondary">Mycotic Diseases Section</a>
+        <a href="INFECTIOUS_DISEASES_URL" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="MAIN_COMPANION_URL" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!--
+    ==========================================================================
+    URL REPLACEMENT CHECKLIST
+    ==========================================================================
+    Please replace the following placeholders with your actual Google Sites page URLs:
+
+    1. MYCOTIC_DISEASES_URL
+       - Breadcrumbs & Footer Navigation
+
+    2. INFECTIOUS_DISEASES_URL
+       - Breadcrumbs & Footer Navigation
+
+    3. MAIN_COMPANION_URL
+       - Footer "Back to Main Companion" Button
+    ==========================================================================
+  -->
+</body>
+</html>

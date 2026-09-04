@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mycotic Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --status-available-bg: #e6fffa;
+      --status-available-text: #234e52;
+      --status-available-border: #b2f5ea;
+
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & BADGES
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+    }
+
+    .badge-available {
+      background-color: var(--status-available-bg);
+      color: var(--status-available-text);
+      border-color: var(--status-available-border);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-secondary-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       2. MYCOTIC PATHOGENESIS FRAMEWORK
+       ========================================================================== */
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pathway-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pathway-number {
+      background-color: var(--primary-color);
+      color: var(--white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .pathway-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      padding-top: 0.2rem;
+    }
+
+    /* ==========================================================================
+       3. MYCOTIC DISEASE CATEGORIES (CARDS)
+       ========================================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .examples-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .example-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .example-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.925rem;
+    }
+
+    .example-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card-action {
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       4. KEY MYCOTIC LESION PATTERNS
+       ========================================================================== */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pattern-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pattern-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pattern-card p {
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       5. DIAGNOSTIC APPROACH PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       6. FOOTER & NAVIGATION
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathway-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .pattern-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathway-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .pattern-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Mycotic Diseases</h1>
+      <div class="hero-subtitle">From fungal ecology to tissue reaction</div>
+      <p class="hero-body">
+        Examine fungal infections according to their route of entry, tissue distribution, host response, characteristic morphology, and diagnostic demonstration across veterinary species.
+      </p>
+      <p class="hero-secondary-text">
+        Select a mycotic disease category below to explore specific fungal pathogens, tissue reactions, and diagnostic features.
+      </p>
+    </header>
+
+    <!-- 2. DIAGNOSTIC PATHWAY FOR MYCOTIC PATHOLOGY -->
+    <section class="section-block" aria-labelledby="pathway-heading">
+      <h2 id="pathway-heading">Mycotic Diagnostic Sequence</h2>
+      <p class="section-intro">Follow this consistent diagnostic framework when evaluating suspected fungal lesions.</p>
+      
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <div class="pathway-number">1</div>
+          <div class="pathway-text">Fungal morphology &amp; growth form</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">2</div>
+          <div class="pathway-text">Environmental source &amp; portal of entry</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">3</div>
+          <div class="pathway-text">Angioinvasion &amp; tissue tropism</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">4</div>
+          <div class="pathway-text">Dominant host tissue reaction</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">5</div>
+          <div class="pathway-text">Gross &amp; histopathological changes</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">6</div>
+          <div class="pathway-text">Histochemical &amp; confirmatory identification</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MYCOTIC DISEASE CATEGORIES -->
+    <section class="section-block" aria-labelledby="categories-heading">
+      <h2 id="categories-heading">Explore Mycotic Categories</h2>
+      
+      <div class="cards-grid">
+        
+        <!-- CATEGORY 1: SUPERFICIAL & CUTANEOUS -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Superficial &amp; Cutaneous Mycoses</h3>
+          <div class="card-subtitle">Dermatophytosis and keratinized tissue invasion</div>
+          <p class="card-description">
+            Study superficial fungal infections limited to skin, hair follicles, and claws, characterized by epidermal hyperplasia, folliculitis, and hyperkeratosis.
+          </p>
+          <div class="examples-header">Key Representative Agents</div>
+          <ul class="example-list">
+            <li><em>Microsporum</em> spp. (<em>M. canis</em>)</li>
+            <li><em>Trichophyton</em> spp. (<em>T. verrucosum</em>, <em>T. mentagrophytes</em>)</li>
+            <li><em>Malassezia pachydermatitis</em></li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases/superficial-and-cutaneous-mycoses" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Superficial Mycoses</a>
+          </div>
+        </article>
+
+        <!-- CATEGORY 2: SUBCUTANEOUS -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Subcutaneous Mycoses</h3>
+          <div class="card-subtitle">Traumatic implantation and nodular granulomatous lesions</div>
+          <p class="card-description">
+            Examine deep dermal and subcutaneous fungal infections resulting from wound inoculation, leading to chronic nodular granulomas and draining tracts.
+          </p>
+          <div class="examples-header">Key Representative Agents</div>
+          <ul class="example-list">
+            <li><em>Sporothrix schenckii</em> species complex</li>
+            <li>Pythiosis (<em>Pythium insidiosum</em>) &amp; Lagenidiosis</li>
+            <li>Eumycotic Mycetoma &amp; Phaeohyphomycosis</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases/subcutaneous-mycoses" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Subcutaneous Mycoses</a>
+          </div>
+        </article>
+
+        <!-- CATEGORY 3: SYSTEMIC & DEEP -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Systemic &amp; Deep Mycoses</h3>
+          <div class="card-subtitle">Thermal dimorphic fungi and disseminated pathology</div>
+          <p class="card-description">
+            Explore primary systemic infections caused by dimorphic pathogens that infect respiratory surfaces and disseminate to bone, skin, viscera, and CNS.
+          </p>
+          <div class="examples-header">Key Representative Agents</div>
+          <ul class="example-list">
+            <li><em>Blastomyces dermatitidis</em></li>
+            <li><em>Coccidioides immitis</em> / <em>C. posadasii</em></li>
+            <li><em>Histoplasma capsulatum</em></li>
+            <li><em>Cryptococcus neoformans</em> / <em>C. gattii</em></li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases/systemic-and-deep-mycoses" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Systemic Mycoses</a>
+          </div>
+        </article>
+
+        <!-- CATEGORY 4: OPPORTUNISTIC -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Opportunistic Mycoses</h3>
+          <div class="card-subtitle">Angioinvasive hyphae and secondary tissue destruction</div>
+          <p class="card-description">
+            Examine saprophytic fungi that exploit immunocompromised, debilitated, or mucosa-damaged hosts, causing severe necrotising and vascular lesions.
+          </p>
+          <div class="examples-header">Key Representative Agents</div>
+          <ul class="example-list">
+            <li><em>Aspergillus</em> spp. (<em>A. fumigatus</em>)</li>
+            <li><em>Candida albicans</em></li>
+            <li>Mucorales (<em>Mucor</em>, <em>Rhizopus</em>, <em>Lichtheimia</em>)</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases/opportunistic-mycoses" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Opportunistic Mycoses</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. KEY MYCOTIC LESION PATTERNS -->
+    <section class="section-block" aria-labelledby="patterns-heading">
+      <h2 id="patterns-heading">Predominant Mycotic Lesion Patterns</h2>
+      <p class="section-intro">Fungi provoke distinct tissue responses depending on fungal morphology, angioinvasive capacity, and host immunocompetence.</p>
+      
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <h3>Pyogranulomatous Inflammation</h3>
+          <p>Neutrophils surrounding central fungal elements bounded by epithelioid macrophages and giant cells (e.g., <em>Blastomyces</em>).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Angioinvasion &amp; Thrombosis</h3>
+          <p>Hyphal penetration of vessel walls leading to arterial thrombosis, tissue infarction, and necrosis (e.g., <em>Aspergillus</em>, Mucorales).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Splendore-Hoeppli Phenomenon</h3>
+          <p>Radiating star-like antigen-antibody proteinaceous deposit surrounding fungal elements in tissue (e.g., <em>Sporothrix</em>, Mycetomas).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Hyperkeratotic &amp; Epidermotropic</h3>
+          <p>Arthrospores and hyphae colonizing stratum corneum and hair follicles causing acanthosis and folliculitis (e.g., Dermatophytes).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Note">
+        <strong>Diagnostic Integration:</strong> Fungal organisms are often poorly visible on routine H&amp;E stains. Histochemical stains such as <strong>Periodic acid-Schiff (PAS)</strong> and <strong>Grocott's methenamine silver (GMS)</strong> are essential for visualizing cell wall structures, branching angles, septation, and yeast morphology.
+      </aside>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Mycotic Diseases Section</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

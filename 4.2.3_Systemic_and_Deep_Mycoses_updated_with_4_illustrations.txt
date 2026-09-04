@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systemic &amp; Deep Mycoses - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  
+    /* ==========================================================================
+       TEACHING ILLUSTRATIONS
+       ========================================================================== */
+    .teaching-figure {
+      margin: 1.25rem 0 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+
+    .teaching-figure figcaption {
+      padding: 0.85rem 1rem;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases" target="_blank" rel="noopener noreferrer">Mycotic Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Systemic &amp; Deep Mycoses</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Systemic &amp; Deep Mycoses</h1>
+      <div class="hero-subtitle">Thermal dimorphic pathogens, respiratory portals, and disseminated granulomas</div>
+      <p class="hero-body">
+        Systemic and deep mycoses are primarily caused by thermally dimorphic fungi that grow as saprophytic molds in the environment and transform into pathogenic yeast or spherule forms at mammalian body temperature. Infection typically follows inhalation of airborne conidia into the respiratory tract, leading to primary pulmonary lesions followed by lymphohaematogenous dissemination to bone, eyes, skin, central nervous system, and abdominal viscera.
+      </p>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Pathogens Covered</h2>
+      <div class="organism-pills">
+        <a href="#blastomyces" class="pill">Blastomyces dermatitidis</a>
+        <a href="#coccidioides" class="pill">Coccidioides immitis / posadasii</a>
+        <a href="#histoplasma" class="pill">Histoplasma capsulatum</a>
+        <a href="#cryptococcus" class="pill">Cryptococcus neoformans / gattii</a>
+      </div>
+    </nav>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: BLASTOMYCES -->
+      <article id="blastomyces" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Blastomycosis</h3>
+          <div class="disease-subtitle"><em>Blastomyces dermatitidis</em> — Pyogranulomatous pneumonitis and systemic dissemination</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Blastomyces dermatitidis</em> (dimorphic fungus associated with acidic soils near waterways; dogs highly susceptible).</li>
+              <li>Lungs, regional lymph nodes, eyes, skin, skeletal system, and CNS.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation of conidia into alveoli; phase transition to broad-based budding yeast form at 37°C.</li>
+              <li>Yeast cell wall BAD-1 surface protein inhibits TNF-alpha, facilitating pulmonary colonization and systemic spread.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Firm grey-to-white nodular pulmonary consolidation ("snowstorm" pattern), endophthalmitis, osteomyelitis.</li>
+              <li><strong>Micro:</strong> Pyogranulomatous inflammation containing thick-walled, spherical yeasts (8–15 µm) showing single <strong>broad-based budding</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1mLIikgqlni6-FVdOd9JWT6JuXVjqPORf" alt="Canine blastomycosis with broad-based budding yeast" loading="lazy" decoding="async">
+          <figcaption>Canine blastomycosis characterized by ulcerative cutaneous nodules. Inset: Large yeast forms of Blastomyces dermatitidis exhibiting broad-based budding within pyogranulomatous inflammation.</figcaption>
+        </figure>
+
+      <!-- UNIT 2: COCCIDIOIDES -->
+      <article id="coccidioides" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Coccidioidomycosis (Valley Fever)</h3>
+          <div class="disease-subtitle"><em>Coccidioides immitis</em> &amp; <em>C. posadasii</em> — Spherules, endospores, and necrotising granulomas</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Coccidioides immitis</em> &amp; <em>C. posadasii</em> (soil saprophytes in arid alkaline desert regions).</li>
+              <li>Lungs, mediastinal lymph nodes, appendicular skeleton, pericardium, and systemic organs.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation of windborne arthroconidia into terminal bronchioles.</li>
+              <li>Arthroconidia enlarge into thick-walled spherules that undergo endosporulation; rupture releases hundreds of endospores driving intense inflammation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Multifocal firm granulomatous pulmonary nodules, hilar lymphadenomegaly, osteolytic bone lesions.</li>
+              <li><strong>Micro:</strong> Granulomatous-to-pyogranulomatous nodules containing large double-contoured <strong>spherules (20–80 µm) filled with small endospores (2–5 µm)</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1gXNoQpQzNuhjAgL6n15ZKE-gzL-SGT76" alt="Canine coccidioidomycosis with endosporulating spherules" loading="lazy" decoding="async">
+          <figcaption>Canine coccidioidomycosis presenting as a chronic draining cutaneous lesion. Inset: Large spherules of Coccidioides immitis filled with endospores within granulomatous tissue.</figcaption>
+        </figure>
+
+      <!-- UNIT 3: HISTOPLASMA -->
+      <article id="histoplasma" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Histoplasmosis</h3>
+          <div class="disease-subtitle"><em>Histoplasma capsulatum</em> — Intracellular macrophage parasitism and gastrointestinal pathology</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Histoplasma capsulatum</em> var. <em>capsulatum</em> (organically enriched soils, bird/bat guano; dogs and cats).</li>
+              <li>Pulmonary tree, reticuloendothelial organs (liver, spleen, bone marrow), and gastrointestinal tract.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation or ingestion of microconidia; phagocytosis by alveolar or intestinal macrophages.</li>
+              <li>Intracellular replication inside phagolysosomes leads to lymphohaematogenous seeding throughout the monocyte-macrophage system.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Hepatosplenomegaly, diffuse mesenteric lymphadenomegaly, thickened, corrugated intestinal mucosa (severe diarrhea in dogs).</li>
+              <li><strong>Micro:</strong> Sheets of macrophages packed with small, oval, intracellular <strong>yeast bodies (2–4 µm) with thin cell walls and a clear halo</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1cvnb0VOkN-7Rq3HJrtQReq7UfQQ-PtPH" alt="Systemic canine histoplasmosis with intracellular yeast" loading="lazy" decoding="async">
+          <figcaption>Systemic histoplasmosis in a dog with lymphadenopathy and hepatosplenomegaly. Inset: Small intracellular yeast of Histoplasma capsulatum densely packed within macrophages.</figcaption>
+        </figure>
+
+      <!-- UNIT 4: CRYPTOCOCCUS -->
+      <article id="cryptococcus" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Cryptococcosis</h3>
+          <div class="disease-subtitle"><em>Cryptococcus neoformans</em> &amp; <em>C. gattii</em> — Mucinous capsule, nasal granulomas, and "soap bubble" encephalitis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Cryptococcus neoformans</em> (pigeon droppings) &amp; <em>C. gattii</em> (eucalyptus/trees; highly prevalent in felines).</li>
+              <li>Nasal cavity, paranasal sinuses, cribriform plate, central nervous system, eyes, and skin.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation of unencapsulated basidiospores into nasal passages or lower airways.</li>
+              <li>Production of a thick glucuronoxylomannan (GXM) polysaccharide capsule suppresses phagocytosis, allowing tissue invasion and neural spread.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Gelatinous mass in nasal cavity ("Roman nose" in cats), non-healing ulcerated skin nodules, cystic brain lesions.</li>
+              <li><strong>Micro:</strong> Masses of budding yeast (4–10 µm) surrounded by a <strong>clear halo-like mucopolysaccharide capsule</strong>; minimal-to-granulomatous host reaction ("soap bubble" appearance).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+        <figure class="teaching-figure">
+          <img src="https://lh3.googleusercontent.com/d/1VEcj8O8W4GEu7PyvqkgzN9Vugk0SXun-" alt="Feline cryptococcosis with encapsulated yeast" loading="lazy" decoding="async">
+          <figcaption>Feline cryptococcosis presenting as a gelatinous proliferative nasal lesion. Inset: Thickly encapsulated yeast of Cryptococcus neoformans producing the characteristic “soap-bubble” appearance in granulomatous tissue.</figcaption>
+        </figure>
+
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Systemic Diagnostic Key:</strong> Morphological differentiation is critical. Differentiate <em>Blastomyces</em> (broad-based budding yeast) from <em>Histoplasma</em> (small intracellular yeast in macrophages), <em>Coccidioides</em> (large endosporulating spherules), and <em>Cryptococcus</em> (narrow-based budding yeast with a prominent mucicarmine-positive capsule). Use <strong>PAS</strong>, <strong>GMS</strong>, or <strong>Mucicarmine</strong> stains for definitive histopathological identification.
+      </aside>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Systemic &amp; Deep Mycoses Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/mycotic-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Mycotic Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

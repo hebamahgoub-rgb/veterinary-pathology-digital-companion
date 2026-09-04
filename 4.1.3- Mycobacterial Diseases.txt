@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mycobacterial Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .lesion-gallery {
+      margin-top: 1.35rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .lesion-gallery-title {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+      color: var(--primary-color);
+    }
+
+    .lesion-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .lesion-figure {
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lesion-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      background-color: #edf2f7;
+    }
+
+    .lesion-figure figcaption {
+      padding: 0.85rem 1rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+    }
+
+    .image-label {
+      display: inline-block;
+      margin-bottom: 0.35rem;
+      color: var(--accent-color);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .image-credit {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.75rem;
+      color: #718096;
+    }
+
+    .image-credit a {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer">Bacterial Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Mycobacterial Diseases</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Mycobacterial Diseases</h1>
+      <div class="hero-subtitle">Acid-fast bacilli, intracellular survival, and granulomatous inflammation</div>
+      <p class="hero-body">
+        Mycobacteria possess a unique lipid-rich cell wall containing mycolic acids that resist enzymatic degradation and standard Gram staining. In veterinary pathology, these chronic intracellular pathogens evoke distinct granulomatous host responses characterized by epithelioid macrophages, Langhans giant cells, caseous necrosis, and persistent tissue remodeling.
+      </p>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Conditions Covered</h2>
+      <div class="organism-pills">
+        <a href="#bovine-tb" class="pill">Bovine Tuberculosis (M. bovis)</a>
+        <a href="#johnes" class="pill">Johne's Disease / Paratuberculosis</a>
+        <a href="#avian-tb" class="pill">Avian Mycobacteriosis</a>
+        <a href="#atypical" class="pill">Feline Leprosy &amp; Atypical Granulomas</a>
+      </div>
+    </nav>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: BOVINE TUBERCULOSIS -->
+      <article id="bovine-tb" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Bovine Tuberculosis</h3>
+          <div class="disease-subtitle"><em>Mycobacterium bovis</em> — Zoonotic caseous granulomatous inflammation</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Mycobacterium bovis</em> (broad host range: cattle, cervids, badgers, humans).</li>
+              <li>Lungs, retropharyngeal &amp; mediastinal lymph nodes, pleura, and liver.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inhalation/ingestion leading to phagocytosis by alveolar macrophages.</li>
+              <li>Inhibition of phagolysosomal fusion; cell-mediated immune reaction drives tubercle formation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Firm nodules with yellowish caseous to calcified centers ("pearl disease" on pleura).</li>
+              <li><strong>Micro:</strong> Tubercles with central caseous necrosis, mineral deposits, epithelioid cells, and Langhans giant cells.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lesion-gallery">
+          <h4 class="lesion-gallery-title">Lesion Gallery</h4>
+          <div class="lesion-grid">
+
+            <figure class="lesion-figure">
+              <img
+                src="https://lh3.googleusercontent.com/d/1EWrknnFValpDplCTw6YVQ87Bvkw7SDvi"
+                alt="Bovine lung containing multifocal pale tuberculous lesions"
+                loading="lazy">
+              <figcaption>
+                <span class="image-label">Gross pathology · Lung</span><br>
+                Bovine tuberculosis. Multifocal pale, firm tuberculous lesions
+                involving the pulmonary parenchyma.
+                <span class="image-credit">
+                  Image: laboratorio diagnostica ancona IZSUM,
+                  <a href="https://commons.wikimedia.org/wiki/File:Bovine%3B_lung_tuberculosis_(27662385872).jpg"
+                     target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+                  CC BY 2.0.
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- UNIT 2: JOHNE'S DISEASE -->
+      <article id="johnes" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Johne's Disease (Paratuberculosis)</h3>
+          <div class="disease-subtitle"><em>Mycobacterium avium</em> subsp. <em>paratuberculosis</em> (MAP) — Diffuse granulomatous enteritis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>M. avium</em> subsp. <em>paratuberculosis</em> (ruminants: cattle, sheep, goats).</li>
+              <li>Distal ileum, ileocecal valve, mesenteric lymph nodes, and lymphatic vessels.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Uptake via intestinal M cells followed by intracellular replication in subepithelial macrophages.</li>
+              <li>Massive macrophage accumulation causes mucosal thickening, protein-losing enteropathy, and severe emaciation.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Thickened, corrugated "cerebriform" intestinal mucosa, cording of lymphatics, enlarged lymph nodes.</li>
+              <li><strong>Micro:</strong> Diffuse mucosal infiltration by macrophages filled with acid-fast bacilli; multinucleated giant cells.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lesion-gallery">
+          <h4 class="lesion-gallery-title">Lesion Gallery</h4>
+          <div class="lesion-grid">
+
+            <figure class="lesion-figure">
+              <img
+                src="https://lh3.googleusercontent.com/d/1p0Ip2oozBYF4ac_scgIOKCtTvieQgsSW"
+                alt="Bovine ileum with thickened corrugated mucosa in Johne's disease"
+                loading="lazy">
+              <figcaption>
+                <span class="image-label">Gross pathology · Ileum</span><br>
+                Johne’s disease. Thickened and corrugated bovine ileal mucosa
+                resulting from chronic granulomatous enteritis.
+                <span class="image-credit">
+                  Image: Genkinekowiki,
+                  <a href="https://commons.wikimedia.org/wiki/File:Paratb_intestine.png"
+                     target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+                  CC BY-SA 4.0.
+                </span>
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- UNIT 3: AVIAN MYCOBACTERIOSIS -->
+      <article id="avian-tb" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Avian Mycobacteriosis</h3>
+          <div class="disease-subtitle"><em>Mycobacterium avium</em> complex (MAC) — Systemic visceral granulomas</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Mycobacterium avium</em> subsp. <em>avium</em> (domestic poultry, wild birds, swine).</li>
+              <li>Intestines, liver, spleen, and bone marrow (rarely lungs in birds).</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Oral ingestion of environmental bacilli causing primary intestinal mucosal infection.</li>
+              <li>Hematogenous dissemination via portal circulation to liver, spleen, and skeleton.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Multifocal greyish-white firm visceral nodules, splenomegaly, hepatomegaly.</li>
+              <li><strong>Micro:</strong> Classical avian tubercles with prominent central eosinophilic necrosis and massive clusters of intracellular acid-fast rods.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lesion-gallery">
+          <h4 class="lesion-gallery-title">Lesion Gallery</h4>
+          <div class="lesion-grid">
+
+            <figure class="lesion-figure">
+              <img
+                src="https://lh3.googleusercontent.com/d/18MHKMYQPyeo2dzB3gdh3gTMkvhqDlcyA"
+                alt="Japanese quail with avian tuberculosis affecting liver spleen and intestines"
+                loading="lazy">
+              <figcaption>
+                <span class="image-label">Gross pathology · Multiple organs</span><br>
+                Avian mycobacteriosis in a Japanese quail. Tuberculous lesions involve
+                the liver, spleen and intestinal tract, illustrating systemic spread.
+                <span class="image-credit">
+                  Image: Roman Halouzka,
+                  <a href="https://commons.wikimedia.org/wiki/File:Avian_tuberculosis_3.jpg"
+                     target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+                  CC BY-SA 3.0.
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="lesion-figure">
+              <img
+                src="https://lh3.googleusercontent.com/d/1nQ8zYHU3020-yqMQW5XblpXw7Vymlj5W"
+                alt="Vulture liver containing multiple pale avian tuberculosis nodules"
+                loading="lazy">
+              <figcaption>
+                <span class="image-label">Gross pathology · Liver</span><br>
+                Avian mycobacteriosis. Multiple pale granulomatous nodules are
+                distributed throughout the hepatic parenchyma.
+                <span class="image-credit">
+                  Image: Roman Halouzka,
+                  <a href="https://commons.wikimedia.org/wiki/File:Avian_tuberculosis_1.jpg"
+                     target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>,
+                  CC BY-SA 3.0.
+                </span>
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- UNIT 4: ATYPICAL GRANULOMAS & FELINE LEPROSY -->
+      <article id="atypical" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Feline Leprosy &amp; Opportunistic Mycobacteriosis</h3>
+          <div class="disease-subtitle">Nontuberculous Mycobacteria (NTM) — Cutaneous &amp; subcutaneous pyogranulomas</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Mycobacterium lepraemurium</em>, <em>M. fortuitum</em>, <em>M. chelonae</em>, <em>M. ulcerans</em>.</li>
+              <li>Skin, subcutaneous adipose tissue, panniculus, and peripheral lymph nodes.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Inoculation via bite wounds, soil contamination, or trauma.</li>
+              <li>Environmental saprophytes induce chronic non-healing panniculitis and nodular skin disease.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Ulcerated subcutaneous nodules, draining tracts, thick fibrous panniculitis.</li>
+              <li><strong>Micro:</strong> Pyogranulomatous inflammation with neutrophils, lipid vacuoles, and variable numbers of acid-fast bacilli.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lesion-gallery">
+          <h4 class="lesion-gallery-title">Lesion Gallery</h4>
+          <div class="lesion-grid">
+
+            <figure class="lesion-figure">
+              <img
+                src="https://lh3.googleusercontent.com/d/1DTfulP9vpR29PioRmytJ22izh1Lur-mL"
+                alt="Feline leprosy showing nodular lesions on skin and periocular tissue"
+                loading="lazy">
+              <figcaption>
+                <span class="image-label">Clinical lesion · Skin and periocular tissues</span><br>
+                Feline leprosy caused by Mycobacterium lepraemurium. Raised ulcerative and non-ulcerative nodules involve the periocular skin and adjacent tissues.
+                <span class="image-credit">
+                  Image: Ghielmetti et al., 2021, Pathogens 10:687,
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8226594/"
+                     target="_blank" rel="noopener noreferrer">Pathogens</a>,
+                  CC BY 4.0.
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="lesion-figure">
+              <img
+                src="https://lh3.googleusercontent.com/d/1e6oD_rF8hQL3wjs7G4DMtqR3sfbNDVLy"
+                alt="Feline leprosy cytology showing macrophages containing numerous intracellular acid-fast bacilli"
+                loading="lazy">
+              <figcaption>
+                <span class="image-label">Cytology · Fine-needle aspirate</span><br>
+                Fine-needle aspirate from a feline periocular lesion showing macrophages containing numerous intracytoplasmic bacilli (A); Ziehl–Neelsen staining confirms numerous acid-fast organisms (B).
+                <span class="image-credit">
+                  Image: Ghielmetti et al., 2021, Pathogens 10:687,
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8226594/"
+                     target="_blank" rel="noopener noreferrer">Pathogens</a>,
+                  CC BY 4.0.
+                </span>
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+
+    <!-- EDUCATIONAL ILLUSTRATIONS -->
+    <section class="section-block" aria-labelledby="educational-illustrations-heading">
+      <h2 id="educational-illustrations-heading">Educational Illustrations</h2>
+      <p class="section-intro">
+        Key visual patterns in mycobacterial disease, including granuloma morphology,
+        acid-fast staining, comparative lesion patterns, and pathogenesis.
+      </p>
+      <div class="lesion-gallery">
+        <div class="lesion-grid">
+          <figure class="lesion-figure">
+            <img
+              src="https://lh3.googleusercontent.com/d/15qwZBFpTqZrkI7Hd36RP5LuSCZeLQ5p9"
+              alt="Classic mycobacterial granuloma in a lymph node"
+              loading="lazy">
+            <figcaption>
+              <span class="image-label">Illustration · Classic mycobacterial granuloma</span><br>
+              Typical granuloma (“tubercle”) formed in bovine lymph nodes during Mycobacterium bovis infection. The lesion shows central caseous necrosis surrounded by epithelioid macrophages and Langhans-type multinucleated giant cells, with an outer rim of lymphocytes and a fibrous capsule. This organized structure reflects the host’s chronic cell-mediated immune response to persistent intracellular mycobacteria.
+            </figcaption>
+          </figure>
+          <figure class="lesion-figure">
+            <img
+              src="https://lh3.googleusercontent.com/d/1alr7PazV9LehK-sPlPFwPYOccNwoosZN"
+              alt="Ziehl-Neelsen stain demonstrating acid-fast mycobacteria"
+              loading="lazy">
+            <figcaption>
+              <span class="image-label">Illustration · Ziehl–Neelsen stain</span><br>
+              Ziehl–Neelsen stain highlighting acid-fast bacilli (AFB) within macrophages. Mycobacteria retain carbol-fuchsin dye due to their lipid-rich cell wall, appearing as bright red rods against a blue counterstain. This stain is essential for confirming mycobacterial infections in veterinary diagnostic pathology.
+            </figcaption>
+          </figure>
+          <figure class="lesion-figure">
+            <img
+              src="https://lh3.googleusercontent.com/d/1IHsomBhs2Rd1fKY14AW-b6yhwG0ETmyF"
+              alt="Diffuse granulomatous enteritis associated with Mycobacterium avium complex in a bird"
+              loading="lazy">
+            <figcaption>
+              <span class="image-label">Illustration · Mycobacterium avium complex</span><br>
+              Diffuse granulomatous enteritis in a bird infected with Mycobacterium avium complex (MAC). The intestinal wall is markedly thickened due to infiltration by foamy macrophages containing numerous mycobacteria. Unlike the well-organized granulomas of M. bovis, MAC lesions are often diffuse and poorly circumscribed.
+            </figcaption>
+          </figure>
+          <figure class="lesion-figure">
+            <img
+              src="https://lh3.googleusercontent.com/d/15nl6v7nCnaA6L935Ax9AUtbXqqrObaHT"
+              alt="Comparison of lesions caused by Mycobacterium bovis and atypical mycobacteria"
+              loading="lazy">
+            <figcaption>
+              <span class="image-label">Illustration · Comparative lesion morphology</span><br>
+              Comparison of lesion morphology between classical Mycobacterium bovis infection and atypical mycobacterial disease. M. bovis produces well-organized granulomas with central caseous necrosis, whereas atypical mycobacteria often cause diffuse granulomatous inflammation with abundant macrophages and minimal necrosis. Recognizing these patterns assists in differential diagnosis.
+            </figcaption>
+          </figure>
+          <figure class="lesion-figure">
+            <img
+              src="https://lh3.googleusercontent.com/d/1KIPPTE_rwzzaK3TsGKelHkKh-X7c2fRW"
+              alt="Diagram showing mycobacterial infection pathogenesis and immune response"
+              loading="lazy">
+            <figcaption>
+              <span class="image-label">Illustration · Pathogenesis and immune response</span><br>
+              Overview of mycobacterial pathogenesis. Mycobacteria enter the host via inhalation or ingestion and are phagocytosed by macrophages. Their lipid-rich cell wall enables intracellular survival, triggering a Th1-mediated immune response. Persistent infection leads to granuloma formation, which attempts to contain the organism but also contributes to chronic disease.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Mycobacterial Diagnostic Key:</strong> Mycobacteria do not stain reliably on standard H&amp;E or Gram stains. Demonstrating acid-fastness using <strong>Ziehl-Neelsen (ZN)</strong> or Fite-Faraco staining is essential. Distinguish paucibacillary forms (tuberculoid) from multibacillary forms (lepromatous/paratuberculosis) based on organism burden and host cell-mediated response.
+      </aside>
+
+      <div class="lesion-gallery">
+        <div class="lesion-grid">
+          <figure class="lesion-figure">
+            <img
+              src="https://lh3.googleusercontent.com/d/1O169oWBrDOmmT74egeiFbprVfXUd4kxL"
+              alt="Ziehl-Neelsen stain demonstrating acid-fast bacilli"
+              loading="lazy">
+            <figcaption>
+              <span class="image-label">Micrograph · Diagnostic Stain</span><br>
+              Ziehl–Neelsen stain demonstrating red acid-fast bacilli against a blue counterstained background. Acid-fast staining supports a mycobacterial aetiology but does not independently identify the species.
+              <span class="image-credit">
+                Image: CDC, public domain, via
+                <a href="https://commons.wikimedia.org/wiki/File:Mycobacterium_tuberculosis_Ziehl-Neelsen_stain.jpg"
+                   target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Mycobacterial Diseases Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Bacterial Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

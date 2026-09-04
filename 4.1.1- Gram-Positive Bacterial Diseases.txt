@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gram-Positive Bacterial Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    h4 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & NAVIGATION
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: var(--border-color);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    /* ==========================================================================
+       2. QUICK JUMP / ORGANISM INDEX
+       ========================================================================== */
+    .organism-nav {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .organism-nav h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .organism-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      background-color: var(--accent-color);
+      color: var(--white);
+      border-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       3. PATHOGEN CARDS / DISEASE UNITS
+       ========================================================================== */
+    .disease-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .disease-header {
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .disease-title {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+    }
+
+    .disease-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      font-style: italic;
+    }
+
+    .pathology-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pathology-box {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .pathology-box h4 {
+      color: var(--primary-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pathology-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pathology-box ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.925rem;
+    }
+
+    .pathology-box ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+
+    /* ==========================================================================
+       ILLUSTRATIONS
+       ========================================================================== */
+    .illustration {
+      width: 100%;
+      margin: 1.5rem 0 0;
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: var(--white);
+    }
+
+    .illustration figcaption {
+      padding: 0.9rem 1rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--secondary-color);
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-light);
+    }
+
+    /* ==========================================================================
+       4. DIAGNOSTIC KEY PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       5. FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathology-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases">Infectious Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases">Bacterial Diseases</a>
+      <span class="breadcrumb-separator">/</span>
+      <span>Gram-Positive Bacterial Diseases</span>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Gram-Positive Bacterial Diseases</h1>
+      <div class="hero-subtitle">Pyogenic cocci, coryneform bacilli, and spore-forming anaerobes</div>
+      <p class="hero-body">
+        Gram-positive bacteria possess a thick peptidoglycan cell wall that retains crystal violet stain. In veterinary pathology, these organisms frequently induce suppurative abscessation, necrotising enteritis, exotoxin-mediated systemic tissue injury, or granulomatous lesions.
+      </p>
+      <p class="hero-body">
+        <strong>Current terminology note:</strong> The original teaching content is preserved, while current names are used where appropriate—for example, <em>Rhodococcus equi</em> for the organism historically called <em>Corynebacterium equi</em>, <em>Trueperella pyogenes</em> for older <em>Corynebacterium/Arcanobacterium pyogenes</em> terminology, and <em>Mycobacterium avium</em> subsp. <em>paratuberculosis</em> (MAP) for Johne’s disease.
+      </p>
+    </header>
+
+    <!-- 2. QUICK JUMP INDEX -->
+    <nav class="organism-nav" aria-label="Organism Index">
+      <h2>Major Organisms Covered</h2>
+      <div class="organism-pills">
+        <a href="#staph" class="pill">Staphylococcus</a>
+        <a href="#strep" class="pill">Streptococcus</a>
+        <a href="#coryne" class="pill">Corynebacterium &amp; Trueperella</a>
+        <a href="#clostridium" class="pill">Clostridium</a>
+        <a href="#bacillus" class="pill">Bacillus</a>
+        <a href="#listeria" class="pill">Listeria &amp; Erysipelothrix</a>
+        <a href="#clostridial-spectrum" class="pill">Clostridial Disease Spectrum</a>
+        <a href="#botryomycosis" class="pill">Botryomycosis</a>
+        <a href="#rhodococcus" class="pill">Rhodococcus equi</a>
+        <a href="#coryne-extra" class="pill">Other Corynebacterial Diseases</a>
+        <a href="#actinomycosis" class="pill">Actinomycosis</a>
+        <a href="#mycobacteria" class="pill">Tuberculosis &amp; Johne’s Disease</a>
+        <a href="#granulomatous-comparison" class="pill">Granulomatous Comparison</a>
+      </div>
+    </nav>
+
+
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1ISeXNdT14-Yk3KEZtoVUZ-AN52ZOomUe" alt="Morphologic patterns of Gram-positive cocci: Staphylococcus (grape-like clusters), Streptococcus (chains), and Enterococcus (pairs). These arrangements help differentiate genera during microscopic examination." loading="lazy">
+          <figcaption>Morphologic patterns of Gram-positive cocci: Staphylococcus (grape-like clusters), Streptococcus (chains), and Enterococcus (pairs). These arrangements help differentiate genera during microscopic examination.</figcaption>
+        </figure>
+
+    <!-- 3. DISEASE UNITS -->
+    <section class="section-block" aria-labelledby="pathogens-heading">
+      <h2 id="pathogens-heading">Pathological Profiles</h2>
+
+      <!-- UNIT 1: STAPHYLOCOCCUS -->
+      <article id="staph" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Staphylococcal Infections</h3>
+          <div class="disease-subtitle">Pyogenic lesions, dermatitis, and suppurative exudation</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>S. pseudintermedius</em> (canine/feline), <em>S. aureus</em> (bovine/equine), <em>S. hyicus</em> (porcine).</li>
+              <li>Commensal skin/mucosa; invades via epithelial barrier disruption.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Coagulase production, hemolysins, and exoproteins induce neutrophil influx and necrosis.</li>
+              <li>Exfoliative toxins cause epidermal detachment (<em>S. hyicus</em>).</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Abscesses, pyoderma, greasy exudative dermatitis, suppurative mastitis.</li>
+              <li><strong>Micro:</strong> Suppurative inflammation, bacterial clusters (cocci in tetrads/clusters).</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1ImKICtu5SUOG8k4dyZOCxEw0THYQMlN3" alt="Staphylococcal pyoderma in dogs. Staphylococcus pseudintermedius commonly causes pustules and epidermal collarettes. Inset: Gram-positive cocci in clusters." loading="lazy">
+          <figcaption>Staphylococcal pyoderma in dogs. Staphylococcus pseudintermedius commonly causes pustules and epidermal collarettes. Inset: Gram-positive cocci in clusters.</figcaption>
+        </figure>
+
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1MLvls_rhdezALDfVNYvK2lJ4j6o6igZQ" alt="Acute bovine mastitis due to Staphylococcus aureus. Affected quarters show swelling, pain, and purulent secretions. Microscopy reveals Gram-positive cocci in clusters." loading="lazy">
+          <figcaption>Acute bovine mastitis due to Staphylococcus aureus. Affected quarters show swelling, pain, and purulent secretions. Microscopy reveals Gram-positive cocci in clusters.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- UNIT 2: STREPTOCOCCUS -->
+      <article id="strep" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Streptococcal Infections</h3>
+          <div class="disease-subtitle">Suppurative lymphadenitis, polyserositis, and septicaemia</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>S. equi</em> subsp. <em>equi</em> (Strangles), <em>S. suis</em> (porcine polyserositis/meningitis), <em>S. agalactiae</em>.</li>
+              <li>Upper respiratory tract, lymph nodes, and mucosal surfaces.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Antiphagocytic M-proteins, capsule formation, and streptolysins facilitate regional dissemination.</li>
+              <li>Vascular damage leads to purulent exudation and bacteremia.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Mandibular/retropharyngeal abscesses, fibrinopurulent polyserositis, purpura haemorrhagica.</li>
+              <li><strong>Micro:</strong> Dense neutrophilic infiltrates, fibrin deposition, chains of cocci.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1W84BE27WDfw_fYPbtozXiFNrWSxf7K15" alt="Streptococcus equi infection (Strangles) in horses. Characterized by lymph node abscessation and mucopurulent nasal discharge. Microscopy shows Gram-positive cocci in chains." loading="lazy">
+          <figcaption>Streptococcus equi infection (Strangles) in horses. Characterized by lymph node abscessation and mucopurulent nasal discharge. Microscopy shows Gram-positive cocci in chains.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- UNIT 3: CORYNEBACTERIUM & TRUEPERELLA -->
+      <article id="coryne" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Corynebacterium &amp; Trueperella</h3>
+          <div class="disease-subtitle">Caseous lymphadenitis and chronic pyogenic abscessation</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Corynebacterium pseudotuberculosis</em> (small ruminants/equine), <em>Trueperella pyogenes</em> (formerly <em>Corynebacterium/Arcanobacterium pyogenes</em>; cattle and other domestic species).</li>
+              <li>Lymph nodes, visceral organs, and damaged tissue sites.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Lipid-rich cell wall confers resistance to phagocytic killing.</li>
+              <li>Phospholipase D exotoxin enhances vascular permeability and lymphatic spread.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Concentric "onion-skin" caseous lymph nodes, chronic purulent lesions.</li>
+              <li><strong>Micro:</strong> Pyogranulomatous inflammation with central caseous/suppurative necrosis.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1kw2-i_uKgozV0FK-gUOYg1T4ZjzztDe4" alt="Caseous lymphadenitis in small ruminants caused by Corynebacterium pseudotuberculosis. Abscesses show concentric lamellations. The bacteria are pleomorphic Gram-positive rods." loading="lazy">
+          <figcaption>Caseous lymphadenitis in small ruminants caused by Corynebacterium pseudotuberculosis. Abscesses show concentric lamellations. The bacteria are pleomorphic Gram-positive rods.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- UNIT 4: CLOSTRIDIUM -->
+      <article id="clostridium" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Clostridial Diseases</h3>
+          <div class="disease-subtitle">Histotoxic, enterotoxaemic, and neurotropic Anaerobic Spore-formers</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Clostridium chauvoei</em> (blackleg), <em>C. septicum</em> (malignant edema/braxy), <em>C. haemolyticum</em> (bacillary hemoglobinuria; historically <em>C. novyi</em> type D), <em>C. novyi</em> type B (black disease), <em>C. perfringens</em>, <em>C. tetani</em>, and <em>C. botulinum</em>.</li>
+              <li>Skeletal muscle, intestinal mucosa, and neural tissue.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Potent exotoxins (alpha, beta, epsilon) cause cell membrane lysis, necrosis, or neuromuscular blockage.</li>
+              <li>Anaerobic tissue injury promotes spore germination.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Darkened emphysematous muscle, necrotising enteritis, dark blood-tinged fluid.</li>
+              <li><strong>Micro:</strong> Myonecrosis, gas vacuolation, mucosal necrosis, large Gram-positive rods.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1iTUXQzg_38wIE22WgwDZJN08_Yr3jWWX" alt="Blackleg in cattle caused by Clostridium chauvoei. Affected muscles show necrosis, gas formation, and dark discoloration. The bacteria are Gram-positive, spore-forming rods." loading="lazy">
+          <figcaption>Blackleg in cattle caused by Clostridium chauvoei. Affected muscles show necrosis, gas formation, and dark discoloration. The bacteria are Gram-positive, spore-forming rods.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- UNIT 5: BACILLUS -->
+      <article id="bacillus" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Bacillus anthracis (Anthrax)</h3>
+          <div class="disease-subtitle">Peracute septicaemia, vascular collapse, and splenomegaly</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Bacillus anthracis</em> (spore-forming aerobic rod).</li>
+              <li>Systemic vascular endothelium and reticuloendothelial system.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Poly-D-glutamic acid capsule prevents phagocytosis.</li>
+              <li>Tripartite toxin (Protective Antigen, Lethal Factor, Edema Factor) causes vascular damage and shock.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Dark non-clotting blood from orifices, severe splenomegaly ("blackberry jam" spleen).</li>
+              <li><strong>Micro:</strong> Massive bacteremia in capillaries, tissue edema, widespread hemorrhage.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1P4pgBbbXBXuIOtZVqMZF23SvnQi-zZ_5" alt="Anthrax in cattle caused by Bacillus anthracis. Key features include rapid death, splenomegaly, and dark, unclotted blood. The organism is a large Gram-positive rod with a capsule." loading="lazy">
+          <figcaption>Anthrax in cattle caused by Bacillus anthracis. Key features include rapid death, splenomegaly, and dark, unclotted blood. The organism is a large Gram-positive rod with a capsule.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- UNIT 6: LISTERIA & ERYSIPELOTHRIX -->
+      <article id="listeria" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Listeria &amp; Erysipelothrix</h3>
+          <div class="disease-subtitle">Rhombencephalitis, septicemia, and diamond-skin lesions</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Tropism</h4>
+            <ul>
+              <li><em>Listeria monocytogenes</em> (ruminant brainstem/uterus), <em>Erysipelothrix rhusiopathiae</em> (porcine skin/joints/heart).</li>
+              <li>Central nervous system, vascular endothelium, cutaneous vasculature.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li><em>Listeria</em>: Retrograde axonal transport via cranial nerves to brainstem; intracellular replication.</li>
+              <li><em>Erysipelothrix</em>: Neuraminidase-mediated endothelial cell damage and microthrombosis.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li><strong>Gross:</strong> Rhombencephalitis (Listeria); cutaneous diamond-shaped red plaques, vegetative endocarditis (Erysipelothrix).</li>
+              <li><strong>Micro:</strong> Brainstem microabscesses &amp; perivascular cuffing; dermal vasculitis &amp; thrombosis.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1S8lk8ZR2b79qjSFXrj55k6mpwk7L3lzk" alt="Listeria monocytogenes encephalitis (“circling disease”) in sheep. Microabscesses form in the brainstem. The organism is a Gram-positive rod exhibiting tumbling motility." loading="lazy">
+          <figcaption>Listeria monocytogenes encephalitis (“circling disease”) in sheep. Microabscesses form in the brainstem. The organism is a Gram-positive rod exhibiting tumbling motility.</figcaption>
+        </figure>
+
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1depmBk2PxoDFmQcl0QIqC84x5G6arwQt" alt="Poorly fermented silage is a major source of Listeria monocytogenes exposure in ruminants. The bacteria are Gram-positive rods capable of surviving in cold, acidic environments." loading="lazy">
+          <figcaption>Poorly fermented silage is a major source of Listeria monocytogenes exposure in ruminants. The bacteria are Gram-positive rods capable of surviving in cold, acidic environments.</figcaption>
+        </figure>
+
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1mtxv7yl2fuDMNWDmdX1h2LPFLRE4kWex" alt="Diamond skin disease in pigs caused by Erysipelothrix rhusiopathiae. The organism is a slender Gram-positive rod producing vasculitis and characteristic rhomboid skin lesions." loading="lazy">
+          <figcaption>Diamond skin disease in pigs caused by Erysipelothrix rhusiopathiae. The organism is a slender Gram-positive rod producing vasculitis and characteristic rhomboid skin lesions.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- DETAILED CLOSTRIDIAL SPECTRUM -->
+      <article id="clostridial-spectrum" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Clostridial Disease Spectrum</h3>
+          <div class="disease-subtitle">Important histotoxic, enterotoxemic and neurotoxic syndromes from the chapter</div>
+        </header>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:0.92rem; min-width:900px;">
+            <thead>
+              <tr style="background:#edf2f7; color:#1a365d;">
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Disease</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Principal agent</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Major pathogenesis</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Key lesion / teaching clue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Blackleg</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. chauvoei</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Dormant spores in muscle germinate under locally anaerobic conditions; in cattle disease is typically endogenous, while wounds are important in sheep.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Acute necrotizing emphysematous myositis; dark, dry muscle with gas bubbles, edema and hemorrhage.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Malignant edema</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. septicum</em> most commonly; mixed clostridia possible</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Contamination of wounds or devitalized tissue followed by toxin production and rapidly spreading edema, necrosis and toxemia.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Severe hemorrhagic edema and gangrene, often with less characteristic emphysema than blackleg.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Bacillary hemoglobinuria</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. haemolyticum</em> (historically <em>C. novyi</em> type D)</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Latent hepatic spores germinate in anaerobic foci, classically associated with liver damage such as fluke migration; toxin causes hepatic necrosis and intravascular hemolysis.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Large ischemic hepatic infarct plus dark red/port-wine urine, anemia and hemoglobinuria.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Black disease</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. novyi</em> type B</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Hepatic injury creates anaerobic conditions for spore germination and toxin production.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Multiple hepatic necrotic foci, often subcapsular; marked venous congestion may darken the carcass/pelt.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Braxy</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. septicum</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Acute clostridial infection of the abomasal wall in sheep, associated with mucosal injury and toxin production.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Marked edema, hemorrhage and necrosis of abomasum, sometimes extending into proximal intestine.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Enterotoxemia / pulpy kidney</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. perfringens</em> type D</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Rapid intestinal proliferation after dietary change/overeating with production and absorption of epsilon toxin.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Rapid postmortem renal autolysis (“pulpy kidney”); vascular injury and focal symmetrical encephalomalacia may occur in sheep.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Lamb dysentery / necrotizing enteritis</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. perfringens</em> types B/C, depending syndrome</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Toxin-mediated mucosal necrosis and vascular injury in neonates.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Hemorrhagic-necrotizing enteritis, sometimes with ulceration and peritonitis.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Tetanus</strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><em>C. tetani</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Tetanospasmin produced at an anaerobic wound reaches the nervous system and blocks inhibitory neurotransmission.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Usually no characteristic gross lesion; diagnosis is primarily clinical and etiologic rather than lesion-based.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- BOTRYOMYCOSIS -->
+      <article id="botryomycosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Botryomycosis</h3>
+          <div class="disease-subtitle">Chronic staphylococcal pyogranulomatous infection</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Distribution</h4>
+            <ul>
+              <li>The chapter describes botryomycosis primarily in horses but also in dogs, cattle, sheep and cats, associated mainly with <em>Staphylococcus</em> infection.</li>
+              <li>Infection commonly follows wounds and usually affects subcutaneous tissues, although internal organs can be involved.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross Lesions</h4>
+            <ul>
+              <li>Firm fibroma-like swellings may contain pockets and fistulous tracts filled with yellow pus.</li>
+              <li>Small pale bacterial “grains” can be present within the exudate.</li>
+              <li>Recognized sites include the spermatic cord after castration (scirrhous cord), tail, udder and sternal/shoulder regions.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Microscopic Lesions</h4>
+            <ul>
+              <li>Bacterial colonies occupy the center of pyogranulomas and may be surrounded by eosinophilic Splendore-Hoeppli material.</li>
+              <li>Neutrophils surround the colonies, followed by macrophages and lymphocytes, with peripheral granulation tissue and fibrosis.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- STREPTOCOCCAL MASTITIS ADDITION -->
+      <article id="streptococcal-mastitis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Streptococcal Mastitis</h3>
+          <div class="disease-subtitle">Important bovine mastitis patterns retained from the chapter</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4><em>Streptococcus agalactiae</em></h4>
+            <ul>
+              <li>Classically associated with contagious intramammary infection and persistent/chronic mastitis.</li>
+              <li>Inflammation centers on the ductal and glandular system and can lead to progressive loss of functional mammary tissue.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4><em>S. dysgalactiae</em></h4>
+            <ul>
+              <li>Can produce acute mastitis; the chapter emphasizes the potential for permanent destruction of the affected quarter.</li>
+              <li>Lesions are predominantly suppurative, with epithelial injury and accumulation of neutrophilic exudate.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4><em>S. uberis</em></h4>
+            <ul>
+              <li>An important environmental mastitis pathogen.</li>
+              <li>The chapter describes generally less severe acute disease with potential for recovery, although severity varies with strain, host and timing of treatment.</li>
+            </ul>
+          </div>
+        </div>
+      
+        <figure class="illustration">
+          <img src="https://lh3.googleusercontent.com/d/1ACP9avslxEtfCsWxVMEy0ttVuZigHgU4" alt="Chronic mastitis caused by Streptococcus agalactiae. Progressive fibrosis and decreased milk yield are typical. Gram-positive cocci appear in chains." loading="lazy">
+          <figcaption>Chronic mastitis caused by Streptococcus agalactiae. Progressive fibrosis and decreased milk yield are typical. Gram-positive cocci appear in chains.</figcaption>
+        </figure>
+
+      </article>
+
+      <!-- RHODOCOCCUS EQUI -->
+      <article id="rhodococcus" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title"><em>Rhodococcus equi</em> Pneumonia</h3>
+          <div class="disease-subtitle">Formerly described as <em>Corynebacterium equi</em> in older teaching material</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Hosts</h4>
+            <ul>
+              <li><em>Rhodococcus equi</em> is a Gram-positive facultative intracellular pathogen and an important cause of pneumonia in young foals.</li>
+              <li>Current veterinary sources emphasize foals roughly 1–5 months old, with infection often acquired very early in life on endemic farms.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Pathogenesis</h4>
+            <ul>
+              <li>Virulent organisms survive and replicate in macrophages, producing chronic suppurative to pyogranulomatous bronchopneumonia.</li>
+              <li>Respiratory infection is primary; intestinal and mesenteric lymph-node lesions can accompany pulmonary disease.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross &amp; Microscopic Lesions</h4>
+            <ul>
+              <li>Multiple firm pulmonary nodules/abscesses may be scattered throughout affected lungs or coalesce into larger lesions.</li>
+              <li>Histologically, alveoli contain numerous macrophages with neutrophils and giant cells, accompanied by necrosis and pyogranulomatous inflammation.</li>
+              <li>Current definitive diagnosis commonly combines lower-airway sampling with culture and PCR detection of virulence-associated markers such as <em>vapA</em>.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- OTHER CORYNEBACTERIAL DISEASES -->
+      <article id="coryne-extra" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Other Corynebacterial / Trueperella Diseases</h3>
+          <div class="disease-subtitle">Caseous lymphadenitis, ulcerative lymphangitis, pyelonephritis and pyogenic infection</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Caseous Lymphadenitis</h4>
+            <ul>
+              <li><em>Corynebacterium pseudotuberculosis</em> causes chronic abscessation of superficial or internal lymph nodes and organs in sheep and goats.</li>
+              <li>Characteristic lesions may show concentric laminated “onion-ring” organization of caseous material and fibrosis, particularly in sheep.</li>
+              <li>Phospholipase D and intracellular survival facilitate lymphatic dissemination.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Ulcerative Lymphangitis</h4>
+            <ul>
+              <li>In horses, <em>C. pseudotuberculosis</em> can cause chronic lower-limb lymphangitis with nodules/abscesses aligned along lymphatic vessels.</li>
+              <li>Nodules may rupture and form persistent ulcers; lymphatics become thickened and corded.</li>
+              <li>Current descriptions also recognize pectoral/ventral abscesses and internal infection as other equine presentations.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Other Important Infections</h4>
+            <ul>
+              <li><strong><em>Corynebacterium renale</em> group:</strong> associated with ascending suppurative cystitis, ureteritis and pyelonephritis, especially in cattle.</li>
+              <li><strong><em>Trueperella pyogenes</em>:</strong> causes suppurative infections and abscesses in many tissues, including lung, liver, kidney, joints and reproductive tract.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ACTINOMYCOSIS -->
+      <article id="actinomycosis" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Actinomycosis (Lumpy Jaw)</h3>
+          <div class="disease-subtitle"><em>Actinomyces bovis</em> — chronic suppurative and proliferative osteomyelitis</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Aetiology &amp; Entry</h4>
+            <ul>
+              <li><em>Actinomyces bovis</em> is a branching, slender Gram-positive bacterium and a commensal of the oral and gastrointestinal tract.</li>
+              <li>Mucosal wounds caused by coarse feed or foreign material allow organisms to invade deeper tissues and bone.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Gross Lesions</h4>
+            <ul>
+              <li>Hard, irregular, immovable enlargement of mandibular or maxillary bone produces the classic “lumpy jaw.”</li>
+              <li>Osteolysis and reactive bone formation create a honeycombed appearance; sinus tracts may drain yellow pus containing sulfur granules.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Microscopic Lesions</h4>
+            <ul>
+              <li>Central bacterial colonies are surrounded by radiating eosinophilic Splendore-Hoeppli material.</li>
+              <li>Neutrophils and epithelioid macrophages are followed by giant cells, lymphocytes, plasma cells and dense peripheral fibrosis.</li>
+              <li>The combination of pyogranulomatous inflammation and osteomyelitis distinguishes it from soft-tissue actinobacillosis.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- MYCOBACTERIAL DISEASES -->
+      <article id="mycobacteria" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Mycobacterial Diseases — Acid-Fast Gram-Positive Lineage</h3>
+          <div class="disease-subtitle">Tuberculosis and paratuberculosis (Johne’s disease)</div>
+        </header>
+        <div class="pathology-grid">
+          <div class="pathology-box">
+            <h4>Tuberculosis</h4>
+            <ul>
+              <li>Veterinary tuberculosis is caused primarily by members of the <em>Mycobacterium tuberculosis</em> complex, especially <em>M. bovis</em>, with <em>M. avium</em> complex important in birds and several mammalian hosts.</li>
+              <li>These organisms are acid-fast and do not stain reliably with routine Gram methods because of their lipid-rich cell wall.</li>
+              <li>Inhalation is a major route; ingestion can also occur. Macrophage infection leads to cell-mediated immune responses and granuloma formation.</li>
+              <li>Classic tubercles contain central caseous necrosis that may mineralize, surrounded by epithelioid macrophages, multinucleated giant cells, lymphocytes and fibrosis.</li>
+              <li>Primary lesions plus involvement of draining regional lymph nodes form the primary complex; lymphatic/hematogenous spread may produce miliary or generalized TB.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>Johne’s Disease</h4>
+            <ul>
+              <li>Caused by <em>Mycobacterium avium</em> subsp. <em>paratuberculosis</em> (MAP).</li>
+              <li>Chronic granulomatous enteritis mainly affects ruminants; infection is often acquired when animals are young, with a long preclinical period.</li>
+              <li>Gross lesions range from subtle change to diffusely thickened, corrugated distal small intestine with enlarged mesenteric lymph nodes and serosal lymphangitis.</li>
+              <li>Histologically, mucosa/submucosa are expanded by epithelioid macrophages and giant cells containing variable numbers of acid-fast bacilli.</li>
+              <li>Current diagnosis relies heavily on organism detection, particularly PCR, supplemented by culture, ELISA and histopathology according to disease stage and herd context.</li>
+            </ul>
+          </div>
+          <div class="pathology-box">
+            <h4>High-Yield Difference</h4>
+            <ul>
+              <li><strong>Tuberculosis:</strong> discrete granulomas/tubercles with caseation and often mineralization; lesions commonly involve respiratory tract and regional lymph nodes in cattle.</li>
+              <li><strong>Johne’s disease:</strong> diffuse granulomatous enteritis, usually without the classic caseating tubercles seen in bovine TB.</li>
+              <li>Both require acid-fast methods and organism-specific testing rather than routine Gram stain alone.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- GRANULOMATOUS COMPARISON -->
+      <article id="granulomatous-comparison" class="disease-card">
+        <header class="disease-header">
+          <h3 class="disease-title">Granulomatous &amp; Pyogranulomatous Gram-Positive Bacterial Diseases</h3>
+          <div class="disease-subtitle">Comparative pathology of major look-alike lesions</div>
+        </header>
+
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:0.92rem; min-width:920px;">
+            <thead>
+              <tr style="background:#edf2f7; color:#1a365d;">
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Disease</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Typical host/site</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Dominant reaction</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Characteristic morphology</th>
+                <th style="border:1px solid #cbd5e0; padding:0.7rem; text-align:left;">Best differentiating clue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Actinomycosis</strong><br><em>A. bovis</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Cattle; mandible/maxilla</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Pyogranulomatous osteomyelitis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Sulfur granules, Splendore-Hoeppli material, neutrophils, macrophages and fibrosis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Hard bony “lumpy jaw”; osteolysis and proliferative bone reaction</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Botryomycosis</strong><br><em>Staphylococcus</em> spp.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Horse and other species; skin/subcutis, wound sites</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Pyogranulomatous inflammation</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Central bacterial grains, neutrophils and Splendore-Hoeppli-like material with fibrosis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Fistulous wound-associated mass; coccoid bacterial colonies rather than branching rods</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Caseous lymphadenitis</strong><br><em>C. pseudotuberculosis</em></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Sheep/goats; superficial and visceral lymph nodes</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Chronic pyogranulomatous/caseous abscessation</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Caseous necrosis surrounded by macrophages and fibrous capsule; concentric lamination may develop</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">“Onion-ring” lymph-node lesion, especially in sheep</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong><em>Rhodococcus equi</em></strong></td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Young foals; lung ± intestine/lymph nodes</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Suppurative to pyogranulomatous bronchopneumonia</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Multiple pulmonary abscesses with macrophages, neutrophils, giant cells and necrosis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Foal pneumonia with abscessation; intracellular coccobacilli and virulence-associated PCR</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Tuberculosis</strong><br><em>Mycobacterium</em> spp.</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Many species; lung and regional lymph nodes common</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Granulomatous inflammation</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Caseating/mineralizing tubercle with epithelioid macrophages and giant cells</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Acid-fast bacilli; primary complex and tubercles</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;"><strong>Johne’s disease</strong><br>MAP</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Ruminants; distal small intestine and mesenteric nodes</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Diffuse granulomatous enteritis</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Sheets of epithelioid macrophages/giant cells expanding mucosa and submucosa</td>
+                <td style="border:1px solid #cbd5e0; padding:0.7rem;">Corrugated thick intestine, chronic wasting; abundant acid-fast bacilli may occur</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="diagnostic-panel" style="margin-top:1.25rem;">
+          <strong>Pattern-recognition note:</strong> A granuloma is a reaction pattern, not an etiologic diagnosis. 
+          First decide whether the lesion is primarily granulomatous or pyogranulomatous, then assess the organ distribution, presence or absence of caseation/mineralization, Splendore-Hoeppli material, sulfur-like grains, bone involvement, and acid-fast organisms.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 4. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Key">
+        <strong>Gram-Positive Diagnostic Key:</strong> Begin with lesion pattern and bacterial morphology: clusters of cocci suggest staphylococci, chains of cocci suggest streptococci, large spore-forming rods support clostridial or bacillary disease, and branching rods suggest actinomycetes. 
+        Pyogranulomatous lesions require special attention to Splendore-Hoeppli material and tissue distribution. Mycobacteria are acid-fast organisms with lipid-rich walls and should be investigated with acid-fast staining plus organism-specific culture or molecular testing rather than relying on routine Gram stain.
+      </aside>
+    </section>
+
+    <!-- 5. FOOTER & NAVIGATION -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Gram-Positive Bacterial Diseases Subpage</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases" class="btn btn-secondary">Bacterial Diseases Section</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

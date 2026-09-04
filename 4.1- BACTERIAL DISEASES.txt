@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bacterial Diseases - Veterinary Pathology Digital Companion</title>
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --accent-light: #3182ce;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --white: #ffffff;
+      
+      --status-available-bg: #e6fffa;
+      --status-available-text: #234e52;
+      --status-available-border: #b2f5ea;
+
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --radius: 6px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-light);
+      color: var(--secondary-color);
+      line-height: 1.6;
+      font-size: 1rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY & ACCESSIBILITY
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      color: var(--primary-color);
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.65rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent-light);
+      outline-offset: 2px;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: var(--secondary-color);
+      max-width: 850px;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    /* ==========================================================================
+       BUTTONS & BADGES
+       ========================================================================== */
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+      border-color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+    }
+
+    .badge-available {
+      background-color: var(--status-available-bg);
+      color: var(--status-available-text);
+      border-color: var(--status-available-border);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero {
+      background-color: var(--white);
+      border-left: 6px solid var(--primary-color);
+      padding: 2.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 3rem;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-body {
+      font-size: 1.05rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-secondary-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       2. BACTERIAL PATHOGENESIS FRAMEWORK
+       ========================================================================== */
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pathway-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pathway-number {
+      background-color: var(--primary-color);
+      color: var(--white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .pathway-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      padding-top: 0.2rem;
+    }
+
+    /* ==========================================================================
+       3. BACTERIAL DISEASE CATEGORIES (CARDS)
+       ========================================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .examples-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .example-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .example-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.925rem;
+    }
+
+    .example-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .card-action {
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       4. KEY BACTERIAL LESION PATTERNS
+       ========================================================================== */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pattern-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pattern-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pattern-card p {
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================================================
+       5. DIAGNOSTIC APPROACH PANEL
+       ========================================================================== */
+    .diagnostic-panel {
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      border-left: 5px solid var(--accent-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.975rem;
+      color: #2b6cb0;
+    }
+
+    .diagnostic-panel strong {
+      color: var(--primary-color);
+    }
+
+    /* ==========================================================================
+       6. FOOTER & NAVIGATION
+       ========================================================================== */
+    .quick-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .site-footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 2.5rem 1.25rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-title {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-subtext {
+      color: #cbd5e0;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES (RESPONSIVE DESIGN)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .pathway-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .pattern-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .pathway-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .pattern-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+      <div class="hero-label">Veterinary Pathology Digital Companion</div>
+      <h1>Bacterial Diseases</h1>
+      <div class="hero-subtitle">From bacterial properties to lesion pattern</div>
+      <p class="hero-body">
+        This section covers major bacterial pathogens of veterinary importance, organized by cell wall characteristics, physiological traits, and morphological groupings to guide systemic lesion recognition and diagnostic investigation.
+      </p>
+      <p class="hero-secondary-text">
+        Select a bacterial group below to examine specific aetiological agents, pathogenesis, gross and microscopic lesions, and diagnostic features.
+      </p>
+    </header>
+
+    <!-- 2. DIAGNOSTIC PATHWAY FOR BACTERIAL PATHOLOGY -->
+    <section class="section-block" aria-labelledby="pathway-heading">
+      <h2 id="pathway-heading">Bacterial Diagnostic Sequence</h2>
+      <p class="section-intro">Follow this structured approach when evaluating suspected bacterial lesions in veterinary species.</p>
+      
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <div class="pathway-number">1</div>
+          <div class="pathway-text">Bacterial characteristics &amp; staining</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">2</div>
+          <div class="pathway-text">Virulence mechanisms &amp; toxins</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">3</div>
+          <div class="pathway-text">Tissue tropism &amp; portal of entry</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">4</div>
+          <div class="pathway-text">Dominant inflammatory pattern</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">5</div>
+          <div class="pathway-text">Gross &amp; histopathological changes</div>
+        </div>
+        <div class="pathway-card">
+          <div class="pathway-number">6</div>
+          <div class="pathway-text">Confirmatory lab identification</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BACTERIAL DISEASE CATEGORIES -->
+    <section class="section-block" aria-labelledby="categories-heading">
+      <h2 id="categories-heading">Explore Bacterial Categories</h2>
+      
+      <div class="cards-grid">
+        
+        <!-- CATEGORY 1: GRAM-POSITIVE -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Gram-Positive Bacterial Diseases</h3>
+          <div class="card-subtitle">Cocci, pyogenic organisms, and spore-forming bacilli</div>
+          <p class="card-description">
+            Study suppurative, necrotising, and toxigenic infections caused by key Gram-positive genera across domestic animal species.
+          </p>
+          <div class="examples-header">Key Representative Genera</div>
+          <ul class="example-list">
+            <li><em>Staphylococcus</em> &amp; <em>Streptococcus</em></li>
+            <li><em>Corynebacterium</em> &amp; <em>Trueperella</em></li>
+            <li><em>Clostridium</em> &amp; <em>Bacillus</em></li>
+            <li><em>Listeria</em> &amp; <em>Erysipelothrix</em></li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases/gram-positive-bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Gram-Positive Diseases</a>
+          </div>
+        </article>
+
+        <!-- CATEGORY 2: GRAM-NEGATIVE -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Gram-Negative Bacterial Diseases</h3>
+          <div class="card-subtitle">Enteric, respiratory, and septicaemic pathogens</div>
+          <p class="card-description">
+            Examine endotoxin-driven tissue injury, fibrinous inflammation, septicaemia, and vascular pathology associated with Gram-negative organisms.
+          </p>
+          <div class="examples-header">Key Representative Genera</div>
+          <ul class="example-list">
+            <li><em>Escherichia</em>, <em>Salmonella</em> &amp; <em>Yersinia</em></li>
+            <li><em>Pasteurella</em>, <em>Mannheimia</em> &amp; <em>Histophilus</em></li>
+            <li><em>Pseudomonas</em> &amp; <em>Burkholderia</em></li>
+            <li><em>Brucella</em> &amp; <em>Francisella</em></li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases/gram-negative-bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Gram-Negative Diseases</a>
+          </div>
+        </article>
+
+        <!-- CATEGORY 3: MYCOBACTERIAL -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Mycobacterial Diseases</h3>
+          <div class="card-subtitle">Acid-fast organisms and granulomatous pathology</div>
+          <p class="card-description">
+            Explore chronic granulomatous inflammation, intracellular persistence, giant cell formation, and caseous necrosis in mycobacterial infections.
+          </p>
+          <div class="examples-header">Key Disease Conditions</div>
+          <ul class="example-list">
+            <li>Bovine Tuberculosis (<em>M. bovis</em>)</li>
+            <li>Paratuberculosis / Johne's Disease (<em>M. avium</em> subsp. <em>paratuberculosis</em>)</li>
+            <li>Avian Mycobacteriosis</li>
+            <li>Atypical Mycobacterial Granulomas</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases/mycobacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Mycobacterial Diseases</a>
+          </div>
+        </article>
+
+        <!-- CATEGORY 4: SPIROCHETAL & ATYPICAL -->
+        <article class="card">
+          <div>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <h3 class="card-title">Spirochetal &amp; Atypical Bacteria</h3>
+          <div class="card-subtitle">Motile spirals, wall-less, and obligate intracellular agents</div>
+          <p class="card-description">
+            Examine systemic, reproductive, pulmonary, and vascular conditions caused by spirochetes, mycoplasmas, chlamydiae, and rickettsial agents.
+          </p>
+          <div class="examples-header">Key Groups &amp; Conditions</div>
+          <ul class="example-list">
+            <li><em>Leptospira</em>, <em>Brachyspira</em> &amp; <em>Borrelia</em></li>
+            <li><em>Mycoplasma</em> (Contagious Pleuropneumonia, Mastitis)</li>
+            <li><em>Chlamydia</em> (Abortion, Conjunctivitis, Encephalomyelitis)</li>
+            <li>Anaplasmataceae (<em>Anaplasma</em>, <em>Ehrlichia</em>)</li>
+          </ul>
+          <div class="card-action">
+            <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases/bacterial-diseases/spirochetal-and-atypical-bacterial-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore Spirochetal &amp; Atypical</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. KEY BACTERIAL LESION PATTERNS -->
+    <section class="section-block" aria-labelledby="patterns-heading">
+      <h2 id="patterns-heading">Predominant Bacterial Lesion Patterns</h2>
+      <p class="section-intro">Bacterial infections frequently induce distinct tissue responses based on virulence factors and host defense interactions.</p>
+      
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <h3>Suppurative / Abscessation</h3>
+          <p>Neutrophil accumulation driven by pyogenic bacteria (e.g., <em>Streptococcus</em>, <em>Staphylococcus</em>, <em>Corynebacterium</em>).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Fibrinous Inflammation</h3>
+          <p>Vascular leakage on serosal or mucosal surfaces common in acute Gram-negative septicaemias and respiratory pathogens.</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Granulomatous Reaction</h3>
+          <p>Macrophage-dominated tissue response typical of intracellular bacteria (e.g., <em>Mycobacterium</em>, <em>Brucella</em>).</p>
+        </div>
+        <div class="pattern-card">
+          <h3>Necrotising / Emphysematous</h3>
+          <p>Rapid destruction and gas formation associated with exotoxins and anaerobic environments (e.g., pathogenic <em>Clostridium</em> spp.).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DIAGNOSTIC APPROACH PANEL -->
+    <section class="section-block">
+      <aside class="diagnostic-panel" aria-label="Diagnostic Note">
+        <strong>Diagnostic Integration:</strong> Histopathological pattern recognition provides vital preliminary direction. Definitive confirmation of bacterial diseases typically requires Gram staining, acid-fast staining, aerobic/anaerobic bacterial culture, immunohistochemistry, or molecular detection (PCR).
+      </aside>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="site-footer">
+      <h2 class="footer-title">Veterinary Pathology Digital Companion</h2>
+      <p class="footer-subtext">Bacterial Diseases Section</p>
+      <div class="footer-actions">
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/infectious-diseases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Infectious Diseases Hub</a>
+        <a href="https://sites.google.com/view/veterinary-pathology-companion/home" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Back to Main Companion</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
