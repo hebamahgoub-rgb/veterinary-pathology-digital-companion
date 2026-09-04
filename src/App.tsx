@@ -11,6 +11,7 @@ import { SavedView } from './components/SavedView';
 import { ImageAtlasView } from './components/ImageAtlasView';
 import { SystemicPathologyView } from './components/SystemicPathologyView';
 import { InfectiousDiseasesView } from './components/InfectiousDiseasesView';
+import { OfflineNotice } from './components/OfflineNotice';
 import { NavigationTab, ScreenView } from './types';
 
 interface SavedLesson {
@@ -226,6 +227,8 @@ export default function App() {
         onNavigate={handleNavigate}
         savedCount={savedLessons.length}
       />
+
+      <OfflineNotice />
 
       {/* Main Content Area */}
       <main className="flex-1 w-full">{renderScreen()}</main>
