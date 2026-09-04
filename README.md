@@ -2,11 +2,11 @@
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
 
-# Veterinary Pathology Digital Companion
+# Run and deploy your AI Studio app
 
 This contains everything you need to run your app locally.
 
-An installable, mobile-first study companion published through GitHub Pages.
+View your app in AI Studio: https://ai.studio/apps/50ed611b-01a6-422e-a31a-f1f4c7c1e300
 
 ## Run Locally
 
@@ -15,9 +15,6 @@ An installable, mobile-first study companion published through GitHub Pages.
 
 1. Install dependencies:
    `npm install`
-2. Run the app:
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
    `npm run dev`
-
-No API key or paid service is required. Pushes to `main` are built and deployed
-by the included GitHub Pages workflow. The academic source exports in
-`content-source/` remain the authoritative content reference.
