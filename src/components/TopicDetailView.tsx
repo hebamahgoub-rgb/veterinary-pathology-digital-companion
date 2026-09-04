@@ -20,6 +20,24 @@ export const TopicDetailView: React.FC<TopicDetailViewProps> = ({
   onSelectLesson,
   onNavigate,
 }) => {
+  const directLessonTopics = [
+    'cell-injury-cell-death',
+    'inflammation',
+    'circulatory-disturbances',
+    'disorders-of-the-immune-system',
+    'disorders-of-growth',
+  ];
+
+  React.useEffect(() => {
+    if (directLessonTopics.includes(topicId)) {
+      onSelectLesson(topicId);
+    }
+  }, [topicId, onSelectLesson]);
+
+  if (directLessonTopics.includes(topicId)) {
+    return null;
+  }
+
   const currentTopic =
     ALL_TOPIC_SECTIONS.find((s) => s.id === topicId) ||
     GENERAL_PATHOLOGY_SECTIONS[0];
@@ -54,6 +72,33 @@ export const TopicDetailView: React.FC<TopicDetailViewProps> = ({
         return { label: 'Self-Assessment (10 Q)', color: 'bg-emerald-50 text-emerald-900 border-emerald-300' };
       case 'videos-further-learning':
         return { label: '12 Videos & References', color: 'bg-amber-50 text-amber-900 border-amber-300' };
+      // Cell Injury and Cell Death (GEN-02)
+      case 'cid-start-here':
+        return { label: 'Concept Overview', color: 'bg-teal-50 text-teal-900 border-teal-200' };
+      case 'cid-causes':
+        return { label: 'Etiology Matrix', color: 'bg-slate-100 text-slate-800 border-slate-300' };
+      case 'cid-mechanisms':
+        return { label: 'Biochemistry / ROS', color: 'bg-rose-50 text-rose-900 border-rose-200' };
+      case 'cid-reversible-injury':
+        return { label: 'Hydropic / H&E', color: 'bg-teal-50 text-teal-900 border-teal-200' };
+      case 'cid-irreversible-injury':
+        return { label: 'Ultrastructure / Densities', color: 'bg-purple-50 text-purple-900 border-purple-200' };
+      case 'cid-necrosis':
+        return { label: 'Nuclear Stains (H&E)', color: 'bg-indigo-50 text-indigo-900 border-indigo-200' };
+      case 'cid-patterns-of-necrosis':
+        return { label: '6 Morphologic Types', color: 'bg-amber-50 text-amber-900 border-amber-300' };
+      case 'cid-apoptosis':
+        return { label: 'Caspase Pathways', color: 'bg-emerald-50 text-emerald-900 border-emerald-300' };
+      case 'cid-necrosis-vs-apoptosis':
+        return { label: 'Comparative Criteria', color: 'bg-blue-50 text-blue-900 border-blue-200' };
+      case 'cid-cellular-adaptations':
+        return { label: 'Adaptive Responses', color: 'bg-teal-50 text-teal-900 border-teal-200' };
+      case 'cid-practical-gallery':
+        return { label: '6 Case Diagnostic Atlas', color: 'bg-amber-50 text-amber-900 border-amber-300' };
+      case 'cid-test-yourself':
+        return { label: 'Self-Assessment (5 Q)', color: 'bg-emerald-50 text-emerald-900 border-emerald-300' };
+      case 'cid-videos-learning':
+        return { label: 'English & Bilingual Videos', color: 'bg-teal-50 text-teal-900 border-teal-300' };
       default:
         return null;
     }
@@ -92,6 +137,8 @@ export const TopicDetailView: React.FC<TopicDetailViewProps> = ({
             className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
               currentTopic.status === 'Available'
                 ? 'bg-emerald-50 text-emerald-900 border border-emerald-300/80'
+                : currentTopic.status === 'Under development'
+                ? 'bg-slate-100 text-slate-700 border border-slate-300/80'
                 : 'bg-amber-50 text-amber-900 border border-amber-300/80'
             }`}
           >
@@ -99,8 +146,8 @@ export const TopicDetailView: React.FC<TopicDetailViewProps> = ({
           </span>
           {currentTopic.lessons.length > 0 && (
             <span className="text-xs font-semibold text-slate-500">
-              {currentTopic.id === 'disturbance-cell-metabolism'
-                ? '13 study units'
+              {currentTopic.status === 'Available'
+                ? `${currentTopic.lessonCount || currentTopic.lessons.length} study units`
                 : `${currentTopic.lessons.length} study units`}
             </span>
           )}
@@ -166,8 +213,8 @@ export const TopicDetailView: React.FC<TopicDetailViewProps> = ({
               Lessons in this Section
             </h3>
             <span className="text-[11px] text-slate-500 font-medium">
-              {currentTopic.id === 'disturbance-cell-metabolism'
-                ? '13 study units available'
+              {currentTopic.status === 'Available'
+                ? `${currentTopic.lessonCount || currentTopic.lessons.length} study units available`
                 : `${currentTopic.lessons.length} Lessons`}
             </span>
           </div>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cell Injury and Cell Death | General Pathology</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      color: #2d3748;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 12px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .module-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    .module-header h1 {
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+    .module-header p {
+      color: var(--secondary-color);
+      font-size: 1rem;
+    }
+
+    /* Start Here Box */
+    .start-here-box {
+      background-color: var(--bg-light);
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid var(--accent-color);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+    .start-here-box h2 {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    /* Navigation TOC */
+    .nav-toc {
+      background: #edf2f7;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 35px;
+    }
+    .nav-toc h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .nav-toc ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      list-style: none;
+    }
+    .nav-toc a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .nav-toc a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    .topic-section {
+      margin-bottom: 45px;
+      padding-top: 10px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 30px;
+    }
+    .topic-section h2 {
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 5px;
+    }
+    .topic-section h3 {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      margin: 18px 0 8px 0;
+    }
+    .topic-section p {
+      margin-bottom: 12px;
+    }
+    .topic-section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .topic-section li {
+      margin-bottom: 6px;
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+    .comparison-table th, .comparison-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .comparison-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .comparison-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* Necrosis Pattern Cards Grid */
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .pattern-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+      border-top: 4px solid var(--accent-color);
+    }
+    .pattern-card h3 {
+      color: var(--primary-color);
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    /* Gallery Grid */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .case-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .case-image-holder {
+      background: #e2e8f0;
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .case-image-holder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .case-image-holder img.contain-image {
+      object-fit: contain;
+      background: #f7fafc;
+    }
+
+    .image-credit {
+      padding: 6px 10px;
+      background: #f7fafc;
+      color: #4a5568;
+      font-size: 0.7rem;
+      line-height: 1.35;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .image-credit a {
+      color: #2b6cb0;
+    }
+
+    .case-body {
+      padding: 15px;
+      font-size: 0.875rem;
+    }
+    .case-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .case-meta {
+      list-style: none;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+      margin-left: 0 !important;
+    }
+    .case-meta li {
+      margin-bottom: 3px !important;
+    }
+    .teaching-point {
+      background-color: var(--bg-light);
+      padding: 10px;
+      border-radius: 4px;
+      border-left: 3px solid var(--accent-color);
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    /* Comparative Pathology Styling */
+    .comparative-badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #fff7e6;
+      border: 1px solid #d69e2e;
+      color: #744210;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .comparative-note {
+      margin: 14px 0 20px;
+      padding: 12px 14px;
+      background: #fffaf0;
+      border-left: 4px solid #d69e2e;
+      border-radius: 4px;
+      font-size: 0.875rem;
+    }
+
+    /* Gallery Image Credits Subsection Styling */
+    .gallery-credits-section {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .gallery-credits-section h3 {
+      font-size: 1.1rem;
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-credits-list {
+      font-size: 0.8rem;
+      color: #4a5568;
+      line-height: 1.5;
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
+
+    .gallery-credits-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-credits-list a {
+      color: #2b6cb0;
+    }
+
+    /* Teaching Illustrations */
+    .teaching-figure {
+      margin: 22px 0 28px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .teaching-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #f7fafc;
+    }
+
+    .teaching-figure figcaption {
+      padding: 12px 14px;
+      background: var(--bg-light);
+      color: #4a5568;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .teaching-figure figcaption strong {
+      color: var(--primary-color);
+    }
+
+    /* English and Bilingual Video Lessons */
+    .video-intro {
+      margin-bottom: 18px;
+      color: var(--secondary-color);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .video-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(26, 54, 93, 0.08);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-body {
+      padding: 16px;
+    }
+
+    .video-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ebf8ff;
+      border: 1px solid #90cdf4;
+      color: #1a365d;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .video-label.bilingual {
+      background: #faf5ff;
+      border-color: #d6bcfa;
+      color: #553c9a;
+      text-transform: none;
+    }
+
+    .video-card h3 {
+      margin: 0 0 8px;
+      color: var(--primary-color);
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .video-card p {
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--secondary-color);
+    }
+
+    .video-link {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: var(--accent-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .video-link:hover,
+    .video-link:focus {
+      background: var(--primary-color);
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 14px; }
+      .module-header h1 { font-size: 1.65rem; }
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; Cell Injury and Cell Death
+    </div>
+
+    <!-- MODULE HEADER -->
+    <div class="module-header">
+      <h1>Cell Injury and Cell Death</h1>
+      <p>General Pathology Module 2 — From cellular stress and reversible damage to necrosis and apoptosis.</p>
+    </div>
+
+    <!-- 1. START HERE -->
+    <div id="start-here" class="start-here-box">
+      <h2>1. Start Here</h2>
+      <p>Normal cells maintain homeostatic balance. Physiological stress or pathological stimuli induce <strong>cellular adaptation</strong>. If adaptive limits are exceeded or if the stimulus is acutely toxic, <strong>cell injury</strong> ensues. Injury progresses from a <strong>reversible phase</strong> to an <strong>irreversible threshold</strong>, culminating in cell death via <strong>necrosis</strong> or <strong>apoptosis</strong>.</p>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1ycI0r-7F8LVAAzjqfpSyvCr1wFEPWZb6" alt="Overview of reversible and irreversible cell injury">
+        <figcaption><strong>Reversible vs Irreversible Cell Injury.</strong> Overview of cellular responses to injury. Normal cells under mild stress develop reversible injury characterized by hydropic change, organelle swelling, and membrane blebbing. Persistent or severe injury leads to irreversible damage marked by loss of membrane integrity, mitochondrial amorphous densities, and nuclear breakdown (pyknosis &rarr; karyorrhexis &rarr; karyolysis), culminating in cell death.</figcaption>
+      </figure>
+
+    </div>
+
+    <!-- TOC NAVIGATION -->
+    <div class="nav-toc">
+      <h3>Module Contents</h3>
+      <ul>
+        <li><a href="#causes">2. Causes of Cell Injury</a></li>
+        <li><a href="#mechanisms">3. Mechanisms of Cell Injury</a></li>
+        <li><a href="#reversible">4. Reversible Cell Injury</a></li>
+        <li><a href="#irreversible">5. Irreversible Cell Injury</a></li>
+        <li><a href="#necrosis">6. Necrosis</a></li>
+        <li><a href="#patterns">7. Patterns of Necrosis</a></li>
+        <li><a href="#apoptosis">8. Apoptosis</a></li>
+        <li><a href="#comparison">9. Necrosis vs. Apoptosis</a></li>
+        <li><a href="#adaptations">10. Cellular Adaptations</a></li>
+        <li><a href="#gallery">11. Practical Pathology Gallery</a></li>
+        <li><a href="#self-test">12. Test Yourself</a></li>
+        <li><a href="#resources">13. Videos &amp; Further Learning</a></li>
+      </ul>
+    </div>
+
+    <!-- 2. CAUSES OF CELL INJURY -->
+    <section id="causes" class="topic-section">
+      <h2>2. Causes of Cell Injury</h2>
+      <p>Cellular injury stems from a spectrum of etiological factors operating individually or synergistically:</p>
+      <ul>
+        <li><strong>Oxygen Deprivation (Hypoxia &amp; Ischemia):</strong> Impairs oxidative phosphorylation; the most common cause of cell injury.</li>
+        <li><strong>Physical Agents:</strong> Mechanical trauma, temperature extremes, radiation, and electrical shock.</li>
+        <li><strong>Chemical Agents &amp; Toxins:</strong> Environmental pollutants, heavy metals, plant toxins, poisons, and therapeutic drugs.</li>
+        <li><strong>Infectious Agents:</strong> Viruses, bacteria, fungi, protozoa, and helminths.</li>
+        <li><strong>Immunologic Reactions:</strong> Autoimmune responses, hypersensitivity reactions, and immune-mediated tissue injury.</li>
+        <li><strong>Genetic Derangements:</strong> Inborn errors of metabolism, chromosomal abnormalities, and congenital malformations.</li>
+        <li><strong>Nutritional Imbalances:</strong> Deficiencies (e.g., Vitamin E/Selenium) or excesses (e.g., obesity, hepatic lipidosis).</li>
+      </ul>
+    </section>
+
+    <!-- 3. MECHANISMS OF CELL INJURY -->
+    <section id="mechanisms" class="topic-section">
+      <h2>3. Mechanisms of Cell Injury</h2>
+      <p>Biochemical events target critical intracellular systems:</p>
+      <ul>
+        <li><strong>ATP Depletion:</strong> Failure of energy-dependent membrane pumps (Na+/K+ ATPase), leading to intracellular sodium accumulation and cell swelling.</li>
+        <li><strong>Mitochondrial Damage:</strong> Loss of membrane potential and formation of high-conductance transition pores, releasing cytochrome c into the cytosol.</li>
+        <li><strong>Calcium Influx:</strong> Loss of calcium homeostasis activates damaging intracellular enzymes (phospholipases, proteases, endonucleases, ATPases).</li>
+        <li><strong>Oxidative Stress:</strong> Accumulation of Reactive Oxygen Species (ROS) resulting in lipid peroxidation of membranes, protein misfolding, and DNA damage.</li>
+        <li><strong>Membrane Permeability Defects:</strong> Direct or enzymatic disruption of plasma, mitochondrial, and lysosomal membranes.</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1LNBjH8cYh3TFCd9bRyD3d-lQRZGfhzd0" alt="Major biochemical mechanisms of cell injury">
+        <figcaption><strong>Mechanisms of Cell Injury.</strong> Major biochemical mechanisms of cell injury. ATP depletion impairs ion pumps, causing cellular swelling. Reactive oxygen species (ROS) induce lipid peroxidation and protein/DNA damage. Loss of calcium homeostasis activates destructive enzymes. Mitochondrial injury triggers permeability transition and loss of oxidative phosphorylation, driving the cell toward irreversible injury and death.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- 4. REVERSIBLE CELL INJURY -->
+    <section id="reversible" class="topic-section">
+      <h2>4. Reversible Cell Injury</h2>
+      <p>Morphological alterations that can return to baseline if the damaging stimulus is removed.</p>
+      <ul>
+        <li><strong>Cellular Swelling (Hydropic Change):</strong> First manifestation; paleness, increased organ weight, microvacuolated cytoplasm under light microscopy.</li>
+        <li><strong>Fatty Change (Lipidosis):</strong> Appearance of lipid vacuoles in hepatocytes and cardiomyocytes following metabolic disruption.</li>
+        <li><strong>Ultrastructural Changes:</strong> Plasma membrane blebbing, microvilli blunting, mitochondrial swelling, and ribosomal detachment.</li>
+      </ul>
+    </section>
+
+    <!-- 5. IRREVERSIBLE CELL INJURY -->
+    <section id="irreversible" class="topic-section">
+      <h2>5. Irreversible Cell Injury</h2>
+      <p>The point of no return is characterized biochemicaly and morphologically by two main features:</p>
+      <ul>
+        <li><strong>Inability to reverse mitochondrial dysfunction:</strong> Persistent ATP depletion.</li>
+        <li><strong>Profound membrane disturbance:</strong> Severe damage to plasma, lysosomal, and organelle membranes with massive calcium influx and loss of cellular proteins.</li>
+      </ul>
+    </section>
+
+    <!-- 6. NECROSIS -->
+    <section id="necrosis" class="topic-section">
+      <h2>6. Necrosis</h2>
+      <p>Uncontrolled cell death resulting from severe acute injury, accompanied by enzyme digestion and inflammatory response in surrounding viable tissue.</p>
+      <h3>Nuclear Alterations in Necrosis</h3>
+      <ul>
+        <li><strong>Pyknosis:</strong> Nuclear shrinkage and increased basophilia (dense, dark nucleus).</li>
+        <li><strong>Karyorrhexis:</strong> Fragmentation of the pyknotic nucleus.</li>
+        <li><strong>Karyolysis:</strong> Dissolution of the nucleus due to DNase activity (fading basophilia).</li>
+      </ul>
+    </section>
+
+    <!-- 7. PATTERNS OF NECROSIS -->
+    <section id="patterns" class="topic-section">
+      <h2>7. Patterns of Necrosis</h2>
+      <p>The gross and microscopic appearance reflects the tissue architecture and underlying etiology:</p>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/15oy5ar7iDQuORHzTsLupC-F7_7k-bLHW" alt="Morphologic patterns of necrosis">
+        <figcaption><strong>Morphologic Patterns of Necrosis.</strong> Morphologic patterns of necrosis. Coagulative necrosis preserves tissue architecture despite protein denaturation. Liquefactive necrosis results in enzymatic digestion and fluidification, especially in the CNS. Caseous necrosis combines features of coagulative and liquefactive necrosis, producing friable, granular material. Fat necrosis involves lipase-mediated destruction of adipocytes and formation of chalky calcium soaps.</figcaption>
+      </figure>
+
+      
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <h3>Coagulative Necrosis</h3>
+          <p>Denaturation of structural proteins predominates over enzymatic digestion. Tissue architecture is preserved for days ("ghost outlines"). Typical of ischemic injury (infarction) in solid organs except the brain.</p>
+        </div>
+
+        <div class="pattern-card">
+          <h3>Liquefactive Necrosis</h3>
+          <p>Enzymatic digestion predominates over protein denaturation. Rapidly transforms tissue into a liquid viscous mass. Typical of CNS ischemic necrosis (malacia) and bacterial/fungal abscesses.</p>
+        </div>
+
+        <div class="pattern-card">
+          <h3>Caseous Necrosis</h3>
+          <p>Friable, "cheese-like" gross appearance. Complete loss of tissue architecture replaced by granular acellular debris. Classic for granulomatous inflammation (e.g., <em>Mycobacterium</em>, Corynebacterium pseudotuberculosis).</p>
+        </div>
+
+        <div class="pattern-card">
+          <h3>Fat Necrosis</h3>
+          <p>Focal areas of fat destruction resulting from pancreatic lipase release (pancreatitis) or trauma. Fatty acids combine with calcium (saponification) to form chalky-white deposits.</p>
+        </div>
+
+        <div class="pattern-card">
+          <h3>Fibrinoid Necrosis</h3>
+          <p>Microscopic pattern seen in immunopathic vascular reactions. Antigen-antibody complexes deposit in arterial walls alongside fibrin, producing a bright pink, homogeneous microscopic appearance.</p>
+        </div>
+
+        <div class="pattern-card">
+          <h3>Gangrenous Necrosis</h3>
+          <p>Clinical term applied to a limb or organ that has lost blood supply and undergone necrosis. Classified into <strong>Dry Gangrene</strong> (ischemic coagulative) and <strong>Wet Gangrene</strong> (bacterial liquefactive superinfection).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. APOPTOSIS -->
+    <section id="apoptosis" class="topic-section">
+      <h2>8. Apoptosis</h2>
+      <p>Regulated individual cell death mechanism requiring energy (ATP) activation without eliciting an inflammatory response. Operates via two main pathways:</p>
+      <ul>
+        <li><strong>Intrinsic (Mitochondrial) Pathway:</strong> Initiated by cell stress, DNA damage, or growth factor withdrawal. Cytochrome c leaks into cytosol, forming the apoptosome and activating <em>Caspase-9</em>.</li>
+        <li><strong>Extrinsic (Death Receptor) Pathway:</strong> Triggered by cell surface receptors (Fas, TNFR1) binding ligands (FasL, TNF-&alpha;), activating <em>Caspase-8</em>.</li>
+        <li><strong>Execution Phase:</strong> Executioner caspases (Caspase-3, -6, -7) cleave cellular targets, leading to cell fragmentation into apoptotic bodies cleared by phagocytes.</li>
+      </ul>
+    </section>
+
+    <!-- 9. COMPARISON TABLE -->
+    <section id="comparison" class="topic-section">
+      <h2>9. Necrosis versus Apoptosis</h2>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1JvDCZHgFfIomR68lc2HVBd2dD3E7b1fc" alt="Side-by-side comparison of apoptosis and necrosis">
+        <figcaption><strong>Apoptosis vs Necrosis.</strong> Comparison of apoptosis and necrosis. Apoptosis is an energy-dependent, regulated process characterized by cell shrinkage, chromatin condensation, and formation of apoptotic bodies that are phagocytosed without inflammation. Necrosis is uncontrolled cell death marked by swelling, membrane rupture, and leakage of cellular contents, eliciting inflammation.</figcaption>
+      </figure>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Necrosis</th>
+            <th>Apoptosis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cell Size</strong></td>
+            <td>Enlarged (swelling)</td>
+            <td>Reduced (shrinkage)</td>
+          </tr>
+          <tr>
+            <td><strong>Nucleus</strong></td>
+            <td>Pyknosis &rarr; Karyorrhexis &rarr; Karyolysis</td>
+            <td>Fragmentation into nucleosome-sized fragments</td>
+          </tr>
+          <tr>
+            <td><strong>Plasma Membrane</strong></td>
+            <td>Disrupted / leaky</td>
+            <td>Intact; altered structure (phagocyte signal)</td>
+          </tr>
+          <tr>
+            <td><strong>Cellular Contents</strong></td>
+            <td>Enzymatic digestion; leaks out</td>
+            <td>Intact in apoptotic bodies</td>
+          </tr>
+          <tr>
+            <td><strong>Adjacent Inflammation</strong></td>
+            <td>Frequent / Prominent</td>
+            <td>Absent</td>
+          </tr>
+          <tr>
+            <td><strong>Physiologic / Pathologic</strong></td>
+            <td>Invariably pathologic</td>
+            <td>Often physiologic; can be pathologic</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 10. CELLULAR ADAPTATIONS TO STRESS -->
+    <section id="adaptations" class="topic-section">
+      <h2>10. Cellular Adaptations to Stress</h2>
+      <ul>
+        <li><strong>Hypertrophy:</strong> Increase in cell size leading to increased organ size (e.g., cardiac hypertrophy).</li>
+        <li><strong>Hyperplasia:</strong> Increase in cell number in response to stimulus (e.g., hormonal epidermal hyperplasia).</li>
+        <li><strong>Atrophy:</strong> Decrease in cell size and organ volume due to disuse, denervation, diminished blood supply, or inadequate nutrition.</li>
+        <li><strong>Metaplasia:</strong> Reversible substitution of one adult cell type for another (e.g., squamous metaplasia of respiratory epithelium in Vitamin A deficiency).</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/12GAPflFrJW9yqNiWbRBpoqpn8283Opn7" alt="Subcellular responses to injury including autophagy cytoskeletal damage and lipid accumulation">
+        <figcaption><strong>Subcellular Responses to Injury.</strong> Subcellular responses to injury. Autophagy removes damaged organelles through lysosomal degradation. Cytoskeletal injury disrupts cellular structure and transport. Lipid accumulation (steatosis) occurs when injured cells cannot adequately metabolize or export lipids, producing visible vacuoles within the cytoplasm.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- 11. PRACTICAL PATHOLOGY GALLERY -->
+    <section id="gallery" class="topic-section">
+      <h2>11. Practical Pathology Gallery</h2>
+      <p>Curated gross and microscopic cases demonstrating patterns of cell injury and death.</p>
+      
+      <div class="comparative-note">
+        <strong>Comparative pathology:</strong> Selected human specimens are included where they clearly demonstrate fundamental pathological processes shared across species. Each human-derived example is explicitly labelled.
+      </div>
+      
+      <div class="case-grid">
+        
+        <!-- CASE 1 -->
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1bv2WF9ngvO4M1oeUrs3zaezE6cQNc68u" alt="Gross kidney showing multiple pale cortical infarcts">
+          </div>
+          <div class="image-credit">
+            Image: Denis Desaulniers and Bernard Têtu, Université Laval, via <a href="https://commons.wikimedia.org/wiki/File:Rein_Infarctus_55-o.apatho-1486a-rein.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+          </div>
+          <div class="case-body">
+            <span class="comparative-badge">Comparative Pathology — Human Example</span>
+            <div class="case-title">Renal Infarction (Coagulative Necrosis)</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Kidney</li>
+              <li><strong>Pattern:</strong> Coagulative Necrosis</li>
+              <li><strong>Stage:</strong> Acute/Subacute Infarction</li>
+            </ul>
+            <p>Gross kidney showing pale, wedge-shaped cortical infarcts typical of coagulative necrosis resulting from sudden loss of arterial blood supply.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> In solid organs (except the brain), ischemia typically produces coagulative necrosis with preserved architectural outlines.
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE 2 -->
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1-cJ0RkaG8UBkwJ7PR100Utz4djwYJwaR" alt="Gross coronal brain section showing an old cerebral infarct with cavitation">
+          </div>
+          <div class="image-credit">
+            Image: Mikael Häggström, M.D., via <a href="https://commons.wikimedia.org/wiki/File:Gross_pathology_of_an_old_cerebral_stroke.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>.
+          </div>
+          <div class="case-body">
+            <span class="comparative-badge">Comparative Pathology — Human Example</span>
+            <div class="case-title">Chronic Cerebral Infarction (Liquefactive Necrosis)</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Brain</li>
+              <li><strong>Pattern:</strong> Liquefactive Necrosis</li>
+              <li><strong>Stage:</strong> Chronic cerebral infarction</li>
+            </ul>
+            <p>An old infarct in the posterior parietal region has undergone tissue loss and cavitation, illustrating the liquefactive outcome of ischemic injury in the central nervous system.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Unlike infarcts in most solid organs, cerebral infarcts undergo enzymatic liquefaction and may ultimately leave a cystic cavity.
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE 3 -->
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1C2EFwj7f4WlMUYX79ZDYV-Ng2yD76cRl" alt="Opened caseous lymphadenitis lesion in a ewe containing thick caseous material">
+          </div>
+          <div class="image-credit">
+            Image: Lucyin, via <a href="https://commons.wikimedia.org/wiki/File:Froeds_cl%C3%A5s_berbis_matire_froumadjrece.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+          </div>
+          <div class="case-body">
+            <div class="case-title">Caseous Lymphadenitis</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Lymph Node (Small Ruminant)</li>
+              <li><strong>Pattern:</strong> Caseous Necrosis</li>
+              <li><strong>Etiology:</strong> <em>Corynebacterium pseudotuberculosis</em></li>
+            </ul>
+            <p>A chronic abscess in a ewe contains thick, dry-to-pasty caseous material. Older lesions may develop laminated or onion-ring organisation.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Caseous necrosis combines elements of coagulative and liquefactive necrosis, producing friable, cheese-like debris.
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE 4 -->
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1wLxGOdHs28GX9-xQItVvKvlPBzZTKqCm" class="contain-image" alt="H&amp;E section showing tryptic fat necrosis associated with severe pancreatitis">
+          </div>
+          <div class="image-credit">
+            Image: Patho, via <a href="https://commons.wikimedia.org/wiki/File:Tryptic_fat_tissue_necrosis_in_severe_pancreatitis%2C_HE_1.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.
+          </div>
+          <div class="case-body">
+            <div class="case-title">Pancreatic Fat Necrosis</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Peripancreatic Adipose Tissue</li>
+              <li><strong>Pattern:</strong> Enzymatic Fat Necrosis</li>
+              <li><strong>Stain:</strong> H&amp;E</li>
+            </ul>
+            <p>Necrotic adipose tissue is transformed into eosinophilic, poorly defined material accompanied by acute inflammatory cells. Calcium soaps may form within affected fat.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Activated pancreatic lipases hydrolyze triglycerides into free fatty acids that bind calcium (saponification).
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE 5 -->
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1LcuQTdzwO7b631_KlHlxajuw1CIqkKn_" class="contain-image" alt="Historical medical illustration showing dry gangrene of both feet after frostbite">
+          </div>
+          <div class="image-credit">
+            Illustration: Thomas Godart; Barts Health Archives, via <a href="https://commons.wikimedia.org/wiki/File:Dry_gangrene_of_both_feet_from_frostbite_Wellcome_L0062218.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+          </div>
+          <div class="case-body">
+            <span class="comparative-badge">Comparative Pathology — Human Example</span>
+            <div class="case-title">Dry Gangrene Following Frostbite</div>
+            <ul class="case-meta">
+              <li><strong>Site:</strong> Distal Extremities</li>
+              <li><strong>Pattern:</strong> Ischemic Gangrenous Necrosis</li>
+              <li><strong>Etiology:</strong> Severe cold injury</li>
+            </ul>
+            <p>Both distal extremities show dark, dry, sharply demarcated devitalised tissue following severe cold-induced vascular injury.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Dry gangrene represents predominantly coagulative ischemic necrosis of an extremity before secondary bacterial infection and liquefaction develop.
+            </div>
+          </div>
+        </div>
+
+        <!-- CASE 6 -->
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1wp4o_MjfCLZ7PAafVOoSTLGEN1OOADy_" alt="H&amp;E section of frog epidermis showing apoptotic keratinocytes and nuclear debris">
+          </div>
+          <div class="image-credit">
+            Panel A cropped from Saskia Keller, USGS National Wildlife Health Center; public domain, via <a href="https://commons.wikimedia.org/wiki/File:Photomicrographs_from_a_foothill_yellow-legged_frog_%28Rana_boylii%29.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.
+          </div>
+          <div class="case-body">
+            <div class="case-title">Apoptotic Keratinocytes in Amphibian Skin</div>
+            <ul class="case-meta">
+              <li><strong>Tissue:</strong> Skin</li>
+              <li><strong>Species:</strong> Foothill yellow-legged frog</li>
+              <li><strong>Pattern:</strong> Apoptotic keratinocytes and epidermal necrosis</li>
+              <li><strong>Stain:</strong> Histological section</li>
+            </ul>
+            <p>Small epidermal foci contain apoptotic keratinocytes and nuclear debris, demonstrating the condensed and fragmented nuclear material associated with programmed cell death.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Apoptotic cells appear individually as shrunken cells or condensed nuclear fragments. In mixed lesions, apoptosis may occur beside areas of tissue necrosis.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GALLERY CREDITS SUBSECTION -->
+      <div class="gallery-credits-section">
+        <h3>Gallery Image Credits</h3>
+        <ul class="gallery-credits-list">
+          <li>
+            <strong>Renal Infarction (Coagulative Necrosis):</strong> Denis Desaulniers and Bernard Têtu, Université Laval, via <a href="https://commons.wikimedia.org/wiki/File:Rein_Infarctus_55-o.apatho-1486a-rein.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+          </li>
+          <li>
+            <strong>Chronic Cerebral Infarction (Liquefactive Necrosis):</strong> Mikael Häggström, M.D., via <a href="https://commons.wikimedia.org/wiki/File:Gross_pathology_of_an_old_cerebral_stroke.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0 1.0</a>.
+          </li>
+          <li>
+            <strong>Caseous Lymphadenitis:</strong> Lucyin, via <a href="https://commons.wikimedia.org/wiki/File:Froeds_cl%C3%A5s_berbis_matire_froumadjrece.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+          </li>
+          <li>
+            <strong>Pancreatic Fat Necrosis:</strong> Patho, via <a href="https://commons.wikimedia.org/wiki/File:Tryptic_fat_tissue_necrosis_in_severe_pancreatitis%2C_HE_1.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>.
+          </li>
+          <li>
+            <strong>Dry Gangrene Following Frostbite:</strong> Thomas Godart; Barts Health Archives, via <a href="https://commons.wikimedia.org/wiki/File:Dry_gangrene_of_both_feet_from_frostbite_Wellcome_L0062218.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+          </li>
+          <li>
+            <strong>Apoptotic Keratinocytes in Amphibian Skin:</strong> Saskia Keller, USGS National Wildlife Health Center; public domain, via <a href="https://commons.wikimedia.org/wiki/File:Photomicrographs_from_a_foothill_yellow-legged_frog_%28Rana_boylii%29.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a> (Cropped from original Panel A).
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 12. TEST YOURSELF -->
+    <section id="self-test" class="topic-section">
+      <h2>12. Test Yourself</h2>
+      <p>Self-assessment quizzes and interactive image identification cases for cell injury patterns will be featured here.</p>
+    </section>
+
+    <!-- 13. VIDEOS & FURTHER LEARNING -->
+    <section id="resources" class="topic-section" style="border-bottom: none;">
+      <h2>13. Videos &amp; Further Learning</h2>
+      <p class="video-intro">Begin with the concise overview below. Choose the fully English lesson or the bilingual teaching version, in which pathological terminology and descriptions remain in English while Arabic is used to connect and explain difficult concepts in greater depth.</p>
+
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/FQCodmYhwqk"
+              title="Cell Injury and Cell Death Explained - English veterinary pathology lesson"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-body">
+            <span class="video-label">English lesson</span>
+            <h3>Cell Injury &amp; Cell Death Explained</h3>
+            <p>A concise English overview of the causes and mechanisms of cell injury, reversible and irreversible damage, necrosis, and apoptosis.</p>
+            <a class="video-link" href="https://youtu.be/FQCodmYhwqk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/xKGJW-pVxGk"
+              title="Cell Injury and Cell Death - bilingual veterinary pathology lesson"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-body">
+            <span class="video-label bilingual">Bilingual | شرح ثنائي اللغة</span>
+            <h3>Cell Injury &amp; Cell Death | Bilingual Explanation</h3>
+            <p>Pathological terms and lesion descriptions remain in English, with Arabic used as a connecting and deeper explanatory language.</p>
+            <a class="video-link" href="https://youtu.be/xKGJW-pVxGk" target="_blank" rel="noopener noreferrer">Watch bilingual version</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

@@ -27,14 +27,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       id: 'card-general-pathology',
       title: 'General Pathology',
       subtitle: 'Cell injury, metabolism, inflammation, circulatory & neoplasia',
-      badge: 'Content migration',
-      badgeColor: 'bg-amber-50 text-amber-900 border-amber-300/80',
+      badge: 'Available',
+      badgeColor: 'bg-emerald-50 text-emerald-900 border-emerald-300/80',
       icon: BookOpen,
       iconBg: 'bg-teal-800 text-teal-100',
       borderHover: 'hover:border-teal-500',
       action: () => onNavigate({ type: 'general_pathology' }),
       highlight: true,
-      statusLine: '13 study units available',
+      statusLine: 'GEN-01 through GEN-06 available',
     },
     {
       id: 'card-infectious-diseases',
@@ -78,7 +78,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
     {
       id: 'card-microlearning-videos',
       title: 'Microlearning Videos',
-      subtitle: '12 videos available',
+      subtitle: '19 curated videos available',
       badge: 'Supplementary resources',
       badgeColor: 'bg-amber-50 text-amber-900 border-amber-300/80',
       icon: Video,
@@ -86,7 +86,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       borderHover: 'hover:border-amber-500',
       action: () => onNavigate({ type: 'videos' }),
       highlight: false,
-      statusLine: '12 videos available',
+      statusLine: '19 curated videos available',
     },
     {
       id: 'card-search-index',
@@ -137,18 +137,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             >
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-200 text-amber-950 font-sans">
-                    Content Migration
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-200 text-emerald-950 font-sans">
+                    Available
                   </span>
                   <span className="text-xs text-teal-200 font-medium flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-amber-300" /> In Progress
+                    GEN-01 through GEN-06 available
                   </span>
                 </div>
                 <p className="text-sm font-semibold text-white mt-1 group-hover:text-teal-200 transition-colors truncate">
                   General Pathology
                 </p>
                 <p className="text-[11px] text-slate-300 truncate">
-                  13 study units available · Explore General Pathology
+                  GEN-01 through GEN-06 available · Explore General Pathology
                 </p>
               </div>
               <div className="w-8 h-8 rounded-lg bg-teal-500 text-slate-950 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform font-bold">

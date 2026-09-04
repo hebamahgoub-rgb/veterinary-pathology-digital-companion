@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disorders of the Immune System | General Pathology</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      color: #2d3748;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 12px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .module-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    .module-header h1 {
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+    .module-header p {
+      color: var(--secondary-color);
+      font-size: 1rem;
+    }
+
+    /* Start Here Box */
+    .start-here-box {
+      background-color: var(--bg-light);
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid var(--accent-color);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+    .start-here-box h2 {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    /* Navigation TOC */
+    .nav-toc {
+      background: #edf2f7;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 35px;
+    }
+    .nav-toc h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .nav-toc ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      list-style: none;
+    }
+    .nav-toc a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .nav-toc a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    .topic-section {
+      margin-bottom: 45px;
+      padding-top: 10px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 30px;
+    }
+    .topic-section h2 {
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 5px;
+    }
+    .topic-section h3 {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      margin: 18px 0 8px 0;
+    }
+    .topic-section p {
+      margin-bottom: 12px;
+    }
+    .topic-section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .topic-section li {
+      margin-bottom: 6px;
+    }
+
+    /* Hypersensitivity Cards Grid */
+    .hs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .hs-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+      border-top: 4px solid var(--accent-color);
+    }
+    .hs-card h3 {
+      color: var(--primary-color);
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    /* Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    /* Gallery Grid */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .case-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .case-image-holder {
+      background: #e2e8f0;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #718096;
+      font-size: 0.85rem;
+      font-style: italic;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .case-body {
+      padding: 15px;
+      font-size: 0.875rem;
+    }
+    .case-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .case-meta {
+      list-style: none;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+      margin-left: 0 !important;
+    }
+    .case-meta li {
+      margin-bottom: 3px !important;
+    }
+    .teaching-point {
+      background-color: var(--bg-light);
+      padding: 10px;
+      border-radius: 4px;
+      border-left: 3px solid var(--accent-color);
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    /* Open-source pathology images */
+    .case-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      background: #e2e8f0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .case-image.contain {
+      object-fit: contain;
+      padding: 10px;
+      background: #ffffff;
+    }
+    .image-credit {
+      padding: 7px 10px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: #4a5568;
+    }
+    .image-credit a,
+    .resource-link {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .image-credit a:hover,
+    .resource-link:hover {
+      text-decoration: underline;
+    }
+    .comparative-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 7px;
+      border: 1px solid #cbd5e0;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #4a5568;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .wsi-box {
+      background: var(--bg-light);
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid var(--accent-color);
+      border-radius: 5px;
+      padding: 18px;
+      margin-top: 28px;
+    }
+    .wsi-box h3 {
+      margin-top: 0;
+    }
+    .wsi-box ul {
+      margin-bottom: 0;
+    }
+
+    /* Teaching Illustrations */
+    .teaching-figure {
+      margin: 22px 0 8px 0;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .teaching-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+    .teaching-figure figcaption {
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-color);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; Disorders of the Immune System
+    </div>
+
+    <!-- MODULE HEADER -->
+    <div class="module-header">
+      <h1>Disorders of the Immune System</h1>
+      <p>General Pathology Module 5 — Hypersensitivity reactions, autoimmunity, immunodeficiency, and immune-mediated lesions in animals.</p>
+    </div>
+
+    <!-- 1. START HERE -->
+    <div id="start-here" class="start-here-box">
+      <h2>1. Start Here: Protective Immunity vs. Immune-Mediated Tissue Injury</h2>
+      <p>The immune system evolved to recognize and eradicate foreign pathogens while maintaining non-reactivity (tolerance) to self-antigens. When immune responses are misdirected against self-antigens (<strong>autoimmunity</strong>), exaggerated against environmental antigens (<strong>hypersensitivity</strong>), or deficient in protective capacity (<strong>immunodeficiency</strong>), immune-mediated tissue destruction or overwhelming infection results.</p>
+    </div>
+
+    <!-- TOC NAVIGATION -->
+    <div class="nav-toc">
+      <h3>Module Contents</h3>
+      <ul>
+        <li><a href="#overview">2. Overview of Immunity</a></li>
+        <li><a href="#type1">3. Type I Hypersensitivity</a></li>
+        <li><a href="#type2">4. Type II Hypersensitivity</a></li>
+        <li><a href="#type3">5. Type III Hypersensitivity</a></li>
+        <li><a href="#type4">6. Type IV Hypersensitivity</a></li>
+        <li><a href="#autoimmunity">7. Autoimmune Diseases</a></li>
+        <li><a href="#immunodeficiency">8. Immunodeficiency Disorders</a></li>
+        <li><a href="#transplantation">9. Transplantation &amp; Graft Rejection</a></li>
+        <li><a href="#tolerance">10. Immune Tolerance</a></li>
+        <li><a href="#gallery">11. Practical Pathology Gallery</a></li>
+        <li><a href="#self-test">12. Test Yourself</a></li>
+        <li><a href="#resources">13. Videos &amp; Further Learning</a></li>
+      </ul>
+    </div>
+
+    <!-- 2. OVERVIEW OF INNATE AND ADAPTIVE IMMUNITY -->
+    <section id="overview" class="topic-section">
+      <h2>2. Overview of Innate and Adaptive Immunity</h2>
+      <p>Pathology arises when either arm of the immune system malfunctions:</p>
+      <ul>
+        <li><strong>Innate Immunity:</strong> Immediate, non-specific first line of defense (epithelial barriers, phagocytes, natural killer cells, complement). Operates via germline-encoded Pattern Recognition Receptors (PRRs) detecting Pathogen-Associated Molecular Patterns (PAMPs).</li>
+        <li><strong>Adaptive Immunity:</strong> Antigen-specific response featuring memory and clonal expansion. Driven by <strong>B lymphocytes</strong> (humoral immunity via immunoglobulins) and <strong>T lymphocytes</strong> (cell-mediated immunity via CD4+ helper T cells and CD8+ cytotoxic T cells).</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1RDet3GqpFN-Rxe8-DAagUVbG7En3welf" alt="Illustration comparing innate and adaptive immunity in animals" loading="lazy">
+        <figcaption><strong>Overview of innate and adaptive immunity in animals.</strong> Innate immunity provides rapid, non-specific defense through physical barriers, phagocytes, and complement. Adaptive immunity develops antigen-specific responses mediated by B and T lymphocytes, generating immunologic memory.</figcaption>
+      </figure>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1ubzCkAQ_Zjb-vq4yRqdTQQhIcxK3U1j3" alt="Illustration of lymph node and spleen architecture" loading="lazy">
+        <figcaption><strong>Structural organization of major lymphoid organs.</strong> The lymph node contains cortical follicles, paracortical T-cell zones, and medullary cords. The spleen’s white pulp includes periarteriolar lymphoid sheaths and follicles, while the red pulp contains macrophage-rich sinusoids responsible for blood filtration.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- 3. TYPE I HYPERSENSITIVITY -->
+    <section id="type1" class="topic-section">
+      <h2>3. Type I Hypersensitivity (Immediate / Anaphylactic)</h2>
+      <p>Rapid, IgE-mediated immune reaction occurring within minutes of allergen exposure in a previously sensitized individual.</p>
+      
+      <h3>Mechanism</h3>
+      <ol style="margin-left: 20px; margin-bottom: 15px;">
+        <li>Allergen exposure stimulates Th2 cells to secrete IL-4 and IL-13, driving B cell class-switching to <strong>IgE</strong>.</li>
+        <li>IgE binds high-affinity FcεRI receptors on <strong>mast cells</strong> and basophils (sensitization).</li>
+        <li>Re-exposure causes allergen cross-linking of surface IgE, triggering rapid mast cell degranulation releasing preformed <strong>histamine</strong>, tryptase, and synthesizing <strong>leukotrienes (LTC4, LTD4)</strong> and <strong>prostaglandins (PGD2)</strong>.</li>
+      </ol>
+
+      <h3>Key Veterinary Examples</h3>
+      <ul>
+        <li><strong>Systemic Anaphylaxis:</strong> Acute drug/vaccine reactions, insect stings (causes bronchospasm, severe hypotension, and shock organ congestion e.g., hepatic vein constriction in dogs).</li>
+        <li><strong>Atopic Dermatitis &amp; Flea Allergy Dermatitis (FAD):</strong> Pruritic skin lesions in dogs and cats.</li>
+        <li><strong>Culicoides Hypersensitivity ("Sweet Itch"):</strong> IgE-mediated allergic dermatitis in horses.</li>
+        <li><strong>Equine Asthma (RAO / Heaves):</strong> Airway hypersensitivity to inhaled dust, molds, and allergens.</li>
+      </ul>
+    </section>
+
+    <!-- 4. TYPE II HYPERSENSITIVITY -->
+    <section id="type2" class="topic-section">
+      <h2>4. Type II Hypersensitivity (Cytotoxic / Antibody-Mediated)</h2>
+      <p>Mediated by <strong>IgG or IgM</strong> antibodies binding to specific cell surface or extracellular matrix antigens, leading to cell destruction, inflammation, or cellular dysfunction.</p>
+      
+      <h3>Effector Mechanisms</h3>
+      <ul>
+        <li><strong>Opsonization &amp; Phagocytosis:</strong> Antibody/C3b coating leads to splenic macrophage clearance (e.g., extravascular hemolysis).</li>
+        <li><strong>Complement-Mediated Lysis:</strong> Membrane Attack Complex (C5b-9) assembly causes direct cell destruction (e.g., intravascular hemolysis).</li>
+        <li><strong>Antibody-Dependent Cellular Cytotoxicity (ADCC):</strong> NK cells and neutrophils bind IgG Fc region and kill target cells.</li>
+        <li><strong>Antibody-Mediated Cellular Dysfunction:</strong> Antibodies alter receptor function without causing cell death (e.g., Myasthenia Gravis antibodies blocking acetylcholine receptors).</li>
+      </ul>
+
+      <h3>Key Veterinary Examples</h3>
+      <ul>
+        <li><strong>Immune-Mediated Hemolytic Anemia (IMHA):</strong> Autoantibodies directed against erythrocyte surface antigens causing severe anemia, icterus, and spherocytosis.</li>
+        <li><strong>Neonatal Isoerythrolysis (NI):</strong> Maternal colostral antibodies attack neonatal RBCs (classic in foals born to mares lacking specific erythrocyte antigens like Aa or Qa).</li>
+        <li><strong>Immune-Mediated Thrombocytopenia (IMTP):</strong> Destruction of platelets leading to petechiae and mucosal bleeding.</li>
+        <li><strong>Pemphigus Vulgaris / Foliaceus:</strong> Autoantibodies target desmogleins (cell adhesion molecules), causing acantholysis and epidermal bullae.</li>
+      </ul>
+    </section>
+
+    <!-- 5. TYPE III HYPERSENSITIVITY -->
+    <section id="type3" class="topic-section">
+      <h2>5. Type III Hypersensitivity (Immune Complex-Mediated)</h2>
+      <p>Mediated by soluble <strong>antigen-antibody (IgG/IgM) complexes</strong> formed in the circulation or in situ that deposit in vascular walls and tissues, activating complement and attracting neutrophils.</p>
+
+      <h3>Mechanism</h3>
+      <p>Slight antigen excess favors small-to-medium circulating complexes that evade phagocytic clearance. Complexes deposit in vessel walls, glomeruli, or synovium, activating complement (C5a generation). Neutrophils recruit, release lysosomal enzymes and reactive oxygen species, producing <strong>fibrinoid necrotizing vasculitis</strong>.</p>
+
+      <h3>Key Veterinary Examples</h3>
+      <ul>
+        <li><strong>Systemic Lupus Erythematosus (SLE):</strong> Anti-nuclear autoantibodies (ANA) forming immune complexes that deposit in skin, joints, and kidneys.</li>
+        <li><strong>Immune Complex Glomerulonephritis:</strong> Deposition in glomerular basement membranes causing proteinuria and nephrotic syndrome.</li>
+        <li><strong>Purpura Hemorrhagica:</strong> Post-streptococcal (<em>Streptococcus equi</em>) immune complex vasculitis in horses leading to severe facial edema and petechial hemorrhages.</li>
+        <li><strong>Blue Eye (Anterior Uveitis):</strong> Immune complex deposition in the cornea following Infectious Canine Hepatitis (CAV-1) vaccination or infection.</li>
+      </ul>
+    </section>
+
+    <!-- 6. TYPE IV HYPERSENSITIVITY -->
+    <section id="type4" class="topic-section">
+      <h2>6. Type IV Hypersensitivity (Cell-Mediated / Delayed-Type)</h2>
+      <p>Cell-mediated response independent of antibodies. Mediated by <strong>antigen-specific T lymphocytes</strong> (CD4+ Th1/Th17 cells and CD8+ cytotoxic T cells). Peak tissue response develops 24 to 72 hours post-exposure.</p>
+
+      <h3>Mechanism</h3>
+      <ul>
+        <li><strong>Delayed-Type Hypersensitivity (DTH):</strong> CD4+ T cells recognize processed antigen presented by APCs and release cytokines (IFN-γ, TNF-α) that activate and recruit macrophages, forming granulomatous inflammation.</li>
+        <li><strong>T Cell-Mediated Cytotoxicity:</strong> CD8+ CTLs directly recognize foreign or modified MHC-I antigens and induce target cell apoptosis via perforin/granzyme pathways.</li>
+      </ul>
+
+      <h3>Key Veterinary Examples</h3>
+      <ul>
+        <li><strong>Tuberculin Skin Test:</strong> DTH reaction used for bovine tuberculosis (<em>Mycobacterium bovis</em>) surveillance; local swelling measured at 72 hours.</li>
+        <li><strong>Allergic Contact Dermatitis:</strong> Reaction to small haptens (e.g., chemicals, plant resins, topical medications) binding epidermal proteins.</li>
+        <li><strong>Granulomatous Infections:</strong> Tuberculosis, Johne's disease, and systemic fungal infections (histoplasmosis, blastomycosis).</li>
+      </ul>
+    </section>
+
+    <!-- SUMMARY TABLE -->
+    <section id="comparison" class="topic-section">
+      <h2>Summary of Hypersensitivity Reactions</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Immune Mediator</th>
+            <th>Primary Effector Mechanisms</th>
+            <th>Classic Veterinary Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Type I</strong></td>
+            <td>Immediate / Anaphylactic</td>
+            <td>IgE antibodies</td>
+            <td>Mast cell degranulation (histamine, leukotrienes)</td>
+            <td>Equine Sweet Itch / Atopic Dermatitis</td>
+          </tr>
+          <tr>
+            <td><strong>Type II</strong></td>
+            <td>Cytotoxic</td>
+            <td>IgG / IgM antibodies</td>
+            <td>Opsonization, phagocytosis, complement lysis</td>
+            <td>Immune-Mediated Hemolytic Anemia (IMHA)</td>
+          </tr>
+          <tr>
+            <td><strong>Type III</strong></td>
+            <td>Immune Complex</td>
+            <td>Soluble Ag-Ab complexes</td>
+            <td>Complement activation, neutrophil vasculitis</td>
+            <td>Purpura Hemorrhagica / Glomerulonephritis</td>
+          </tr>
+          <tr>
+            <td><strong>Type IV</strong></td>
+            <td>Delayed / Cell-Mediated</td>
+            <td>T lymphocytes (CD4+ / CD8+)</td>
+            <td>Macrophage activation (IFN-γ) / CTL killing</td>
+            <td>Tuberculin test / Contact dermatitis</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1RQkXbrhxX08-Ks4e_iWjeXN7zuSqSHMe" alt="Illustration of the four types of hypersensitivity reactions" loading="lazy">
+        <figcaption><strong>The four types of hypersensitivity reactions.</strong> Type I involves IgE-mediated mast cell activation; Type II involves antibody-mediated destruction of host cells; Type III results from immune complex deposition and inflammation; Type IV is mediated by sensitized T lymphocytes causing delayed tissue injury.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- 7. AUTOIMMUNE DISEASES -->
+    <section id="autoimmunity" class="topic-section">
+      <h2>7. Autoimmune Diseases</h2>
+      <p>Diseases resulting from breakdown of self-tolerance, leading to adaptive immune responses against self-antigens.</p>
+
+      <h3>Mechanisms of Autoimmunity Breakdown</h3>
+      <ul>
+        <li><strong>Molecular Mimicry:</strong> Microbial pathogens share epitopes with host self-antigens (e.g., cross-reactive antibodies).</li>
+        <li><strong>Epitope Spreading:</strong> Immune response broadens from an initial epitope to additional self-antigens during chronic tissue destruction.</li>
+        <li><strong>Release of Sequestered Antigens:</strong> Antigens normally isolated from immune surveillance (e.g., lens protein, myelin, sperm) are exposed by trauma or inflammation.</li>
+        <li><strong>Defective Regulatory T Cells (Tregs):</strong> Loss of active suppression of autoreactive lymphocyte clones.</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1s1_0UvwzJaABTfTkrey1ftNEPxiWsm2l" alt="Illustration of immune-mediated hemolytic anemia mechanisms" loading="lazy">
+        <figcaption><strong>Mechanisms of immune-mediated hemolytic anemia (IMHA).</strong> Autoantibodies bind to erythrocytes, leading to complement activation or macrophage-mediated destruction in the spleen and liver. The resulting hemolysis causes anemia, jaundice, and systemic inflammation.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- 8. IMMUNODEFICIENCY DISORDERS -->
+    <section id="immunodeficiency" class="topic-section">
+      <h2>8. Immunodeficiency Disorders</h2>
+      <p>States of impaired immune function that predispose animals to recurrent, severe, or opportunistic infections.</p>
+
+      <h3>Primary (Congenital/Hereditary) Immunodeficiencies</h3>
+      <ul>
+        <li><strong>Severe Combined Immunodeficiency (SCID):</strong> Complete absence of functional T and B lymphocytes. Classic in Arabian foals (DNA-PKcs gene defect) and Jack Russell Terriers.</li>
+        <li><strong>Foal Immunodeficiency Syndrome (FIS):</strong> B-lymphocyte deficiency and anemia in Fell and Dales ponies.</li>
+        <li><strong>Canine Leukocyte Adhesion Deficiency (CLAD):</strong> Integrin defect preventing neutrophil diapedesis in Irish Setters.</li>
+      </ul>
+
+      <h3>Secondary (Acquired) Immunodeficiencies</h3>
+      <ul>
+        <li><strong>Viral Infections:</strong> Feline Immunodeficiency Virus (FIV), Feline Leukemia Virus (FeLV), Canine Distemper Virus (CDV) causing lymphoid depletion.</li>
+        <li><strong>Failure of Passive Transfer (FPT):</strong> Inadequate absorption of maternal colostral immunoglobulins in neonates (foals, calves).</li>
+        <li><strong>Iatrogenic / Metabolic:</strong> Corticosteroid therapy, chemotherapy, malnutrition, chronic uremia, advanced neoplasia.</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/155Rvd3raU5SiigDDVneMYRI33J02K3Xu" alt="Illustration comparing primary and secondary immunodeficiency" loading="lazy">
+        <figcaption><strong>Comparison of primary and secondary immunodeficiency.</strong> Primary immunodeficiencies arise from inherited defects in immune cell development or function. Secondary immunodeficiencies occur due to external factors such as viral infections, malnutrition, or immunosuppressive drugs, leading to increased susceptibility to opportunistic pathogens.</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- 9. TRANSPLANTATION AND GRAFT REJECTION -->
+    <section id="transplantation" class="topic-section">
+      <h2>9. Transplantation and Graft Rejection</h2>
+      <p>Immune recognition of foreign Major Histocompatibility Complex (MHC / SLA / DLA) molecules on donor graft tissue.</p>
+      <ul>
+        <li><strong>Hyperacute Rejection:</strong> Pre-existing recipient antibodies bind graft endothelium &rarr; thrombosis and rapid ischemic necrosis within minutes to hours.</li>
+        <li><strong>Acute Rejection:</strong> T cell-mediated cytotoxicity and humoral antibody response attacking parenchymal cells and vessels over days to weeks.</li>
+        <li><strong>Chronic Rejection:</strong> Progressive arteriosclerosis, intimal proliferation, and interstitial fibrosis over months to years.</li>
+      </ul>
+    </section>
+
+    <!-- 10. IMMUNE TOLERANCE -->
+    <section id="tolerance" class="topic-section">
+      <h2>10. Immune Tolerance</h2>
+      <p>The state of unresponsiveness to a specific antigen, essential for preventing self-reactivity.</p>
+      <ul>
+        <li><strong>Central Tolerance:</strong> Elimination (deletion/apoptosis) of self-reactive T and B lymphocytes during development in primary lymphoid organs (thymus and bone marrow).</li>
+        <li><strong>Peripheral Tolerance:</strong> Inactivation (anergy), suppression (by Treg cells), or deletion of autoreactive lymphocytes that escape central selection into peripheral tissues.</li>
+      </ul>
+    </section>
+
+    <!-- 11. PRACTICAL PATHOLOGY GALLERY -->
+    <section id="gallery" class="topic-section">
+      <h2>11. Practical Pathology Gallery</h2>
+      <p>Curated examples illustrating immune-mediated lesions and immunodeficiency pathology.</p>
+      <div class="case-grid">
+
+        <div class="case-card">
+          <img class="case-image contain" src="https://lh3.googleusercontent.com/d/1PpqFBFpXc7YXdQtZNGB2RaC7AEfCjDCe" alt="Canine immune-mediated hemolytic anemia">
+          <div class="case-body">
+            <div class="case-title">Immune-Mediated Hemolytic Anemia (IMHA)</div>
+            <ul class="case-meta">
+              <li><strong>Material:</strong> Canine blood</li>
+              <li><strong>Mechanism:</strong> Type II hypersensitivity</li>
+              <li><strong>Feature shown:</strong> Erythrocyte agglutination</li>
+            </ul>
+            <p>The image demonstrates marked erythrocyte agglutination associated with canine immune-mediated hemolytic anemia.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Antibody binding to erythrocytes promotes agglutination, opsonization, complement activation, and macrophage-mediated red-cell removal.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image" src="https://lh3.googleusercontent.com/d/1NxzkW6BasFwrPG-LH8RLhSRF28Ll5Vio" alt="Gross skeletal muscle hemorrhages in equine purpura hemorrhagica">
+          <div class="case-body">
+            <div class="case-title">Equine Purpura Hemorrhagica Following Strangles</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Skeletal muscle / vessels / subcutis</li>
+              <li><strong>Mechanism:</strong> Type III hypersensitivity</li>
+              <li><strong>Etiology:</strong> Post-<em>Streptococcus equi</em> infection</li>
+            </ul>
+            <p>Multifocal to coalescing, well-demarcated hemorrhages affect skeletal muscles of the pectoral region and thigh.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Immune-complex vascular injury may cause edema, hemorrhage, thrombosis, ischemia, and infarction.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image contain" src="https://lh3.googleusercontent.com/d/1deqxwp3ktMM8Y69cFOmozWixNrCGlqJ4" alt="Microscopic lesions of equine purpura hemorrhagica">
+          <div class="case-body">
+            <div class="case-title">Purpura Hemorrhagica — Microscopic Lesions</div>
+            <ul class="case-meta">
+              <li><strong>A:</strong> Fibrinoid necrosis and leukocytoclastic vasculitis, H&amp;E, 200×</li>
+              <li><strong>B:</strong> Skeletal-muscle degeneration and necrosis, H&amp;E, 200×</li>
+              <li><strong>C:</strong> Hemorrhagic infarction, H&amp;E, 40×</li>
+              <li><strong>D:</strong> Gram-positive cocci in pairs/short chains, Gram stain, 400×</li>
+            </ul>
+            <p>Vessel walls are hypereosinophilic and thickened with intramural degenerate neutrophils and karyorrhectic debris. Adjacent myofibers show swelling, loss of cross-striations, hypercontraction bands, fragmentation, and hypereosinophilia.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> This panel links immune-mediated vasculitis to downstream muscle necrosis and infarction.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image" src="https://lh3.googleusercontent.com/d/13HriHF4FRCzIv3rH7fvb0xe9NRvdynLB" alt="Retropharyngeal and submandibular lymph node abscess in strangles">
+          <div class="case-body">
+            <div class="case-title">Strangles — Etiologic Context</div>
+            <ul class="case-meta">
+              <li><strong>Site:</strong> Retropharyngeal and submandibular lymph nodes</li>
+              <li><strong>Lesion:</strong> Suppurative lymphadenitis / abscessation</li>
+              <li><strong>Agent:</strong> <em>Streptococcus equi</em></li>
+            </ul>
+            <p>A proximal-neck abscess contains thick, light-green pus within affected lymph nodes.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Distinguish the primary suppurative bacterial lesion of strangles from the secondary immune-complex vasculitis of purpura hemorrhagica.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image" src="https://lh3.googleusercontent.com/d/1NQg7xu_J9u-5bF1wf1Jqk44qtMrytU55" alt="Canine pemphigus foliaceus lesions">
+          <div class="case-body">
+            <div class="case-title">Pemphigus Foliaceus</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Skin (canine)</li>
+              <li><strong>Mechanism:</strong> Type II autoimmune disease</li>
+            </ul>
+            <p>Gross lesions are commonly pustular, crusting, and erosive; histology typically shows superficial pustules containing acantholytic keratinocytes.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Autoantibodies against desmosomal adhesion proteins disrupt keratinocyte cohesion and produce acantholysis.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image contain" src="https://lh3.googleusercontent.com/d/1pfMQroZeWK5KMYY6WLyeW-4jYPMOV_61" alt="Lymph node histology from FIV-infected and uninfected cats">
+          <div class="case-body">
+            <div class="case-title">Feline Immunodeficiency Virus — Lymph Node</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Peripheral lymph node (cat)</li>
+              <li><strong>Condition:</strong> Secondary/acquired immunodeficiency</li>
+              <li><strong>Stain:</strong> H&amp;E</li>
+            </ul>
+            <p>Peripheral lymph nodes from FIV-infected cats are enlarged and show marked follicular hyperplasia with paracortical atrophy relative to uninfected cats.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Persistent FIV infection can produce marked lymphoid architectural remodeling alongside progressive immune dysfunction.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image contain" src="https://lh3.googleusercontent.com/d/1SzNxGlUeFTvJpswoXfOLePCdPAztxtqO" alt="Immune-complex glomerular injury diagram">
+          <div class="case-body">
+            <div class="case-title">Immune-Complex Glomerular Injury</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Kidney</li>
+              <li><strong>Mechanism:</strong> Type III hypersensitivity</li>
+            </ul>
+            <p>The diagram illustrates immune-complex deposition along glomerular capillary structures.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Deposited antigen-antibody complexes activate complement and inflammatory pathways, damaging the filtration barrier and promoting proteinuria.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img class="case-image contain" src="https://lh3.googleusercontent.com/d/1fcnI5874nrl5nypX--yiym5io8z-Ml_n" alt="Tuberculin skin test illustration">
+          <div class="case-body">
+            <div class="case-title">Tuberculin Delayed-Type Hypersensitivity</div>
+            <ul class="case-meta">
+              <li><strong>Mechanism:</strong> Type IV delayed hypersensitivity</li>
+              <li><strong>Veterinary application:</strong> Bovine tuberculosis testing</li>
+            </ul>
+            <p>The tuberculin reaction is a classic T-cell-mediated delayed hypersensitivity response.</p>
+            <div class="teaching-point"><strong>Teaching Point:</strong> Previously sensitized T lymphocytes recognize mycobacterial antigens and release cytokines that recruit and activate macrophages.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="wsi-box">
+        <h3>Open Virtual Slides / WSI for Deeper Study</h3>
+        <ul>
+          <li><strong>Joint Pathology Center — Veterinary Systemic Pathology Online:</strong> <a class="resource-link" href="https://www.askjpc.org/vspo/" target="_blank" rel="noopener noreferrer">Open JPC VSPO</a></li>
+          <li><strong>Indiana University Virtual Microscopy — immune-mediated diseases:</strong> <a class="resource-link" href="https://vmicro.iusm.iu.edu/603/indy_immune_path.htm" target="_blank" rel="noopener noreferrer">Open immune-system WSI collection</a> <span class="comparative-badge">Comparative pathology</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 12. TEST YOURSELF -->
+    <section id="self-test" class="topic-section">
+      <h2>12. Test Yourself</h2>
+      <p>Interactive self-assessment quizzes on Coombs test interpretation, hypersensitivity classification, and immunodeficiency cases will be featured here.</p>
+    </section>
+
+    <!-- 13. VIDEOS & FURTHER LEARNING -->
+    <section id="resources" class="topic-section" style="border-bottom: none;">
+      <h2>13. Videos &amp; Further Learning</h2>
+      <p>Short video lectures explaining the four Gell and Coombs hypersensitivity types and IMHA diagnostic approaches will be embedded here as recorded.</p>
+      <p><strong>Image-use note:</strong> Gallery images are drawn from Wikimedia Commons or clearly licensed open-access publications. Each item includes its source and reuse license. Comparative human material is explicitly marked so that it is not mistaken for a veterinary case.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>

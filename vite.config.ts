@@ -5,7 +5,6 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/veterinary-pathology-digital-companion/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

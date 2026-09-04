@@ -76,6 +76,11 @@ export default function App() {
   };
 
   const handleNavigate = (view: ScreenView) => {
+    if (view.type === 'topic_detail' && view.topicId === 'cell-injury-cell-death') {
+      setCurrentView({ type: 'lesson', lessonId: 'cell-injury-cell-death' });
+      setCurrentTab('home');
+      return;
+    }
     setCurrentView(view);
     if (view.type === 'home' || view.type === 'general_pathology' || view.type === 'topic_detail' || view.type === 'lesson' || view.type === 'systemic_pathology' || view.type === 'infectious_diseases' || view.type === 'image_atlas') {
       setCurrentTab('home');
@@ -94,6 +99,11 @@ export default function App() {
   };
 
   const handleSelectTopic = (topicId: string) => {
+    if (topicId === 'cell-injury-cell-death') {
+      setCurrentView({ type: 'lesson', lessonId: 'cell-injury-cell-death' });
+      setCurrentTab('home');
+      return;
+    }
     setCurrentView({ type: 'topic_detail', topicId });
     setCurrentTab('home');
   };

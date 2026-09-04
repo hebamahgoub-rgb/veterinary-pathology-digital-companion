@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disorders of Growth | General Pathology</title>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #4a5568;
+      --accent-color: #2b6cb0;
+      --border-color: #cbd5e0;
+      --bg-light: #f7fafc;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      color: #2d3748;
+      line-height: 1.6;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 12px;
+    }
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .module-header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    .module-header h1 {
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+    .module-header p {
+      color: var(--secondary-color);
+      font-size: 1rem;
+    }
+
+    .start-here-box {
+      background-color: var(--bg-light);
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid var(--accent-color);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+    .start-here-box h2 {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .nav-toc {
+      background: #edf2f7;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 35px;
+    }
+    .nav-toc h3 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .nav-toc ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      list-style: none;
+    }
+    .nav-toc a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .nav-toc a:hover {
+      text-decoration: underline;
+    }
+
+    .topic-section {
+      margin-bottom: 45px;
+      padding-top: 10px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 30px;
+    }
+    .topic-section h2 {
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 5px;
+    }
+    .topic-section h3 {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      margin: 18px 0 8px 0;
+    }
+    .topic-section p {
+      margin-bottom: 12px;
+    }
+    .topic-section ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .topic-section li {
+      margin-bottom: 6px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .feature-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      background: #ffffff;
+      border-top: 4px solid var(--accent-color);
+    }
+    .feature-card h3 {
+      color: var(--primary-color);
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) {
+      background-color: var(--bg-light);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .case-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .case-image-holder {
+      background: #e2e8f0;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #718096;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    .case-image-holder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #f7fafc;
+    }
+    .case-body {
+      padding: 15px;
+      font-size: 0.875rem;
+    }
+    .case-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .case-meta {
+      list-style: none;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+      margin-left: 0 !important;
+    }
+    .case-meta li {
+      margin-bottom: 3px !important;
+    }
+    .teaching-point {
+      background-color: var(--bg-light);
+      padding: 10px;
+      border-radius: 4px;
+      border-left: 3px solid var(--accent-color);
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+    .image-credit {
+      font-size: 0.72rem;
+      color: #718096;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    /* Teaching illustrations embedded within the relevant topic sections */
+    .teaching-figure {
+      margin: 24px auto 28px auto;
+      max-width: 880px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .teaching-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      background: var(--bg-light);
+    }
+    .teaching-figure figcaption {
+      padding: 12px 15px;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--secondary-color);
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+    }
+    .teaching-figure figcaption strong {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px;
+      }
+      .teaching-figure {
+        margin: 20px 0 24px 0;
+      }
+      .teaching-figure figcaption {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="https://sites.google.com/view/veterinary-pathology-companion/general-pathology" target="_blank" rel="noopener noreferrer">General Pathology</a> &gt; Disorders of Growth
+    </div>
+
+    <div class="module-header">
+      <h1>Disorders of Growth</h1>
+      <p>General Pathology Module 6 — Congenital developmental anomalies, adaptive tissue responses, premalignant changes, and non-neoplastic malformations.</p>
+    </div>
+
+    <div id="start-here" class="start-here-box">
+      <h2>1. Start Here: How Cells and Tissues Respond to Altered Demand</h2>
+      <p>Cells and tissues constantly adapt to changes in physiological demand, hormonal stimulation, or environmental stress. Growth disturbances encompass three distinct categories: <strong>congenital/developmental defects</strong> (errors in organ formation during embryogenesis), <strong>acquired adaptive changes</strong> (reversible alterations in cell size, number, or phenotype in response to altered workload), and <strong>premalignant/dysplastic changes</strong> (disorganized growth that predisposes to neoplasia).</p>
+    </div>
+
+    <figure class="teaching-figure">
+      <img src="https://lh3.googleusercontent.com/d/1eYyQE1bTdt18aFjSZjG8m3V1Knd2NKee"
+           alt="Overview of the four major cellular adaptations: hypertrophy, hyperplasia, atrophy, and metaplasia"
+           loading="lazy">
+      <figcaption>Summary of the major cellular adaptations to stress.
+        Hypertrophy increases cell size, hyperplasia increases cell number, atrophy reduces cell size
+        and function, and metaplasia represents a reversible change from one differentiated cell type to another.
+      </figcaption>
+    </figure>
+
+    <div class="nav-toc">
+      <h3>Module Contents</h3>
+      <ul>
+        <li><a href="#agenesis">2. Agenesis and Aplasia</a></li>
+        <li><a href="#hypoplasia">3. Hypoplasia</a></li>
+        <li><a href="#atrophy">4. Atrophy</a></li>
+        <li><a href="#hypertrophy">5. Hypertrophy</a></li>
+        <li><a href="#hyperplasia">6. Hyperplasia</a></li>
+        <li><a href="#metaplasia">7. Metaplasia</a></li>
+        <li><a href="#dysplasia">8. Dysplasia</a></li>
+        <li><a href="#malformations">9. Hamartoma and Choristoma</a></li>
+        <li><a href="#comparison">10. Growth Disturbances vs. Neoplasia</a></li>
+        <li><a href="#gallery">11. Practical Pathology Gallery</a></li>
+        <li><a href="#self-test">12. Test Yourself</a></li>
+        <li><a href="#resources">13. Videos &amp; Further Learning</a></li>
+      </ul>
+    </div>
+
+    <section id="agenesis" class="topic-section">
+      <h2>2. Agenesis and Aplasia (Developmental Arrest)</h2>
+      <p>Both terms describe the complete failure of an organ or tissue to develop during embryogenesis, but represent distinct embryological failure points:</p>
+      <ul>
+        <li><strong>Agenesis:</strong> Complete absence of an organ due to the total failure of the embryonic primordium (anlage) to form. <em>Example: Renal agenesis (complete absence of one or both kidneys).</em></li>
+        <li><strong>Aplasia:</strong> Failure of an organ or tissue to develop, even though the rudimentary embryonic primordium is present. <em>Example: Aplasia cutis, segmental aplasia of the paramesonephric (Müllerian) ducts leading to white heifer disease or mucometra.</em></li>
+      </ul>
+    </section>
+
+    <section id="hypoplasia" class="topic-section">
+      <h2>3. Hypoplasia (Incomplete Development)</h2>
+      <p>The failure of an organ or tissue to achieve its full, normal physiological size due to an incomplete count or inadequate division of cells during development.</p>
+
+      <h3>Key Distinctions</h3>
+      <p>Unlike atrophy (which occurs in an organ that was once fully formed), a hypoplastic organ <strong>never reached normal size</strong>.</p>
+
+      <h3>Key Veterinary Examples</h3>
+      <ul>
+        <li><strong>Cerebellar Hypoplasia:</strong> In utero viral infection (Feline Panleukopenia Virus in kittens, Bovine Viral Diarrhea Virus in calves) targets rapidly dividing Purkinje and external germinal layer cells, resulting in an underdeveloped cerebellum and congenital ataxia.</li>
+        <li><strong>Enamel Hypoplasia:</strong> Canine Distemper Virus infection in young puppies infecting ameloblasts prior to eruption of permanent teeth.</li>
+        <li><strong>Renal Hypoplasia:</strong> Congenitally reduced nephron mass in young dogs and calves.</li>
+      </ul>
+    </section>
+
+    <section id="atrophy" class="topic-section">
+      <h2>4. Atrophy (Acquired Reduction in Mass)</h2>
+      <p>A decrease in the size and/or number of cells resulting in a reduction in organ mass <em>after</em> the organ has reached its normal, mature physiological size.</p>
+
+      <h3>Mechanisms of Atrophy</h3>
+      <p>Driven by an imbalance where protein degradation exceeds protein synthesis, primarily via the <strong>ubiquitin-proteasome pathway</strong> and increased <strong>autophagy</strong> (formation of autophagic vacuoles containing residual lipofuscin pigment).</p>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1SgTFCHvQaGsLiV7s5t5GSS69GasPJTFW"
+             alt="Diagram summarizing mechanisms and causes of cellular atrophy"
+             loading="lazy">
+        <figcaption>Mechanisms and causes of cellular atrophy. Reduced metabolic
+          activity, impaired nutrition, or loss of innervation lead to decreased protein synthesis and
+          increased degradation, resulting in diminished cell and organ size.
+        </figcaption>
+      </figure>
+
+      <h3>Categories &amp; Causes</h3>
+      <ul>
+        <li><strong>Physiological Atrophy:</strong> Normal involution (e.g., thymic involution with sexual maturity, uterine involution post-partum).</li>
+        <li><strong>Disuse Atrophy:</strong> Decreased workload (e.g., limb immobilization following bone fracture).</li>
+        <li><strong>Denervation Atrophy:</strong> Loss of autonomic or motor innervation (e.g., Equine Laryngeal Hemiplegia / "Roaring" due to recurrent laryngeal neuropathy causing left cricoarytenoideus dorsalis muscle atrophy).</li>
+        <li><strong>Ischemic / Pressure Atrophy:</strong> Reduced blood supply or chronic local pressure (e.g., hydronephrosis causing compression atrophy of the renal parenchyma).</li>
+        <li><strong>Endocrine Atrophy:</strong> Loss of tropic hormone stimulation (e.g., adrenocortical atrophy following prolonged exogenous corticosteroid administration or pituitary failure).</li>
+        <li><strong>Nutritional / Starvation Atrophy:</strong> Generalized protein-calorie deficit leading to fat mobilization (serous atrophy of fat) and skeletal muscle wasting.</li>
+      </ul>
+    </section>
+
+    <section id="hypertrophy" class="topic-section">
+      <h2>5. Hypertrophy (Increase in Cell Size)</h2>
+      <p>An increase in the size of individual cells resulting in an increased overall volume of the organ or tissue. Occurs predominantly in permanent tissues incapable of cell division (e.g., cardiac and skeletal muscle).</p>
+
+      <h3>Mechanisms</h3>
+      <p>Increased synthesis of cellular structural proteins, myofilaments, and organelle mass driven by mechanical stretch, growth factors (TGF-β, IGF-1), or vasoactive agents.</p>
+
+      <h3>Examples</h3>
+      <ul>
+        <li><strong>Physiological Hypertrophy:</strong> Skeletal muscle enlargement in working animals; uterine smooth muscle enlargement during pregnancy (hypertrophy combined with hyperplasia).</li>
+        <li><strong>Pathological Hypertrophy:</strong> Myocardial hypertrophy in response to chronic pressure overload (e.g., Feline Hypertrophic Cardiomyopathy [HCM], subaortic stenosis in dogs, or systemic hypertension).</li>
+      </ul>
+    </section>
+
+    <section id="hyperplasia" class="topic-section">
+      <h2>6. Hyperplasia (Increase in Cell Number)</h2>
+      <p>An increase in the total number of cells within an organ or tissue resulting from increased mitotic division. Occurs only in tissues containing labile or stable cells capable of division (e.g., epithelium, liver, bone marrow).</p>
+
+      <h3>Examples</h3>
+      <ul>
+        <li><strong>Physiological Compensatory Hyperplasia:</strong> Regeneration of liver parenchyma following partial hepatectomy; epidermal thickening following chronic friction.</li>
+        <li><strong>Physiological Hormonal Hyperplasia:</strong> Mammary gland glandular epithelium proliferation during lactation.</li>
+        <li><strong>Pathological Hormonal Hyperplasia:</strong> Cystic Endometrial Hyperplasia (CEH) in intact bitches driven by prolonged progesterone exposure; Benign Prostatic Hyperplasia (BPH) in intact male dogs.</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1A2EENYflk73XsgP6BMR6eeLKTdKzfrRs"
+             alt="Side-by-side comparison of hypertrophy and hyperplasia"
+             loading="lazy">
+        <figcaption>Comparison between hypertrophy (increase in cell size) and
+          hyperplasia (increase in cell number). Although both processes enlarge tissues, their
+          underlying mechanisms differ and have distinct physiological and pathological implications.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="metaplasia" class="topic-section">
+      <h2>7. Metaplasia (Reversible Phenotypic Change)</h2>
+      <p>A reversible adaptive change in which one fully differentiated (adult) cell type is replaced by another adult cell type better able to withstand a specific environmental stress or chronic irritation.</p>
+
+      <h3>Mechanisms</h3>
+      <p>Does not occur by direct transdifferentiation of mature cells; rather, it results from <strong>reprogramming of local tissue stem cells</strong> or precursor cells driven by cytokines and growth factors.</p>
+
+      <h3>Key Veterinary Examples</h3>
+      <ul>
+        <li><strong>Squamous Metaplasia:</strong>
+          <ul>
+            <li>Respiratory epithelium changing from pseudostratified ciliated columnar to stratified squamous in response to chronic smoke, dust, or Vitamin A deficiency (birds, reptiles, cattle).</li>
+            <li>Prostatic ductal epithelium changing to stratified squamous in male dogs under the influence of estrogen-producing Sertoli cell tumors.</li>
+          </ul>
+        </li>
+        <li><strong>Osseous Metaplasia:</strong> Formation of bone within soft tissues subject to chronic trauma (e.g., dural ossification in older dogs, equine splint bone trauma).</li>
+      </ul>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1G312qqSFJzE9NjTB_9Yy0Y7Pc3O49a6Q"
+             alt="Illustration of respiratory squamous metaplasia from ciliated columnar to stratified squamous epithelium"
+             loading="lazy">
+        <figcaption>Squamous metaplasia of the respiratory epithelium. Chronic
+          irritation can induce replacement of ciliated columnar cells with stratified squamous cells,
+          enhancing resistance but reducing mucociliary clearance.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="dysplasia" class="topic-section">
+      <h2>8. Dysplasia (Disorganized Epithelial Growth)</h2>
+      <p>Disordered, atypical cellular proliferation characterized by loss of normal cell architectural orientation, cellular pleomorphism, anisokaryosis, and hyperchromasia. Primarily affects epithelial tissues.</p>
+
+      <h3>Clinical Significance</h3>
+      <p>Dysplasia is a <strong>non-invasive disordered growth pattern</strong>. Mild-to-moderate dysplastic changes may regress if the inciting chronic irritant is removed, whereas severe persistent dysplasia carries a greater risk of progression toward <em>carcinoma in situ</em> and invasive neoplasia.</p>
+
+      <figure class="teaching-figure">
+        <img src="https://lh3.googleusercontent.com/d/1BhmfOQbPULXTZ9p9qWLGhcqQ2tHlZVNx"
+             alt="Stepwise progression from normal epithelium through mild, moderate, and severe dysplasia"
+             loading="lazy">
+        <figcaption>Progressive epithelial dysplasia. Increasing loss of cellular
+          uniformity, nuclear atypia, and architectural disorder marks the transition from normal
+          tissue toward pre-neoplastic change.
+        </figcaption>
+      </figure>
+
+      <p><em>Note: Do not confuse epithelial dysplasia with inherited developmental orthopedic conditions such as Canine Hip Dysplasia or Elbow Dysplasia, which represent developmental joint incongruity.</em></p>
+    </section>
+
+    <section id="malformations" class="topic-section">
+      <h2>9. Hamartoma and Choristoma (Developmental Malformations)</h2>
+      <p>Benign, non-neoplastic focal malformations resulting from developmental errors in tissue organization:</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Hamartoma</h3>
+          <p>A focal overgrowth of mature, disorganized native tissues in an organ where those tissue elements normally belong.</p>
+          <p><em>Example: Vascular hamartoma (overgrowth of native blood vessels), pulmonary hamartoma containing disorganized native cartilage, smooth muscle, and bronchioles.</em></p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Choristoma (Heterotopia)</h3>
+          <p>A mass consisting of histologically normal tissue elements located in an abnormal anatomical location where those elements do not normally occur.</p>
+          <p><em>Example: Corneal Dermoid (a patch of normal skin bearing hair follicles, sweat glands, and fat present on the cornea or conjunctiva of calves and dogs).</em></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparison" class="topic-section">
+      <h2>10. Growth Disturbances versus Neoplasia</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Adaptive Growth Disturbances</th>
+            <th>Neoplasia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Stimulus Dependence</strong></td>
+            <td><strong>Dependent</strong>; regress when the inciting stimulus or stress is removed.</td>
+            <td><strong>Autonomous</strong>; continue growing independently after stimulus removal.</td>
+          </tr>
+          <tr>
+            <td><strong>Cellular Organization</strong></td>
+            <td>Preserved tissue architecture; uniform cell morphology.</td>
+            <td>Disorganized architecture; varying degrees of cellular atypia/anaplasia.</td>
+          </tr>
+          <tr>
+            <td><strong>Reversibility</strong></td>
+            <td>Inherent potential to return to normal if stimulus stops.</td>
+            <td>Irreversible biological alteration.</td>
+          </tr>
+          <tr>
+            <td><strong>Biological Goal</strong></td>
+            <td>Purposive, functional adaptation to external stress.</td>
+            <td>Purposeless, uncontrolled clonal cell proliferation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="gallery" class="topic-section">
+      <h2>11. Practical Pathology Gallery</h2>
+      <p>Selected images illustrating developmental abnormalities and adaptive growth changes. The accompanying descriptions emphasize the pathological process demonstrated by each example.</p>
+
+      <div class="case-grid">
+
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1udLH7MIbX_rgac6ep4HMQTn97BPXknCJ"
+                 alt="Feline cerebellar hypoplasia, dorsal view"
+                 loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-title">Feline Cerebellar Hypoplasia</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Brain / Cerebellum (Feline)</li>
+              <li><strong>Disturbance:</strong> Congenital Hypoplasia</li>
+              <li><strong>View:</strong> Gross, dorsal</li>
+            </ul>
+            <p>The cerebellum is markedly reduced in size relative to the cerebrum while its general anatomical relationship is retained.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Hypoplasia is a developmental failure in which an organ never attains its expected mature size.
+            </div>
+            <div class="image-credit">Image: Feline Cerebellar Hypoplasia — Dorsal View. Locally hosted for educational display.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1A1jVaYxCt-9ilb0R1BWMlgw1FN4rZwBQ"
+                 alt="Dachshund showing muscle atrophy associated with Cushing syndrome"
+                 loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-title">Muscle Atrophy in a Dog</div>
+            <ul class="case-meta">
+              <li><strong>Species:</strong> Canine</li>
+              <li><strong>Disturbance:</strong> Acquired Atrophy</li>
+              <li><strong>Clinical Context:</strong> Hyperadrenocorticism (Cushing syndrome)</li>
+            </ul>
+            <p>Generalized loss of skeletal muscle mass provides a clinically recognizable example of acquired tissue atrophy.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Atrophy develops after tissue has attained normal size and reflects decreased cell size and, in some tissues, reduced cell number.
+            </div>
+            <div class="image-credit">Image: Cushings_dachshund. Wikimedia Commons source; locally hosted for educational display.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1wOOwVW6iAcopsDdvS-oftQg3KYr_fEPh"
+                 alt="Gross feline heart with severe concentric hypertrophic cardiomyopathy"
+                 loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-title">Feline Hypertrophic Cardiomyopathy — Gross Pathology</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Heart / Left Ventricle (Feline)</li>
+              <li><strong>Disturbance:</strong> Pathological Hypertrophy</li>
+              <li><strong>View:</strong> Transverse gross section</li>
+            </ul>
+            <p>Severe concentric thickening of the left ventricular myocardium is accompanied by marked reduction of the ventricular lumen.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Hypertrophy increases organ mass through enlargement of individual cells; cardiac myocytes respond to increased demand principally by increasing cell size.
+            </div>
+            <div class="image-credit">Image: Gross feline hypertrophic cardiomyopathy specimen. Locally hosted for educational display.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/16Wu4djTa8z5dkm-y-t-OJxWhJgjqmoI8"
+                 alt="Echocardiographic appearance of hypertrophic obstructive cardiomyopathy in a domestic cat"
+                 loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-title">Feline Hypertrophic Cardiomyopathy — Clinical Imaging</div>
+            <ul class="case-meta">
+              <li><strong>Organ:</strong> Heart (Feline)</li>
+              <li><strong>Disturbance:</strong> Pathological Hypertrophy</li>
+              <li><strong>Modality:</strong> Echocardiography</li>
+            </ul>
+            <p>This clinical image complements the gross specimen by demonstrating the living structural consequences of myocardial hypertrophy.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Correlating gross pathology with diagnostic imaging helps connect structural adaptation with its clinical expression.
+            </div>
+            <div class="image-credit">Image: Echocardiography of hypertrophic-obstructive cardiomyopathy in a domestic cat. Locally hosted for educational display.</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-image-holder">
+            <img src="https://lh3.googleusercontent.com/d/1JYoicAhhvRhSxsnQy_RhFcypy7mwxzIp"
+                 alt="Histologic example of squamous metaplasia"
+                 loading="lazy">
+          </div>
+          <div class="case-body">
+            <div class="case-title">Squamous Metaplasia — Histologic Example</div>
+            <ul class="case-meta">
+              <li><strong>Disturbance:</strong> Metaplasia</li>
+              <li><strong>Appearance:</strong> Replacement by squamous epithelium</li>
+              <li><strong>Use:</strong> Morphologic demonstration</li>
+            </ul>
+            <p>The image demonstrates replacement of the original epithelial phenotype by mature squamous epithelium. It is included here to illustrate the microscopic morphology of squamous metaplasia.</p>
+            <div class="teaching-point">
+              <strong>Teaching Point:</strong> Metaplasia is an adaptive change in cell phenotype driven by altered differentiation of local stem or precursor cells. Veterinary examples include respiratory squamous metaplasia and estrogen-associated prostatic squamous metaplasia in dogs.
+            </div>
+            <div class="image-credit">Image: Squamous metaplasia histology. Locally hosted for educational demonstration; veterinary applications are described in the accompanying text.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="self-test" class="topic-section">
+      <h2>12. Test Yourself</h2>
+      <p>Interactive self-assessment quizzes distinguishing hypoplasia from atrophy, identifying metaplasia patterns, and evaluating developmental growth cases will be featured here.</p>
+    </section>
+
+    <section id="resources" class="topic-section" style="border-bottom: none;">
+      <h2>13. Videos &amp; Further Learning</h2>
+      <p>Short video lessons explaining mechanisms of cellular adaptation and the distinction between dysplasia and early neoplasia will be embedded here as recorded.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>

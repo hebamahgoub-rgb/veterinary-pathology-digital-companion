@@ -14,6 +14,8 @@ export interface LessonSectionItem {
   shortTitle?: string;
   shortLabel?: string;
   badge?: string;
+  number?: string | number;
+  description?: string;
 }
 
 export interface LessonSectionNavigatorProps {

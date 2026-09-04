@@ -6,6 +6,7 @@ import {
   HeartPulse,
   TrendingUp,
   Dna,
+  Shield,
   ChevronRight,
   BookOpen,
   CheckCircle2,
@@ -37,6 +38,8 @@ export const GeneralPathologyView: React.FC<GeneralPathologyViewProps> = ({
         return TrendingUp;
       case 'Dna':
         return Dna;
+      case 'Shield':
+        return Shield;
       default:
         return BookOpen;
     }
@@ -49,10 +52,10 @@ export const GeneralPathologyView: React.FC<GeneralPathologyViewProps> = ({
         <div className="flex items-center gap-2 text-xs font-bold text-teal-800 uppercase tracking-wider font-sans">
           <span>Curriculum Module</span>
           <span>•</span>
-          <span>6 Core Sections</span>
+          <span>{GENERAL_PATHOLOGY_SECTIONS.length} Core Sections</span>
           <span>•</span>
-          <span className="bg-amber-50 text-amber-900 border border-amber-300/80 px-2 py-0.5 rounded-full text-[10px] font-semibold normal-case tracking-normal">
-            Content migration
+          <span className="bg-emerald-50 text-emerald-900 border border-emerald-300/80 px-2 py-0.5 rounded-full text-[10px] font-semibold normal-case tracking-normal">
+            {GENERAL_PATHOLOGY_SECTIONS.filter((s) => s.status === 'Available').length} Sections Available
           </span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1.5 font-serif-academic">
@@ -63,7 +66,7 @@ export const GeneralPathologyView: React.FC<GeneralPathologyViewProps> = ({
         </p>
       </div>
 
-      {/* 6 Sections List */}
+      {/* Sections List */}
       <div className="space-y-3">
         <div className="flex items-center justify-between px-0.5">
           <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 font-sans">
@@ -76,13 +79,50 @@ export const GeneralPathologyView: React.FC<GeneralPathologyViewProps> = ({
 
         {GENERAL_PATHOLOGY_SECTIONS.map((section) => {
           const Icon = getIcon(section.iconName);
-          const isMetabolism = section.id === 'disturbance-cell-metabolism';
+          const isAvailable = section.status === 'Available';
+          const isUnderDev = section.status === 'Under development';
+          const isDirectLesson = [
+            'cell-injury-cell-death',
+            'inflammation',
+            'circulatory-disturbances',
+            'disorders-of-the-immune-system',
+            'disorders-of-growth',
+          ].includes(section.id);
+
+          const getSegmentSubtitle = (id: string) => {
+            switch (id) {
+              case 'cell-injury-cell-death':
+                return '1 lesson · 13 study segments';
+              case 'inflammation':
+                return '1 lesson · 16 study segments';
+              case 'circulatory-disturbances':
+                return '1 lesson · 15 study segments';
+              case 'disorders-of-the-immune-system':
+                return '1 lesson · 13 study segments';
+              case 'disorders-of-growth':
+                return '1 lesson · 13 study segments';
+              case 'disturbance-cell-metabolism':
+                return '13 lessons available';
+              default:
+                return isAvailable
+                  ? `${section.lessonCount || section.lessons.length} study units available`
+                  : isUnderDev
+                  ? 'Under development'
+                  : 'Content migration';
+            }
+          };
 
           return (
             <button
               key={section.id}
               id={`general-section-${section.id}`}
-              onClick={() => onSelectTopic(section.id)}
+              onClick={() => {
+                if (isDirectLesson) {
+                  onNavigate({ type: 'lesson', lessonId: section.id });
+                } else {
+                  onSelectTopic(section.id);
+                }
+              }}
               className="w-full text-left p-4 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 transition-all duration-150 active:scale-[0.985] group shadow-xs hover:shadow-md flex flex-col justify-between"
             >
               <div className="flex items-start justify-between gap-3">
@@ -98,12 +138,14 @@ export const GeneralPathologyView: React.FC<GeneralPathologyViewProps> = ({
                       </span>
                       <span
                         className={`text-[10px] font-bold px-1.5 py-0.2 rounded-sm tracking-wide border ${
-                          isMetabolism || section.status === 'Available'
+                          isAvailable
                             ? 'bg-emerald-50 text-emerald-900 border-emerald-300/80'
+                            : isUnderDev
+                            ? 'bg-slate-100 text-slate-700 border-slate-300/80'
                             : 'bg-amber-50 text-amber-900 border-amber-300/80'
                         }`}
                       >
-                        {isMetabolism || section.status === 'Available' ? 'Available' : 'Content migration'}
+                        {section.status || 'Content migration'}
                       </span>
                     </div>
                     <h4 className="text-base font-bold text-slate-900 group-hover:text-teal-900 transition-colors mt-0.5 font-sans">
@@ -123,10 +165,10 @@ export const GeneralPathologyView: React.FC<GeneralPathologyViewProps> = ({
 
               <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 pl-13">
                 <span className="font-semibold text-slate-700">
-                  {isMetabolism ? '13 study units available' : 'Content migration'}
+                  {getSegmentSubtitle(section.id)}
                 </span>
                 <span className="text-teal-800 font-semibold group-hover:underline">
-                  View Lessons →
+                  {isDirectLesson ? 'Start Lesson →' : 'View Lessons →'}
                 </span>
               </div>
             </button>

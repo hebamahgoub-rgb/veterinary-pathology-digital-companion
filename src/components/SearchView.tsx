@@ -36,7 +36,7 @@ export const SearchView: React.FC<SearchViewProps> = ({
     if (activeFilter === 'General Pathology') return item.category === 'General Pathology';
     if (activeFilter === 'Infectious Diseases') return item.category === 'Infectious Diseases';
     if (activeFilter === 'Topics') return item.type === 'Topic';
-    if (activeFilter === 'Lessons') return item.type === 'Lesson';
+    if (activeFilter === 'Lessons') return item.type === 'Lesson' || item.type === 'Study Segment';
 
     return true;
   });
@@ -52,12 +52,23 @@ export const SearchView: React.FC<SearchViewProps> = ({
   ];
 
   const handleResultClick = (item: typeof SEARCH_INDEX[0]) => {
-    if (item.type === 'Lesson') {
+    if (item.type === 'Lesson' || item.type === 'Study Segment') {
       if (isLessonPublished(item.id)) {
         onSelectLesson(item.id);
       }
       // Unpublished lessons remain disabled and cannot open
     } else if (item.type === 'Topic') {
+      const directLessonTopics = [
+        'cell-injury-cell-death',
+        'inflammation',
+        'circulatory-disturbances',
+        'disorders-of-the-immune-system',
+        'disorders-of-growth',
+      ];
+      if (directLessonTopics.includes(item.id)) {
+        onSelectLesson(item.id);
+        return;
+      }
       // Check if this is a future section under development
       const infSection = INFECTIOUS_DISEASES_SECTIONS.find((s) => s.id === item.id);
       if (infSection && infSection.status === 'Under development') {
@@ -155,12 +166,14 @@ export const SearchView: React.FC<SearchViewProps> = ({
         ) : (
           filteredResults.map((item, idx) => {
             const isLesson = item.type === 'Lesson';
+            const isSegment = item.type === 'Study Segment';
+            const isCellInjuryTopic = item.id === 'cell-injury-cell-death';
             const isDicmTopic = item.id === 'disturbance-cell-metabolism';
             const isDicmLesson = isLesson && item.topic === 'Disturbance in Cell Metabolism';
-            const isPublished = isLesson && isLessonPublished(item.id);
+            const isPublished = (isLesson || isSegment) && isLessonPublished(item.id);
             const infSection = INFECTIOUS_DISEASES_SECTIONS.find((s) => s.id === item.id);
             const isUnderDev = infSection && infSection.status === 'Under development';
-            const isClickable = isLesson ? isPublished : !isUnderDev;
+            const isClickable = (isLesson || isSegment) ? isPublished : !isUnderDev;
 
             return (
               <button
@@ -180,16 +193,38 @@ export const SearchView: React.FC<SearchViewProps> = ({
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                    <span className="text-[10px] font-bold text-teal-800 bg-teal-50 border border-teal-200 px-2 py-0.2 rounded font-mono-code">
+                    <span className={`text-[10px] font-bold px-2 py-0.2 rounded font-mono-code border ${
+                      isSegment 
+                        ? 'text-amber-800 bg-amber-50 border-amber-300' 
+                        : 'text-teal-800 bg-teal-50 border-teal-200'
+                    }`}>
                       {item.type}
                     </span>
-                    {isDicmTopic ? (
+                    {isCellInjuryTopic ? (
+                      <>
+                        <span className="text-[10px] font-bold bg-emerald-50 text-emerald-900 border border-emerald-300/80 px-2 py-0.2 rounded uppercase tracking-wider">
+                          Available
+                        </span>
+                        <span className="text-[10px] font-semibold text-slate-500">
+                          1 lesson · 13 study segments
+                        </span>
+                      </>
+                    ) : isDicmTopic ? (
                       <>
                         <span className="text-[10px] font-bold bg-emerald-50 text-emerald-900 border border-emerald-300/80 px-2 py-0.2 rounded uppercase tracking-wider">
                           Available
                         </span>
                         <span className="text-[10px] font-semibold text-slate-500">
                           13 study units available
+                        </span>
+                      </>
+                    ) : isSegment ? (
+                      <>
+                        <span className="text-[10px] font-bold bg-emerald-50 text-emerald-900 border border-emerald-300/80 px-2 py-0.2 rounded uppercase tracking-wider">
+                          Available
+                        </span>
+                        <span className="text-[10px] font-semibold text-slate-500">
+                          Cell Injury & Cell Death
                         </span>
                       </>
                     ) : isDicmLesson || isPublished ? (
@@ -215,7 +250,7 @@ export const SearchView: React.FC<SearchViewProps> = ({
                       </span>
                     )}
                     <span className="text-[11px] text-slate-500 truncate">
-                      {item.category} · {item.topic}
+                      {isSegment ? `General Pathology · Cell Injury and Cell Death (Segment)` : `${item.category} · ${item.topic}`}
                     </span>
                   </div>
                   <h4

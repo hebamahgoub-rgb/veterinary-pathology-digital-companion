@@ -13,6 +13,23 @@ interface HeaderProps {
   savedCount: number;
 }
 
+const DICM_LESSON_IDS = new Set<string>([
+  'module-overview',
+  'overview',
+  'intracellular-accumulations',
+  'fatty-change',
+  'glycogen-accumulation',
+  'protein-accumulation-hyaline',
+  'amyloidosis',
+  'mucin-myxoid-change',
+  'pathological-pigments',
+  'pathological-calcification',
+  'crystals-and-urates',
+  'practical-pathology-gallery',
+  'test-yourself',
+  'videos-further-learning',
+]);
+
 export const Header: React.FC<HeaderProps> = ({
   currentView,
   onNavigate,
@@ -34,15 +51,21 @@ export const Header: React.FC<HeaderProps> = ({
           backTarget: { type: 'general_pathology' } as ScreenView,
           subtitle: 'General Pathology · Section 01',
         };
-      case 'lesson':
+      case 'lesson': {
+        const isDICM = DICM_LESSON_IDS.has(currentView.lessonId);
         return {
           title: 'Lesson Reading',
-          backTarget: {
-            type: 'topic_detail',
-            topicId: 'disturbance-cell-metabolism',
-          } as ScreenView,
+          backTarget: isDICM
+            ? ({
+                type: 'topic_detail',
+                topicId: 'disturbance-cell-metabolism',
+              } as ScreenView)
+            : ({
+                type: 'general_pathology',
+              } as ScreenView),
           subtitle: 'Veterinary Pathology Companion',
         };
+      }
       case 'systemic_pathology':
         return {
           title: 'Systemic Pathology',

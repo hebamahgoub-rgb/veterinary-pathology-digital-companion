@@ -15,13 +15,16 @@ interface VideoItem {
   id: string;
   videoId: string;
   title: string;
-  category: 'Overview' | 'Lipidosis' | 'Amyloidosis' | 'Calcification';
+  category: 'Metabolism' | 'Cell Injury' | 'Inflammation' | 'Circulatory' | 'Immune' | 'Growth';
   badge: string;
   duration: string;
   description: string;
   lessonId: string;
   lessonTitle: string;
   keyPoints?: string[];
+  isDrive?: boolean;
+  driveEmbedUrl?: string;
+  driveWatchUrl?: string;
 }
 
 export const DICM_VIDEOS: VideoItem[] = [
@@ -29,7 +32,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-swelling',
     videoId: '8F-PuSjacXo',
     title: 'Why Do Injured Cells Swell? - General Pathology in Minutes',
-    category: 'Overview',
+    category: 'Metabolism',
     badge: 'GEN-01 Overview · 4 Min Video',
     duration: '4:15',
     description:
@@ -46,7 +49,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-lipidosis',
     videoId: 'JWjg6rhiwoQ',
     title: 'Hepatic Lipidosis (Steatosis): How Fat Accumulates in the Liver',
-    category: 'Lipidosis',
+    category: 'Metabolism',
     badge: 'GEN-01 Lipidosis Video Walkthrough',
     duration: '8:40',
     description:
@@ -63,7 +66,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-amyloid-full',
     videoId: '839UcPB0YHA',
     title: 'Amyloidosis & Protein Misfolding Explained',
-    category: 'Amyloidosis',
+    category: 'Metabolism',
     badge: 'Core Clinical Walkthrough · Complete Lesson',
     duration: '11:20',
     description:
@@ -80,7 +83,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-amyloid-short-1',
     videoId: 'MhWTwe0VmeI',
     title: 'What Exactly Is Amyloid?',
-    category: 'Amyloidosis',
+    category: 'Metabolism',
     badge: '60-Second Microlearning',
     duration: '1:00',
     description:
@@ -92,7 +95,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-amyloid-short-2',
     videoId: '-TessFhJD4g',
     title: 'Why Proteins Misfold in Amyloidosis',
-    category: 'Amyloidosis',
+    category: 'Metabolism',
     badge: '60-Second Microlearning',
     duration: '1:00',
     description:
@@ -104,7 +107,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-amyloid-short-3',
     videoId: '4tancbY-8r4',
     title: 'Why Amyloid Glows Apple-Green Under Polarized Light',
-    category: 'Amyloidosis',
+    category: 'Metabolism',
     badge: '60-Second Microlearning',
     duration: '1:00',
     description:
@@ -116,7 +119,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-calc-full',
     videoId: 'aUxQQDIx9GE',
     title: 'Full Lesson: Pathological Calcification',
-    category: 'Calcification',
+    category: 'Metabolism',
     badge: 'Comprehensive Lesson',
     duration: '14:30',
     description:
@@ -133,7 +136,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-calc-part-1',
     videoId: 'D3kJmXrbgio',
     title: '1. Dystrophic vs Metastatic Calcification',
-    category: 'Calcification',
+    category: 'Metabolism',
     badge: 'Microlearning Video 1',
     duration: '2:15',
     description:
@@ -145,7 +148,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-calc-part-2',
     videoId: 'U1EKTnONxm4',
     title: '2. Dystrophic Calcification: Where It Happens & Why',
-    category: 'Calcification',
+    category: 'Metabolism',
     badge: 'Microlearning Video 2',
     duration: '2:45',
     description:
@@ -157,7 +160,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-calc-part-3',
     videoId: 'dAwuHU_8G3w',
     title: '3. How Dystrophic Calcification Forms',
-    category: 'Calcification',
+    category: 'Metabolism',
     badge: 'Microlearning Video 3',
     duration: '3:10',
     description:
@@ -169,7 +172,7 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-calc-part-4',
     videoId: 'J8xGaVIxDqc',
     title: '4. Examples of Dystrophic Calcification',
-    category: 'Calcification',
+    category: 'Metabolism',
     badge: 'Microlearning Video 4',
     duration: '2:50',
     description:
@@ -181,13 +184,132 @@ export const DICM_VIDEOS: VideoItem[] = [
     id: 'vid-calc-part-5',
     videoId: 'nkTX0Zy_vLw',
     title: '5. Metastatic Calcification: Where It Happens & Why',
-    category: 'Calcification',
+    category: 'Metabolism',
     badge: 'Microlearning Video 5',
     duration: '3:05',
     description:
       'Internal elastic lamina of arteries, gastric mucosa, pulmonary alveolar septa, and renal tubular basement membranes.',
     lessonId: 'pathological-calcification',
     lessonTitle: 'Pathological Calcification',
+  },
+  // Cell Injury and Cell Death (GEN-02)
+  {
+    id: 'vid-cid-en',
+    videoId: 'FQCodmYhwqk',
+    title: 'Cell Injury & Cell Death Explained (English Lesson)',
+    category: 'Cell Injury',
+    badge: 'GEN-02 English Lecture',
+    duration: '9:30',
+    description:
+      'A concise English overview of the causes and mechanisms of cell injury, reversible and irreversible damage, necrosis patterns, and apoptotic pathways.',
+    lessonId: 'cell-injury-cell-death',
+    lessonTitle: 'Cell Injury and Cell Death',
+    keyPoints: [
+      'Point of no return defined by irreversible mitochondrial dysfunction and plasma membrane permeability.',
+      'Necrosis results in cell swelling, enzymatic digestion, plasma membrane rupture, and acute inflammation.',
+      'Apoptosis is an energy-dependent programmed cellular suicide maintaining membrane integrity.',
+    ],
+  },
+  {
+    id: 'vid-cid-bilingual',
+    videoId: 'xKGJW-pVxGk',
+    title: 'Cell Injury and Cell Death (Bilingual Teaching Version)',
+    category: 'Cell Injury',
+    badge: 'GEN-02 Bilingual Lecture',
+    duration: '14:20',
+    description:
+      'In-depth bilingual veterinary pathology lesson preserving formal English pathology terminology with contextual Arabic explanations for difficult biochemical cascades.',
+    lessonId: 'cell-injury-cell-death',
+    lessonTitle: 'Cell Injury and Cell Death',
+    keyPoints: [
+      'Comprehensive exploration of ATP depletion, reactive oxygen species generation, and intracellular calcium influx.',
+      'Comparison between coagulative, liquefactive, caseous, fat, and gangrenous necrosis.',
+    ],
+  },
+  // Inflammation (GEN-03)
+  {
+    id: 'vid-inf-immunity',
+    videoId: '5nFy6FUY0xU',
+    title: 'Immunity Background & Innate Defense',
+    category: 'Inflammation',
+    badge: 'GEN-03 Foundational',
+    duration: '8:15',
+    description:
+      'Non-specific physical, chemical, and cellular defense mechanisms recognizing microbial invaders and injury before cellular and vascular inflammatory cascades ignite.',
+    lessonId: 'inflammation',
+    lessonTitle: 'Inflammation',
+    keyPoints: [
+      'PAMP and DAMP recognition by Toll-like receptors and NOD-like receptors.',
+      'Initiation of early vascular responses and endothelial activation.',
+    ],
+  },
+  {
+    id: 'vid-inf-acute',
+    videoId: 'HAq00u1hNkg',
+    title: 'Acute Inflammation Overview: Vascular & Cellular Dynamics',
+    category: 'Inflammation',
+    badge: 'GEN-03 Core Lecture',
+    duration: '12:40',
+    description:
+      'Visual pathology lecture covering hemodynamic changes, endothelial gap formation, leukocyte margination, transmigration, and the five cardinal signs.',
+    lessonId: 'inflammation',
+    lessonTitle: 'Inflammation',
+    keyPoints: [
+      'Cardinal signs: Rubor, calor, tumor, dolor, and functio laesa.',
+      'Leukocyte recruitment cascade: rolling, activation, stable adhesion, and transmigration (diapedesis).',
+    ],
+  },
+  {
+    id: 'vid-inf-cytokines',
+    videoId: 'yzYnI1al64Q',
+    title: 'Cytokines and Chemokines Network in Tissue Inflammation',
+    category: 'Inflammation',
+    badge: 'GEN-03 Mediators',
+    duration: '10:05',
+    description:
+      'Chemical mediator cascades orchestrating local endothelial adhesion molecule upregulation and systemic acute-phase reactions during tissue injury.',
+    lessonId: 'inflammation',
+    lessonTitle: 'Inflammation',
+    keyPoints: [
+      'TNF-alpha and IL-1 as master drivers of endothelial activation and systemic fever.',
+      'Chemokines establishing chemotactic gradients directing leukocyte migration.',
+    ],
+  },
+  {
+    id: 'vid-inf-repair',
+    videoId: 'OiF_Dh7YWDc',
+    title: 'Tissue Repair: Regeneration, Granulation Tissue & Scarring',
+    category: 'Inflammation',
+    badge: 'GEN-03 Repair & Healing',
+    duration: '11:50',
+    description:
+      'Mechanisms of tissue healing: parenchymal regeneration vs. connective tissue scar replacement, angiogenesis, and collagen remodeling.',
+    lessonId: 'inflammation',
+    lessonTitle: 'Inflammation',
+    keyPoints: [
+      'Granulation tissue composed of proliferating capillaries, loose ECM, and fibroblasts.',
+      'Transition from Type III to Type I collagen during scar maturation.',
+    ],
+  },
+  // Circulatory Disturbances (GEN-04)
+  {
+    id: 'vid-cir-echo',
+    videoId: '1OvhU6jpqMjusKOMcmXpnhfypyH2JO4Se',
+    title: 'Feline Left Atrial Thrombus (Hypertrophic Cardiomyopathy)',
+    category: 'Circulatory',
+    badge: 'GEN-04 Clinical Echo',
+    duration: '3:20',
+    description:
+      'Echocardiographic demonstration of an intracardiac thrombus adhering to the left atrial wall in a cat with HCM, predisposing to aortic saddle thromboembolism.',
+    lessonId: 'circulatory-disturbances',
+    lessonTitle: 'Circulatory Disturbances',
+    isDrive: true,
+    driveEmbedUrl: 'https://drive.google.com/file/d/1OvhU6jpqMjusKOMcmXpnhfypyH2JO4Se/preview',
+    driveWatchUrl: 'https://drive.google.com/file/d/1OvhU6jpqMjusKOMcmXpnhfypyH2JO4Se/view?usp=sharing',
+    keyPoints: [
+      'Endothelial stretch and blood stasis in dilated left atrium triggering thrombus formation.',
+      'Fragmentation produces saddle thrombus occluding the aortic trifurcation.',
+    ],
   },
 ];
 
@@ -203,11 +325,11 @@ export const VideosView: React.FC<VideosViewProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const categories = [
-    { label: 'All Videos (12)', value: 'All' },
-    { label: 'Overview (1)', value: 'Overview' },
-    { label: 'Lipidosis (1)', value: 'Lipidosis' },
-    { label: 'Amyloidosis (4)', value: 'Amyloidosis' },
-    { label: 'Calcification (6)', value: 'Calcification' },
+    { label: `All Videos (${DICM_VIDEOS.length})`, value: 'All' },
+    { label: 'Metabolism (12)', value: 'Metabolism' },
+    { label: 'Cell Injury (2)', value: 'Cell Injury' },
+    { label: 'Inflammation (4)', value: 'Inflammation' },
+    { label: 'Circulatory (1)', value: 'Circulatory' },
   ];
 
   const filteredVideos =
@@ -223,14 +345,14 @@ export const VideosView: React.FC<VideosViewProps> = ({
           <span>Supplementary resources</span>
           <span>•</span>
           <span className="bg-emerald-50 text-emerald-900 border border-emerald-300/80 px-2 py-0.5 rounded-full text-[10px] font-semibold normal-case tracking-normal">
-            12 DICM Videos Embedded
+            {DICM_VIDEOS.length} Curated Videos Available
           </span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1.5 font-serif-academic">
           Microlearning Videos
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-          Short video walkthroughs, board exam highlights, and clinical pathology demonstrations embedded across the Disturbance in Cell Metabolism units.
+          Short video walkthroughs, clinical echocardiograms, board exam highlights, and pathology demonstrations embedded across General Pathology modules (GEN-01 through GEN-06).
         </p>
       </div>
 
@@ -262,7 +384,11 @@ export const VideosView: React.FC<VideosViewProps> = ({
             {/* 16:9 Responsive Embed */}
             <div className="relative w-full pb-[56.25%] bg-slate-950">
               <iframe
-                src={`https://www.youtube.com/embed/${video.videoId}`}
+                src={
+                  video.isDrive && video.driveEmbedUrl
+                    ? video.driveEmbedUrl
+                    : `https://www.youtube.com/embed/${video.videoId}`
+                }
                 title={video.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
