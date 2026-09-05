@@ -11,6 +11,7 @@ import {
   Award,
   Microscope,
   Clock,
+  ShieldCheck,
 } from 'lucide-react';
 import { ScreenView } from '../types';
 
@@ -229,7 +230,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </div>
         <div className="text-xs text-slate-600 leading-relaxed">
           <span className="font-bold text-slate-900">Curriculum Structure: </span>
-          Explore available General Pathology and Infectious Diseases study sections, along with curriculum outlines under development for future modules (Viral Diseases, Helminthic and Arthropod-Associated Diseases, and Protozoal Diseases). Microlearning videos are available as supplementary resources, with additional resources added following review.
+          Explore available General Pathology and Infectious Diseases study sections. Systemic Pathology and future Infectious Diseases modules (Viral Diseases, Helminthic and Arthropod-Associated Diseases, and Protozoal Diseases) are under development. Microlearning videos are available as supplementary resources, with additional resources added following review.
+        </div>
+      </div>
+
+      {/* Independent Educational Resource Notice */}
+      <div className="bg-white border border-slate-200 rounded-xl p-3.5 flex items-start gap-3">
+        <div className="w-7 h-7 rounded-lg bg-slate-800 text-slate-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <ShieldCheck className="w-3.5 h-3.5" />
+        </div>
+        <div className="text-xs text-slate-600 leading-relaxed">
+          <span className="font-bold text-slate-900">Independent Educational Resource: </span>
+          The VetPath Companion is independently developed and maintained by Professor Hebatallah Mahgoub, Professor of Veterinary Pathology, Department of Pathology, Faculty of Veterinary Medicine, Mansoura University, Egypt. It is not an official website, publication, or digital platform of Mansoura University or the Faculty of Veterinary Medicine; the affiliation identifies the author’s academic position only.
         </div>
       </div>
     </div>
