@@ -287,10 +287,21 @@ export const InfectiousLessonPage: React.FC<InfectiousLessonPageProps> = ({
   return (
     <div className="pb-20 pt-2 px-3 sm:px-4 max-w-5xl mx-auto space-y-4">
       <SegmentedLessonLayout
+        lessonTitle={title}
         sections={layoutSections}
         currentIndex={currentIndex}
         completedIndices={completedIndices}
         onSelectSection={handleSelectSection}
+        onNextSection={() => {
+          if (currentIndex < effectiveSections.length - 1) {
+            handleSelectSection(currentIndex + 1);
+          }
+        }}
+        onPreviousSection={() => {
+          if (currentIndex > 0) {
+            handleSelectSection(currentIndex - 1);
+          }
+        }}
         header={headerNode}
         footerNav={footerNavNode}
         fontSize={fontSize}
