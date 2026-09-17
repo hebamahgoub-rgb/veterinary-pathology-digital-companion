@@ -221,7 +221,7 @@ export const SECTIONS: InfectiousLessonSection[] = [
         </div>
         <div class="illustration-gallery" aria-label="Illustrations">
           <figure class="illustration-card">
-            <img referrerpolicy="no-referrer" src="/images/poultry_viral_1.jpeg" alt="Diagnostic lesions of Infectious Bursal Disease include bursal enlargement with edema and hemorrhage, lymphoid follicle necrosis, muscular petechiae, and nephrosis with urate deposits" loading="lazy">
+            <img referrerpolicy="no-referrer" src="${import.meta.env.BASE_URL}images/poultry_viral_1.jpeg" alt="Diagnostic lesions of Infectious Bursal Disease include bursal enlargement with edema and hemorrhage, lymphoid follicle necrosis, muscular petechiae, and nephrosis with urate deposits" loading="lazy">
             <figcaption>Diagnostic lesions of Infectious Bursal Disease include bursal enlargement with edema and hemorrhage, lymphoid follicle necrosis, and muscular petechiae. Nephrosis with urate deposits may occur in severe cases. The hallmark lesion is lymphoid depletion of the bursa of Fabricius, which distinguishes IBD from other immunosuppressive diseases.</figcaption>
           </figure>
         </div>
@@ -257,7 +257,7 @@ export const SECTIONS: InfectiousLessonSection[] = [
         </div>
         <div class="illustration-gallery" aria-label="Illustrations">
           <figure class="illustration-card">
-            <img referrerpolicy="no-referrer" src="/images/poultry_viral_2.jpeg" alt="Diagnostic lesions of Chicken Infectious Anemia include severe anemia, bone marrow aplasia, thymic and bursal atrophy, and subcutaneous hemorrhages" loading="lazy">
+            <img referrerpolicy="no-referrer" src="${import.meta.env.BASE_URL}images/poultry_viral_2.jpeg" alt="Diagnostic lesions of Chicken Infectious Anemia include severe anemia, bone marrow aplasia, thymic and bursal atrophy, and subcutaneous hemorrhages" loading="lazy">
             <figcaption>Diagnostic lesions of Chicken Infectious Anemia include severe anemia, bone marrow aplasia, thymic and bursal atrophy, and subcutaneous hemorrhages. The combination of profound marrow depletion and immunosuppression is characteristic of CIA and helps differentiate it from IBD and other causes of immunosuppression in young chicks.</figcaption>
           </figure>
         </div>
