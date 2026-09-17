@@ -20,7 +20,7 @@ def extract_and_clean_container(filepath):
         def replace_b64(m):
             idx = counter[0]
             counter[0] += 1
-          return f'src="${{import.meta.env.BASE_URL}}images/poultry_viral_{idx}.jpeg"'
+            return f'src="${{import.meta.env.BASE_URL}}images/poultry_viral_{idx}.jpeg"'
         content = re.sub(r'src=[\"\']data:image\/[a-zA-Z0-9\+\-]+;base64,[^\"]+[\"\']', replace_b64, content)
 
     # Extract inside container
