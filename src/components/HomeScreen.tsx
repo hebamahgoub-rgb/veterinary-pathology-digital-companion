@@ -12,31 +12,17 @@ import {
   Microscope,
   Clock,
   ShieldCheck,
+  Newspaper,
 } from 'lucide-react';
 import { ScreenView } from '../types';
 
-const websiteBase = 'https://sites.google.com/view/veterinary-pathology-companion';
+import { COMPANION_SECTIONS } from '../data/companionSections';
 
-const websitePrototypes = [
-  {
-    title: 'Comparative Atlas',
-    icon: Microscope,
-    pages: [
-      { title: 'Comparative Atlas overview', path: '/comparative-atlas' },
-      { title: 'Head & Neck', path: '/comparative-atlas/head-and-neck' },
-      { title: 'Salivary Glands and Ducts', path: '/comparative-atlas/head-and-neck/salivary-glands-and-ducts' },
-    ],
-  },
-  {
-    title: 'Postgraduate Pathology',
-    icon: Award,
-    pages: [
-      { title: 'Postgraduate Pathology overview', path: '/postgraduate-pathology' },
-      { title: 'Mammary Pathology', path: '/postgraduate-pathology/pg-36-mammary-pathology' },
-      { title: 'Mastitis Pathogenesis, Morphologic Patterns & Tissue Remodeling', path: '/postgraduate-pathology/pg-36-mammary-pathology/mastitis-pathogenesis-patterns' },
-    ],
-  },
-];
+const companionIcons = {
+  'comparative-atlas': Microscope,
+  'postgraduate-pathology': Award,
+  magazine: Newspaper,
+};
 
 interface HomeScreenProps {
   onNavigate: (view: ScreenView) => void;
@@ -246,35 +232,26 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </div>
       </div>
 
-      <section aria-labelledby="website-prototypes-heading">
-        <h3 id="website-prototypes-heading" className="text-base font-bold text-slate-900">
-          Website prototypes
+      <section aria-labelledby="companion-sections-heading">
+        <h3 id="companion-sections-heading" className="mb-2.5 px-0.5 text-xs font-bold uppercase tracking-wider text-slate-500">
+          Atlas, Postgraduate & Magazine
         </h3>
-        <p className="mt-1 mb-3 text-xs text-slate-600">These pages open on the companion website in a new tab.</p>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {websitePrototypes.map(({ title, icon: Icon, pages }) => (
-            <div key={title} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
-              <h4 className="flex items-center gap-2 text-base font-bold text-slate-900">
-                <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-teal-800" />
-                {title}
-              </h4>
-              <ul className="mt-2 divide-y divide-slate-100">
-                {pages.map((page) => (
-                  <li key={page.path}>
-                    <a
-                      href={websiteBase + page.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex min-h-11 items-center justify-between gap-2 rounded px-1 py-2 text-sm font-medium text-teal-900 hover:underline focus-visible:outline-2 focus-visible:outline-teal-700"
-                    >
-                      {page.title}
-                      <ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {Object.values(COMPANION_SECTIONS).map((section) => {
+            const Icon = companionIcons[section.id];
+            return (
+              <button
+                key={section.id}
+                type="button"
+                onClick={() => onNavigate({ type: 'companion_section', sectionId: section.id })}
+                className="rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-xs hover:border-teal-500 focus-visible:outline-2 focus-visible:outline-teal-700"
+              >
+                <Icon aria-hidden="true" className="mb-2 h-5 w-5 text-teal-800" />
+                <span className="block font-bold text-slate-900">{section.title}</span>
+                <span className="mt-1 block text-xs leading-relaxed text-slate-600">{section.summary}</span>
+              </button>
+            );
+          })}
         </div>
       </section>
 

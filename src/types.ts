@@ -1,3 +1,5 @@
+import type { CompanionSectionId } from './data/companionSections';
+
 export type NavigationTab = 'home' | 'search' | 'videos' | 'saved';
 
 export type ScreenView =
@@ -10,6 +12,7 @@ export type ScreenView =
   | { type: 'image_atlas'; initialImageId?: string }
   | { type: 'search'; query?: string }
   | { type: 'videos'; filterTopic?: string }
+  | { type: 'companion_section'; sectionId: CompanionSectionId; pageId?: string }
   | { type: 'saved' };
 
 export interface MicrolearningVideo {

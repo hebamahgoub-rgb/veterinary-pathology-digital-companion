@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CompanionSectionView } from './components/CompanionSectionView';
 import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
 import { HomeScreen } from './components/HomeScreen';
@@ -83,7 +84,7 @@ export default function App() {
       return;
     }
     setCurrentView(view);
-    if (view.type === 'home' || view.type === 'general_pathology' || view.type === 'topic_detail' || view.type === 'lesson' || view.type === 'systemic_pathology' || view.type === 'infectious_diseases' || view.type === 'image_atlas') {
+    if (view.type === 'home' || view.type === 'general_pathology' || view.type === 'topic_detail' || view.type === 'lesson' || view.type === 'systemic_pathology' || view.type === 'infectious_diseases' || view.type === 'image_atlas' || view.type === 'companion_section') {
       setCurrentTab('home');
     } else if (view.type === 'search') {
       setCurrentTab('search');
@@ -186,6 +187,8 @@ export default function App() {
         );
       case 'image_atlas':
         return <ImageAtlasView onNavigate={handleNavigate} />;
+      case 'companion_section':
+        return <CompanionSectionView view={currentView} onNavigate={handleNavigate} />;
       case 'search':
         return (
           <SearchView

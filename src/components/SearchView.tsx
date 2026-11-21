@@ -7,6 +7,7 @@ import {
   Lock,
 } from 'lucide-react';
 import { SEARCH_INDEX, isLessonPublished, INFECTIOUS_DISEASES_SECTIONS } from '../data/pathologyData';
+import { COMPANION_SECTIONS } from '../data/companionSections';
 import { ScreenView } from '../types';
 
 interface SearchViewProps {
@@ -21,9 +22,20 @@ export const SearchView: React.FC<SearchViewProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const filterChips = ['All', 'General Pathology', 'Infectious Diseases', 'Topics', 'Lessons'];
+  const filterChips = ['All', 'General Pathology', 'Infectious Diseases', 'Topics', 'Lessons', 'Atlas, Postgraduate & Magazine'];
+  const companionFilter = 'Atlas, Postgraduate & Magazine';
+  const query = searchTerm.trim().toLowerCase();
+  const companionResults = (activeFilter === companionFilter || (activeFilter === 'All' && query))
+    ? Object.values(COMPANION_SECTIONS).flatMap((section) =>
+        [section, ...section.pages].filter((page) =>
+          [page.title, page.summary, ...('blocks' in page ? (page.blocks ?? []).map((block) => block.title + ' ' + block.text) : [])]
+            .some((value) => value.toLowerCase().includes(query))
+        ).map((page) => ({ section, page }))
+      )
+    : [];
 
   const filteredResults = SEARCH_INDEX.filter((item) => {
+    if (activeFilter === companionFilter) return false;
     const matchesQuery =
       searchTerm.trim() === '' ||
       item.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -91,7 +103,7 @@ export const SearchView: React.FC<SearchViewProps> = ({
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search curriculum topics and lesson outlines..."
+          placeholder="Search lessons, atlas entries, and magazine topics..."
           className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs focus:outline-none focus:ring-2 focus:ring-teal-700/30 focus:border-teal-700 text-sm placeholder:text-slate-400 font-sans"
         />
         {searchTerm && (
@@ -149,21 +161,36 @@ export const SearchView: React.FC<SearchViewProps> = ({
       <div className="space-y-2.5">
         <div className="flex items-center justify-between px-0.5">
           <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 font-sans">
-            Results ({filteredResults.length})
+            Results ({filteredResults.length + companionResults.length})
           </h3>
           <span className="text-[11px] text-slate-400 font-medium">
-            Curriculum Index
+            Study App Index
           </span>
         </div>
 
-        {filteredResults.length === 0 ? (
+        {companionResults.map(({ section, page }) => (
+          <button
+            key={section.id + '/' + page.id}
+            type="button"
+            onClick={() => onNavigate({ type: 'companion_section', sectionId: section.id, pageId: page === section ? undefined : page.id })}
+            className="flex w-full items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-3.5 text-left hover:border-teal-400"
+          >
+            <span>
+              <span className="block text-xs font-semibold text-teal-800">{section.title}</span>
+              <span className="block text-sm font-bold text-slate-900">{page.title}</span>
+            </span>
+            <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0 text-teal-700" />
+          </button>
+        ))}
+
+        {filteredResults.length === 0 ? (companionResults.length === 0 && (
           <div className="bg-white border border-slate-200 rounded-2xl p-8 text-center space-y-2">
-            <p className="text-sm font-semibold text-slate-700">No matching curriculum entries found</p>
+            <p className="text-sm font-semibold text-slate-700">No matching entries found</p>
             <p className="text-xs text-slate-500">
               Try searching for terms like "Metabolism", "Inflammation", "Bacterial", or "Neoplasia".
             </p>
           </div>
-        ) : (
+        )) : (
           filteredResults.map((item, idx) => {
             const isLesson = item.type === 'Lesson';
             const isSegment = item.type === 'Study Segment';

@@ -5,6 +5,7 @@ import {
   Search,
   BookOpen,
 } from 'lucide-react';
+import { COMPANION_SECTIONS } from '../data/companionSections';
 import { ScreenView } from '../types';
 
 interface HeaderProps {
@@ -148,6 +149,14 @@ export const Header: React.FC<HeaderProps> = ({
           backTarget: { type: 'home' } as ScreenView,
           subtitle: 'Gross & Histopathology Atlas',
         };
+      case 'companion_section': {
+        const section = COMPANION_SECTIONS[currentView.sectionId];
+        const page = section.pages.find((item) => item.id === currentView.pageId);
+        const backTarget: ScreenView = page
+          ? { type: 'companion_section', sectionId: section.id, pageId: page.parent }
+          : { type: 'home' };
+        return { title: section.title, subtitle: page?.title ?? 'Veterinary Pathology Digital Companion', backTarget };
+      }
       case 'search':
         return {
           title: 'Pathology Search',
