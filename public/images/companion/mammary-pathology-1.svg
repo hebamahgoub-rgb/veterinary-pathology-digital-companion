@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 175" role="img" aria-label="Schematic diagram showing secretory alveolus with epithelium, myoepithelium, and basement membrane, branching duct and cisternal pathway, teat canal barrier, and interlobular stroma with vessels and lymphatics">
+                    <rect x="10" y="10" width="160" height="72" rx="6" fill="#EFF6FF" stroke="#2B6CB0" stroke-width="1.5"></rect>
+                    <text x="90" y="30" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="middle">1. Secretory Unit</text>
+                    <text x="90" y="46" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Alveolar epithelium,</text>
+                    <text x="90" y="59" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">myoepithelium &amp; basement</text>
+                    <text x="90" y="72" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">membrane</text>
+
+                    <rect x="190" y="10" width="160" height="72" rx="6" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"></rect>
+                    <text x="270" y="30" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="middle">2. Interlobular Stroma</text>
+                    <text x="270" y="46" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Suspensory septa,</text>
+                    <text x="270" y="59" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">capillary bed, veins &amp;</text>
+                    <text x="270" y="72" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">regional lymphatics</text>
+
+                    <line x1="90" y1="82" x2="90" y2="96" stroke="#2B6CB0" stroke-width="2"></line>
+
+                    <rect x="10" y="96" width="160" height="68" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"></rect>
+                    <text x="90" y="116" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="middle">3. Ducts &amp; Cisterns</text>
+                    <text x="90" y="132" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Intralobular/collecting</text>
+                    <text x="90" y="145" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">ducts &amp; sinus (where present)</text>
+
+                    <line x1="170" y1="130" x2="190" y2="130" stroke="#16A34A" stroke-width="2"></line>
+
+                    <rect x="190" y="96" width="160" height="68" rx="6" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"></rect>
+                    <text x="270" y="116" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#78350F" text-anchor="middle">4. Teat / Nipple Canal</text>
+                    <text x="270" y="132" font-family="Inter, sans-serif" font-size="8.5" fill="#78350F" text-anchor="middle">Keratinized streak canal,</text>
+                    <text x="270" y="145" font-family="Inter, sans-serif" font-size="8.5" fill="#78350F" text-anchor="middle">sphincter &amp; skin interface</text>
+                  </svg>

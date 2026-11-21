@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vetpath-shell-v26';
+const CACHE_NAME = 'vetpath-shell-v27';
 
 const getBasePath = () => {
   const path = new URL(self.registration.scope).pathname;

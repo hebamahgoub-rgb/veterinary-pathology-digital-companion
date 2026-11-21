@@ -1,0 +1,46 @@
+<svg viewBox="0 0 420 265" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-panel schematic comparison showing Panel A, a salivary mucocele where saliva leaks through a ruptured duct into tissue and is surrounded by granulation tissue and foamy muciphages without epithelium, and Panel B, a true salivary retention cyst where an obstructed duct dilates intraluminally and retains an intact attenuated epithelial lining">
+                  <!-- Panel A: Salivary Mucocele -->
+                  <rect x="10" y="10" width="194" height="244" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.4"></rect>
+                  <text x="107" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#78350F" text-anchor="middle">A. Salivary Mucocele</text>
+                  <text x="107" y="45" font-family="Inter, sans-serif" font-size="9.5" fill="#92400E" text-anchor="middle">(Extravasation Pseudocyst)</text>
+
+                  <!-- Ruptured duct feeding extravasated mucin pool -->
+                  <path d="M 38 115 L 68 115" stroke="#0F766E" stroke-width="6" stroke-linecap="round"></path>
+                  <circle cx="116" cy="122" r="46" fill="#FDE68A" stroke="#B45309" stroke-width="3" stroke-dasharray="6 3"></circle>
+                  <!-- Foamy muciphages in lumen/wall -->
+                  <circle cx="102" cy="112" r="6" fill="#FFFFFF" stroke="#78350F" stroke-width="1.2"></circle>
+                  <circle cx="102" cy="112" r="2" fill="#78350F"></circle>
+                  <circle cx="128" cy="126" r="6" fill="#FFFFFF" stroke="#78350F" stroke-width="1.2"></circle>
+                  <circle cx="128" cy="126" r="2" fill="#78350F"></circle>
+                  <circle cx="112" cy="140" r="6" fill="#FFFFFF" stroke="#78350F" stroke-width="1.2"></circle>
+                  <circle cx="112" cy="140" r="2" fill="#78350F"></circle>
+
+                  <text x="107" y="188" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#78350F" text-anchor="middle">NO epithelial lining</text>
+                  <text x="107" y="204" font-family="Inter, sans-serif" font-size="9" fill="#78350F" text-anchor="middle">Granulation tissue &amp; fibrous</text>
+                  <text x="107" y="217" font-family="Inter, sans-serif" font-size="9" fill="#78350F" text-anchor="middle">pseudocapsule + foamy muciphages</text>
+                  <text x="107" y="236" font-family="Inter, sans-serif" font-size="8.5" font-style="italic" fill="#92400E" text-anchor="middle">Extravasated interstitial mucin</text>
+
+                  <!-- Panel B: Salivary Retention Cyst -->
+                  <rect x="216" y="10" width="194" height="244" rx="8" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.4"></rect>
+                  <text x="313" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0C4A6E" text-anchor="middle">B. Retention Cyst</text>
+                  <text x="313" y="45" font-family="Inter, sans-serif" font-size="9.5" fill="#0369A1" text-anchor="middle">(True Intraluminal Duct Ectasia)</text>
+
+                  <!-- Obstructed dilated duct with intact epithelial cell ring -->
+                  <path d="M 240 122 L 266 122" stroke="#0369A1" stroke-width="6" stroke-linecap="round"></path>
+                  <circle cx="258" cy="122" r="4.5" fill="#1E293B"></circle>
+                  <circle cx="316" cy="122" r="46" fill="#E0F2FE" stroke="#0369A1" stroke-width="4"></circle>
+                  <circle cx="316" cy="122" r="41" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.2"></circle>
+                  <!-- Epithelial nuclei along cyst lining -->
+                  <circle cx="316" cy="79" r="2.3" fill="#0C4A6E"></circle>
+                  <circle cx="346" cy="91" r="2.3" fill="#0C4A6E"></circle>
+                  <circle cx="359" cy="122" r="2.3" fill="#0C4A6E"></circle>
+                  <circle cx="346" cy="153" r="2.3" fill="#0C4A6E"></circle>
+                  <circle cx="316" cy="165" r="2.3" fill="#0C4A6E"></circle>
+                  <circle cx="286" cy="153" r="2.3" fill="#0C4A6E"></circle>
+                  <circle cx="286" cy="91" r="2.3" fill="#0C4A6E"></circle>
+
+                  <text x="313" y="188" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#0C4A6E" text-anchor="middle">INTACT epithelial lining</text>
+                  <text x="313" y="204" font-family="Inter, sans-serif" font-size="9" fill="#0C4A6E" text-anchor="middle">Attenuated cuboidal, columnar,</text>
+                  <text x="313" y="217" font-family="Inter, sans-serif" font-size="9" fill="#0C4A6E" text-anchor="middle">or squamous-metaplastic epithelium</text>
+                  <text x="313" y="236" font-family="Inter, sans-serif" font-size="8.5" font-style="italic" fill="#0369A1" text-anchor="middle">Intraluminal dilation behind block</text>
+                </svg>

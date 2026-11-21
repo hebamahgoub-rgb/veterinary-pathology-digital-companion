@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 165" role="img" aria-label="Layout placeholder for paired gross and H and E histology comparison of acute suppurative versus gangrenous mastitis">
+                  <rect x="8" y="8" width="164" height="148" rx="6" fill="#FFFBEB" stroke="#D97706"></rect>
+                  <text x="90" y="28" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#78350F" text-anchor="middle">Suppurative (PG-36.E017)</text>
+                  <circle cx="90" cy="78" r="32" fill="#FEF3C7" stroke="#B45309" stroke-width="2"></circle>
+                  <circle cx="80" cy="72" r="5" fill="#1E293B"></circle>
+                  <circle cx="98" cy="76" r="5" fill="#1E293B"></circle>
+                  <circle cx="88" cy="88" r="5" fill="#1E293B"></circle>
+                  <text x="90" y="132" font-family="Inter, sans-serif" font-size="9" fill="#78350F" text-anchor="middle">Intraluminal neutrophils;</text>
+                  <text x="90" y="144" font-family="Inter, sans-serif" font-size="9" fill="#78350F" text-anchor="middle">preserved alveolar contour</text>
+
+                  <rect x="188" y="8" width="164" height="148" rx="6" fill="#FEF2F2" stroke="#DC2626"></rect>
+                  <text x="270" y="28" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" fill="#7F1D1D" text-anchor="middle">Gangrenous (PG-36.E018)</text>
+                  <circle cx="270" cy="78" r="32" fill="#FECACA" stroke="#991B1B" stroke-width="2" stroke-dasharray="5,3"></circle>
+                  <rect x="252" y="68" width="36" height="18" rx="4" fill="#991B1B"></rect>
+                  <text x="270" y="80" font-family="Inter, sans-serif" font-size="8.5" fill="#FFFFFF" text-anchor="middle">Thrombus</text>
+                  <text x="270" y="132" font-family="Inter, sans-serif" font-size="9" fill="#7F1D1D" text-anchor="middle">Coagulative necrosis,</text>
+                  <text x="270" y="144" font-family="Inter, sans-serif" font-size="9" fill="#7F1D1D" text-anchor="middle">hemorrhage &amp; thrombosis</text>
+                </svg>

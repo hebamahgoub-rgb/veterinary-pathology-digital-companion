@@ -7,6 +7,10 @@ interface ReadingPage {
   summary: string;
   path?: string;
   blocks?: { title: string; text: string }[];
+  article?: {
+    paragraphs: string[];
+    references?: { label: string; url: string }[];
+  };
 }
 
 interface CompanionSection {

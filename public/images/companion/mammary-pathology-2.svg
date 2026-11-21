@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 165" role="img" aria-label="Schematic comparison of duct-centered lobular mosaic distribution, diffuse interstitial or vascular distribution, and discrete focal or cavitary mass localization">
+                    <rect x="8" y="8" width="108" height="148" rx="6" fill="#F8FAFC" stroke="#CBD5E1"></rect>
+                    <text x="62" y="27" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="middle">A. Duct-Lobular</text>
+                    <circle cx="45" cy="65" r="14" fill="#FCA5A5" stroke="#B91C1C"></circle>
+                    <circle cx="78" cy="65" r="14" fill="#E2E8F0" stroke="#64748B"></circle>
+                    <circle cx="62" cy="95" r="14" fill="#FCA5A5" stroke="#B91C1C"></circle>
+                    <text x="62" y="132" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Lobular mosaic</text>
+                    <text x="62" y="144" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">along duct tree</text>
+
+                    <rect x="126" y="8" width="108" height="148" rx="6" fill="#F8FAFC" stroke="#CBD5E1"></rect>
+                    <text x="180" y="27" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="middle">B. Interstitial</text>
+                    <rect x="144" y="46" width="72" height="64" rx="8" fill="#DBEAFE" stroke="#2B6CB0" stroke-width="2"></rect>
+                    <circle cx="164" cy="68" r="9" fill="#FFFFFF" stroke="#2B6CB0"></circle>
+                    <circle cx="196" cy="68" r="9" fill="#FFFFFF" stroke="#2B6CB0"></circle>
+                    <circle cx="180" cy="92" r="9" fill="#FFFFFF" stroke="#2B6CB0"></circle>
+                    <text x="180" y="132" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Diffuse septal /</text>
+                    <text x="180" y="144" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">interalveolar</text>
+
+                    <rect x="244" y="8" width="108" height="148" rx="6" fill="#F8FAFC" stroke="#CBD5E1"></rect>
+                    <text x="298" y="27" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="middle">C. Focal Mass</text>
+                    <circle cx="298" cy="78" r="26" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"></circle>
+                    <text x="298" y="81" font-family="Inter, sans-serif" font-size="8.5" font-weight="700" fill="#78350F" text-anchor="middle">Nodular / Cyst</text>
+                    <text x="298" y="132" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Discrete mass,</text>
+                    <text x="298" y="144" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">cyst or abscess</text>
+                  </svg>

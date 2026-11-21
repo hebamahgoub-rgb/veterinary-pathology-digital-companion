@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-label="Schematic preview comparing ascending ductal entry and hematogenous capillary entry">
+                  <rect x="8" y="8" width="164" height="134" rx="6" fill="#F8FAFC" stroke="#CBD5E1"></rect>
+                  <text x="90" y="26" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">A. Ascending Ductal Route</text>
+                  <circle cx="90" cy="58" r="20" fill="#DBEAFE" stroke="#2B6CB0" stroke-width="2"></circle>
+                  <path d="M90 78 L90 122" stroke="#2B6CB0" stroke-width="4"></path>
+                  <path d="M90 116 L90 84" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"></path>
+                  <text x="90" y="61" font-family="Inter, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">Alveolus</text>
+                  <text x="90" y="135" font-family="Inter, sans-serif" font-size="9" fill="#475569" text-anchor="middle">Teat Canal → Duct → Lumen</text>
+
+                  <rect x="188" y="8" width="164" height="134" rx="6" fill="#F8FAFC" stroke="#CBD5E1"></rect>
+                  <text x="270" y="26" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">B. Hematogenous Route</text>
+                  <circle cx="270" cy="68" r="20" fill="#F1F5F9" stroke="#64748B" stroke-width="2"></circle>
+                  <path d="M235 45 Q270 35 305 45" fill="none" stroke="#DC2626" stroke-width="3"></path>
+                  <path d="M235 92 Q270 102 305 92" fill="none" stroke="#DC2626" stroke-width="3"></path>
+                  <text x="270" y="71" font-family="Inter, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">Interstitium</text>
+                  <text x="270" y="135" font-family="Inter, sans-serif" font-size="9" fill="#475569" text-anchor="middle">Capillary Bed → Stroma</text>
+                </svg>

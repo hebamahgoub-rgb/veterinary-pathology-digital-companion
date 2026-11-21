@@ -1,5 +1,6 @@
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import { COMPANION_SECTIONS, COMPANION_WEBSITE } from '../data/companionSections';
+import { COMPANION_FIGURES } from '../data/companionFigures';
 import type { ScreenView } from '../types';
 
 type SectionView = Extract<ScreenView, { type: 'companion_section' }>;
@@ -11,6 +12,7 @@ export function CompanionSectionView({ view, onNavigate }: {
   const section = COMPANION_SECTIONS[view.sectionId];
   const page = section.pages.find((item) => item.id === view.pageId);
   const reading = page ?? section;
+  const figures = COMPANION_FIGURES[reading.id] ?? [];
   const children = section.pages.filter((item) => item.parent === page?.id);
 
   return (
@@ -26,6 +28,34 @@ export function CompanionSectionView({ view, onNavigate }: {
           <p className="mt-2 text-sm leading-relaxed text-slate-700">{block.text}</p>
         </section>
       ))}
+
+      {page?.article && (
+        <article className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 text-base leading-relaxed text-slate-800">
+          {page.article.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+          {!!page.article.references?.length && (
+            <section aria-label="Sources">
+              <h3 className="font-semibold">Sources</h3>
+              <ul className="list-disc pl-5">
+                {page.article.references.map(({ label, url }) => (
+                  <li key={url}><a href={url} className="text-teal-800 underline">{label}</a></li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </article>
+      )}
+
+      {figures.map((figure) => {
+        const src = import.meta.env.BASE_URL + 'images/companion/' + figure.file;
+        return (
+          <figure key={figure.file} className="rounded-2xl border border-slate-200 bg-white p-4">
+            <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Enlarge: ${figure.alt}`} className="block rounded focus-visible:outline-2 focus-visible:outline-teal-700">
+              <img src={src} alt={figure.alt} loading="lazy" className="mx-auto h-auto w-full max-w-xl" />
+            </a>
+            <figcaption className="mt-3 text-sm leading-relaxed text-slate-600">{figure.caption}</figcaption>
+          </figure>
+        );
+      })}
 
       {children.map((child) => (
         <button

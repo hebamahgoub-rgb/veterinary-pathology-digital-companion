@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 190" role="img" aria-label="Layout placeholder for 3-part panel of chronic fibrosing mastitis, granulomatous or sterile injury, and encapsulated abscess">
+                  <rect x="8" y="8" width="108" height="174" rx="6" fill="#F8FAFC" stroke="#94A3B8"></rect>
+                  <text x="62" y="28" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="middle">A. Fibrosing</text>
+                  <text x="62" y="41" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">(PG-36.E019)</text>
+                  <path d="M22 75 L102 75 M22 92 L102 92 M22 109 L102 109" stroke="#64748B" stroke-width="3"></path>
+                  <circle cx="62" cy="92" r="10" fill="#E2E8F0" stroke="#334155"></circle>
+                  <text x="62" y="145" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Collagen bands &amp;</text>
+                  <text x="62" y="158" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">acinar atrophy</text>
+
+                  <rect x="126" y="8" width="108" height="174" rx="6" fill="#F8FAFC" stroke="#94A3B8"></rect>
+                  <text x="180" y="28" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="middle">B. Granulomatous</text>
+                  <text x="180" y="41" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">(E020 / E034)</text>
+                  <circle cx="180" cy="92" r="24" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"></circle>
+                  <circle cx="180" cy="92" r="9" fill="#FFFFFF" stroke="#0369A1"></circle>
+                  <text x="180" y="145" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Epithelioid / giant</text>
+                  <text x="180" y="158" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">cells &amp; vacuoles</text>
+
+                  <rect x="244" y="8" width="108" height="174" rx="6" fill="#F8FAFC" stroke="#94A3B8"></rect>
+                  <text x="298" y="28" font-family="Inter, sans-serif" font-size="9.5" font-weight="700" fill="#1E293B" text-anchor="middle">C. Abscess</text>
+                  <text x="298" y="41" font-family="Inter, sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">(PG-36.E021)</text>
+                  <circle cx="298" cy="92" r="25" fill="#FEF3C7" stroke="#475569" stroke-width="4"></circle>
+                  <text x="298" y="95" font-family="Inter, sans-serif" font-size="8.5" fill="#78350F" text-anchor="middle">Pus cavity</text>
+                  <text x="298" y="145" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">Fibrous capsule</text>
+                  <text x="298" y="158" font-family="Inter, sans-serif" font-size="8.5" fill="#334155" text-anchor="middle">&amp; fistulation</text>
+                </svg>

@@ -1,0 +1,256 @@
+<svg viewBox="0 0 680 572" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-part anatomical schematic of canine salivary glands and ducts: Panel A (left lateral head view, rostral to the left) shows a lighter dashed internal mandibular bone landmark and an external lower jaw-neck skin contour passing beneath two mandibular lymph nodes that sit outside the dashed shared capsule enclosing the caudodorsal mandibular gland and rostroventral monostomatic sublingual gland, alongside the parotid gland and duct opening opposite upper P4 and the zygomatic gland opening near the last upper molar; Panel B (floor-of-mouth inset) shows five polystomatic sublingual lobules positioned dorsal to and clear of the major sublingual duct, each opening via its own short duct onto the crest of the sublingual fold, while the major sublingual duct and mandibular duct run as distinct parallel trunks to separate openings on the sublingual caruncle beside the lingual frenulum.">
+<style><![CDATA[
+
+    .t-l1 { font-family: var(--lumi-sans); font-size: 15px; fill: var(--lumi-ink); }
+
+    .t-l2 { font-family: var(--lumi-mono); font-size: 13px; font-style: italic; fill: var(--lumi-ink); }
+
+    .t-l4 { font-family: var(--lumi-sans); font-size: 13px; fill: var(--lumi-muted); }
+
+    .head-outline { fill: none; stroke: var(--lumi-ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .jaw-outline { fill: none; stroke: var(--lumi-jaw); stroke-width: 1.3; stroke-dasharray: 3 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .tooth-shape { fill: var(--lumi-container); stroke: var(--lumi-outline); stroke-width: 1.2; }
+
+    .tooth-p4 { fill: var(--lumi-parotid-bg); stroke: var(--lumi-parotid-bd); stroke-width: 1.5; }
+
+    .gland-parotid { fill: var(--lumi-parotid-bg); stroke: var(--lumi-parotid-bd); stroke-width: 1.5; }
+
+    .gland-zygo { fill: var(--lumi-zygo-bg); stroke: var(--lumi-zygo-bd); stroke-width: 1.5; }
+
+    .gland-mand { fill: var(--lumi-mand-bg); stroke: var(--lumi-ink); stroke-width: 1.4; }
+
+    .gland-subl { fill: var(--lumi-subl-bg); stroke: var(--lumi-ink); stroke-width: 1.3; }
+
+    .node-ln { fill: var(--lumi-node-bg); stroke: var(--lumi-ink); stroke-width: 1.4; }
+
+    .capsule-dash { fill: none; stroke: var(--lumi-ink); stroke-width: 1.5; stroke-dasharray: 5 4; }
+
+    .duct-parotid { fill: none; stroke: var(--lumi-parotid-bd); stroke-width: 3; stroke-linecap: round; }
+
+    .duct-mand { fill: none; stroke: var(--lumi-ink); stroke-width: 2.6; stroke-linecap: round; }
+
+    .duct-subl { fill: none; stroke: var(--lumi-subl-bg); stroke-width: 2.4; stroke-linecap: round; }
+
+    .duct-minor { fill: none; stroke: var(--lumi-subl-bg); stroke-width: 1.6; stroke-linecap: round; }
+
+    .leader-line { fill: none; stroke: var(--lumi-outline); stroke-width: 1.2; }
+
+    .leader-arrow { fill: none; stroke: var(--lumi-ink); stroke-width: 1.3; marker-end: url(#lumi-caret-rev); }
+
+    .inset-frame { fill: var(--lumi-container); stroke: var(--lumi-outline); stroke-width: 1.25; }
+
+    .fold-band { fill: var(--lumi-mucosa); stroke: var(--lumi-outline); stroke-width: 1.2; }
+]]></style>
+  <style>
+    :root {
+      --lumi-ink: #1e293b;
+      --lumi-muted: #475569;
+      --lumi-dim: #f1f5f9;
+      --lumi-container: #f8fafc;
+      --lumi-outline: #64748b;
+      --lumi-jaw: #cbd5e1;
+      --lumi-parotid-bg: #fde68a;
+      --lumi-parotid-bd: #b45309;
+      --lumi-zygo-bg: #bae6fd;
+      --lumi-zygo-bd: #0284c7;
+      --lumi-mand-bg: #334155;
+      --lumi-subl-bg: #0f766e;
+      --lumi-node-bg: #cbd5e1;
+      --lumi-mucosa: #fce7f3;
+      --lumi-sans: 'Google Sans Flex', var(--font-family, 'Google Sans', sans-serif);
+      --lumi-mono: 'Google Sans Code', ui-monospace, monospace;
+    }
+    text { font-weight: 400; stroke: none; }
+    .t-l1 { font-family: var(--lumi-sans); font-size: 15px; fill: var(--lumi-ink); }
+    .t-l2 { font-family: var(--lumi-mono); font-size: 13px; font-style: italic; fill: var(--lumi-ink); }
+    .t-l4 { font-family: var(--lumi-sans); font-size: 13px; fill: var(--lumi-muted); }
+    .head-outline { fill: none; stroke: var(--lumi-ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .jaw-outline { fill: none; stroke: var(--lumi-jaw); stroke-width: 1.3; stroke-dasharray: 3 2; stroke-linecap: round; stroke-linejoin: round; }
+    .tooth-shape { fill: var(--lumi-container); stroke: var(--lumi-outline); stroke-width: 1.2; }
+    .tooth-p4 { fill: var(--lumi-parotid-bg); stroke: var(--lumi-parotid-bd); stroke-width: 1.5; }
+    .gland-parotid { fill: var(--lumi-parotid-bg); stroke: var(--lumi-parotid-bd); stroke-width: 1.5; }
+    .gland-zygo { fill: var(--lumi-zygo-bg); stroke: var(--lumi-zygo-bd); stroke-width: 1.5; }
+    .gland-mand { fill: var(--lumi-mand-bg); stroke: var(--lumi-ink); stroke-width: 1.4; }
+    .gland-subl { fill: var(--lumi-subl-bg); stroke: var(--lumi-ink); stroke-width: 1.3; }
+    .node-ln { fill: var(--lumi-node-bg); stroke: var(--lumi-ink); stroke-width: 1.4; }
+    .capsule-dash { fill: none; stroke: var(--lumi-ink); stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .duct-parotid { fill: none; stroke: var(--lumi-parotid-bd); stroke-width: 3; stroke-linecap: round; }
+    .duct-mand { fill: none; stroke: var(--lumi-ink); stroke-width: 2.6; stroke-linecap: round; }
+    .duct-subl { fill: none; stroke: var(--lumi-subl-bg); stroke-width: 2.4; stroke-linecap: round; }
+    .duct-minor { fill: none; stroke: var(--lumi-subl-bg); stroke-width: 1.6; stroke-linecap: round; }
+    .leader-line { fill: none; stroke: var(--lumi-outline); stroke-width: 1.2; }
+    .leader-arrow { fill: none; stroke: var(--lumi-ink); stroke-width: 1.3; marker-end: url(#lumi-caret-rev); }
+    .inset-frame { fill: var(--lumi-container); stroke: var(--lumi-outline); stroke-width: 1.25; }
+    .fold-band { fill: var(--lumi-mucosa); stroke: var(--lumi-outline); stroke-width: 1.2; }
+  </style>
+  <defs>
+    <marker id="lumi-caret-rev" viewBox="0 0 10 10" refX="7.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 3 1.2 L 7.5 5 L 3 8.8" fill="none" stroke="var(--lumi-ink)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
+    </marker>
+  </defs>
+
+  <!-- ==================== MAIN VIEW: LEFT LATERAL CANINE HEAD ==================== -->
+  <text class="t-l1" x="24" y="28">A. Left Lateral View (Rostral Left)</text>
+
+  <!-- Canine Dorsal Head, Ear &amp; Dorsal Neck External Skin Silhouette -->
+  <path class="head-outline" d="M 135 162 C 132 148 142 138 162 135 L 222 126 C 242 104 268 88 302 84 L 334 32 C 342 20 352 24 354 40 L 358 84 L 372 26 C 380 16 392 22 392 42 L 388 106 C 418 132 444 176 462 226"></path>
+  <!-- Upper Lip Margin -->
+  <path class="head-outline" d="M 135 162 C 134 176 146 186 168 188 L 245 186"></path>
+  <!-- External Lower Jaw &amp; Ventral Cranial Neck Skin Contour (Passes Beneath Both Mandibular Lymph Nodes) -->
+  <path class="head-outline" d="M 148 202 C 150 226 178 238 224 242 C 262 245 296 250 322 258 C 348 266 364 286 376 310"></path>
+
+  <!-- Nose &amp; Eye Landmarks -->
+  <path d="M 135 160 C 135 152 144 150 148 156 C 148 164 138 168 135 160 Z" fill="var(--lumi-ink)"></path>
+  <ellipse cx="264" cy="112" rx="9" ry="6" fill="var(--lumi-ink)"></ellipse>
+
+  <!-- Lighter Internal Skeletal Landmarks: Zygomatic Arch &amp; Mandibular Bone Outline -->
+  <path class="jaw-outline" d="M 244 134 Q 294 128 344 140"></path>
+  <path class="jaw-outline" d="M 158 198 L 306 202 Q 342 200 348 160 L 344 118"></path>
+
+  <!-- Upper Cheek Teeth (Highlighting Upper P4 &amp; Upper M1/M2) -->
+  <rect class="tooth-shape" x="176" y="168" width="14" height="10" rx="2"></rect>
+  <rect class="tooth-shape" x="193" y="168" width="16" height="10" rx="2"></rect>
+  <rect class="tooth-p4" x="212" y="166" width="22" height="13" rx="3"></rect>
+  <rect class="tooth-shape" x="237" y="168" width="16" height="11" rx="2"></rect>
+  <rect class="tooth-shape" x="255" y="168" width="13" height="10" rx="2"></rect>
+
+  <!-- 1. Zygomatic Gland &amp; Ducts (Opening Lateral to Last Upper Molar M1/M2) -->
+  <path class="gland-zygo" d="M 250 134 C 248 124 264 120 278 124 C 290 126 292 138 282 144 C 270 148 252 146 250 134 Z"></path>
+  <path class="leader-line" d="M 268 144 L 262 168"></path>
+  <circle cx="262" cy="168" r="2.5" fill="var(--lumi-zygo-bd)"></circle>
+
+  <!-- 2. Parotid Gland (V-shaped around ear base) &amp; Parotid Duct Opening Opposite Upper P4 -->
+  <path class="gland-parotid" d="M 358 118 C 352 104 368 96 380 108 C 392 98 408 108 402 124 C 412 134 408 152 396 158 C 398 172 384 182 372 174 C 362 168 362 152 356 142 C 348 134 352 124 358 118 Z"></path>
+  <path class="duct-parotid" d="M 360 144 Q 296 146 223 156 L 223 166"></path>
+  <circle cx="223" cy="166" r="3.5" fill="var(--lumi-parotid-bd)"></circle>
+
+  <!-- 3. Shared Fibrous Capsule Containing Mandibular Gland (Caudodorsal) &amp; Monostomatic Sublingual Gland (Rostroventral) -->
+  <path class="capsule-dash" d="M 314 196 C 314 174 350 166 384 174 C 408 180 410 208 392 224 C 368 236 316 230 314 196 Z"></path>
+
+  <!-- Mandibular Gland (Caudodorsal within Shared Capsule) -->
+  <ellipse class="gland-mand" cx="372" cy="196" rx="25" ry="16" transform="rotate(-14 372 196)"></ellipse>
+
+  <!-- Monostomatic Sublingual Gland (Rostroventral/Rostromedial Pole within Shared Capsule) -->
+  <ellipse class="gland-subl" cx="335" cy="210" rx="16" ry="9.5" transform="rotate(-10 335 210)"></ellipse>
+
+  <!-- 4. Parallel Major Sublingual Duct &amp; Mandibular Duct + Polystomatic Sublingual Lobules -->
+  <path class="duct-subl" d="M 319 210 Q 244 212 164 203"></path>
+  <path class="duct-mand" d="M 348 204 Q 250 220 164 209"></path>
+  <circle cx="164" cy="205" r="4" fill="var(--lumi-subl-bg)"></circle>
+
+  <!-- Polystomatic Sublingual Lobules Dorsal &amp; Clear of Major Sublingual Duct -->
+  <ellipse class="gland-subl" cx="202" cy="199" rx="7" ry="3.8"></ellipse>
+  <ellipse class="gland-subl" cx="222" cy="200" rx="7" ry="3.8"></ellipse>
+  <ellipse class="gland-subl" cx="242" cy="201" rx="7" ry="3.8"></ellipse>
+  <ellipse class="gland-subl" cx="262" cy="202" rx="7" ry="3.8"></ellipse>
+
+  <!-- 5. Mandibular Lymph Nodes (Entirely on Body Side of Skin Line AND Outside Shared Capsule) -->
+  <ellipse class="node-ln" cx="274" cy="226" rx="9.5" ry="5.5" transform="rotate(6 274 226)"></ellipse>
+  <ellipse class="node-ln" cx="296" cy="232" rx="9.5" ry="5.5" transform="rotate(6 296 232)"></ellipse>
+
+  <!-- ==================== MAIN VIEW LABELS &amp; LEADER LINES ==================== -->
+  <line class="leader-line" x1="254" y1="126" x2="180" y2="82"></line>
+  <text class="t-l1" x="24" y="78">Zygomatic gland</text>
+  <text class="t-l4" x="24" y="96">Opens near last molar</text>
+
+  <line class="leader-arrow" x1="126" y1="128" x2="215" y2="163"></line>
+  <text class="t-l1" x="24" y="124">Upper P4 papilla</text>
+  <text class="t-l2" x="24" y="142">Parotid opening</text>
+
+  <line class="leader-line" x1="160" y1="205" x2="118" y2="218"></line>
+  <text class="t-l1" x="20" y="216">Sublingual</text>
+  <text class="t-l1" x="20" y="234">caruncle</text>
+
+  <line class="leader-line" x1="222" y1="200" x2="178" y2="262"></line>
+  <text class="t-l1" x="20" y="266">Polystomatic sublingual</text>
+  <text class="t-l4" x="20" y="284">Lobules along oral floor</text>
+
+  <line class="leader-line" x1="286" y1="237" x2="262" y2="286"></line>
+  <text class="t-l1" x="196" y="302">Mandibular lymph nodes</text>
+  <text class="t-l2" x="196" y="320">Outside capsule (landmark)</text>
+
+  <line class="leader-line" x1="398" y1="114" x2="466" y2="72"></line>
+  <text class="t-l1" x="472" y="72">Parotid gland</text>
+  <text class="t-l4" x="472" y="90">Ear canal base</text>
+
+  <line class="leader-arrow" x1="466" y1="122" x2="312" y2="147"></line>
+  <text class="t-l1" x="472" y="122">Parotid duct</text>
+  <text class="t-l4" x="472" y="140">Crosses masseter to P4</text>
+
+  <line class="leader-line" x1="395" y1="190" x2="466" y2="176"></line>
+  <text class="t-l1" x="472" y="176">Mandibular gland</text>
+  <text class="t-l4" x="472" y="194">Caudodorsal in capsule</text>
+
+  <line class="leader-line" x1="344" y1="216" x2="466" y2="226"></line>
+  <text class="t-l1" x="472" y="226">Monostomatic sublingual</text>
+  <text class="t-l2" x="472" y="244">Rostroventral in capsule</text>
+
+  <line class="leader-line" x1="388" y1="226" x2="466" y2="274"></line>
+  <text class="t-l1" x="472" y="276">Shared fibrous capsule</text>
+  <text class="t-l4" x="472" y="294">Encloses both glands</text>
+
+  <!-- ==================== BOTTOM INSET: FLOOR OF MOUTH (SUBLINGUAL FOLD &amp; CARUNCLE) ==================== -->
+  <rect class="inset-frame" x="16" y="336" width="648" height="220" rx="20"></rect>
+  <text class="t-l1" x="36" y="362">B. Floor-of-Mouth Inset (Sublingual Fold &amp; Caruncle — Rostral Left)</text>
+
+  <!-- Sublingual Fold Mucosal Band (Top crest at y=398) -->
+  <rect class="fold-band" x="132" y="398" width="368" height="84" rx="24"></rect>
+
+  <!-- Lingual Frenulum Curve &amp; Sublingual Caruncle Papilla beside it -->
+  <path class="head-outline" d="M 192 374 Q 222 406 192 438"></path>
+  <ellipse cx="166" cy="442" rx="12" ry="18" fill="var(--lumi-container)" stroke="var(--lumi-outline)" stroke-width="1.4"></ellipse>
+
+  <!-- Polystomatic Sublingual Lobules (cy=418, clear of Major Sublingual Duct at y=446) -->
+  <ellipse class="gland-subl" cx="246" cy="418" rx="14" ry="6"></ellipse>
+  <line class="duct-minor" x1="246" y1="412" x2="246" y2="398"></line>
+  <circle cx="246" cy="398" r="2.6" fill="var(--lumi-subl-bg)"></circle>
+
+  <ellipse class="gland-subl" cx="292" cy="418" rx="14" ry="6"></ellipse>
+  <line class="duct-minor" x1="292" y1="412" x2="292" y2="398"></line>
+  <circle cx="292" cy="398" r="2.6" fill="var(--lumi-subl-bg)"></circle>
+
+  <ellipse class="gland-subl" cx="338" cy="418" rx="14" ry="6"></ellipse>
+  <line class="duct-minor" x1="338" y1="412" x2="338" y2="398"></line>
+  <circle cx="338" cy="398" r="2.6" fill="var(--lumi-subl-bg)"></circle>
+
+  <ellipse class="gland-subl" cx="384" cy="418" rx="14" ry="6"></ellipse>
+  <line class="duct-minor" x1="384" y1="412" x2="384" y2="398"></line>
+  <circle cx="384" cy="398" r="2.6" fill="var(--lumi-subl-bg)"></circle>
+
+  <ellipse class="gland-subl" cx="430" cy="418" rx="14" ry="6"></ellipse>
+  <line class="duct-minor" x1="430" y1="412" x2="430" y2="398"></line>
+  <circle cx="430" cy="398" r="2.6" fill="var(--lumi-subl-bg)"></circle>
+
+  <!-- Visually Distinct Parallel Ducts Approaching the Sublingual Caruncle -->
+  <path class="duct-subl" d="M 492 446 L 204 446 Q 184 446 168 434"></path>
+  <circle cx="166" cy="433" r="4.5" fill="var(--lumi-subl-bg)"></circle>
+
+  <path class="duct-mand" d="M 492 468 L 204 468 Q 184 468 168 452"></path>
+  <circle cx="166" cy="451" r="4.5" fill="var(--lumi-ink)"></circle>
+
+  <!-- Inset Labels -->
+  <line class="leader-line" x1="202" y1="388" x2="122" y2="388"></line>
+  <text class="t-l1" x="32" y="390">Lingual</text>
+  <text class="t-l1" x="32" y="406">frenulum</text>
+
+  <line class="leader-line" x1="154" y1="442" x2="122" y2="446"></line>
+  <text class="t-l1" x="32" y="444">Sublingual</text>
+  <text class="t-l1" x="32" y="460">caruncle</text>
+  <text class="t-l4" x="32" y="478">Separate openings</text>
+  <text class="t-l4" x="32" y="494">shown</text>
+
+  <text class="t-l2" x="338" y="384" text-anchor="middle">Individual short ducts opening along sublingual fold</text>
+
+  <line class="leader-line" x1="338" y1="424" x2="314" y2="508"></line>
+  <text class="t-l1" x="172" y="528">Polystomatic sublingual lobules (along sublingual fold)</text>
+
+  <line class="leader-line" x1="492" y1="446" x2="514" y2="426"></line>
+  <text class="t-l1" x="520" y="424">Major sublingual duct</text>
+  <text class="t-l4" x="520" y="440"></text>
+
+  <line class="leader-line" x1="492" y1="468" x2="514" y2="482"></line>
+  <text class="t-l1" x="520" y="482">Mandibular duct</text>
+  <text class="t-l4" x="520" y="498"></text>
+</svg>
