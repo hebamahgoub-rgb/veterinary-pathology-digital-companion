@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About the Magazine — VetPath Magazine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748B;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --slate-50: #F8FAFC;
+      --white: #FFFFFF;
+      --link: #1E40AF;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--white);
+      color: var(--slate-800);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .vp-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+    }
+
+    /* Header / Masthead */
+    .vp-masthead {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 5px solid var(--slate-800);
+      border-radius: var(--radius);
+      padding: 28px 28px 22px;
+      margin-bottom: 30px;
+    }
+
+    .vp-kicker {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--slate-500);
+      margin-bottom: 8px;
+    }
+
+    .vp-masthead h1 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .vp-remit {
+      font-size: 15.5px;
+      color: var(--slate-700);
+      max-width: 740px;
+      margin-bottom: 18px;
+    }
+
+    .vp-jump-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--slate-200);
+      font-size: 13px;
+    }
+
+    .vp-jump-nav a {
+      color: var(--slate-700);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 3px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .vp-jump-nav a:hover {
+      color: var(--slate-900);
+      border-bottom-color: var(--slate-800);
+    }
+
+    /* Sections */
+    .vp-section {
+      margin-bottom: 34px;
+    }
+
+    .vp-section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1.5px solid var(--slate-800);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    .vp-section-header h2 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .vp-section-note {
+      font-size: 12.5px;
+      color: var(--slate-500);
+    }
+
+    /* Standard Card */
+    .vp-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-left: 4px solid var(--slate-800);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+    }
+
+    .vp-card p + p {
+      margin-top: 12px;
+    }
+
+    .vp-list {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--slate-700);
+    }
+
+    .vp-list li {
+      margin-bottom: 8px;
+    }
+
+    .vp-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Label Cards Grid */
+    .vp-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .vp-label-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .vp-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--slate-500);
+      background: var(--white);
+      color: var(--slate-800);
+      margin-bottom: 8px;
+    }
+
+    .vp-pill-dark {
+      background: var(--slate-800);
+      border-color: var(--slate-800);
+      color: var(--white);
+    }
+
+    .vp-label-card h3 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 15.5px;
+      color: var(--slate-900);
+      margin-bottom: 6px;
+    }
+
+    .vp-label-card p {
+      font-size: 13.8px;
+      color: var(--slate-600);
+    }
+
+    /* Compact Reference Table (3-column mobile-friendly) */
+    .vp-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    table.vp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    table.vp-table th {
+      background: var(--slate-800);
+      color: var(--white);
+      font-weight: 600;
+      padding: 11px 14px;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    table.vp-table td {
+      padding: 12px 14px;
+      border-top: 1px solid var(--slate-200);
+      color: var(--slate-700);
+      vertical-align: top;
+    }
+
+    table.vp-table tr:nth-child(even) td {
+      background: var(--slate-50);
+    }
+
+    .vp-tier-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--slate-900);
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 4px;
+    }
+
+    /* Callout / Note Box */
+    .vp-note-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-size: 14px;
+      color: var(--slate-700);
+    }
+
+    .vp-note-box strong {
+      color: var(--slate-900);
+    }
+
+    .vp-example-cite {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: var(--white);
+      border-left: 3px solid var(--slate-500);
+      border-radius: 4px;
+      font-size: 13.5px;
+      color: var(--slate-600);
+    }
+
+    /* Footer Return Strip */
+    .vp-return-bar {
+      margin-top: 32px;
+      padding: 16px 20px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--slate-600);
+    }
+
+    .vp-return-badge {
+      font-weight: 600;
+      color: var(--slate-800);
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      padding: 7px 13px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .vp-masthead {
+        padding: 20px 18px 16px;
+      }
+
+      .vp-masthead h1 {
+        font-size: 23px;
+      }
+
+      .vp-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'"><style>body{overflow-wrap:anywhere} img{max-width:100%;height:auto}</style></head>
+<body>
+  <div class="vp-wrap">
+
+    <!-- MASTHEAD -->
+    <header class="vp-masthead" id="top">
+      <div class="vp-kicker">VetPath Magazine · Editorial Standards</div>
+      <h1>About the Magazine</h1>
+      <p class="vp-remit">
+        Veterinary science, animal health, and the economic and policy decisions that shape them in Egypt and around the world.
+      </p>
+      <nav class="vp-jump-nav" aria-label="About page sections">
+        <a target="_self" href="#scope">Scope</a>
+        <a target="_self" href="#editorship">Editorship</a>
+        <a target="_self" href="#article-labels">Article Labels</a>
+        <a target="_self" href="#sourcing">3-Tier Sourcing</a>
+        <a target="_self" href="#language-figures">Language &amp; Figures</a>
+        <a target="_self" href="#corrections">Corrections</a>
+      </nav>
+    </header>
+
+    <!-- 1. SCOPE -->
+    <section class="vp-section" id="scope">
+      <div class="vp-section-header">
+        <h2>Scope &amp; Editorial Purpose</h2>
+        <span class="vp-section-note">Part of the Veterinary Pathology Digital Companion</span>
+      </div>
+      <div class="vp-card">
+        <p>
+          <strong>VetPath Magazine</strong> is the editorial publication of the <em>Veterinary Pathology Digital Companion</em>. While the Digital Companion focuses on connecting pathological mechanisms with gross and microscopic findings for undergraduate and postgraduate learners, VetPath Magazine examines how veterinary science and animal-health events intersect with public health, food markets, legislation, and the veterinary profession.
+        </p>
+        <p>
+          Coverage is organized into five permanent subject sections: <strong>Research &amp; Pathology</strong>, <strong>Public Health &amp; One Health</strong>, <strong>Economics &amp; Trade</strong>, <strong>Policy &amp; Public Affairs</strong>, and <strong>Veterinary Practice &amp; Education</strong>. Each article lives on one permanent page beneath its primary section and may also be linked from related sections or themed collections as the archive grows.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. EDITORSHIP -->
+    <section class="vp-section" id="editorship">
+      <div class="vp-section-header">
+        <h2>Editorship &amp; Independence</h2>
+        <span class="vp-section-note">Academic &amp; Non-Commercial</span>
+      </div>
+      <div class="vp-card">
+        <p>
+          VetPath Magazine is founded and edited by <strong>Prof. Hebatallah Ahmed Mahgoub</strong>, Professor of Pathology at the Faculty of Veterinary Medicine, Mansoura University, Egypt.
+        </p>
+        <ul class="vp-list">
+          <li><strong>Educational &amp; scholarly mandate:</strong> Articles are written for veterinary students, pathologists, clinicians, researchers, and informed readers following animal health and food-system policy in Egypt and internationally.</li>
+          <li><strong>Editorial independence:</strong> The publication is non-commercial and carries no paid placements, sponsored content, or industry-funded endorsements.</li>
+          <li><strong>Companion integration:</strong> Where relevant, magazine articles cross-link to anatomical, diagnostic, and postgraduate reference pages within the <em>Veterinary Pathology Digital Companion</em>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. ARTICLE LABELS -->
+    <section class="vp-section" id="article-labels">
+      <div class="vp-section-header">
+        <h2>How We Label Articles</h2>
+        <span class="vp-section-note">Type, Geography &amp; Topic</span>
+      </div>
+
+      <div class="vp-grid-2">
+        <div class="vp-label-card">
+          <span class="vp-pill">News</span>
+          <h3>Timely Factual Reporting</h3>
+          <p>Concise coverage of a verified development—such as an official disease notification, a new regulation, a diagnostic milestone, or a documented market shift.</p>
+        </div>
+
+        <div class="vp-label-card">
+          <span class="vp-pill">Explainer</span>
+          <h3>Structured Background</h3>
+          <p>Clear, evidence-based guides to a disease mechanism, laboratory method, international standard, or policy framework that readers need to follow a wider story.</p>
+        </div>
+
+        <div class="vp-label-card">
+          <span class="vp-pill">Analysis</span>
+          <h3>Evidence-Based Interpretation</h3>
+          <p>Deeper synthesis connecting veterinary science or surveillance data to economic consequences, trade measures, or comparative policy outcomes.</p>
+        </div>
+
+        <div class="vp-label-card">
+          <span class="vp-pill">Opinion</span>
+          <h3>Signed Commentary</h3>
+          <p>Clearly labeled editorial or professional perspectives arguing a position on veterinary education, workforce issues, or public policy—kept strictly separate from reporting.</p>
+        </div>
+      </div>
+
+      <div class="vp-grid-2">
+        <div class="vp-label-card">
+          <span class="vp-pill vp-pill-dark">Geography</span>
+          <h3>Egypt &amp; International</h3>
+          <p>Cards display <strong>Egypt</strong> or <strong>International</strong>, with a country or region added where useful (for example, <em>International · North Africa</em>).</p>
+        </div>
+
+        <div class="vp-label-card">
+          <span class="vp-pill">Topic</span>
+          <h3>Cross-Section Themes</h3>
+          <p>Recurring topic labels such as <strong>Poultry</strong>, <strong>Antimicrobial Resistance</strong>, and <strong>Diagnostic Methods</strong> connect related articles across sections and collections.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 3-TIER SOURCING -->
+    <section class="vp-section" id="sourcing">
+      <div class="vp-section-header">
+        <h2>Sourcing &amp; Verification</h2>
+        <span class="vp-section-note">Three-Tier Evidence Standard</span>
+      </div>
+
+      <div class="vp-table-wrap">
+        <table class="vp-table">
+          <thead>
+            <tr>
+              <th style="width: 24%;">Source Tier</th>
+              <th style="width: 40%;">Examples</th>
+              <th style="width: 36%;">Editorial Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="vp-tier-tag">Tier 1</span><br />
+                <strong>Primary Scientific, Surveillance &amp; Legal Authorities</strong>
+              </td>
+              <td>Peer-reviewed journals; official outbreak databases (WOAH WAHIS); national and international agencies (AHRI, NFSA, MALR/GOVS, CAPMAS, FAO, WHO, EFSA); legal and trade registries (FAOLEX, WTO SPS).</td>
+              <td>Primary spine for pathological mechanisms, case counts, statistical baselines, and statutory rules.</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="vp-tier-tag">Tier 2</span><br />
+                <strong>Policy Institutes &amp; Analytical Reports</strong>
+              </td>
+              <td>Independent food-policy, livestock, and economic research centers (IFPRI, ILRI, ECES, Chatham House, Carnegie Middle East Center) and USDA FAS country reports.</td>
+              <td>Economic modeling, market-structure context, food-security assessments, and cross-country policy comparisons.</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="vp-tier-tag">Tier 3</span><br />
+                <strong>Regional &amp; International Reporting</strong>
+              </td>
+              <td>Established Egyptian, regional, and international newspapers and specialist science or veterinary newsrooms (such as EnterpriseAM Egypt, Daily News Egypt, Al-Mal News, Ahram Online, Reuters, CIDRAP, Vet Record).</td>
+              <td>Tracking breaking events, market prices, ministerial statements, and public debate—corroborated against Tier 1 or Tier 2 sources for scientific or legal claims.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. SOURCE-LANGUAGE ATTRIBUTION & FIGURES -->
+    <section class="vp-section" id="language-figures">
+      <div class="vp-section-header">
+        <h2>Source Languages &amp; Scientific Figures</h2>
+        <span class="vp-section-note">Transparency in Translation &amp; Visuals</span>
+      </div>
+
+      <div class="vp-card">
+        <p>
+          <strong>English publication with original-language links:</strong> VetPath Magazine publishes in English. Whenever an article draws on an Arabic, French, or other non-English decree, statistical bulletin, or news report, we link directly to the original source and identify its language in the source note. Quotations translated into English are checked against the original text for technical accuracy.
+        </p>
+        <div class="vp-example-cite">
+          <strong>Source-note convention:</strong> Ministry of Agriculture and Land Reclamation, Veterinary Quarantine Update, Nov 2026 [Arabic]; CAPMAS Producer Price Index Bulletin [Arabic/English].
+        </div>
+        <p style="margin-top: 14px;">
+          <strong>Figures and visual attribution:</strong> Original photography, open-access or cited peer-reviewed figures, and educational diagrams are clearly distinguished in captions. Any synthetic or schematic educational reconstruction used to illustrate a pathological mechanism is explicitly labeled as such, without invented case histories or unverified magnification bars.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. CORRECTIONS & UPDATES -->
+    <section class="vp-section" id="corrections">
+      <div class="vp-section-header">
+        <h2>Corrections &amp; Updates</h2>
+        <span class="vp-section-note">Accountability Record</span>
+      </div>
+
+      <div class="vp-note-box">
+        <p>
+          <strong>Substantive corrections:</strong> If an article contains a factual, statistical, taxonomic, or translation error, we correct the text promptly and append a dated <em>Correction</em> note at the bottom of the article stating what was changed and when.
+        </p>
+        <p style="margin-top: 10px;">
+          <strong>Developing-story updates:</strong> When an outbreak report, trade restriction, or legislative proposal evolves after publication, we add a dated <em>Update</em> note so readers can distinguish new developments from the original reporting.
+        </p>
+        <p style="margin-top: 10px;">
+          <strong>Flagging an error:</strong> Readers who spot an inaccuracy, broken primary link, or translation nuance are encouraged to report it to the editor via the Digital Companion's contact channel.
+        </p>
+      </div>
+    </section>
+
+    <!-- RETURN STRIP -->
+    <div class="vp-return-bar">
+      <span>Returning to the main publication landing page?</span>
+      <!-- Replace with <a class="vp-return-badge" target="_top">← Back to VetPath Magazine</a> once linked -->
+      <span class="vp-return-badge">VetPath Magazine (Parent Page)</span>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Price of Losing Disease-Free Status — VetPath Magazine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748B;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --slate-50: #F8FAFC;
+      --white: #FFFFFF;
+      --link: #1E40AF;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--white);
+      color: var(--slate-800);
+      line-height: 1.72;
+      font-size: 15.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: var(--slate-900);
+    }
+
+    .vp-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 18px 52px;
+    }
+
+    /* Breadcrumb */
+    .vp-breadcrumb {
+      font-size: 12.5px;
+      color: var(--slate-500);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .vp-breadcrumb strong {
+      color: var(--slate-700);
+    }
+
+    /* Article Header */
+    .vp-header {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 5px solid var(--slate-800);
+      border-radius: var(--radius);
+      padding: 26px 28px 22px;
+      margin-bottom: 26px;
+    }
+
+    .vp-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .vp-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-100);
+      color: var(--slate-700);
+    }
+
+    .vp-pill-geo {
+      background: var(--slate-800);
+      border-color: var(--slate-800);
+      color: var(--white);
+    }
+
+    .vp-pill-type {
+      background: var(--white);
+      border-color: var(--slate-500);
+      color: var(--slate-800);
+    }
+
+    .vp-header h1 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 27px;
+      line-height: 1.32;
+      color: var(--slate-900);
+      margin-bottom: 12px;
+    }
+
+    .vp-standfirst {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--slate-600);
+      margin-bottom: 16px;
+    }
+
+    .vp-byline {
+      font-size: 13px;
+      color: var(--slate-500);
+      padding-top: 12px;
+      border-top: 1px solid var(--slate-200);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* Key Figures Strip */
+    .vp-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .vp-kpi {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-top: 3px solid var(--slate-800);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .vp-kpi-num {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 4px;
+    }
+
+    .vp-kpi-label {
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--slate-600);
+    }
+
+    /* Article Body */
+    .vp-body h2 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 19.5px;
+      color: var(--slate-900);
+      margin: 30px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid var(--slate-200);
+    }
+
+    .vp-body p {
+      margin-bottom: 15px;
+      color: var(--slate-800);
+    }
+
+    /* Callout Box */
+    .vp-callout {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 4px solid var(--slate-800);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 22px 0;
+    }
+
+    .vp-callout-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate-700);
+      margin-bottom: 8px;
+    }
+
+    .vp-callout p {
+      font-size: 14.5px;
+      color: var(--slate-700);
+      margin-bottom: 0;
+    }
+
+    /* Compact 3-Column Table */
+    .vp-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      margin: 20px 0 24px;
+      background: var(--white);
+    }
+
+    table.vp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.8px;
+      text-align: left;
+    }
+
+    table.vp-table th {
+      background: var(--slate-800);
+      color: var(--white);
+      font-weight: 600;
+      padding: 10px 13px;
+      font-size: 12.5px;
+    }
+
+    table.vp-table td {
+      padding: 11px 13px;
+      border-top: 1px solid var(--slate-200);
+      color: var(--slate-700);
+      vertical-align: top;
+    }
+
+    table.vp-table tr:nth-child(even) td {
+      background: var(--slate-50);
+    }
+
+    /* Related Box */
+    .vp-related {
+      background: var(--slate-800);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 32px 0 26px;
+    }
+
+    .vp-related-kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #CBD5E1;
+      margin-bottom: 6px;
+    }
+
+    .vp-related h3 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 17px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .vp-related-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 14px;
+      color: #E2E8F0;
+    }
+
+    .vp-related-list strong {
+      color: var(--white);
+    }
+
+    /* Sources Box */
+    .vp-sources {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 22px;
+    }
+
+    .vp-sources h3 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 16px;
+      color: var(--slate-900);
+      margin-bottom: 10px;
+    }
+
+    .vp-sources ol {
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--slate-600);
+      line-height: 1.6;
+    }
+
+    .vp-sources li {
+      margin-bottom: 7px;
+    }
+
+    .vp-lang-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--slate-700);
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin-left: 4px;
+    }
+
+    /* Footer */
+    .vp-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--slate-200);
+      font-size: 12.5px;
+      color: var(--slate-500);
+    }
+
+    @media (max-width: 720px) {
+      .vp-header {
+        padding: 20px 18px 18px;
+      }
+
+      .vp-header h1 {
+        font-size: 22px;
+      }
+
+      .vp-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'"><style>body{overflow-wrap:anywhere} img{max-width:100%;height:auto}</style></head>
+<body>
+  <div class="vp-wrap">
+
+    <div class="vp-breadcrumb">
+      VetPath Magazine · <strong>Policy &amp; Public Affairs</strong> · Collection: <em>When Animal Disease Becomes a Public Issue (Part 2 of 3)</em>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <header class="vp-header">
+      <div class="vp-meta-row">
+        <span class="vp-pill vp-pill-geo">International · Europe</span>
+        <span class="vp-pill vp-pill-type">Explainer</span>
+        <span class="vp-pill">Policy &amp; Public Affairs</span>
+        <span class="vp-pill">Foot-and-Mouth Disease</span>
+      </div>
+      <h1>The Price of Losing Disease-Free Status: Lessons from Europe's 2025–2026 Foot-and-Mouth Outbreaks</h1>
+      <p class="vp-standfirst">
+        Between January 2025 and mid-2026, two separate waves of foot-and-mouth disease struck five European Union member states—triggering immediate export suspensions, mass culling, and over a million emergency vaccine doses. The crisis shows why international trade rules dictate a policy playbook opposite to endemic control.
+      </p>
+      <div class="vp-byline">
+        <span><strong>VetPath Magazine</strong> · Edited by Prof. Hebatallah Ahmed Mahgoub</span>
+        <span>November 2026 · Primary Section: Policy &amp; Public Affairs</span>
+      </div>
+    </header>
+
+    <!-- KEY METRICS -->
+    <div class="vp-kpi-grid">
+      <div class="vp-kpi">
+        <div class="vp-kpi-num">5 EU States</div>
+        <div class="vp-kpi-label">Germany, Hungary, and Slovakia (Wave 1, serotype O, 2025), followed by Cyprus and Greece (Wave 2, serotype SAT1, 2026).</div>
+      </div>
+      <div class="vp-kpi">
+        <div class="vp-kpi-num">3–11 Months</div>
+        <div class="vp-kpi-label">Time elapsed from initial 2025 notifications to WOAH status reinstatement and key bilateral trade reopenings.</div>
+      </div>
+      <div class="vp-kpi">
+        <div class="vp-kpi-num">1.03M Doses</div>
+        <div class="vp-kpi-label">Emergency SAT1 vaccine doses delivered by the European Commission to Cyprus in February 2026 alone.</div>
+      </div>
+    </div>
+
+    <!-- ARTICLE BODY -->
+    <main class="vp-body">
+
+      <h2>Why a single farm can halt a nation's exports</h2>
+      <p>
+        Under World Trade Organization sanitary rules, the <a href="https://www.woah.org/en/what-we-do/animal-health-and-welfare/official-disease-status/" target="_blank" rel="noopener noreferrer">World Organisation for Animal Health (WOAH)</a> formally recognizes countries as <strong>"FMD-free where vaccination is not practised."</strong> That designation is the commercial key to exporting fresh meat, dairy, and live animals to high-value markets. The moment an outbreak is confirmed, official disease-free status is suspended—and veterinary authorities can no longer sign standard export health certificates for susceptible animal products.
+      </p>
+      <p>
+        Germany demonstrated how unforgiving that mechanism is in January 2025. On 10 January 2025, authorities confirmed FMD serotype O in a small herd of 14 water buffalo (3 dead) in Märkisch-Oderland, Brandenburg—Germany's first case since 1988 and the EU's first since Bulgaria in 2011 (<a href="https://assets.publishing.service.gov.uk/media/6786782cf041702a11ca0f65/FMD_in_Germany_Preliminary_Outbreak_Assessment.pdf" target="_blank" rel="noopener noreferrer">GOV.UK Preliminary Outbreak Assessment</a>; <a href="https://www.bmleh.de/EN/topics/animals/animal-health/foot-and-mouth-disease.html" target="_blank" rel="noopener noreferrer">German Federal Ministry of Agriculture</a>). Even though strict zoning prevented any second farm from becoming infected, third-country exports—including pig meat and dairy shipments to Great Britain—froze overnight until bilateral exemptions and two comprehensive WOAH dossiers restored Germany's FMD-free status on <a href="https://www.bmleh.de/EN/topics/animals/animal-health/foot-and-mouth-disease.html" target="_blank" rel="noopener noreferrer">14 April 2025</a>.
+      </p>
+
+      <h2>Two waves across Europe: serotype O in 2025, SAT1 in 2026</h2>
+      <p>
+        What began as a contained German incident quickly widened into two distinct European waves, documented by the <a href="https://food.ec.europa.eu/animals/animal-diseases/diseases-and-control-measures/foot-and-mouth-disease_en" target="_blank" rel="noopener noreferrer">European Commission</a> and mapped in <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1963815/full" target="_blank" rel="noopener noreferrer"><em>Frontiers in Veterinary Science</em> (2026)</a>:
+      </p>
+
+      <div class="vp-table-wrap">
+        <table class="vp-table">
+          <thead>
+            <tr>
+              <th style="width: 24%;">Wave &amp; Countries</th>
+              <th style="width: 34%;">Epidemiological Scope</th>
+              <th style="width: 42%;">Control &amp; Trade Outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Wave 1a · Germany</strong><br />Jan 2025 · Serotype O</td>
+              <td>1 holding (water buffalo, Brandenburg); first case since 1988; no onward spread (<a href="https://www.bmleh.de/EN/topics/animals/animal-health/foot-and-mouth-disease.html" target="_blank" rel="noopener noreferrer">BMLEH</a>).</td>
+              <td>Stamping-out and 3 km / 10 km zones; third-country certificates halted; WOAH freedom reinstated <strong>14 April 2025</strong> (<a href="https://www.bmleh.de/SharedDocs/FAQs/EN/mks/FAQList.html" target="_blank" rel="noopener noreferrer">BMLEH FAQ</a>).</td>
+            </tr>
+            <tr>
+              <td><strong>Wave 1b · Hungary &amp; Slovakia</strong><br />Mar–Apr 2025 · Serotype O</td>
+              <td>Unrelated serotype O strain; first Hungarian case since 1973 (1,400-head dairy farm), expanding to large dairy herds in Hungary and 6 border holdings in Slovakia (<a href="https://fve.org/foot-and-mouth-fmd-disease-outbreaks-in-europe-update/" target="_blank" rel="noopener noreferrer">FVE</a>).</td>
+              <td>Suppressive vaccination prior to culling, border controls, and import bans by 15+ non-EU countries (<a href="https://www.swinehealth.org/shic-monitoring-fmdv-incursion-in-hungary-first-outbreak-in-50-years/" target="_blank" rel="noopener noreferrer">SHIC</a>). WOAH reinstated status on <strong>10 Sept 2025</strong> (Hungary) and <strong>31 Oct 2025</strong> (Slovakia) (<a href="https://food.ec.europa.eu/animals/animal-diseases/diseases-and-control-measures/foot-and-mouth-disease_en" target="_blank" rel="noopener noreferrer">EC</a>); UK re-recognition of Slovakia followed on <strong>23 Feb 2026</strong> (<a href="https://www.gov.uk/government/publications/official-veterinary-surgeon-ovs-notes/23-february-2026-recognition-of-foot-and-mouth-disease-freedom-for-slovakia" target="_blank" rel="noopener noreferrer">GOV.UK</a>).</td>
+            </tr>
+            <tr>
+              <td><strong>Wave 2 · Cyprus &amp; Greece</strong><br />Feb–Jul 2026 · Serotype SAT1</td>
+              <td>Same regional SAT1 wave affecting the Near East and Egypt; by 13 July 2026, <strong>121 outbreaks</strong> in Cyprus and <strong>139 outbreaks</strong> on Lesvos, Greece—Greece's first SAT1 since 1962 (<a href="https://assets.publishing.service.gov.uk/media/6a5a42b85ca06bf11ccb4406/13_July_2026_-_Foot_and_mouth_disease__FMD__in_Greece_and_Cyprus.pdf" target="_blank" rel="noopener noreferrer">GOV.UK</a>; <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1963815/full" target="_blank" rel="noopener noreferrer">Frontiers</a>).</td>
+              <td>Cyprus's WOAH free status suspended <strong>19 Feb 2026</strong> (<a href="https://www.woah.org/en/disease/foot-and-mouth-disease/" target="_blank" rel="noopener noreferrer">WOAH</a>); EC shipped <strong>1,029,000 SAT1 vaccine doses</strong> to Cyprus and deployed EUVET teams to Cyprus and Lesvos (<a href="https://food.ec.europa.eu/animals/animal-diseases/diseases-and-control-measures/foot-and-mouth-disease_en" target="_blank" rel="noopener noreferrer">EC</a>).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Why trade recovery lags months behind viral containment</h2>
+      <p>
+        Even after the last infected herd is depopulated and surveillance tests return negative, trade does not snap back automatically. Inside the European Union's single market, regionalization allowed meat and dairy from outside restricted zones to keep moving (<a href="https://www.bmleh.de/SharedDocs/FAQs/EN/mks/FAQList.html" target="_blank" rel="noopener noreferrer">BMLEH</a>). Outside the EU, however, importing countries apply independent biosecurity audits and exclusion windows.
+      </p>
+      <p>
+        Australia, for example, enforced exclusion periods on FMD-susceptible goods from Hungary (3 February to 10 September 2025) and Slovakia (3 February to 31 October 2025) (<a href="https://www.agriculture.gov.au/biosecurity-trade/pests-diseases-weeds/animal/fmd/resources/hungary-slovakia" target="_blank" rel="noopener noreferrer">DAFF Australia</a>). Similarly, while WOAH restored Slovakia's FMD-free status at the end of October 2025, the UK Office for SPS Trade Assurance did not formally re-recognize Slovakia's FMD freedom until <a href="https://www.gov.uk/government/publications/official-veterinary-surgeon-ovs-notes/23-february-2026-recognition-of-foot-and-mouth-disease-freedom-for-slovakia" target="_blank" rel="noopener noreferrer">23 February 2026</a>—nearly eleven months after the first Slovak case.
+      </p>
+
+      <div class="vp-callout">
+        <div class="vp-callout-title">Egypt vs. Europe · One Virus, Two Policy Worlds</div>
+        <p>
+          Europe avoids preventive FMD vaccination during peacetime because vaccinating herds forfeits "free without vaccination" export certificates—meaning authorities rely on rapid culling, movement freezes, and emergency vaccine banks only when outbreaks breach the border. Egypt, by contrast, is a net red-meat importer managing endemic circulation of four serotypes, where continuous vaccination protects domestic supply and smallholder livelihoods. Yet Wave 2 in Cyprus and Lesvos shows that both sides of the Mediterranean now face the same SAT1 threat—prompting joint Mediterranean preparedness talks co-chaired by Egypt alongside FAO and WOAH in <a href="https://www.fao.org/neareast/news/details/mediterranean-countries-strengthen-joint-action-against-transboundary-animal-diseases-and-emerging-health-threats/en" target="_blank" rel="noopener noreferrer">June 2026</a>.
+        </p>
+      </div>
+
+      <h2>What comes next: inside the tissue and the lab</h2>
+      <p>
+        Whether a country fights FMD through emergency stamping-out in Europe or multi-serotype vaccination in Egypt, every policy choice hinges on the same biological realities: how quickly the virus destroys oral and hoof epithelium, why calves can die suddenly from myocarditis, and why seven immunologically distinct serotypes defeat mismatched vaccines. Part 3 of this collection takes readers inside those pathological and diagnostic mechanisms.
+      </p>
+
+    </main>
+
+    <!-- RELATED IN COLLECTION & COMPANION -->
+    <aside class="vp-related">
+      <div class="vp-related-kicker">Continue Reading · Opening Collection &amp; Companion</div>
+      <h3>When Animal Disease Becomes a Public Issue</h3>
+      <ul class="vp-related-list">
+        <!-- Replace plain text with <a target="_top"> links once companion articles publish -->
+        <li><strong>Part 1 (Economics &amp; Trade · Analysis):</strong> When a New Serotype Tests a 60%-Self-Sufficient Red-Meat Market: FMD SAT1 and Vaccine Policy in Egypt</li>
+        <li><strong>Part 3 (Research &amp; Pathology · Explainer):</strong> Inside Foot-and-Mouth Disease: Epithelial Vesicles, Calf Myocarditis, and Why Serotypes Evade Vaccines <em>(in preparation)</em></li>
+        <li><strong>Related in the Digital Companion:</strong> Comparative Atlas — <em>Oral Cavity, Teeth, Gingiva, Tongue and Palate (HN-04)</em></li>
+      </ul>
+    </aside>
+
+    <!-- SOURCES & LANGUAGE NOTES -->
+    <section class="vp-sources">
+      <h3>Sources &amp; Language Notes</h3>
+      <ol>
+        <li>European Commission — Food Safety, <a href="https://food.ec.europa.eu/animals/animal-diseases/diseases-and-control-measures/foot-and-mouth-disease_en" target="_blank" rel="noopener noreferrer">Foot-and-mouth disease: EU outbreaks in Germany, Hungary, Slovakia (2025), Cyprus, and Greece (2026)</a>. <span class="vp-lang-tag">English</span></li>
+        <li>World Organisation for Animal Health (WOAH), <a href="https://www.woah.org/en/disease/foot-and-mouth-disease/" target="_blank" rel="noopener noreferrer">Foot and mouth disease — official status suspensions</a> and <a href="https://www.woah.org/en/what-we-do/animal-health-and-welfare/official-disease-status/" target="_blank" rel="noopener noreferrer">Official Disease Status</a>. <span class="vp-lang-tag">English</span></li>
+        <li>German Federal Ministry of Food and Agriculture (BMLEH), <a href="https://www.bmleh.de/EN/topics/animals/animal-health/foot-and-mouth-disease.html" target="_blank" rel="noopener noreferrer">Germany free again from foot-and-mouth disease (14 April 2025)</a> and <a href="https://www.bmleh.de/SharedDocs/FAQs/EN/mks/FAQList.html" target="_blank" rel="noopener noreferrer">General FAQs on FMD trade impacts</a>. <span class="vp-lang-tag">English</span></li>
+        <li>UK Department for Environment, Food &amp; Rural Affairs (GOV.UK), <a href="https://assets.publishing.service.gov.uk/media/6786782cf041702a11ca0f65/FMD_in_Germany_Preliminary_Outbreak_Assessment.pdf" target="_blank" rel="noopener noreferrer">Preliminary Outbreak Assessment: FMD in Germany (13 Jan 2025)</a>, <a href="https://assets.publishing.service.gov.uk/media/6a5a42b85ca06bf11ccb4406/13_July_2026_-_Foot_and_mouth_disease__FMD__in_Greece_and_Cyprus.pdf" target="_blank" rel="noopener noreferrer">FMD in Cyprus and Greece (13 July 2026)</a>, and <a href="https://www.gov.uk/government/publications/official-veterinary-surgeon-ovs-notes/23-february-2026-recognition-of-foot-and-mouth-disease-freedom-for-slovakia" target="_blank" rel="noopener noreferrer">OVS Note: Recognition of FMD freedom for Slovakia (23 Feb 2026)</a>. <span class="vp-lang-tag">English</span></li>
+        <li>Federation of Veterinarians of Europe (FVE), <a href="https://fve.org/foot-and-mouth-fmd-disease-outbreaks-in-europe-update/" target="_blank" rel="noopener noreferrer">Foot-and-mouth disease outbreaks in Europe — Update (4 April 2025)</a>. <span class="vp-lang-tag">English</span></li>
+        <li>Australian Department of Agriculture, Fisheries and Forestry (DAFF), <a href="https://www.agriculture.gov.au/biosecurity-trade/pests-diseases-weeds/animal/fmd/resources/hungary-slovakia" target="_blank" rel="noopener noreferrer">Trade situation in Hungary and Slovakia — FMD exclusion periods</a>. <span class="vp-lang-tag">English</span></li>
+        <li><em>Frontiers in Veterinary Science</em> (2026), <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1963815/full" target="_blank" rel="noopener noreferrer">Global resurgence and geographic expansion of SAT1 foot-and-mouth disease</a>. <span class="vp-lang-tag">English</span></li>
+        <li>FAO Regional Office for Near East and North Africa, <a href="https://www.fao.org/neareast/news/details/mediterranean-countries-strengthen-joint-action-against-transboundary-animal-diseases-and-emerging-health-threats/en" target="_blank" rel="noopener noreferrer">Mediterranean countries strengthen joint action against transboundary animal diseases (24 June 2026)</a>. <span class="vp-lang-tag">English</span></li>
+      </ol>
+    </section>
+
+    <footer class="vp-footer">
+      <span>Published in <strong>VetPath Magazine</strong> · Policy &amp; Public Affairs</span>
+      <span>Corrections &amp; updates follow our About the Magazine editorial policy.</span>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>25 Faculties, Empty Rural Units — VetPath Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate-950: #0F172A;
+    --slate-800: #1E293B;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748B;
+    --slate-200: #E2E8F0;
+    --slate-100: #F1F5F9;
+    --slate-50:  #F8FAFC;
+    --white:     #FFFFFF;
+    --accent:    #4338CA;
+    --accent-bg: #EEF2FF;
+    --accent-bd: #C7D2FE;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--slate-700);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .vp-article {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+  }
+
+  /* Section Banner */
+  .vp-series-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--slate-800);
+    color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .vp-series-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #A5B4FC;
+  }
+
+  .vp-series-sub {
+    color: #CBD5E1;
+  }
+
+  /* Header */
+  .vp-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .vp-title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.28;
+    font-weight: 700;
+    color: var(--slate-950);
+    margin: 0 0 14px;
+  }
+
+  .vp-deck {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--slate-600);
+    font-weight: 400;
+    margin: 0 0 18px;
+  }
+
+  .vp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    padding: 12px 0 18px;
+    border-top: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+    margin-bottom: 26px;
+    font-size: 13px;
+    color: var(--slate-500);
+  }
+
+  .vp-meta strong {
+    color: var(--slate-800);
+    font-weight: 600;
+  }
+
+  .vp-pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--slate-100);
+    color: var(--slate-700);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  /* Key Figures Strip */
+  .vp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 12px;
+    margin: 0 0 28px;
+  }
+
+  .vp-stat-card {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-top: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .vp-stat-num {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--slate-950);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .vp-stat-label {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--slate-600);
+  }
+
+  /* Body typography */
+  .vp-body p {
+    margin: 0 0 18px;
+  }
+
+  .vp-body h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 21px;
+    line-height: 1.35;
+    color: var(--slate-950);
+    margin: 34px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .vp-body a {
+    color: var(--slate-950);
+    text-decoration: underline;
+    text-decoration-color: #94A3B8;
+    text-underline-offset: 3px;
+  }
+
+  .vp-body a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
+  /* Callout */
+  .vp-callout {
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-bd);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 26px 0;
+  }
+
+  .vp-callout-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  .vp-callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Table */
+  .vp-table-wrap {
+    overflow-x: auto;
+    margin: 24px 0 28px;
+    border: 1px solid var(--slate-200);
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  thead th {
+    background: var(--slate-800);
+    color: var(--white);
+    text-align: left;
+    padding: 11px 14px;
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--slate-200);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--slate-50);
+  }
+
+  tbody td:first-child {
+    font-weight: 600;
+    color: var(--slate-950);
+    width: 24%;
+  }
+
+  /* Training & Diagnostics Box */
+  .vp-edu-box {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-left: 4px solid var(--slate-800);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 28px 0;
+  }
+
+  .vp-edu-box h3 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16.5px;
+    color: var(--slate-950);
+    margin: 0 0 10px;
+  }
+
+  .vp-edu-box ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+  }
+
+  .vp-edu-box li {
+    margin-bottom: 8px;
+    font-size: 14.5px;
+  }
+
+  /* Companion Bridge */
+  .vp-bridge {
+    background: var(--slate-800);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 30px 0 26px;
+  }
+
+  .vp-bridge-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94A3B8;
+    margin-bottom: 6px;
+  }
+
+  .vp-bridge p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #E2E8F0;
+    line-height: 1.6;
+  }
+
+  .vp-bridge strong {
+    color: var(--white);
+  }
+
+  /* Sources */
+  .vp-sources {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 2px solid var(--slate-200);
+  }
+
+  .vp-sources h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--slate-800);
+    margin: 0 0 12px;
+  }
+
+  .vp-sources ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--slate-600);
+  }
+
+  .vp-sources li {
+    margin-bottom: 7px;
+  }
+
+  .vp-sources a {
+    color: var(--slate-800);
+    text-decoration: underline;
+    text-decoration-color: #CBD5E1;
+  }
+
+  .vp-src-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--slate-500);
+    background: var(--slate-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .vp-article { padding: 18px 14px 40px; }
+    .vp-stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'"><style>body{overflow-wrap:anywhere} img{max-width:100%;height:auto}</style></head>
+<body>
+<article class="vp-article">
+
+  <div class="vp-series-bar">
+    <span class="vp-series-label">Veterinary Practice &amp; Education · Opening Feature</span>
+    <span class="vp-series-sub">VetPath Magazine · Workforce, Curricula &amp; Diagnostics</span>
+  </div>
+
+  <header>
+    <div class="vp-eyebrow">Egypt · International · Analysis · Veterinary Practice &amp; Education</div>
+    <h1 class="vp-title">25 Faculties, Empty Rural Units: Inside Egypt's 2026 Veterinary Education and Workforce Paradox</h1>
+    <p class="vp-deck">Egypt is simultaneously moving to curb university admissions, enforce a paid internship year, and plug severe public-sector vacancies in rural clinics and slaughterhouses—a tension mirrored in animal-health systems worldwide.</p>
+    <div class="vp-meta">
+      <span>Published <strong>November 21, 2026</strong></span>
+      <span>Section: <strong>Veterinary Practice &amp; Education</strong></span>
+      <span><span class="vp-pill">Veterinary Workforce</span> <span class="vp-pill">Curricula &amp; Training</span> <span class="vp-pill">Diagnostic Services</span></span>
+    </div>
+  </header>
+
+  <section class="vp-stats-grid" aria-label="Key figures">
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">25 faculties</div>
+      <div class="vp-stat-label">Veterinary medicine faculties now operating across Egypt, prompting calls to cap expansion</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">90% / 15%</div>
+      <div class="vp-stat-label">Public veterinary units lacking adequate staffing (90%) and slaughterhouses operating at 15% of staffing needs (Syndicate, Oct 2026)</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">5 + 1 yrs</div>
+      <div class="vp-stat-label">Proposed curriculum model: 5 academic years plus a paid internship year (80% of entry government pay)</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">&lt;0.6%</div>
+      <div class="vp-stat-label">Share of global health spending directed to animal health systems (WOAH, May 2026)</div>
+    </div>
+  </section>
+
+  <div class="vp-body">
+    <p>Every disease-control policy—whether matching Foot-and-Mouth Disease vaccines, running avian influenza surveillance, or executing a nationwide stray-dog vaccination plan—ultimately runs through the same bottleneck: trained veterinarians on the ground. In late 2026, Egypt's veterinary profession finds itself confronting an unmistakable paradox. While the country has expanded to <strong>25 faculties of veterinary medicine</strong>, public-sector disease surveillance and meat-inspection capacity is stretched thin.</p>
+
+    <h2>The Egyptian Paradox: Rapid Faculty Growth vs. Public-Sector Vacancies</h2>
+    <p>In October 2026, coinciding with <em>Egypt Forum 2026</em>, <a href="https://www.egy-vet-synd.org/blog/lkhbr-1/bltzmn-m-mntd-msr-2026-nqyb-lbytryyn-ytrh-kht-wtny-lttwyr-lmnzwm-wsd-l-jz-f-lkwdr-nhtj-l-75-lf-tbyb-lnqdh-lmnzwm-90-mn-lwhdt-lbytry-bl-tb-wlmjzr-t-ml-b15-mn-htyjth-666" target="_blank" rel="noopener noreferrer">Dr. Magdy Hassan, President of the Egyptian Veterinary Medical Syndicate</a>, outlined a stark operational picture: roughly <strong>90% of public veterinary units face severe staffing shortages or lack veterinarians altogether</strong>, public slaughterhouses operate at only <strong>15% of their staffing requirements</strong>, and rebuilding the national animal-health network would require an estimated <strong>75,000 veterinarians</strong> (<a href="https://www.youm7.com/story/2026/10/21/%D8%A8%D8%A7%D9%84%D8%AA%D8%B2%D8%A7%D9%85%D9%86-%D9%85%D8%B9-%D9%85%D9%86%D8%AA%D8%AF%D9%89-%D9%85%D8%B5%D8%B1-2026-%D9%86%D9%82%D9%8A%D8%A8-%D8%A7%D9%84%D8%A8%D9%8A%D8%B7%D8%B1%D9%8A%D9%8A%D9%86-%D9%8A%D8%B7%D8%B1%D8%AD-%D8%AE%D8%B7%D8%A9-%D9%88%D8%B7%D9%86%D9%8A%D8%A9/7584258" target="_blank" rel="noopener noreferrer">Youm7, Oct 21, 2026</a> [Arabic]).</p>
+
+    <p>That deficit is not caused by an absence of graduates, but by a disconnect between university expansion, clinical training quality, and public-service recruitment. In response, the Veterinary Sector Committee of the Supreme Council of Universities—working alongside the Syndicate—advanced a <a href="https://www.almasryalyoum.com/news/details/4374146" target="_blank" rel="noopener noreferrer">four-point education reform package in October 2026</a> [Arabic]:</p>
+
+    <div class="vp-callout">
+      <div class="vp-callout-title">Egypt's 2026 Veterinary Education Reform Proposals</div>
+      <p><strong>1. Admissions cap:</strong> Reduce public veterinary faculty intake by <strong>20%</strong> to ease overcrowding and raise hands-on clinical ratios.<br>
+      <strong>2. Teaching-hospital prerequisite:</strong> Require an operational teaching veterinary hospital before licensing any new faculty.<br>
+      <strong>3. Formal 5 + 1 internship model:</strong> Structure the degree as five academic years plus a mandatory internship year (<em>sanat al-imtiyaz</em>) carrying an allowance equal to <strong>80% of entry-level government pay</strong> and pension credit.<br>
+      <strong>4. Legal &amp; parity alignment:</strong> Separate the internship from undergraduate years with financial parity alongside human medicine, dentistry, and pharmacy interns (<a href="https://www.masrawy.com/news/news_egypt/details/2026/10/6/3058948/-%D8%A7%D9%84%D8%A8%D9%8A%D8%B7%D8%B1%D9%8A%D9%8A%D9%86-%D8%AA%D8%A8%D8%AD%D8%AB-%D9%85%D8%B9-%D8%B1%D8%A6%D9%8A%D8%B3-%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D9%86%D9%88%D8%A7%D8%A8-%D9%81%D8%B5%D9%84-%D8%B3%D9%86%D8%A9-%D8%A7%D9%84%D8%A7%D9%85%D8%AA%D9%8A%D8%A7%D8%B2-%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D9%88%D8%A7%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84" target="_blank" rel="noopener noreferrer">Masrawy, Oct 6, 2026</a> [Arabic]), while tightening statutory penalties against unlicensed practice.</p>
+    </div>
+
+    <p>Across Egyptian universities, faculties are already adjusting to this shift—holding mandatory internship governance reviews, nominating senior academics to <a href="http://en.vet.zu.edu.eg/faculty/article_details?AT=516807&type=article" target="_blank" rel="noopener noreferrer">Egyptian Board Committees under the Egyptian Health Council</a> (July–September 2026), and convening <a href="https://vm.bnu.edu.eg/news-single/benha-national-university-convenes-roundtable-to-advance-veterinary-education-and-strengthen-alignment-with-labor-market-needs" target="_blank" rel="noopener noreferrer">labor-market alignment roundtables</a> (May 2026) to bridge classroom curricula with field, laboratory, and food-safety employers.</p>
+
+    <h2>A Global Pattern: Distribution Gaps and Chronic Underinvestment</h2>
+    <p>Egypt's challenge reflects a wider international structural problem. In its May 2026 flagship report, <a href="https://www.woah.org/en/document/the-state-of-the-worlds-animal-health-2026/" target="_blank" rel="noopener noreferrer"><em>The State of the World's Animal Health</em></a>, the World Organisation for Animal Health (WOAH) noted that while animal diseases wipe out <strong>over 20% of global animal production</strong> each year and roughly <strong>75% of emerging human infectious diseases</strong> originate in animals, <strong>less than 0.6% of global health spending</strong> reaches animal health systems—under USD 1 billion annually, compared with the estimated <strong>USD 2.3 billion per year</strong> needed to bring Veterinary Services up to international standards (<a href="https://beaconbio.org/en/report/?reportid=1767e752-d4eb-4f1e-a5a2-db1176735aa6&eventid=87f9a364-86ea-4ec8-978c-63a0c14f6e22" target="_blank" rel="noopener noreferrer">BEACON Summary, May 2026</a>).</p>
+
+    <p>Even in high-income markets where graduate numbers are rising, <a href="https://thevetservice.com/global-veterinary-workforce-report/" target="_blank" rel="noopener noreferrer"><em>The Global Veterinary Workforce Report 2026</em></a> emphasizes that the crisis is primarily one of <strong>distribution rather than headcount</strong>: UK government and public-health veterinary supply is projected to remain stuck around <strong>78% of demand through 2035</strong>, New Zealand's regulatory veterinarians average 51 years of age, and US veterinary turnover runs near 16% annually. Both the <a href="https://worldvet.org/news/fve-general-assembly-highlights-preparedness-vet-shortage-and-working-conditions/" target="_blank" rel="noopener noreferrer">World Veterinary Association (WVA) and Federation of Veterinarians of Europe (FVE)</a> flagged rural livestock shortages, working conditions, and outbreak preparedness as urgent priorities in July 2026.</p>
+
+    <h2>Benchmarking Training &amp; Workforce Capacity</h2>
+    <div class="vp-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Egypt (2026 Reform Trajectory)</th>
+            <th>European / International Benchmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Accreditation &amp; Clinical Infrastructure</td>
+            <td>25 faculties; proposed mandatory teaching veterinary hospital requirement for any new school</td>
+            <td><a href="https://www.eaeve.org/fileadmin/downloads/SOP/ESEVT_SOP_2023_adopted_by_the_36th_GA_in_Leipzig_on_8_June_2023.pdf" target="_blank" rel="noopener noreferrer">EAEVE ESEVT</a> ties accreditation directly to verified clinical caseloads, teaching hospitals, and Day One Competences</td>
+          </tr>
+          <tr>
+            <td>Transition to Practice</td>
+            <td>Shift toward formal 5 + 1 internship year with proposed 80% entry-pay stipend and Health Council boards</td>
+            <td>Structured Day One Competences (<a href="https://www.eaeve.org/guidelines" target="_blank" rel="noopener noreferrer">EAEVE / ECCVT</a>) and competency-based continuing education (<a href="https://report-lr-cc-node.woah.org/api/pdf/publication/2026/center/report_null_2025_Day_One%20Veterinary%20Competencies%20and%20Continuing%20Education_.pdf" target="_blank" rel="noopener noreferrer">WOAH</a>)</td>
+          </tr>
+          <tr>
+            <td>Public-Sector Bottleneck</td>
+            <td>90% of public units understaffed; slaughterhouses at 15% of need despite large graduate cohorts</td>
+            <td>UK public-health vet supply ~78% of demand; persistent rural food-animal vacancies across Europe and North America</td>
+          </tr>
+          <tr>
+            <td>Force Multipliers</td>
+            <td>Expanding veterinary laboratories, digital crisis databases, and targeted GOVS recruitment</td>
+            <td>Formalized <a href="https://www.woah.org/en/what-we-offer/improving-veterinary-services/pvs-pathway/veterinary-workforce-development/" target="_blank" rel="noopener noreferrer">veterinary paraprofessionals (VPPs)</a> plus AI-assisted diagnostic and virtual-microscopy training</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="vp-edu-box">
+      <h3>Pathology &amp; Diagnostic Training: Where Curricula Must Catch Up</h3>
+      <p>Closing the public-sector gap is not only about hiring more graduates—it is about ensuring every graduate can recognize notifiable lesions at necropsy, submit viable samples, and interpret modern diagnostics:</p>
+      <ul>
+        <li><strong>Hands-on necropsy and biosafety:</strong> Under both EAEVE's Day One Competences and WOAH's veterinary education standards, new graduates must be able to perform systematic post-mortem examinations and collect diagnostic specimens safely—skills that erode quickly when student-to-case ratios swell without teaching hospitals or structured internship rotations.</li>
+        <li><strong>Digital pathology and AI literacy:</strong> As <a href="https://www.mdpi.com/2306-7381/13/2/181" target="_blank" rel="noopener noreferrer">2026 veterinary education reviews</a> highlight, whole-slide digital microscopy and machine-learning triage tools are rapidly entering clinical and diagnostic workflows. Embedding structured digital slide atlases and quantitative lesion-scoring exercises into undergraduate and postgraduate curricula lets faculties scale practical pathology mastery even when physical glass-slide sets or specialist pathologists are limited.</li>
+      </ul>
+    </div>
+
+    <div class="vp-bridge">
+      <div class="vp-bridge-label">Related in the Veterinary Pathology Digital Companion</div>
+      <p>Explore structured self-study modules, whole-organ checklists, and case-based microscopy training in the <strong>Comparative Atlas</strong> and <strong>Postgraduate Pathology</strong> sections of the Digital Companion.</p>
+    </div>
+
+    <section class="vp-sources">
+      <h3>Sources &amp; Attribution</h3>
+      <ol>
+        <li>Egyptian Veterinary Medical Syndicate. <a href="https://www.egy-vet-synd.org/blog/lkhbr-1/bltzmn-m-mntd-msr-2026-nqyb-lbytryyn-ytrh-kht-wtny-lttwyr-lmnzwm-wsd-l-jz-f-lkwdr-nhtj-l-75-lf-tbyb-lnqdh-lmnzwm-90-mn-lwhdt-lbytry-bl-tb-wlmjzr-t-ml-b15-mn-htyjth-666" target="_blank" rel="noopener noreferrer">National plan to develop the veterinary system and close staffing deficits (Egypt Forum 2026)</a> (October 25, 2026). <span class="vp-src-tag">Professional Body · Arabic</span></li>
+        <li>Al-Masry Al-Youm. <a href="https://www.almasryalyoum.com/news/details/4374146" target="_blank" rel="noopener noreferrer">Veterinary Syndicate announces key decisions on veterinary study system and 5+1 internship reforms</a> (October 3, 2026) &amp; Masrawy, <a href="https://www.masrawy.com/news/news_egypt/details/2026/10/6/3058948/-%D8%A7%D9%84%D8%A8%D9%8A%D8%B7%D8%B1%D9%8A%D9%8A%D9%86-%D8%AA%D8%A8%D8%AD%D8%AB-%D9%85%D8%B9-%D8%B1%D8%A6%D9%8A%D8%B3-%D8%AA%D8%B9%D9%84%D9%8A%D9%85-%D8%A7%D9%84%D9%86%D9%88%D8%A7%D8%A8-%D9%81%D8%B5%D9%84-%D8%B3%D9%86%D8%A9-%D8%A7%D9%84%D8%A7%D9%85%D8%AA%D9%8A%D8%A7%D8%B2-%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D9%88%D8%A7%D8%A9-%D8%A7%D9%84%D9%85%D8%A7%D9%84%D9%8A%D8%A9-%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84" target="_blank" rel="noopener noreferrer">Syndicate discusses internship separation and financial parity with Parliament Education Committee Chair</a> (October 6, 2026). <span class="vp-src-tag">Regional Press · Arabic</span></li>
+        <li>Youm7. <a href="https://www.youm7.com/story/2026/10/21/%D8%A8%D8%A7%D9%84%D8%AA%D8%B2%D8%A7%D9%85%D9%86-%D9%85%D8%B9-%D9%85%D9%86%D8%AA%D8%AF%D9%89-%D9%85%D8%B5%D8%B1-2026-%D9%86%D9%82%D9%8A%D8%A8-%D8%A7%D9%84%D8%A8%D9%8A%D8%B7%D8%B1%D9%8A%D9%8A%D9%86-%D9%8A%D8%B7%D8%B1%D8%AD-%D8%AE%D8%B7%D8%A9-%D9%88%D8%B7%D9%86%D9%8A%D8%A9/7584258" target="_blank" rel="noopener noreferrer">Veterinary Syndicate President presents national workforce plan coinciding with Egypt Forum 2026</a> (October 21, 2026). <span class="vp-src-tag">Regional Press · Arabic</span></li>
+        <li>World Organisation for Animal Health (WOAH). <a href="https://www.woah.org/en/document/the-state-of-the-worlds-animal-health-2026/" target="_blank" rel="noopener noreferrer">The State of the World's Animal Health 2026</a> (May 2026; <a href="https://beaconbio.org/en/report/?reportid=1767e752-d4eb-4f1e-a5a2-db1176735aa6&eventid=87f9a364-86ea-4ec8-978c-63a0c14f6e22" target="_blank" rel="noopener noreferrer">BEACON summary</a>) &amp; <a href="https://www.woah.org/en/what-we-offer/improving-veterinary-services/pvs-pathway/veterinary-workforce-development/" target="_blank" rel="noopener noreferrer">Veterinary Workforce Development</a>. <span class="vp-src-tag">Primary Authority · English</span></li>
+        <li>European Association of Establishments for Veterinary Education (EAEVE). <a href="https://www.eaeve.org/fileadmin/downloads/SOP/ESEVT_SOP_2023_adopted_by_the_36th_GA_in_Leipzig_on_8_June_2023.pdf" target="_blank" rel="noopener noreferrer">ESEVT Standard Operating Procedure &amp; Day One Competences</a> &amp; <a href="https://www.eaeve.org/guidelines" target="_blank" rel="noopener noreferrer">Guidelines</a>. <span class="vp-src-tag">Accreditation Authority · English</span></li>
+        <li>The Vet Service. <a href="https://thevetservice.com/global-veterinary-workforce-report/" target="_blank" rel="noopener noreferrer">The Global Veterinary Workforce Report 2026</a> (2026) &amp; World Veterinary Association (WVA), <a href="https://worldvet.org/news/fve-general-assembly-highlights-preparedness-vet-shortage-and-working-conditions/" target="_blank" rel="noopener noreferrer">FVE General Assembly highlights preparedness, vet-shortage and working conditions</a> (July 13, 2026). <span class="vp-src-tag">Workforce Analysis · English</span></li>
+        <li>MDPI <em>Veterinary Sciences</em>. <a href="https://www.mdpi.com/2306-7381/13/2/181" target="_blank" rel="noopener noreferrer">Artificial Intelligence in Veterinary Education: Preparing the Next Generation of Veterinarians</a> (February 12, 2026). <span class="vp-src-tag">Peer-Reviewed · English</span></li>
+        <li>Zagazig University Faculty of Veterinary Medicine (<a href="http://en.vet.zu.edu.eg/faculty/article_details?AT=516807&type=article" target="_blank" rel="noopener noreferrer">Internship &amp; Egyptian Health Council Updates, Sept 2026</a>) &amp; Benha National University (<a href="https://vm.bnu.edu.eg/news-single/benha-national-university-convenes-roundtable-to-advance-veterinary-education-and-strengthen-alignment-with-labor-market-needs" target="_blank" rel="noopener noreferrer">Veterinary Education &amp; Labor-Market Roundtable, May 2026</a>). <span class="vp-src-tag">Academic Institutions · English</span></li>
+      </ol>
+    </section>
+  </div>
+</article>
+</body>
+</html>

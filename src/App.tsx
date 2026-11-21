@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MagazineView } from './components/MagazineView';
 import { CompanionSectionView } from './components/CompanionSectionView';
 import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
@@ -188,7 +189,9 @@ export default function App() {
       case 'image_atlas':
         return <ImageAtlasView onNavigate={handleNavigate} />;
       case 'companion_section':
-        return <CompanionSectionView view={currentView} onNavigate={handleNavigate} />;
+        return currentView.sectionId === 'magazine'
+          ? <MagazineView pageId={currentView.pageId} onNavigate={handleNavigate} />
+          : <CompanionSectionView view={currentView} onNavigate={handleNavigate} />;
       case 'search':
         return (
           <SearchView

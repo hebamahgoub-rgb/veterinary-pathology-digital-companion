@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inside Foot-and-Mouth Disease — VetPath Magazine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748B;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --slate-50: #F8FAFC;
+      --white: #FFFFFF;
+      --link: #1E40AF;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--white);
+      color: var(--slate-800);
+      line-height: 1.72;
+      font-size: 15.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: var(--slate-900);
+    }
+
+    .vp-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 18px 52px;
+    }
+
+    /* Breadcrumb */
+    .vp-breadcrumb {
+      font-size: 12.5px;
+      color: var(--slate-500);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .vp-breadcrumb strong {
+      color: var(--slate-700);
+    }
+
+    /* Article Header */
+    .vp-header {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 5px solid var(--slate-800);
+      border-radius: var(--radius);
+      padding: 26px 28px 22px;
+      margin-bottom: 26px;
+    }
+
+    .vp-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .vp-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-100);
+      color: var(--slate-700);
+    }
+
+    .vp-pill-geo {
+      background: var(--slate-800);
+      border-color: var(--slate-800);
+      color: var(--white);
+    }
+
+    .vp-pill-type {
+      background: var(--white);
+      border-color: var(--slate-500);
+      color: var(--slate-800);
+    }
+
+    .vp-header h1 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 27px;
+      line-height: 1.32;
+      color: var(--slate-900);
+      margin-bottom: 12px;
+    }
+
+    .vp-standfirst {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--slate-600);
+      margin-bottom: 16px;
+    }
+
+    .vp-byline {
+      font-size: 13px;
+      color: var(--slate-500);
+      padding-top: 12px;
+      border-top: 1px solid var(--slate-200);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* Key Figures Strip */
+    .vp-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .vp-kpi {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-top: 3px solid var(--slate-800);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .vp-kpi-num {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 4px;
+    }
+
+    .vp-kpi-label {
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--slate-600);
+    }
+
+    /* Article Body */
+    .vp-body h2 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 19.5px;
+      color: var(--slate-900);
+      margin: 30px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid var(--slate-200);
+    }
+
+    .vp-body p {
+      margin-bottom: 15px;
+      color: var(--slate-800);
+    }
+
+    /* Callout Box */
+    .vp-callout {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-left: 4px solid var(--slate-800);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 22px 0;
+    }
+
+    .vp-callout-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate-700);
+      margin-bottom: 8px;
+    }
+
+    .vp-callout p {
+      font-size: 14.5px;
+      color: var(--slate-700);
+      margin-bottom: 0;
+    }
+
+    /* Compact 3-Column Table */
+    .vp-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      margin: 20px 0 24px;
+      background: var(--white);
+    }
+
+    table.vp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.8px;
+      text-align: left;
+    }
+
+    table.vp-table th {
+      background: var(--slate-800);
+      color: var(--white);
+      font-weight: 600;
+      padding: 10px 13px;
+      font-size: 12.5px;
+    }
+
+    table.vp-table td {
+      padding: 11px 13px;
+      border-top: 1px solid var(--slate-200);
+      color: var(--slate-700);
+      vertical-align: top;
+    }
+
+    table.vp-table tr:nth-child(even) td {
+      background: var(--slate-50);
+    }
+
+    /* Related Box */
+    .vp-related {
+      background: var(--slate-800);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 32px 0 26px;
+    }
+
+    .vp-related-kicker {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #CBD5E1;
+      margin-bottom: 6px;
+    }
+
+    .vp-related h3 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 17px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .vp-related-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 14px;
+      color: #E2E8F0;
+    }
+
+    .vp-related-list strong {
+      color: var(--white);
+    }
+
+    /* Sources Box */
+    .vp-sources {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 22px;
+    }
+
+    .vp-sources h3 {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 16px;
+      color: var(--slate-900);
+      margin-bottom: 10px;
+    }
+
+    .vp-sources ol {
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--slate-600);
+      line-height: 1.6;
+    }
+
+    .vp-sources li {
+      margin-bottom: 7px;
+    }
+
+    .vp-lang-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--slate-700);
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin-left: 4px;
+    }
+
+    /* Footer */
+    .vp-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--slate-200);
+      font-size: 12.5px;
+      color: var(--slate-500);
+    }
+
+    @media (max-width: 720px) {
+      .vp-header {
+        padding: 20px 18px 18px;
+      }
+
+      .vp-header h1 {
+        font-size: 22px;
+      }
+
+      .vp-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'"><style>body{overflow-wrap:anywhere} img{max-width:100%;height:auto}</style></head>
+<body>
+  <div class="vp-wrap">
+
+    <div class="vp-breadcrumb">
+      VetPath Magazine · <strong>Research &amp; Pathology</strong> · Collection: <em>When Animal Disease Becomes a Public Issue (Part 3 of 3)</em>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <header class="vp-header">
+      <div class="vp-meta-row">
+        <span class="vp-pill vp-pill-geo">Egypt · International</span>
+        <span class="vp-pill vp-pill-type">Explainer</span>
+        <span class="vp-pill">Research &amp; Pathology</span>
+        <span class="vp-pill">Diagnostic Methods</span>
+      </div>
+      <h1>Inside Foot-and-Mouth Disease: Epithelial Vesicles, Calf Myocarditis, and Why Serotypes Evade Vaccines</h1>
+      <p class="vp-standfirst">
+        Behind the trade bans in Europe and the vaccination drives in Egypt sits a 30-nanometer RNA virus with seven non-cross-protecting serotypes. Understanding how FMD damages oral epithelium and juvenile myocardium—and how laboratories match field strains to vaccines—explains why policy responses are so unforgiving.
+      </p>
+      <div class="vp-byline">
+        <span><strong>VetPath Magazine</strong> · Edited by Prof. Hebatallah Ahmed Mahgoub</span>
+        <span>November 2026 · Primary Section: Research &amp; Pathology</span>
+      </div>
+    </header>
+
+    <!-- KEY METRICS -->
+    <div class="vp-kpi-grid">
+      <div class="vp-kpi">
+        <div class="vp-kpi-num">7 Serotypes</div>
+        <div class="vp-kpi-label">O, A, C, Asia-1, SAT1, SAT2, and SAT3—antigenically distinct, with no cross-protection between serotypes.</div>
+      </div>
+      <div class="vp-kpi">
+        <div class="vp-kpi-num">r<sub>1</sub> &ge; 0.3</div>
+        <div class="vp-kpi-label">Standard 2D-VNT vaccine-matching threshold indicating close antigenic relatedness between vaccine and field strain.</div>
+      </div>
+      <div class="vp-kpi">
+        <div class="vp-kpi-num">50–60%</div>
+        <div class="vp-kpi-label">Proportion of recovered ruminants that can carry persistent FMDV in the oropharynx beyond 28 days post-infection.</div>
+      </div>
+    </div>
+
+    <!-- ARTICLE BODY -->
+    <main class="vp-body">
+
+      <h2>From receptor binding to painful epithelial vesicles</h2>
+      <p>
+        Foot-and-mouth disease virus (FMDV; <em>Aphthovirus vesiculae</em>, family <em>Picornaviridae</em>) is a non-enveloped, positive-sense single-stranded RNA virus roughly 30 nm in diameter (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12172366/" target="_blank" rel="noopener noreferrer"><em>Pathogenesis of FMDV</em>, PMC, June 2025</a>). It initiates infection by binding epithelial cell-surface integrins (<strong>&alpha;V&beta;1, &alpha;V&beta;3, &alpha;V&beta;6, and &alpha;V&beta;8</strong>), which helps explain its striking tropism for stratified squamous epithelium at sites exposed to mechanical stress.
+      </p>
+      <p>
+        Following fever and viremia, viral replication produces fluid-filled vesicles across the oral mucosa (tongue, dental pad, gingiva, and lips), coronary bands, interdigital spaces, teats, and ruminal pillars (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10566709/" target="_blank" rel="noopener noreferrer">Egyptian cattle &amp; buffalo pathology study, PMC</a>; <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1791118/full" target="_blank" rel="noopener noreferrer"><em>Frontiers in Veterinary Science</em>, 2026</a>). Those vesicles rupture quickly into raw, painful erosions and ulcers. Even when adult cattle recover—adult case fatality typically remains below 2%—painful mastication, lameness, and secondary bacterial infection drive the sharp drops in milk yield and weight gain that turn outbreaks into economic shocks.
+      </p>
+
+      <h2>Calf myocarditis—and a pathologist's caution on "tiger heart"</h2>
+      <p>
+        In young suckling cattle, buffalo calves, and lambs, FMD takes a far deadlier course. Acute viral injury to the myocardium can cause sudden death—especially in calves under two to six months of age—often <strong>before</strong> classic oral or foot vesicles appear (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11069542/" target="_blank" rel="noopener noreferrer">Age-dependent calf myocarditis study, PMC, 2024</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10566709/" target="_blank" rel="noopener noreferrer">PMC10566709</a>).
+      </p>
+      <p>
+        Histologically, fatal hearts show <strong>hyaline (Zenker's) degeneration and coagulative necrosis of cardiomyocytes</strong> accompanied by interstitial edema and intense <strong>non-suppurative lymphoplasmacytic myocarditis</strong> (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10566709/" target="_blank" rel="noopener noreferrer">PMC10566709</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11069542/" target="_blank" rel="noopener noreferrer">PMC11069542</a>). Antemortem studies in FMD-infected Egyptian buffalo calves have also shown that serum <strong>cardiac troponin I (cTnI)</strong> is a sensitive, myocardium-specific biomarker of cardiac damage linked to poor survival (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7311879/" target="_blank" rel="noopener noreferrer">Egyptian buffalo calf cTnI study, PMC</a>).
+      </p>
+
+      <div class="vp-callout">
+        <div class="vp-callout-title">Diagnostic Pitfall · Rethinking the "Tiger Heart" Label</div>
+        <p>
+          Necropsy textbooks traditionally call pale myocardial streaks a "tigroid" or "tiger heart." However, a <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12172366/" target="_blank" rel="noopener noreferrer">2025 pathogenesis review</a> cautions that the term is frequently misleading: normal epicardial fat and vasculature can mimic striping, while hyperacute fatal cases may show no gross pallor at all. Equally important, because myocarditis occurs during active viremia, <strong>detecting FMDV in heart muscle by PCR alone does not establish myocarditis</strong>—confirmation requires gross and/or histopathological verification of cardiomyocyte necrosis and inflammation.
+        </p>
+      </div>
+
+      <h2>Why seven serotypes—and antigenic drift—challenge vaccines</h2>
+      <p>
+        FMDV's high mutation rate as an RNA virus has produced <strong>seven antigenically distinct serotypes</strong>—O, A, C, Asia-1, SAT1, SAT2, and SAT3—further subdivided into geographically clustered lineages called <strong>topotypes</strong> tracked by sequencing the capsid VP1 (1D) gene (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10566709/" target="_blank" rel="noopener noreferrer">PMC10566709</a>; <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1791118/full" target="_blank" rel="noopener noreferrer"><em>Frontiers</em>, 2026</a>). Immunity against one serotype does not protect against another—which is why the 2025 entry of SAT1 into Egypt immediately exposed herds vaccinated only against A, O, and SAT2.
+      </p>
+      <p>
+        Even within a single serotype, field strains can drift away from vaccine seeds. Reference laboratories such as WRLFMD evaluate strain match using the <strong>two-dimensional virus neutralization test (2D-VNT)</strong> to compute an <strong>r<sub>1</sub>-value</strong> (the neutralizing titer against the field isolate divided by the titer against the homologous vaccine strain). An <strong>r<sub>1</sub> &ge; 0.3</strong> indicates close antigenic match and likely protection, whereas <strong>r<sub>1</sub> &lt; 0.3</strong> warns of poor match—and <a href="https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf" target="_blank" rel="noopener noreferrer">WRLFMD's Q1 2026 report</a> has already flagged early evidence of antigenic diversity within SAT1 itself, underscoring the need for potency checks and booster monitoring (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11209342/" target="_blank" rel="noopener noreferrer">2D-VNT vaccine matching study, PMC</a>).
+      </p>
+
+      <h2>How laboratories confirm outbreaks, carriers, and disease freedom</h2>
+      <p>
+        Choosing the right sample and assay depends on whether the goal is rapid outbreak confirmation, serotype typing, or proving freedom from viral circulation under <a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/tahm/3.01.08_FMD.pdf" target="_blank" rel="noopener noreferrer">WOAH Terrestrial Manual Chapter 3.1.8</a>:
+      </p>
+
+      <div class="vp-table-wrap">
+        <table class="vp-table">
+          <thead>
+            <tr>
+              <th style="width: 26%;">Clinical / Policy Question</th>
+              <th style="width: 32%;">Preferred Sample</th>
+              <th style="width: 42%;">Core Assay &amp; Key Caveat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Acute outbreak confirmation &amp; serotyping</strong></td>
+              <td>Epithelial tissue from fresh/ruptured vesicles or vesicular fluid (<a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/tahm/3.01.08_FMD.pdf" target="_blank" rel="noopener noreferrer">WOAH Manual</a>).</td>
+              <td><strong>RT-PCR + VP1 sequencing</strong> (gold standard for sensitivity and lineage typing); Antigen ELISA or field LFD work on epithelial suspensions but lack sensitivity on serum or probang samples.</td>
+            </tr>
+            <tr>
+              <td><strong>Sudden calf mortality</strong></td>
+              <td>Heart muscle (10% formalin + fresh) and serum for cTnI (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11069542/" target="_blank" rel="noopener noreferrer">PMC11069542</a>).</td>
+              <td><strong>Histopathology + RT-PCR</strong>; confirm cardiomyocyte necrosis and mononuclear myocarditis microscopically rather than relying on heart PCR alone (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12172366/" target="_blank" rel="noopener noreferrer">PMC12172366</a>).</td>
+            </tr>
+            <tr>
+              <td><strong>DIVA serosurveys &amp; carrier screening</strong></td>
+              <td>Serum (for ELISA) and oropharyngeal fluid / probang (for persistent virus) (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11969694/" target="_blank" rel="noopener noreferrer">PMC11969694</a>).</td>
+              <td><strong>NSP ELISA (3ABC/3AB3)</strong> distinguishes natural infection from purified vaccines (DIVA), while <strong>SP ELISA / VNT</strong> tracks vaccine immunity; probang RT-PCR screens the 50–60% of recovered ruminants that can remain carriers beyond 28 days.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <!-- RELATED IN COLLECTION & COMPANION -->
+    <aside class="vp-related">
+      <div class="vp-related-kicker">Opening Collection &amp; Digital Companion Cross-Links</div>
+      <h3>When Animal Disease Becomes a Public Issue</h3>
+      <ul class="vp-related-list">
+        <!-- Replace plain text with <a target="_top"> links once companion articles & atlas pages are linked -->
+        <li><strong>Part 1 (Economics &amp; Trade · Analysis):</strong> When a New Serotype Tests a 60%-Self-Sufficient Red-Meat Market: FMD SAT1 and Vaccine Policy in Egypt</li>
+        <li><strong>Part 2 (Policy &amp; Public Affairs · Explainer):</strong> The Price of Losing Disease-Free Status: Lessons from Europe's 2025–2026 Foot-and-Mouth Outbreaks</li>
+        <li><strong>Related in the Digital Companion:</strong> Comparative Atlas — <em>Oral Cavity, Teeth, Gingiva, Tongue and Palate (HN-04)</em> · Postgraduate Pathology — <em>Infectious &amp; Systemic Viral Lesions</em></li>
+      </ul>
+    </aside>
+
+    <!-- SOURCES & LANGUAGE NOTES -->
+    <section class="vp-sources">
+      <h3>Sources &amp; Language Notes</h3>
+      <ol>
+        <li>World Organisation for Animal Health (WOAH), <a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/tahm/3.01.08_FMD.pdf" target="_blank" rel="noopener noreferrer">Terrestrial Manual, Chapter 3.1.8: Foot and mouth disease (infection with FMDV)</a>. <span class="vp-lang-tag">English</span></li>
+        <li>Arzt J. et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12172366/" target="_blank" rel="noopener noreferrer">The pathogenesis of foot-and-mouth disease virus</a>, PubMed Central (16 June 2025). <span class="vp-lang-tag">English</span></li>
+        <li>WOAH/FAO World Reference Laboratory for FMD (WRLFMD), <a href="https://www.wrlfmd.org/sites/world/files/quick_media/WOAH-FAO%20FMD%20Ref%20Lab%20Report%20Jan-Mar%202026%20%20v3.pdf" target="_blank" rel="noopener noreferrer">FMD Quarterly Report: January–March 2026</a> (22 May 2026). <span class="vp-lang-tag">English</span></li>
+        <li><em>Frontiers in Veterinary Science</em> (2026), <a href="https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1791118/full" target="_blank" rel="noopener noreferrer">In vitro assessment of foot-and-mouth disease vaccine immunogenicity</a>. <span class="vp-lang-tag">English</span></li>
+        <li>WRLFMD / ADAFSA Collaborative Study, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11209342/" target="_blank" rel="noopener noreferrer">Foot and Mouth Disease Vaccine Matching and Post-Vaccination Monitoring (2D-VNT and r1-values)</a>, PMC (14 June 2024). <span class="vp-lang-tag">English</span></li>
+        <li>Systematic follow-up of NSP seroreactors, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11969694/" target="_blank" rel="noopener noreferrer">3AB3 NSP ELISA (DIVA) and oropharyngeal fluid RT-mPCR surveillance in ruminants</a>, PMC (4 April 2025). <span class="vp-lang-tag">English</span></li>
+        <li>Egyptian FMD Morphopathology &amp; VP1 Study, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10566709/" target="_blank" rel="noopener noreferrer">Pathological and genetic characterization of foot and mouth disease in Egyptian cattle and buffalo</a>, PMC (11 Oct 2023). <span class="vp-lang-tag">English</span></li>
+        <li>Age-Dependent Calf Myocarditis &amp; Cardiac Biomarkers, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11069542/" target="_blank" rel="noopener noreferrer">Foot-and-mouth disease-associated myocarditis is age dependent in suckling calves</a> (PMC, May 2024) and <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7311879/" target="_blank" rel="noopener noreferrer">Cardiac troponin I in FMD-infected Egyptian buffalo calves</a> (PMC). <span class="vp-lang-tag">English</span></li>
+      </ol>
+    </section>
+
+    <footer class="vp-footer">
+      <span>Published in <strong>VetPath Magazine</strong> · Research &amp; Pathology</span>
+      <span>Corrections &amp; updates follow our About the Magazine editorial policy.</span>
+    </footer>
+
+  </div>
+</body>
+</html>

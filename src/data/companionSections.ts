@@ -1,3 +1,5 @@
+import { MAGAZINE_PAGES } from './magazinePages';
+
 export type CompanionSectionId = 'comparative-atlas' | 'postgraduate-pathology' | 'magazine';
 
 interface ReadingPage {
@@ -86,46 +88,6 @@ export const COMPANION_SECTIONS: Record<CompanionSectionId, CompanionSection> = 
     title: 'VetPath Magazine',
     summary: 'Veterinary science, animal health, economics, and public policy in Egypt and internationally.',
     path: '/magazine',
-    pages: [
-      {
-        id: 'opening-collection',
-        title: 'When Animal Disease Becomes a Public Issue',
-        summary: 'November 2026 opening collection on foot-and-mouth disease. The magazine lists the three articles below as in preparation.',
-      },
-      {
-        id: 'economics-and-trade',
-        title: 'Economics & Trade',
-        summary: 'Livestock and poultry markets, disease costs, food prices, and trade measures.',
-        blocks: [{ title: 'Opening collection · In preparation', text: 'FMD SAT1 and vaccine policy in Egypt. The planned analysis looks at livestock vaccination, smallholder herds, and domestic red-meat supply.' }],
-      },
-      {
-        id: 'policy-and-public-affairs',
-        title: 'Policy & Public Affairs',
-        summary: 'Veterinary legislation, government measures, public funding, and animal welfare policy.',
-        blocks: [{ title: 'Opening collection · In preparation', text: 'The trade consequences of losing foot-and-mouth disease-free status in Europe. The planned explainer looks at export restrictions and recovery of official status.' }],
-      },
-      {
-        id: 'research-and-pathology',
-        title: 'Research & Pathology',
-        summary: 'Studies, illustrated pathology features, and explanations of scientific methods.',
-        blocks: [{ title: 'Opening collection · In preparation', text: 'A planned pathology explainer on foot-and-mouth disease lesions, including epithelial vesicles and calf myocarditis, alongside the significance of serotypes for diagnosis and vaccination.' }],
-      },
-      {
-        id: 'public-health',
-        title: 'Public Health & One Health',
-        summary: 'Upcoming coverage of zoonoses, food safety, antimicrobial resistance, and environmental health.',
-      },
-      {
-        id: 'practice-and-education',
-        title: 'Veterinary Practice & Education',
-        summary: 'Upcoming coverage of diagnostic services, the veterinary workforce, curricula, and continuing education.',
-      },
-      {
-        id: 'about',
-        title: 'About VetPath Magazine',
-        summary: 'An English-language publication within the Veterinary Pathology Digital Companion.',
-        blocks: [{ title: 'Editorial information', text: 'The magazine distinguishes News, Explainer, Analysis, and Opinion. Its editorial information covers sourcing, attribution for original-language material, and corrections.' }],
-      },
-    ],
+    pages: MAGAZINE_PAGES,
   },
 };

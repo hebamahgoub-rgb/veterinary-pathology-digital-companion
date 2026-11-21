@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Between Endemic Vaccination and Export Walls — VetPath Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate-950: #0F172A;
+    --slate-800: #1E293B;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748B;
+    --slate-200: #E2E8F0;
+    --slate-100: #F1F5F9;
+    --slate-50:  #F8FAFC;
+    --white:     #FFFFFF;
+    --accent:    #B45309;
+    --accent-bg: #FFFBEB;
+    --accent-bd: #FDE68A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--slate-700);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .vp-article {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+  }
+
+  /* Breadcrumb & Series Banner */
+  .vp-series-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--slate-800);
+    color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .vp-series-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FCD34D;
+  }
+
+  .vp-series-sub {
+    color: #CBD5E1;
+  }
+
+  /* Header */
+  .vp-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .vp-title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.28;
+    font-weight: 700;
+    color: var(--slate-950);
+    margin: 0 0 14px;
+  }
+
+  .vp-deck {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--slate-600);
+    font-weight: 400;
+    margin: 0 0 18px;
+  }
+
+  .vp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    padding: 12px 0 18px;
+    border-top: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+    margin-bottom: 26px;
+    font-size: 13px;
+    color: var(--slate-500);
+  }
+
+  .vp-meta strong {
+    color: var(--slate-800);
+    font-weight: 600;
+  }
+
+  .vp-pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--slate-100);
+    color: var(--slate-700);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  /* Key Figures Strip */
+  .vp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 12px;
+    margin: 0 0 28px;
+  }
+
+  .vp-stat-card {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-top: 3px solid var(--slate-800);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .vp-stat-num {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--slate-950);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .vp-stat-label {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--slate-600);
+  }
+
+  /* Body typography */
+  .vp-body p {
+    margin: 0 0 18px;
+  }
+
+  .vp-body h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 21px;
+    line-height: 1.35;
+    color: var(--slate-950);
+    margin: 34px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .vp-body a {
+    color: var(--slate-950);
+    text-decoration: underline;
+    text-decoration-color: #94A3B8;
+    text-underline-offset: 3px;
+  }
+
+  .vp-body a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
+  /* Callout */
+  .vp-callout {
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-bd);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 26px 0;
+  }
+
+  .vp-callout-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  .vp-callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Table */
+  .vp-table-wrap {
+    overflow-x: auto;
+    margin: 24px 0 28px;
+    border: 1px solid var(--slate-200);
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  thead th {
+    background: var(--slate-800);
+    color: var(--white);
+    text-align: left;
+    padding: 11px 14px;
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--slate-200);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--slate-50);
+  }
+
+  tbody td:first-child {
+    font-weight: 600;
+    color: var(--slate-950);
+    width: 24%;
+  }
+
+  /* Pathology & Diagnostic Box */
+  .vp-path-box {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-left: 4px solid var(--slate-800);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 28px 0;
+  }
+
+  .vp-path-box h3 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16.5px;
+    color: var(--slate-950);
+    margin: 0 0 10px;
+  }
+
+  .vp-path-box ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+  }
+
+  .vp-path-box li {
+    margin-bottom: 8px;
+    font-size: 14.5px;
+  }
+
+  /* Companion Bridge */
+  .vp-bridge {
+    background: var(--slate-800);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 30px 0 26px;
+  }
+
+  .vp-bridge-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94A3B8;
+    margin-bottom: 6px;
+  }
+
+  .vp-bridge p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #E2E8F0;
+    line-height: 1.6;
+  }
+
+  .vp-bridge strong {
+    color: var(--white);
+  }
+
+  /* Sources */
+  .vp-sources {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 2px solid var(--slate-200);
+  }
+
+  .vp-sources h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--slate-800);
+    margin: 0 0 12px;
+  }
+
+  .vp-sources ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--slate-600);
+  }
+
+  .vp-sources li {
+    margin-bottom: 7px;
+  }
+
+  .vp-sources a {
+    color: var(--slate-800);
+    text-decoration: underline;
+    text-decoration-color: #CBD5E1;
+  }
+
+  .vp-src-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--slate-500);
+    background: var(--slate-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .vp-article { padding: 18px 14px 40px; }
+    .vp-stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'"><style>body{overflow-wrap:anywhere} img{max-width:100%;height:auto}</style></head>
+<body>
+<article class="vp-article">
+
+  <div class="vp-series-bar">
+    <span class="vp-series-label">Poultry in Focus · Launch Feature</span>
+    <span class="vp-series-sub">VetPath Magazine · Economics &amp; Trade</span>
+  </div>
+
+  <header>
+    <div class="vp-eyebrow">Egypt · International (Europe) · Analysis · Economics &amp; Trade</div>
+    <h1 class="vp-title">Between Endemic Vaccination and Export Walls: What Egypt and France Reveal About Living with H5N1</h1>
+    <p class="vp-deck">Egypt's poultry industry feeds a domestic market of more than 110 million people under endemic avian influenza and imported feed pressure. France spends €100 million a year vaccinating ducks to keep outbreaks at bay—and still pays a trade price abroad.</p>
+    <div class="vp-meta">
+      <span>Published <strong>November 21, 2026</strong></span>
+      <span>Section: <strong>Economics &amp; Trade</strong></span>
+      <span><span class="vp-pill">Poultry in Focus</span> <span class="vp-pill">Avian Influenza</span> <span class="vp-pill">Vaccination &amp; Trade</span></span>
+    </div>
+  </header>
+
+  <section class="vp-stats-grid" aria-label="Key figures">
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">1.92B birds</div>
+      <div class="vp-stat-label">Egypt's 2025 output (1.6B commercial broilers + 320M rural birds), covering 97% of domestic demand</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">16B eggs</div>
+      <div class="vp-stat-label">Annual Egyptian table-egg output (~140 eggs/person), up from 14B before 2023</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">€100M / yr</div>
+      <div class="vp-stat-label">France's annual duck vaccination &amp; surveillance bill (55–60M ducks; 60% industry / 40% state)</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">1,204</div>
+      <div class="vp-stat-label">Global HPAI A(H5N1) poultry outbreaks reported to WOAH between July 2025 and March 2026</div>
+    </div>
+  </section>
+
+  <div class="vp-body">
+    <p>Few animal diseases expose the fault line between food security and international trade as sharply as highly pathogenic avian influenza (HPAI) H5N1. Between July 2025 and March 2026 alone, <a href="https://www.woah.org/app/uploads/2026/05/2026-05-18-fao-woah-who-h5-assessment.pdf" target="_blank" rel="noopener noreferrer">185 A(H5N1) animal events</a> were reported to the World Organisation for Animal Health (WOAH), spanning 1,204 poultry outbreaks, 6,326 wild-bird detections, and nine bovine outbreaks worldwide, driven predominantly by clades 2.3.4.4 and 2.3.2.1. For decades, exporting nations treated poultry vaccination as a last resort that endangered trade status, while endemic countries relied on it to keep affordable protein on the table. In 2026, those two worlds are converging—and comparing Egypt with France shows exactly what vaccination can, and cannot, buy.</p>
+
+    <h2>Egypt: High Self-Sufficiency Built on Endemic Management and Imported Feed</h2>
+    <p>Poultry is the backbone of animal protein in Egypt. According to industry analysis grounded in <a href="https://www.fas.usda.gov/data/gain/2026/03/egypt-grain-and-feed-annual" target="_blank" rel="noopener noreferrer">USDA Foreign Agricultural Service (FAS) Cairo GAIN reporting</a>, Egypt produced <a href="https://biospecfeed.com/2026/10/13/egypt-poultry-growth-feed-bill/" target="_blank" rel="noopener noreferrer">1.6 billion commercial broilers and 320 million rural birds in 2025</a>—covering 97% of domestic broiler demand—alongside 16 billion table eggs, or roughly 140 eggs per person. That represents a substantial rebound above the pre-2023 baseline of <a href="https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Grain%20and%20Feed%20Annual_Cairo_Egypt_EG2025-0009.pdf" target="_blank" rel="noopener noreferrer">1.4 billion birds and 14 billion eggs</a>.</p>
+
+    <p>Yet that domestic self-sufficiency rests on two structural vulnerabilities. The first is economic: USDA's Cairo office describes the poultry sector as the primary driver of Egypt's corn and feed demand, meaning every expansion in flock size enlarges a compound-feed bill priced largely in foreign currency. The second is epidemiological: Egypt has been <a href="https://rr-middleeast.woah.org/app/uploads/2025/01/6-Current-situation-ME-2024-Egypt.pdf" target="_blank" rel="noopener noreferrer">endemic for HPAI in poultry</a> since 2006 and has relied on large-scale vaccination for nearly two decades.</p>
+
+    <p>Long-term analyses of Egypt's vaccination campaigns have repeatedly flagged a classic endemic dilemma: when vaccination becomes the primary control tool without equally intensive biosecurity, movement control, and active surveillance, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3557869/" target="_blank" rel="noopener noreferrer">passive outbreak reporting declines</a> while antigenically drifting strains continue to circulate in backyard and mixed-species settings (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2805840/" target="_blank" rel="noopener noreferrer">Peyre et al.</a>). A <a href="https://www.poultrymed.com/ID-Eng-EgLiv051126" target="_blank" rel="noopener noreferrer">November 2026 serological survey</a> of 444 livestock serum samples collected across three Egyptian governorates between October 2024 and January 2026 underscored that ecological reality: antibodies to HPAI H5N1 clade 2.3.4.4b were detected in 2.9% to 4.5% of sampled animals—exclusively cattle—while H9N2 antibodies appeared across cattle (1.6%), goats (3.2%), and sheep (10.3%). Though seropositivity indicates past exposure rather than active clinical disease, it reinforces why backyard-to-livestock interfaces remain a One Health blind spot.</p>
+
+    <h2>France: Preventive Vaccination Works Epidemiologically—at €100 Million a Year</h2>
+    <p>Across the Mediterranean, France offers the clearest real-world test of preventive HPAI vaccination inside an export-oriented European market. After repeated clade 2.3.4.4b waves decimated its waterfowl industry—cutting foie gras output from roughly 18,000–19,000 tonnes to <a href="https://www.mdpi.com/2076-2615/16/18/2838" target="_blank" rel="noopener noreferrer">9,000–10,000 tonnes in 2022</a>—France launched mandatory commercial duck vaccination in October 2023 and renewed it on <a href="https://agriculture.gouv.fr/telecharger/138377" target="_blank" rel="noopener noreferrer">October 1, 2024, October 1, 2025, and October 1, 2026</a>, covering 55 to 60 million ducks per twelve-month campaign.</p>
+
+    <p>Epidemiologically, the shift from crisis culling to prevention paid off rapidly. Poultry outbreaks fell to just 10 during the 2023–2024 season, with <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13431630/" target="_blank" rel="noopener noreferrer">modeling estimating a 96% to 99% reduction in epizootic size</a> (314 to 756 outbreaks averted), while French foie gras production rebounded above 16,800 tonnes in 2025. Even so, vaccination is neither cheap nor set-and-forget. As industry leaders told the World Egg Organisation in July 2026, France spends roughly <a href="https://www.thepoultrysite.com/news/2026/07/bird-flu-vaccination-gains-ground-worldwide-weo-meeting-hears" target="_blank" rel="noopener noreferrer">€100 million annually (~€1.56 per bird)</a>, split 60% industry and 40% state—with roughly half of total expenditure going to surveillance rather than syringes. Under <a href="https://www.poultrymed.com/ID-Eng-FranceVac231026" target="_blank" rel="noopener noreferrer">Technical Instruction 2026-585</a> for the 2026/2027 season, France also mandates a third booster dose in designated Special Risk Zones (<em>Zones à Risque Particulier</em>) to counter waning duck immunity around six weeks.</p>
+
+    <div class="vp-callout">
+      <div class="vp-callout-title">The Trade Friction That Remains</div>
+      <p>Although most importers accept heat-treated cooked duck products from vaccinated French flocks and the United Kingdom has reopened to raw duck meat, <strong>raw product remains restricted in the United States, Canada, Japan, Thailand, and South Korea</strong> (<a href="https://www.thepoultrysite.com/news/2026/07/bird-flu-vaccination-gains-ground-worldwide-weo-meeting-hears" target="_blank" rel="noopener noreferrer">The Poultry Site, July 2026</a>). Breeder flocks exporting hatching eggs or day-old ducklings are therefore kept outside the mandatory vaccination mandate. Even so, Europe's direction of travel is clear: in May 2026, <a href="https://www.poultryindia.co.in/Articles" target="_blank" rel="noopener noreferrer">Italy launched its first pilot HPAI H5 vaccination project</a> in turkeys and laying hens in Veneto and Lombardy.</p>
+    </div>
+
+    <h2>Two Models Side by Side</h2>
+    <div class="vp-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Egypt (Endemic Domestic Model)</th>
+            <th>France (Preventive Export-Zone Model)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary Goal</td>
+            <td>Protect domestic food security (97% broiler and ~100% table-egg supply)</td>
+            <td>Prevent catastrophic seasonal culling in 55–60M commercial ducks while preserving EU &amp; cooked-product trade</td>
+          </tr>
+          <tr>
+            <td>Epidemiological Status</td>
+            <td>Endemic HPAI in poultry since 2006; co-circulation with H9N2 and recent bovine H5N1 seropositivity</td>
+            <td>Seasonal wild-bird incursions (clade 2.3.4.4b); vaccination cut 2023–2024 outbreaks by ~96%–99%</td>
+          </tr>
+          <tr>
+            <td>Financing &amp; Cost Burden</td>
+            <td>Commercial farms self-fund vaccines alongside imported feed costs; state supports household/smallholder control</td>
+            <td>~€100M/year (~€1.56/bird), split 60% industry / 40% state; ~50% funds mandatory surveillance</td>
+          </tr>
+          <tr>
+            <td>Surveillance Backbone</td>
+            <td>Compartmentalization for export-eligible integrated farms; passive reporting challenges in smallholdings</td>
+            <td>EU Reg. 2023/361 framework: event-driven monitoring, reinforced outbreak-zone swabs, and monthly active veterinary sampling</td>
+          </tr>
+          <tr>
+            <td>Main Bottleneck</td>
+            <td>Imported corn/soy feed exposure, strain matching, and mixed-species backyard biosecurity</td>
+            <td>High recurring surveillance cost, 3-dose booster logistics, and raw-meat export bans in US, Japan, and Canada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="vp-path-box">
+      <h3>Pathology &amp; Diagnostic Note: Why Surveillance Costs as Much as the Vaccine</h3>
+      <p>In unvaccinated gallinaceous birds, clade 2.3.4.4b HPAI produces acute systemic endothelial injury, edema, petechial hemorrhages, and multifocal necrosis across visceral organs—making outbreaks unmistakable through sudden mortality spikes. Vaccination changes the clinical picture without always creating sterilizing immunity:</p>
+      <ul>
+        <li><strong>Silent shedding risk:</strong> Authorized clade 2.3.4.4b duck vaccines (such as Volvac B.E.S.T. AI+ND and Ceva Respons AI H5) markedly reduce clinical signs and viral excretion, yet wild-type incursions can still occur quietly (<a href="https://www.gov.uk/government/publications/vaccination-of-poultry-against-highly-pathogenic-avian-influenza/vaccination-of-poultry-against-highly-pathogenic-avian-influenza-hpai-joint-industry-and-cross-government-vaccination-taskforce" target="_blank" rel="noopener noreferrer">UK Joint Vaccination Taskforce, 2025</a>).</li>
+        <li><strong>DIVA compatibility and virological swabbing:</strong> To prove vaccinated flocks are free of field virus, France pairs DIVA-compatible platforms with <a href="https://www.poultrymed.com/news_48982" target="_blank" rel="noopener noreferrer">monthly clinical examinations and systematic virological testing</a> of vaccinated birds, plus tracheal or oropharyngeal swabbing of dead or moribund ducks in restricted zones (<a href="https://www.poultrymed.com/ID-Eng-FranceVac231026" target="_blank" rel="noopener noreferrer">PoultryMed, Oct 2026</a>).</li>
+        <li><strong>Lesson for Egypt:</strong> For endemic producers, France's experience confirms that vaccines protect margins only when backed by active laboratory surveillance and compartment-level biosecurity (<a href="https://www.woah.org/app/uploads/2022/03/2021-12-egypt-hpai-compart-update.pdf" target="_blank" rel="noopener noreferrer">WOAH Egypt Compartmentalization</a>)—otherwise hidden circulation accelerates antigenic drift and raises the long-term cost of every subsequent dose.</li>
+      </ul>
+    </div>
+
+    <div class="vp-bridge">
+      <div class="vp-bridge-label">Related in the Veterinary Pathology Digital Companion</div>
+      <p>Explore avian respiratory and systemic viral pathology modules in <strong>Postgraduate Pathology</strong>, or compare how trade-zone freedom shapes livestock disease policy in our opening FMD analysis, <strong>The Price of Losing Disease-Free Status</strong>, under <em>Policy &amp; Public Affairs</em>.</p>
+    </div>
+
+    <section class="vp-sources">
+      <h3>Sources &amp; Attribution</h3>
+      <ol>
+        <li>FAO, WHO &amp; WOAH. <a href="https://www.woah.org/app/uploads/2026/05/2026-05-18-fao-woah-who-h5-assessment.pdf" target="_blank" rel="noopener noreferrer">Updated joint public health assessment of recent influenza A(H5) viruses</a> (May 18, 2026). <span class="vp-src-tag">Primary Authority · English</span></li>
+        <li>USDA Foreign Agricultural Service (Cairo). <a href="https://www.fas.usda.gov/data/gain/2026/03/egypt-grain-and-feed-annual" target="_blank" rel="noopener noreferrer">Egypt: Grain and Feed Annual (EG2026-0002)</a> (March 2026) &amp; <a href="https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Grain%20and%20Feed%20Annual_Cairo_Egypt_EG2025-0009.pdf" target="_blank" rel="noopener noreferrer">EG2025-0009</a> (March 2025). <span class="vp-src-tag">Official Data · English</span></li>
+        <li>Biospec Feed. <a href="https://biospecfeed.com/2026/10/13/egypt-poultry-growth-feed-bill/" target="_blank" rel="noopener noreferrer">Egypt's Poultry Growth and Its Imported Feed Bill</a> (October 13, 2026). <span class="vp-src-tag">Trade Analysis · English</span></li>
+        <li>Ministère de l'Agriculture et de la Souveraineté Alimentaire (France). <a href="https://agriculture.gouv.fr/telecharger/138377" target="_blank" rel="noopener noreferrer">Official Vaccination Plan — Highly Pathogenic Avian Influenza (HPAI) Fact Sheet</a> (September 2026). <span class="vp-src-tag">Official Authority · English</span></li>
+        <li>Epp, M. <a href="https://www.thepoultrysite.com/news/2026/07/bird-flu-vaccination-gains-ground-worldwide-weo-meeting-hears" target="_blank" rel="noopener noreferrer">Bird flu vaccination gains ground worldwide, WEO meeting hears</a>, <em>The Poultry Site</em> (July 6, 2026). <span class="vp-src-tag">Specialist Press · English</span></li>
+        <li>PoultryMed. <a href="https://www.poultrymed.com/ID-Eng-FranceVac231026" target="_blank" rel="noopener noreferrer">HPAI vaccination: New Modalities for the 2026/2027 Campaign</a> (October 23, 2026) &amp; <a href="https://www.poultrymed.com/ID-Eng-EgLiv051126" target="_blank" rel="noopener noreferrer">Avian Influenza Antibodies Found in Egyptian Livestock</a> (November 5, 2026). <span class="vp-src-tag">Specialist Media · English</span></li>
+        <li>WOAH Regional Representation for the Middle East. <a href="https://rr-middleeast.woah.org/app/uploads/2025/01/6-Current-situation-ME-2024-Egypt.pdf" target="_blank" rel="noopener noreferrer">Current Situation of HPAI in the Middle East — Egypt</a> (2025). <span class="vp-src-tag">Primary Authority · English</span></li>
+        <li>Peyre, M. et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2805840/" target="_blank" rel="noopener noreferrer">Avian influenza vaccination in Egypt: Limitations of the current strategy</a> (<em>J Mol Genet Med</em>) &amp; Vergne, T. et al. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3557869/" target="_blank" rel="noopener noreferrer">Avian Influenza Vaccination of Poultry and Passive Case Reporting, Egypt</a> (<em>Emerg Infect Dis</em>). <span class="vp-src-tag">Peer-Reviewed · English</span></li>
+      </ol>
+    </section>
+  </div>
+</article>
+</body>
+</html>

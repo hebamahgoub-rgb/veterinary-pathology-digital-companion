@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Mass Culling to Zero by 30 — VetPath Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate-950: #0F172A;
+    --slate-800: #1E293B;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748B;
+    --slate-200: #E2E8F0;
+    --slate-100: #F1F5F9;
+    --slate-50:  #F8FAFC;
+    --white:     #FFFFFF;
+    --accent:    #0F766E;
+    --accent-bg: #F0FDFA;
+    --accent-bd: #99F6E4;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--slate-700);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .vp-article {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+  }
+
+  /* Section Banner */
+  .vp-series-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--slate-800);
+    color: var(--white);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .vp-series-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #5EEAD4;
+  }
+
+  .vp-series-sub {
+    color: #CBD5E1;
+  }
+
+  /* Header */
+  .vp-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .vp-title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.28;
+    font-weight: 700;
+    color: var(--slate-950);
+    margin: 0 0 14px;
+  }
+
+  .vp-deck {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--slate-600);
+    font-weight: 400;
+    margin: 0 0 18px;
+  }
+
+  .vp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    padding: 12px 0 18px;
+    border-top: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+    margin-bottom: 26px;
+    font-size: 13px;
+    color: var(--slate-500);
+  }
+
+  .vp-meta strong {
+    color: var(--slate-800);
+    font-weight: 600;
+  }
+
+  .vp-pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--slate-100);
+    color: var(--slate-700);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  /* Key Figures Strip */
+  .vp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 12px;
+    margin: 0 0 28px;
+  }
+
+  .vp-stat-card {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-top: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .vp-stat-num {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--slate-950);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .vp-stat-label {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--slate-600);
+  }
+
+  /* Body typography */
+  .vp-body p {
+    margin: 0 0 18px;
+  }
+
+  .vp-body h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 21px;
+    line-height: 1.35;
+    color: var(--slate-950);
+    margin: 34px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .vp-body a {
+    color: var(--slate-950);
+    text-decoration: underline;
+    text-decoration-color: #94A3B8;
+    text-underline-offset: 3px;
+  }
+
+  .vp-body a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
+  /* Callout */
+  .vp-callout {
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-bd);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 26px 0;
+  }
+
+  .vp-callout-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 0 0 8px;
+  }
+
+  .vp-callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Table */
+  .vp-table-wrap {
+    overflow-x: auto;
+    margin: 24px 0 28px;
+    border: 1px solid var(--slate-200);
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  thead th {
+    background: var(--slate-800);
+    color: var(--white);
+    text-align: left;
+    padding: 11px 14px;
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--slate-200);
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--slate-50);
+  }
+
+  tbody td:first-child {
+    font-weight: 600;
+    color: var(--slate-950);
+    width: 24%;
+  }
+
+  /* Pathology & Diagnostic Box */
+  .vp-path-box {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-left: 4px solid var(--slate-800);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 28px 0;
+  }
+
+  .vp-path-box h3 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16.5px;
+    color: var(--slate-950);
+    margin: 0 0 10px;
+  }
+
+  .vp-path-box ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+  }
+
+  .vp-path-box li {
+    margin-bottom: 8px;
+    font-size: 14.5px;
+  }
+
+  /* Companion Bridge */
+  .vp-bridge {
+    background: var(--slate-800);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 30px 0 26px;
+  }
+
+  .vp-bridge-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94A3B8;
+    margin-bottom: 6px;
+  }
+
+  .vp-bridge p {
+    margin: 0;
+    font-size: 14.5px;
+    color: #E2E8F0;
+    line-height: 1.6;
+  }
+
+  .vp-bridge strong {
+    color: var(--white);
+  }
+
+  /* Sources */
+  .vp-sources {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 2px solid var(--slate-200);
+  }
+
+  .vp-sources h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--slate-800);
+    margin: 0 0 12px;
+  }
+
+  .vp-sources ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--slate-600);
+  }
+
+  .vp-sources li {
+    margin-bottom: 7px;
+  }
+
+  .vp-sources a {
+    color: var(--slate-800);
+    text-decoration: underline;
+    text-decoration-color: #CBD5E1;
+  }
+
+  .vp-src-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--slate-500);
+    background: var(--slate-100);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .vp-article { padding: 18px 14px 40px; }
+    .vp-stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: https:; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; base-uri 'none'; form-action 'none'"><style>body{overflow-wrap:anywhere} img{max-width:100%;height:auto}</style></head>
+<body>
+<article class="vp-article">
+
+  <div class="vp-series-bar">
+    <span class="vp-series-label">Public Health &amp; One Health · Opening Feature</span>
+    <span class="vp-series-sub">VetPath Magazine · Zoonoses &amp; Governance</span>
+  </div>
+
+  <header>
+    <div class="vp-eyebrow">Egypt · International (Asia) · Analysis · Public Health &amp; One Health</div>
+    <h1 class="vp-title">From Mass Culling to Zero by 30: Egypt's 2026 Street-Dog Strategy and the Lessons of Bhutan's Validation</h1>
+    <p class="vp-deck">Egypt has formally banned poisoning and mass culling in favor of sterilization and rabies vaccination. Bhutan's September 2026 WHO validation shows the operational distance between an official strategy and breaking transmission on the street.</p>
+    <div class="vp-meta">
+      <span>Published <strong>November 21, 2026</strong></span>
+      <span>Section: <strong>Public Health &amp; One Health</strong></span>
+      <span><span class="vp-pill">Rabies</span> <span class="vp-pill">One Health</span> <span class="vp-pill">Animal Welfare Policy</span></span>
+    </div>
+  </header>
+
+  <section class="vp-stats-grid" aria-label="Key figures">
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">8M–11M</div>
+      <div class="vp-stat-label">Estimated free-roaming dogs across Egypt (official and parliamentary estimates, 2026)</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">~1.4M</div>
+      <div class="vp-stat-label">Dog-bite incidents reported by Egypt's Ministry of Health in 2025 alone</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">&gt;90%</div>
+      <div class="vp-stat-label">Free-roaming dog vaccination coverage reached by Bhutan (above WHO's 70% threshold)</div>
+    </div>
+    <div class="vp-stat-card">
+      <div class="vp-stat-num">3 nations</div>
+      <div class="vp-stat-label">Countries WHO-validated for eliminating dog-mediated human rabies (Mexico, Bhutan, Chile)</div>
+    </div>
+  </section>
+
+  <div class="vp-body">
+    <p>Rabies is almost 100% fatal once neurological signs appear, yet entirely preventable when canine vaccination interrupts transmission at the source and exposed people receive timely post-exposure prophylaxis (PEP). Globally, domestic dogs account for <a href="https://www.who.int/news/item/04-09-2026-who-validates-bhutan-for-eliminating-dog-transmitted-human-rabies" target="_blank" rel="noopener noreferrer">up to 99% of human rabies cases</a>. In 2026, two policy developments—one in Cairo, the other in Thimphu—placed the practical mechanics of the global <a href="https://www.woah.org/en/disease/rabies/" target="_blank" rel="noopener noreferrer">Zero by 30</a> target into sharp relief.</p>
+
+    <h2>Egypt's July 2026 Turning Point—and the Scale Challenge Ahead</h2>
+    <p>On <a href="https://egyptianstreets.com/2026/07/18/egypt-launches-national-strategy-for-street-animals-bans-poisoning-and-mass-culling/" target="_blank" rel="noopener noreferrer">July 17, 2026</a>, Egypt's Ministry of Agriculture and Land Reclamation announced the immediate implementation of a unified national street-animal strategy. Following an inter-ministerial coordination conference involving agriculture, local development, environment, justice, housing, social solidarity, and the Egyptian Veterinary Syndicate, the ministry <a href="https://www.egyptindependent.com/egypt-bans-poisoning-of-street-dogs-under-new-national-strategy/" target="_blank" rel="noopener noreferrer">explicitly prohibited poisoning, mass culling, and unauthorized relocation</a> of street animals, warning that violators face legal action.</p>
+
+    <p>Building on <a href="https://leap.unep.org/en/countries/eg/national-legislation/law-no-29-2023-regulating-possession-dangerous-animals-and-dogs" target="_blank" rel="noopener noreferrer">Law No. 29 of 2023</a> (regulating the possession of dangerous animals and dogs) and Egypt's 2021 WHO/FAO-aligned rabies elimination roadmap, the 2026 directive affirms <strong>Trap-Neuter-Return (TNR)</strong> and mass rabies vaccination as the country's sole official approach, aligned with <a href="https://www.woah.org/en/disease/rabies/" target="_blank" rel="noopener noreferrer">WOAH standards</a>. Officials also emphasized an ecological argument: vaccinated, territorial street dogs act as a buffer against urban rodents and venomous reptiles, whereas indiscriminate culling creates a vacuum rapidly refilled by unvaccinated dogs.</p>
+
+    <p>The policy shift is unambiguous; the operational denominator is formidable. Parliamentary estimates in June 2026 put Egypt's street-dog population at <a href="https://www.egypttoday.com/Article/1/148386/Egypt-launches-comprehensive-stray-animal-plan-warns-against-mass-killings" target="_blank" rel="noopener noreferrer">roughly 8 million</a> (with other official and civil-society estimates reaching 10 to 11 million), while the Ministry of Health reported about <strong>1.4 million dog-bite incidents in 2025 alone</strong>. Against that scale, the General Organization for Veterinary Services (GOVS) <a href="https://english.news.cn/africa/20260314/d1042f89c5fc4f119fe238feab591416/c.html" target="_blank" rel="noopener noreferrer">vaccinated 121,000 dogs and sterilized 8,311 in 2025</a>, followed by <a href="https://egyptianstreets.com/2026/11/01/egypt-begins-free-rabies-vaccination-campaign-for-stray-dogs-nationwide/" target="_blank" rel="noopener noreferrer">16,311 vaccinations and 1,660 sterilizations</a> in early 2026. In November 2026, Egypt rolled out a nationwide free stray-dog vaccination campaign alongside plans for <a href="https://cairoscene.com/News/National-Anti-Rabies-Campaign-for-Stray-Dogs-Launches-in-Egypt" target="_blank" rel="noopener noreferrer">12 peripheral shelters and the recruitment of roughly 2,500 veterinarians</a>—a necessary ramp-up, yet still orders of magnitude below the 70% annual herd-immunity threshold needed to break urban transmission.</p>
+
+    <h2>What WHO Validation Actually Required in Bhutan</h2>
+    <p>Two months after Egypt's announcement, on <a href="https://www.who.int/news/item/04-09-2026-who-validates-bhutan-for-eliminating-dog-transmitted-human-rabies" target="_blank" rel="noopener noreferrer">September 4, 2026</a>, the World Health Organization validated <strong>Bhutan</strong> for eliminating dog-mediated human rabies as a public health problem—making it the first country in the WHO South-East Asia Region, and one of only three nations globally alongside Mexico and Chile (validated <a href="https://unitedagainstrabies.org/news/bhutan-and-chile-achieve-who-validation/" target="_blank" rel="noopener noreferrer">September 14, 2026</a>), to earn that status. Bhutan has recorded zero human deaths from dog-mediated rabies since June 2023.</p>
+
+    <p>Crucially, WHO validation is not a political declaration; it requires an independent technical dossier review and an in-country field mission (conducted in Bhutan in August 2026) proving at least two years without dog-mediated human deaths plus functioning laboratory diagnostics, sustained animal vaccination, universal PEP access, and rapid-response capacity. Bhutan crossed that bar by pairing a 2021 Royal Decree-backed <em>Nationwide Accelerated Dog Population Management and Rabies Control Programme</em> with community mobilization—achieving <a href="https://www.who.int/news-room/feature-stories/detail/bhutan-shows-the-world-rabies-elimination-is-possible" target="_blank" rel="noopener noreferrer">over 90% vaccination coverage in free-roaming dogs</a> while guaranteeing free human PEP through the <a href="https://news.mongabay.com/short-article/2026/09/bhutan-recognized-for-eliminating-dog-transmitted-rabies-ahead-of-world-rabies-day/" target="_blank" rel="noopener noreferrer">Bhutan Health Trust Fund</a>. Even after validation, Bhutan launched Phase 3 of its control program on September 5, 2026, because <a href="https://rr-asia.woah.org/en/news/bhutan-leads-the-way-a-one-health-success-story-in-ending-dog-mediated-human-rabies/" target="_blank" rel="noopener noreferrer">WOAH warns that wildlife reservoirs and cross-border movement</a> require permanent vigilance.</p>
+
+    <div class="vp-callout">
+      <div class="vp-callout-title">Why Vaccination Must Outpace Sterilization</div>
+      <p>Surgical sterilization (TNR) stabilizes street-dog demographics over years, but surgical throughput is inherently slower and costlier per animal than injectable vaccination. Reaching the <a href="https://www.woah.org/app/uploads/2021/03/zero-by-30-final-130618.pdf" target="_blank" rel="noopener noreferrer">WOAH/WHO 70% canine vaccination benchmark</a> in high-density Egyptian governorates therefore depends on decoupling rapid, high-volume annual vaccination drives from slower surgical TNR pipelines—while pairing both with municipal waste management and reliable hospital PEP stocks.</p>
+    </div>
+
+    <h2>Egypt's 2026 Rollout vs. Bhutan's Validated Benchmark</h2>
+    <div class="vp-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Program Pillar</th>
+            <th>Egypt (2026 National Strategy)</th>
+            <th>Bhutan (WHO-Validated, Sept 2026)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Legal &amp; Policy Anchor</td>
+            <td>Law No. 29 of 2023 + July 2026 national ban on poisoning and mass culling; TNR &amp; vaccination mandated</td>
+            <td>2021 Royal Decree launching NADPM&amp;RCP; Phase 3 launched Sept 2026 to sustain freedom</td>
+          </tr>
+          <tr>
+            <td>Canine Coverage</td>
+            <td>121,000 vaccinated &amp; 8,311 sterilized in 2025 against an estimated 8M–11M stray dogs (&lt;2% coverage)</td>
+            <td>&gt;90% of free-roaming dogs vaccinated nationwide (well above the 70% interruption threshold)</td>
+          </tr>
+          <tr>
+            <td>Human PEP Access</td>
+            <td>High demand (~1.4M dog bites in 2025); heavy ongoing financial burden on public hospitals</td>
+            <td>Free, universally accessible PEP financed through the Bhutan Health Trust Fund</td>
+          </tr>
+          <tr>
+            <td>Surveillance &amp; Verification</td>
+            <td>Planned smart databases, dog census, 12 new shelters, and lab upgrades across governorates</td>
+            <td>Zero dog-mediated human deaths since June 2023; verified by Aug 2026 WHO field mission</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="vp-path-box">
+      <h3>Pathology &amp; Diagnostic Note: Moving Beyond Negri Bodies in Field Surveillance</h3>
+      <p>Elimination programs succeed or fail on laboratory surveillance—yet rabies diagnosis carries a unique logistical bottleneck because definitive testing requires post-mortem central nervous system tissue (brain stem, Ammon's horn, cerebellum, or medulla oblongata):</p>
+      <ul>
+        <li><strong>Gold-standard confirmation:</strong> Under the <a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/tahm/3.01.19_RABIES.pdf" target="_blank" rel="noopener noreferrer">WOAH Terrestrial Manual</a> and <a href="https://animal-diseases.efsa.europa.eu/RABV" target="_blank" rel="noopener noreferrer">EFSA's 2026 Rabies Profile</a>, primary agent detection relies on the <strong>direct fluorescent antibody (DFA)</strong> test, <strong>direct rapid immunohistochemistry (dRIT)</strong>, or <strong>pan-lyssavirus RT-PCR</strong>. Classic histopathology for intracytoplasmic eosinophilic <strong>Negri bodies</strong> (Seller's stain) is no longer recommended as a primary diagnostic because its lower sensitivity risks false negatives.</li>
+        <li><strong>Heat, decomposition, and rapid field tests:</strong> In warm climates where chilled transport to central laboratories is delayed, brain decomposition degrades DFA sensitivity. Validated <strong>lateral flow devices (LFDs)</strong>—such as the ADTEC LFD, which demonstrated 96.3% sensitivity and 99.7% specificity in multicenter evaluation and retained high accuracy in decomposed brain tissue (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11853130/" target="_blank" rel="noopener noreferrer">PMC11853130, 2025</a>)—are being evaluated by the <a href="https://www.woah.org/en/document/woah-rabies-reference-laboratory-networks-rablab-overview-of-lfd-tests-for-field-application/" target="_blank" rel="noopener noreferrer">WOAH RABLAB network</a> to strengthen decentralized surveillance where fluorescence microscopy is unavailable.</li>
+      </ul>
+    </div>
+
+    <div class="vp-bridge">
+      <div class="vp-bridge-label">Related in the Veterinary Pathology Digital Companion</div>
+      <p>Review central nervous system neuropathology and viral inclusion-body differentials in <strong>Postgraduate Pathology</strong>, or read how Egypt's veterinary surveillance capacity shapes livestock disease control in our FMD lead analysis under <em>Economics &amp; Trade</em>.</p>
+    </div>
+
+    <section class="vp-sources">
+      <h3>Sources &amp; Attribution</h3>
+      <ol>
+        <li>World Health Organization (WHO). <a href="https://www.who.int/news/item/04-09-2026-who-validates-bhutan-for-eliminating-dog-transmitted-human-rabies" target="_blank" rel="noopener noreferrer">WHO validates Bhutan for eliminating dog-transmitted human rabies</a> (September 4, 2026) &amp; <a href="https://www.who.int/news-room/feature-stories/detail/bhutan-shows-the-world-rabies-elimination-is-possible" target="_blank" rel="noopener noreferrer">Bhutan shows the world rabies elimination is possible</a> (September 16, 2026). <span class="vp-src-tag">Primary Authority · English</span></li>
+        <li>World Organisation for Animal Health (WOAH). <a href="https://www.woah.org/en/disease/rabies/" target="_blank" rel="noopener noreferrer">Rabies Portal &amp; Official Control Programme Endorsement</a>; <a href="https://rr-asia.woah.org/en/news/bhutan-leads-the-way-a-one-health-success-story-in-ending-dog-mediated-human-rabies/" target="_blank" rel="noopener noreferrer">Bhutan One Health Success Story</a> (September 18, 2026); &amp; <a href="https://www.woah.org/fileadmin/Home/eng/Health_standards/tahm/3.01.19_RABIES.pdf" target="_blank" rel="noopener noreferrer">Terrestrial Manual Ch. 3.1.19 (Rabies)</a>. <span class="vp-src-tag">Primary Authority · English</span></li>
+        <li>United Against Rabies. <a href="https://unitedagainstrabies.org/news/bhutan-and-chile-achieve-who-validation/" target="_blank" rel="noopener noreferrer">Bhutan and Chile achieve WHO validation for eliminating dog-mediated human rabies</a> (September 2026). <span class="vp-src-tag">Global Coalition · English</span></li>
+        <li>Egyptian Streets. <a href="https://egyptianstreets.com/2026/07/18/egypt-launches-national-strategy-for-street-animals-bans-poisoning-and-mass-culling/" target="_blank" rel="noopener noreferrer">Egypt Launches National Strategy for Street Animals, Bans Poisoning and Mass Culling</a> (July 18, 2026) &amp; <a href="https://egyptianstreets.com/2026/11/01/egypt-begins-free-rabies-vaccination-campaign-for-stray-dogs-nationwide/" target="_blank" rel="noopener noreferrer">Egypt Begins Free Rabies Vaccination Campaign for Stray Dogs Nationwide</a> (November 1, 2026). <span class="vp-src-tag">Regional Press · English</span></li>
+        <li>Egypt Today. <a href="https://www.egypttoday.com/Article/1/148386/Egypt-launches-comprehensive-stray-animal-plan-warns-against-mass-killings" target="_blank" rel="noopener noreferrer">Egypt launches comprehensive stray animal plan, warns against mass killings and poisoning</a> (July 17, 2026) &amp; Xinhua, <a href="https://english.news.cn/africa/20260314/d1042f89c5fc4f119fe238feab591416/c.html" target="_blank" rel="noopener noreferrer">Egypt steps up efforts to rein in rising stray dog population</a> (March 14, 2026). <span class="vp-src-tag">Regional &amp; International Press · English</span></li>
+        <li>UNEP LEAP / FAOLEX. <a href="https://leap.unep.org/en/countries/eg/national-legislation/law-no-29-2023-regulating-possession-dangerous-animals-and-dogs" target="_blank" rel="noopener noreferrer">Egypt Law No. 29 of 2023 regulating the Possession of Dangerous Animals and Dogs</a> (May 29, 2023). <span class="vp-src-tag">Legislation · Arabic / English Summary</span></li>
+        <li>EFSA. <a href="https://animal-diseases.efsa.europa.eu/RABV" target="_blank" rel="noopener noreferrer">Rabies Disease Profile</a> (September 14, 2026) &amp; WOAH RABLAB, <a href="https://www.woah.org/en/document/woah-rabies-reference-laboratory-networks-rablab-overview-of-lfd-tests-for-field-application/" target="_blank" rel="noopener noreferrer">Overview of LFD Tests for Field Application</a> (August 2025). <span class="vp-src-tag">Diagnostic Standards · English</span></li>
+        <li>Evaluation of lateral flow devices for rabies diagnosis in decomposed brain samples. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11853130/" target="_blank" rel="noopener noreferrer"><em>Tropical Medicine and Health</em> (PMC11853130)</a> (February 25, 2025). <span class="vp-src-tag">Peer-Reviewed · English</span></li>
+      </ol>
+    </section>
+  </div>
+</article>
+</body>
+</html>
